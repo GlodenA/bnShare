@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="org.springframework.web-3.0.2.RELEASE">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/org.springframework.web-3.0.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/quartz-1.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/scala-library-2.10.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/snappy-java-1.1.1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/spring-beans-3.2.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/spring-context-3.2.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/spring-context-support-3.2.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/spring-core-3.2.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/spring-expression-3.2.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/spring-tx-3.2.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/ueditor-1.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

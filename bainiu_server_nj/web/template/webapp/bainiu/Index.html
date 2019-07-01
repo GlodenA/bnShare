@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>摆牛知识库</title>
+	<script src="biz/indexCss/js/jquery.js"></script>
+	<script src="biz/indexCss/js/placeholder.js"></script>
+	<script src="biz/indexCss/js/base.js"></script>
+	<link href="biz/indexCss/css/common.css" rel="stylesheet" />
+	</head>
+	<body class="bn_home">
+		<div class="header">
+			<ol class="clear">
+				<li>
+					{%^NAME%}
+					<a  id="loginLink">登录</a>
+					{%/NAME%}
+					{%#NAME%}
+					<a  id="goToMangerlink">欢迎[{%.%}]</a>
+					{%/NAME%}
+				</li>
+				{%^NAME%}
+				<li>
+					<a href="#" id="regLink">注册</a>
+				</li>
+				{%/NAME%}
+			</ol>
+		</div>
+
+		<div class="section">
+			<div class="logo_area clear">
+				<img src="biz/indexCss/images/bainiu02.png" alt="摆牛知识库" />
+			</div>
+			<div class="form_wrapper">
+				<div class="home_sh_form">
+					<div class="sel_ipt">
+						<span class="choose_list" id="sysDomain">所有类别</span><b></b>
+						<div class="choose_pop">
+							<ul>
+								<li>
+									<a href="javascript:void(0)">所有类别</a>
+								</li>
+								{%#TYPE_LIST%}
+								<li>
+									<a href="javascript:void(0)">{%.ENUM_CODE%}</a>
+								</li>
+								{%/TYPE_LIST%}
+							</ul>
+						</div>
+					</div>
+					<span class="sh_ipt"> <input type="text" value="" id="keyWord"
+							name="keywords" placeholder="" />
+						<div class="async_area">
+							<ul>
+								<li>
+								</li>
+								<li>
+								</li>
+								<li>
+								</li>
+								<li>
+								</li>
+								<li>
+								</li>
+								<li>
+								</li>
+							</ul>
+						</div> </span>
+					<span class="bn_btn sh_sub" id="qry">嗖一下</span>
+				</div>
+			</div>
+
+		</div>
+        
+     {%>template/common/Footer.html%}
+     <style type="text/css">
+	.footer p{ text-align:center;}    
+    </style>
+	{%>template/common/Head.html%}
+	<script type="text/javascript" src="biz/js/webjs/Index.js"></script>
+	</body>
+</html>

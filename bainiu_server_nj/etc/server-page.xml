@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages>
+	<!-- 首页页面 -->
+	<action name="Index" template="template/webapp/bainiu/Index.html" data="Index.init"></action>
+	<action name="Comment" template="template/webapp/bainiu/Comment.html" data="init"></action>
+	<action name="Qry" template="template/webapp/bainiu/Main.html" data="Qry.goQry"></action>
+	<action name="Reg" template="template/webapp/bainiu/reg.html" data="init"></action>
+	<action name="Details" template="template/webapp/bainiu/Details.html" data="ErrDtl.getErrDtl"></action>
+	<!-- 老后台管理页面默认需要给data="init" -->
+	<action name="BainiuIndex" template="template/webapp/bainiu/BainiuIndex.html" data="BainiuIndex.initData"></action>
+	<action name="BainiuQry" template="template/webapp/bainiu/BainiuIndex.html" data="BainiuIndex.goQry"></action>
+	<action name="ErrDtl" template="template/webapp/bainiu/ErrDtl.html" data="ErrDtl.getErrDtl"></action>
+	<action name="Login" template="template/webapp/bainiu/Login.html" ></action>
+	<!--  
+	<action name="ErrInsert" template="template/webapp/bainiu/BainiuErrInsert.html"  data="Err.querySelectType"></action>
+	-->
+	<!--  <action name="UnsolvedErrQry" template="template/webapp/bainiu/BainiuUnsolvedErrQry.html" data="UnsolvedErrQry.qryUnsolved"></action>
+	
+	<action name="SolvedErr" template="template/webapp/bainiu/BainiuSolvedErr.html" data="ErrDtl.getUnDealErrDtl"></action>
+	-->
+	<action name="UserInsert" template="template/webapp/bainiu/BainiuUserInsert.html" data="init"></action>
+	<!-- 
+	<action name="RightMan" template="template/webapp/bainiu/BainiuRightQry.html"  data="Right.queryRight"></action>
+	 -->
+	<action name="ApplyRight" template="template/webapp/bainiu/BainiuRightApply.html"  data="Right.queryAvailableRight"></action>
+	<!-- 新后台管理页面默认需要给data="init" -->
+	<action name="MBainiuIndex" template="template/webapp/bainiu/bainiuMan/index.html" data="BainiuIndex.initData"></action>
+	<action name="MLog" template="template/webapp/bainiu/bainiuMan/log.html" data="Msg.queryNoReadMsg"></action>
+	<action name="MMenu" template="template/webapp/bainiu/bainiuMan/aside.html" data="init"></action>
+	<action name="MInitContent" template="template/webapp/bainiu/bainiuMan/newDataAnalysis.html" data="BainiuIndex.initData"></action>
+	<action name="RightMan" template="template/webapp/bainiu/bainiuMan/authorizationManagement.html" data="Right.queryRight"></action>
+	<action name="ErrInsert" template="template/webapp/bainiu/bainiuMan/proipt.html" data="Err.querySelectType"></action>
+	<action name="MsgBox" template="template/webapp/bainiu/bainiuMan/msgbox.html" data="Msg.queryMsg"></action>
+	<action name="MsgDetail" template="template/webapp/bainiu/bainiuMan/msgdetails.html" data="Msg.queryDetailMsg"></action>
+	<action name="FileMan" template="template/webapp/bainiu/bainiuMan/webFileManage.html" data="FileMan.validate"></action>
+	<action name="UnsolvedErrQry" template="template/webapp/bainiu/bainiuMan/tro_query.html" data="UnsolvedErrQry.getUnsolvedInfo"></action>
+	<action name="ForLeave" template="template/webapp/bainiu/bainiuMan/furlough.html" data="Leave.init"></action>
+	<action name="ForLeavePor" template="template/webapp/bainiu/bainiuMan/furlough_process.html" data="init"></action>
+	<action name="SolvedErr" template="template/webapp/bainiu/bainiuMan/answer.html" data="ErrDtl.getUnDealErrDtl"></action>
+	<action name="LeaveNoter" template="template/webapp/bainiu/bainiuMan/levNoter.html" data="MsgBox.auditLeava"></action>
+	
+    <!-- 群组查询 -->
+	<action name="GroupMan" template="template/webapp/bainiu/bainiuMan/GroupMan.html" data="Group.init"></action>
+	<action name="Personal" template="template/webapp/bainiu/bainiuMan/center.html" data="Personal.queryUser"></action>
+	<action name="ForLeaveC" template="template/webapp/bainiu/bainiuMan/furlough_c.html" data="Leave.queryOwnLeave"></action>
+	
+	<!-- 爱分享 -->
+	<action name="IshareMan" template="template/webapp/bainiu/bainiuMan/IshareMan.html" data="Ishare.queryIshare"></action>	
+	<action name="IshareMailEnrol" template="template/webapp/bainiu/bainiuMan/IshareMailEnrol.html" data="Ishare.enrolIshare"></action>
+	
+	<!-- 模板管理 -->
+	<action name="TempletMan" template="template/webapp/bainiu/bainiuMan/TempletMan.html" data="Templet.querySelectType"></action>
+	<!-- 用户信息维护 -->
+	<action name="UserMan" template="template/webapp/bainiu/bainiuMan/UserMan.html" data="User.init"></action>
+	
+	<!-- 图书管理 -->
+	<action name="BookMan" template="template/webapp/bainiu/bainiuMan/BookMan.html" data="BookMan.queryBook"></action>
+	
+	<!-- 组件 -->
+	<action name="Personal.qryMyErrTemp" template="template/webapp/bainiu/bainiuMan/labelPlug/center@qryMyErr.html"></action>
+	<action name="Personal.qryMyDealTemp" template="template/webapp/bainiu/bainiuMan/labelPlug/center@qryMyDeal.html"></action>
+	<action name="RightMan.qryRight" template="template/webapp/bainiu/bainiuMan/labelPlug/authorizationManagement@qryRight.html"></action>
+	<action name="MInitContent.qryComment" template="template/webapp/bainiu/bainiuMan/labelPlug/newDataAnalysis@qryComment.html" data="BainiuIndex.getComment"></action>
+
+	<!-- 资料中心 -->
+	<action name="DocsCentre" template="template/webapp/bainiu/bainiuMan/DocsCentre.html" data="DocsCentre.queryDocs"></action>
+	<action name="DocsCentreC" template="template/webapp/bainiu/bainiuMan/DocsCentreC.html" data="DocsCentre.init"></action>
+	<action name="UserDocs" template="template/webapp/bainiu/bainiuMan/UserDocs.html" data="DocsCentre.queryDocsByUserName"></action>
+
+</pages>

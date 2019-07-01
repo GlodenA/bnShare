@@ -1,0 +1,137 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BaiNiu</title>
+		<meta name="description" content="问题解答">
+		<meta name="keywords" content="form">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/png" href="assets/i/favicon.png">
+		<link rel="apple-touch-icon-precomposed"
+			href="assets/i/app-icon72x72@2x.png">
+		<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+		<link rel="stylesheet" href="biz/assets/css/amazeui.min.css" />
+		<link rel="stylesheet" href="biz/assets/css/admin.css">
+		<script  src="biz/js/webjs/ueditor/ueditor.parse.js"></script>
+		<script type="text/javascript">
+		uParse(".am-hide-sm-only", {
+    		rootPath: "biz/js/webjs/ueditor"
+		});
+		</script>
+	</head>
+	<body>
+		{%>template/common/Nav.html%}
+		<div class="am-cf admin-main">
+			<!-- sidebar start -->
+			{%>template/common/Sidebar.html%}
+			<!-- sidebar end -->
+			<!-- content start -->
+			<div class="admin-content">
+
+				<div class="am-cf am-padding">
+					<div class="am-fl am-cf">
+						<strong class="am-text-primary am-text-lg">未解决问题查询</strong> /
+						<small>北六</small>
+					</div>
+				</div>
+
+				<div class="am-g">
+					<div class="am-u-sm-12 am-u-md-6">
+					</div>
+					<div class="am-u-sm-12 am-u-md-3">
+						<div class="am-form-group">
+							<select data-am-selected="{btnSize: 'sm'}">
+								<option value="option1">
+									所有类别
+								</option>
+								<option value="option1">
+									err类
+								</option>
+								<option value="option3">
+									业务类
+								</option>
+								<option value="option3">
+									营业类
+								</option>
+								<option value="option3">
+									接口类
+								</option>
+								<option value="option3">
+									帐管类
+								</option>
+							</select>
+						</div>
+					</div>
+					<div class="am-u-sm-12 am-u-md-9">
+						<div class="am-input-group am-input-group-sm">
+							<input type="text" class="am-form-field" id="keyWord">
+							<span class="am-input-group-btn">
+								<button class="am-btn am-btn-default" type="button" id="qry">
+									搜索
+								</button> </span>
+						</div>
+					</div>
+				</div>
+
+				<div class="am-g">
+					<div class="am-u-sm-12">
+						<form class="am-form">
+							<table
+								class="am-table am-table-striped am-table-hover table-main">
+								<!-- solveErrDtl超链接暂时写这，之后放到查询结果里 -->
+								<thead id="solveErrDtl">
+									<tr>
+										<th class="table-title">
+											错误描述
+										</th>
+									</tr>
+								</thead>
+								<tbody id="solvedErrList">
+									{%#ERRLIST%}
+									<tr>
+										<td class="am-hide-sm-only" ex_id="{%.EX_ID%}">
+											{%&EX_DESC%}
+										</td>
+									</tr>
+									{%/ERRLIST%}
+									
+								</tbody>
+							</table>
+							<div class="am-cf">
+								共 {%PAGINATION_COUNT%} 条记录
+								<div class="am-fr">
+									<ul class="am-pagination" id="paginations">
+										<li class="am-disabled">
+											<a pagIdex="0">«</a>
+										</li>
+										{%#PAGINATIONS%}
+										<li>
+											<a pagIdex="{%.ROW_INDEX%}">{%.ROW_INDEX%}</a>
+										</li>
+										{%/PAGINATIONS%}
+										<li>
+											<a >»</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<hr />
+						</form>
+					</div>
+
+				</div>
+			</div>
+			<!-- content end -->
+		</div>
+		<script src="biz/assets/js/jquery.min.js"></script>
+		<script src="biz/assets/js/amazeui.min.js"></script>
+		<script src="biz/assets/js/app.js"></script>
+		<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+		{%>template/common/Head.html%}
+		<script type="text/javascript" src="biz/js/webjs/BainiuUnsolvedErrQry.js"></script>
+	</body>
+<html>

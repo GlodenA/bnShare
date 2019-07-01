@@ -1,0 +1,32 @@
+<span id="params" style="display: none">{%ONLYONE.PARAMS%}</span>
+<div class="bottom">
+	<div class="dataTables_info" role="status"
+		style="clear: both; float: left; padding-top: 0.755em;"
+		aria-live="polite">
+		共 {%ONLYONE.PAGINATION_COUNT%} 项 共 {%ONLYONE.PAGE_COUNT%} 页
+	</div>
+	<div class="dataTables_paginate paging_full_numbers">
+		<ul class="pagination"
+			style="float: right; text-align: right; padding-top: 0.25em;">
+			<li class="paginate_button first" id="example_first">
+				<a pagIdex="1" style="cursor: pointer">首页</a>
+			</li>
+			<li class="paginate_button last">
+				<a pagIdex="{%ONLYONE.LAST_PAGE%}" style="cursor: pointer">上一页</a>
+			</li>
+			{%#ONLYONE.PAGINATIONS%}
+			<li class="paginate_button {%#CURRENT_PAGE%}active{%/CURRENT_PAGE%}">
+				<a pagIdex="{%.ROW_INDEX%}" style="cursor: pointer">{%.ROW_INDEX%}</a>
+			</li>
+			{%/ONLYONE.PAGINATIONS%}
+			<li class="paginate_button next">
+				<a pagIdex="{%ONLYONE.NEXT_PAGE%}" style="cursor: pointer">下一页</a>
+			</li>
+			<li class="paginate_button previous">
+				<a pagIdex="{%ONLYONE.PAGE_COUNT%}" style="cursor: pointer">末页</a>
+			</li>
+
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>

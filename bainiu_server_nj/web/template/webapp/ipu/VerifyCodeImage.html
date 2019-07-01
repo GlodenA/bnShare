@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--1，引入CSS文件 -->
+    {%>template/common/Head.html%}
+    <script type="text/javascript" src="biz/js/VerifyCodeImage.js"></script>
+	<title>验证码图片demo</title>
+</head>
+<body>
+	<div>
+		 <img id="verifyIMG" alt="点击更换验证码" src="data:image/png;base64, {%VERIFY_IMG%}">
+	</div>
+</body>
+</html>

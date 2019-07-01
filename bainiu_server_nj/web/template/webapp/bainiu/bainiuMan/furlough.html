@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap-->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--自己的样式-->
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <link href="biz/indexCss/css/common.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body  style="background:#f3f7f8;" class="bn_home">
+<div class="frame_content">
+
+   <div class="furlough">
+
+
+        <ul class="nav nav-tabs" role="tablist">
+           <li role="presentation" class="fur_apply active col-xs-3 col-sm-3 "><a id="fur_apply">休假申请</a></li>
+            <!-- <li role="presentation" class="col-xs-3 col-sm-3 "><a id="return_apply" >退假申请</a></li> -->
+            <li role="presentation" class="col-xs-3 col-sm-3 "><a id="apply_query" >查询管理</a></li>
+            <!-- <li role="presentation" class="col-xs-3 col-sm-3 "><a id="apply_approve">休假审批</a></li> -->
+        </ul>
+
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="fur_apply">
+                <div class="row fur_apply">
+                    <div class="col-xs-12  col-md-3 date_picker_area">
+                      <h1>选择请假时间</h1>
+                        <div class="date_picker_til"><span class="col-xs-6 col-xs-offset-3  col-md-6 col-md-offset-3"><img src="template/webapp/bainiu/bainiuMan/images/date_icon.png"/><i>选择日期</i>
+                        </span>
+                        </div>
+                        <div class="date_picker" id="date_picker"></div>
+                        <p class="marktip">* 可以点选一个或多个请假日期</p>
+                    </div>
+                    <div class="col-xs-12 col-md-9 ipt_detail_info">
+                        <h1>填写详细信息</h1>
+                       <form class="form-inline home_sh_form">
+                           <ul class="ipt_list">
+
+                               <li class="ipt_list_1 clear sh_ipt">
+                                   <div class="form-group">
+                                       <label for="tel1">员工:</label>
+                                       <input type="text" class="form-control"   value="{%.NAME%}" readonly="readonly">
+                                   </div>
+                                   
+                                   <div class="form-group link1">
+                                       <label for="junc">交接人:</label>
+                                       <span>
+                                       <input type="text" class="form-control" id="BAK_NT" placeholder="登录帐号">
+                                       <div class="async_area">
+											<ul>
+												<li></li>
+												<li></li>
+												<li></li>
+												<li></li>
+												<li></li>
+											</ul>
+										</div> 
+                                       </span>                                       
+                                    </div>
+                                    <div class="form-group link2">
+                                       <label for="junc">所属组长:</label>
+                                       <span>
+                                       <input type="text" class="form-control" id="FIR_CHK_NT" placeholder="登录帐号">
+                                       <div class="async_area">
+											<ul>
+												<li></li>
+												<li></li>
+												<li></li>
+												<li></li>
+												<li></li>
+											</ul>
+										</div> 
+                                       </span>
+                                    </div>
+                               </li>
+
+                               <li class="ipt_list_2 clear">
+                                   <div class="row_1">
+                                   <div class="form-group">
+                                       <label for="">休假类型:</label>
+									    <select	class="form-control" id="REQ_TYPE"> 
+			                           		{%#LEAVE_TYPELIST%}
+											<option value="{%.ENUM_CODE%}">{%.ENUM_NAME%}</option>
+											{%/LEAVE_TYPELIST%}
+										</select>                                         
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="">目的地:</label>
+                                       <input type="text" class="form-control" id="OUT_PLACE" placeholder="请填写">
+                                   </div>
+                                   </div>
+                                   <div class="row_2">
+                                   <div class="form-group">
+                                       <label for="">公司:</label>
+                                       <input type="text" class="form-control" id="WORK_GROUP" placeholder="请填写">
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="">模块:</label>
+                                       <input type="text" class="form-control" id="WORK_SUBGROUP" placeholder="请填写">
+                                   </div>
+                                  
+                                   </div>
+                               </li>
+
+                               <li class="ipt_list_3 clear">
+                                   <div class="form-group" style="width:100%">
+                                       <label for="">休假事由:</label>
+                                       <textarea class="form-control" id="REQ_MARK" placeholder="请填写休假理由"></textarea>
+                                    </div>
+                               </li>
+                           </ul>
+                           <div class="ipt_sut form-group">
+                               <button type="button" class="btn btn-default cancel">取消</button>
+                               <button type="button" id="submitLeave"    class="btn sub">提交</button>
+                           </div>
+                        </form>
+                    </div>
+                </div>
+            </div>       
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="template/webapp/bainiu/bainiuMan/bootstrap/js/bootstrap.min.js"></script>
+<script src="template/webapp/bainiu/bainiuMan/js/jquery.pickmeup.js"></script>
+
+<!--下面是dataTables需要的文件-->
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+   {%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/furlough.js"></script>   
+{%>template/common/Footer.html%}
+<script type="text/javascript">
+    $(function() {
+
+
+ 
+        $('#date_picker').pickmeup({
+            flat: true,
+            mode: 'range' 
+        });
+        
+       
+        var table = $('#example1').DataTable({
+            "lengthChange": false,
+            ordering:false,
+            "pagingType":   "full_numbers",
+            "sLoadingRecords": "正在加载数据...",
+            "sZeroRecords": "暂无数据",
+            stateSave: true,
+            scrollX:true,
+            "searching": false,
+            "language": {
+                "processing": "玩命加载中...",
+                "lengthMenu": "显示 _MENU_ 项结果",
+                "zeroRecords": "没有匹配结果",
+                "info": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "infoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                "infoFiltered": "(由 _MAX_ 项结果过滤)",
+                "infoPostFix": "",
+                "url": "",
+                "paginate": {
+                    "first":    "首页",
+                    "previous": "上一页",
+                    "next":     "下一页",
+                    "last":     "末页"
+                }
+            },
+            _fnPageChange:function(){
+                alert("1111");
+            }
+
+        });
+
+       
+
+
+    });
+  
+</script>
+</body>
+</html>
+ 
+ 
+ 

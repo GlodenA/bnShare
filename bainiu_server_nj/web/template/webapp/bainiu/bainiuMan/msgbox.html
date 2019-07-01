@@ -1,0 +1,100 @@
+ <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap和dataTables样式 -->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <!--自己的样式-->
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body  style="background:#f3f7f8">
+<div class="frame_content">
+    <div class="authorization clear frame_content_bg">
+        <div class="title mymsg"><h1>我的收信箱</h1></div>
+            <div class="tool_btn msgtool">
+                <span class="btn btn-info" id="deleteMsg">删除</span>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        标记为 <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" id="read">已读</a></li>
+                        <li><a href="#" id="noRead">未读</a></li>
+                    </ul>
+                </div>
+                <span class="btn btn-info" id="refreshMsg">刷新</span>
+            </div>
+
+
+            <table id="example" class="table table-striped table-bordered table-hover dataTables-example dataTable" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th class="tn"><input id="selectall" name="" type="checkbox" value=""></th>
+                    <th>编号</th>
+                    <th>类型</th>
+                    <th>简述/标题</th>
+                    <th>时间</th>
+                    <th>状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                 {%#MSGLIST%} 
+                <tr {%#.SMS_STATE_FALG%} style="font-weight:bold;"{%/.SMS_STATE_FALG%}>
+                    <td><input  name="chkItem" type="checkbox" value="" S_ID="{%.SMS_ID%}" U_ID="{%.USER_ID%}" STATE="{%.SMS_STATE%}"></td>
+                    <td>{%.RowNo%}</td>
+                    <td><a name="go2Detail" href="javascript:void(0)"  S_ID="{%.SMS_ID%}" U_ID="{%.USER_ID%}" STATE="{%.SMS_STATE%}">{%.SMS_TYPE_NAME%}</a></td>
+                    <td><a name="go2Detail" href="javascript:void(0)"  S_ID="{%.SMS_ID%}" U_ID="{%.USER_ID%}" STATE="{%.SMS_STATE%}">{%.SMS_TITLE%}</a></td>
+                    <td>{%.INS_TIME%}</td>
+                    <td>{%.SMS_STATE_NAME%}</td>
+                </tr>
+                {%/MSGLIST%}              
+                </tbody>
+            </table>
+			{%>template/common/Paginate.html%}
+        </div>
+
+
+</div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="template/webapp/bainiu/bainiuMan/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<!--下面是dataTables需要的文件-->
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/jquery.min.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/bootstrap.min.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/colResizable-1.5.min.js"></script>
+ {%>template/common/Head.html%}
+ {%>template/common/Footer.html%}
+      <style type="text/css">
+	.footer p{ text-align:center;}    
+    </style>
+
+ <script type="text/javascript" src="biz/js/webjs/MsgBox.js"></script>
+
+
+ 
+ 
+
+
+

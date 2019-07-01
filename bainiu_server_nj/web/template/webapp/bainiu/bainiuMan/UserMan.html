@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>UserMan.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+    <!-- Bootstrap-->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--自己的样式-->
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.ext.css" rel="stylesheet" type="text/css" />  
+ </head>
+<body  style="background:#f3f7f8;">
+<div class="frame_content">
+   <div class="furlough">
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="apply_query" >
+               <div class="apply_query">
+					<form class="form-inline header_query">
+					    <input type="hidden" id="userID" value="{%.USER_ID%}"/>
+						<div class="form-group">
+                            <label for="">查询关键字</label>
+                            <input  class="form-control" id="qaddkey" placeholder="姓名/电话/邮箱" style="width:100px;" value="">
+                        </div>
+                        <div class="form-group">
+							<button type="button"  id="userQ" class="btn btn-default query_btn col-xs-12">查询</button>
+						</div>
+
+                        <div class="form-group" id="userType">
+	                        <div class="form-group">
+	                            <button type="button" id="userNew" class="btn btn-default query_btn col-xs-12">新增</button>                            
+	                        </div> 
+	                        <div class="form-group">
+	                            <button type="button" id="userChg" class="btn btn-default query_btn col-xs-12">修改</button>                            
+	                        </div>	                                               
+	                        <div class="form-group">
+	                            <button type="button" id="userDel" class="btn btn-default query_btn col-xs-12">删除</button>                            
+	                        </div>
+	                        <div class="form-group" style="display: none">                            
+	                            <input type="text" type="hidden" class="form-control" style="width:150px;" id="REMARK" placeholder="取消原因">
+	                        </div>	                        
+                        </div>
+                        <div></div>
+                        <div></div>
+     
+                        
+						<!--新增弹层-->
+						<div class="create_user form-group" style="display:none;" id="create_user">
+						    <div class="form-group"><label>姓名：</label><input id="NAME" type="text" class="form-control" placeholder="必填"></div>
+						    <div class="form-group"><label>部门：</label><input id="ORG_NAME" type="text" class="form-control" placeholder=""></div>
+						    <br>
+						    <div class="form-group"><label>邮箱：</label><input id="EMAIL" type="text" class="form-control"  placeholder="必填"></div>
+						    <div class="form-group"><label>电话：</label><input id="PHONE" type="text" class="form-control"  placeholder="必填"></div>
+						    <br>
+						    <div class="form-group">
+						    	<button type="button"   id="newis_btn" class="btn btn-default query_btn col-xs-12">确认</button> 
+						    </div>
+						    <div class="form-group">
+						    	<button type="button"   id="cancelnewis_btn" class="btn btn-default query_btn col-xs-12">取消</button>
+						    </div>
+						</div> 
+						
+						<!--修改弹层-->
+						<div class="chg_user form-group" style="display:none;" id="chg_user">
+							<br>
+						    <div class="form-group"><label>新姓名：</label><input id="NNAME" type="text" class="form-control"  placeholder=""></div>
+						    <div class="form-group"><label>新部门：</label><input id="NORG_NAME" type="text" class="form-control" placeholder=""></div>
+						    <br>						      
+						    <div class="form-group"><label>新邮箱：</label><input id="NEMAIL" type="text" class="form-control"  placeholder=""></div>			   
+						    <div class="form-group"><label>新电话：</label><input id="NPHONE" type="text" class="form-control" placeholder=""></div>
+						    <br>
+						    <div class="form-group">
+						    	<button type="button" id="chgis_btn" class="btn btn-default query_btn col-xs-12">确认</button> 
+						    </div>
+						    <div class="form-group">
+						    	<button type="button" id="cancelchgis_btn" class="btn btn-default query_btn col-xs-12">取消</button>
+						    </div>
+						</div>						
+					</form>
+
+                    <div class="query_table_list">
+                        <table id="example1" class="table table-striped table-bordered table-hover dataTables-example dataTable"
+                               cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th class="tn"><input id="checkall" name="" type="checkbox" value=""></th>
+                                <th>姓名</th>
+                                <th>电话</th>
+                                <th>邮箱</th>
+                                <th>登录帐号</th>
+                                <th>部门</th>
+                                <th>状态</th>                          
+                            </tr>
+                            </thead>
+				      		<tbody id="queryforadd">
+				      			<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					        </tbody>
+<!--                             <tbody>
+                             {%#USERLIST%}
+                            <tr NAME="{%.NAME%}" PHONE="{%.PHONE%}" USER_ID="{%.USER_ID%}" >
+                                <td><input  name="chkItem" type="checkbox" value="" USER_ID="{%.USER_ID%}" ></td>                            
+                                <td name="itemCkecked">{%.NAME%}</td>
+                                <td name="itemCkecked">{%.PHONE%}</td>
+                                <td name="itemCkecked">{%.EMAIL%}</td>
+                                <td name="itemCkecked">{%.USER_ACCT%}</td>
+                                <td name="itemCkecked">{%.ORG_NAME%}</td>
+                                <td name="itemCkecked">{%.STATE%}</td>
+                            </tr>
+                            {%/USERLIST%}
+                            </tbody> -->
+                        </table>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<div id="bg"></div>
+
+<!--下面是dataTables需要的文件-->
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+{%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/UserMan.js"></script>   
+{%>template/common/Footer.html%}
+</body>
+</html>

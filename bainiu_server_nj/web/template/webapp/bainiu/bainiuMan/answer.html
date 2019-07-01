@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap和dataTables样式 -->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <!--自己的样式-->
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="frame_content">
+    <div class="ques_answer row">
+        <div class="article">
+        		{%#ERRDTL%}
+                <div class="header_til col-md-12">
+                    <div class="article_block clear"><a href="" class="article_tit">{%.EX_ABSTRACT%}</a><span
+                            class="{%.B_TYPE_CLASS%}">{%.B_TYPE_NAME%}</span></div>
+                    <div class="article_details">
+                        <a>录入人：{%.INS_USER_NAME%}</a>
+                        <span class="bonus"><i>{%.REWARD%}</i></span>
+                    </div>
+                </div>
+                    <div class="articel_con col-md-6">
+                        <dl>
+                            <dd>
+                                <h2 class="excp_desc_tit">
+                                    异常描述
+                                </h2>
+                                <div class="excp_desc_con">
+                                    {%&EX_DESC%}
+                                </div>
+                            </dd>
+                            <dd>
+                                <h2 class="excp_reason_tit">
+                                     上次分析的问题导致原因
+                                </h2>
+                                <div class="excp_reason_con">
+                                    {%&EX_REASON%}
+                                </div>
+                            </dd>
+                            <dd>
+                                <h2 class="sug_tit">
+                                                                上次分析的解决方案
+                                </h2>
+                                <div class="sug_con">
+                                    {%&EX_SOLUTION%}
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="answer col-md-6">
+                        <dl>
+                            <dd>
+                                <h2>我的分析原因</h2>
+                                <script id="EX_REASON" style="height:80px;width:100%;" class="editer" name="" type="text/plain" ></script>
+                                <h2 style="margin-top:8px;">我的处理建议</h2>
+                                <script id="EX_SOLUTION" style="height:80px;width:100%;"  name="" type="text/plain" ></script>
+                                <h2 style="margin-top:8px;color:red;">*&nbsp 提交会覆盖上次回答</h2>
+                                <div class="ipt_sut form-group">
+                                	<button type="button" id="saveSoled" oldExId="{%.EX_ID%}" oldExdesc="{%.EX_DESC%}" oldExEeason="{%.EX_REASON%}" oldExSolution="{%.EX_SOLUTION%}"  class="btn btn-default sub col-xs-12 col-md-3">回答</button>
+                                    <button type="button" id="confirmSoled" {%^RIGHT.DATA_ERR_CONFIRM%} style="display:none" {%/RIGHT.DATA_ERR_CONFIRM%}   oldExId="{%.EX_ID%}" oldExdesc="{%.EX_DESC%}" oldExEeason="{%.EX_REASON%}" oldExSolution="{%.EX_SOLUTION%}" class="btn btn-default sub col-xs-12 col-md-3">审批</button>
+                                    <button type="button" id="delSoled"  oldLogId="{%.LOG_ID%}" {%^ERR_DEL%} style="display:none" {%/ERR_DEL%} class="btn cancel col-xs-12 col-md-3 ">删除问题</button>
+                                </div>
+                                
+                            </dd>
+                        </dl>
+                    </div>
+                   {%/ERRDTL%} 
+        </div>
+
+
+
+    </div>
+</div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="template/webapp/bainiu/bainiuMan/bootstrap/js/bootstrap.min.js"></script>
+{%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="biz/js/webjs/ueditor/ueditor.all.js"></script>
+<script type="text/javascript" src="biz/js/webjs/Manswer.js"></script>
+
+</body>
+</html>
+
+

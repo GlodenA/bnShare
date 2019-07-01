@@ -1,0 +1,337 @@
+body {
+   position: static; 
+   font-size: 14px;
+}
+.ui-toolbar{
+  background-color:#6cbff1;
+  color:#fff;
+  position:fixed;
+}
+.ui-toolbar .ui-toolbar-title,
+.ui-toolbar .ui-icon{
+  color:#fff;
+}
+.ui-toolbar ~ .container {
+  padding-top: 44px;
+}
+.container { width: 100%; padding: 0;}
+.row { margin:0}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 { padding: 0}
+.ui-icon-boot {
+  font-size: 22px;color:#fff;margin-top:8px;
+}
+/* Swipe 2 required styles */
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+/* END required styles */
+.sliderTxtWrap{
+  background-color:#f1f0f0;
+  border-bottom: 1px solid #c7c7cc;
+  height:30px;
+  line-height: 30px;
+}
+.sliderTxt{
+}
+.sliderTxt p{
+  text-indent: 12px
+}
+.sliderTxt p.hide{
+  display: none;
+}
+.sliderPoi {
+  text-align: center;
+  font-size: 27px;
+}
+.sliderPoi em {
+  display: inline-block;
+  padding: 0 2px;
+  font-style: normal; 
+  text-shadow: 0 -1px 0 rgba(0,0,0,.35);
+  font-family: sans-serif;
+  color: #d2d1d1;
+}
+.sliderPoi em.on {
+  color: #f8980e;
+}
+.ui-slider-media {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.ui-slider-warp {
+  overflow: hidden;
+  position: relative;
+}
+.ui-slider-warp > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+
+.ui-slider-desc{
+  background-color:#f1f0f0;
+  border-bottom: 1px solid #c7c7cc;
+  height:30px;
+  line-height: 30px;
+}
+
+.ui-slider-desc .ui-slide-desc-text{
+    width: 75%;
+}
+
+.ui-slider-desc .ui-slide-desc-text p{
+  text-indent: 12px
+}
+
+.ui-slider-desc .ui-slide-desc-icon{
+    width: 25%;  
+    text-align: center;
+    font-size: 27px;     
+}
+
+
+.ui-slider-desc .ui-slide-desc-icon em {
+  display: inline-block;
+  padding: 0 2px;
+  font-style: normal; 
+  text-shadow: 0 -1px 0 rgba(0,0,0,.35);
+  font-family: sans-serif;
+  color: #d2d1d1;
+}
+.ui-slider-desc .ui-slide-desc-icon em.active {
+  color: #f8980e;
+}
+/*ui-category*/
+.ui-category{
+  margin-top:6px;
+}
+.ui-category-item{
+  padding-top:16px;
+}
+.ui-category .ui-category-icon{
+  margin-bottom:4px;
+}
+
+/*formWrap*/
+.formWrap{
+  padding:10px 20px;
+}
+
+
+.ui-content-wp{
+  padding:0 15px;
+}
+.ui-content-tb td{
+  padding:3px 0;
+  font-size: 1.1em;
+  border:none;
+}
+.ui-content-tb .label{
+  text-align: right;
+}
+.ui-content-tb .value{
+  text-align: left; 
+}
+.ui-impo{
+  color:#FF9500;
+}
+.ui-percent-bar{
+  width:100%;
+  font-size: 0;
+  height: 2px;
+  background-color: #B9B4AE;
+}
+.ui-percent-bar .value{
+  height: 2px;
+  background-color: #3CC2F0;
+}
+.pdt15{padding-top:15px;}
+.fn-relative{
+  position: relative;
+}
+.nb-ui-scrollList {
+  /*position: fixed;*/
+  width: 100%;
+  background-color: #6CBFF1;
+}
+.nb-ui-scrollList a{
+  color: #E5E4E4;
+}
+.nb-ui-busiTab li {
+  float: left;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 0.7em;
+  font-size: 1.2em;
+}
+a.ui-tab-cur{
+  color:#fff;
+  font-size: 1.1em;
+}
+/*teleCharge*/
+.tele-link{
+  font-size: 1.2em;
+  padding-left:10px;
+  color:#00B0F0;
+}
+.tele-link-panel{
+  margin-top: 19px;
+}
+.tele-info-bill{
+  background-color: #F8F8F8;
+  padding-top:7px;
+  padding-bottom:7px;
+}
+.tele-info-date{
+  background-color: #E8E7E4;
+  padding-top:5px;
+  padding-bottom:5px;
+  font-size: 1em;
+  color: #0C0C0C;
+}
+.tele-detail{
+  margin-top: 15px;
+}
+.tele-item-data{
+}
+.tele-item-list{
+  position: relative;
+  padding-left:10px;
+  padding-right: 70px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.tele-item-percent{
+  width:60px;
+  text-align: right;
+  position: absolute;
+  right: 0px;
+  bottom:-5px;
+}
+.tele-detail-title{
+  font-size: 1.1em;
+  color:#00B0F0;
+}
+.tele-textdata{
+  margin-bottom: 5px;
+  font-size: 1.0em;
+}
+.tele-detail-value{
+  color:#ACA8A3;
+  font-style: italic;
+}
+.tele-item-full .ui-percent-bar .value{
+  background-color:#FF0000;
+}
+.tele-item-full .tele-item-percent{
+  color: #FF0000;
+}
+.tele-item-order{
+  display:block;
+  padding:6px 15px 3px 15px;
+  border-radius: 6px;
+  font-size: 1.1em;
+  color: #DA6600;
+  margin-top: 10px;
+  background-color:#f60; 
+  color:#fff;
+}
+.tele-item-sorrow{
+  display: inline-block;
+  width:20px;
+  height:13px;
+  background-size: 100%;
+  position: absolute;
+  left: 33px;
+  top: -8px;
+}
+
+/*fanyu*/
+.nb-ui-scrollList {
+  /*position: fixed;*/
+  width: 100%;
+  background-color: #6CBFF1;
+}
+.nb-ui-scrollList a{
+  color: #E5E4E4;
+}
+.nb-ui-busiTab li {
+  float: left;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 0.7em;
+  font-size: 1.2em;
+}
+a.ui-tab-cur{
+  color:#fff;
+  font-size: 1.1em;
+}
+.fy-divider{
+  color:#7BBDE6;
+  font-size: 1em;
+  font-weight: 700;
+}
+.ui-orderNum{
+  display: inline-block;
+  width: 25px;
+  height: 22px;
+  color: #fff;
+  padding: 3px;
+  line-height: 18px;
+  background-color: #FF8000;
+}
+.ui-linkToBusi{
+  position: absolute;
+  right: 20px;
+  top: 11px;
+}
+.ui-blueLink{
+  margin-left: 20px;
+  color: #6CBFF1;
+}
+.ui-grayLink{
+  margin-left: 20px;
+  color: #AAAAAA;
+}
+.input-row .ui-phoneNum-input{
+  float: left;
+  width: 65%;
+}
+.ui-clearNum{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: url(images/clearText.png) no-repeat right 7px;
+}
+.ui-addrIcon{
+  float: right;
+  display: inline-block;
+  width: 30px;
+  height: 38px;
+  background: url(images/addrList.png) no-repeat 0 0;
+}
+.table-view .fy-pd-right{
+  padding-right: 20px;
+}
+.fy-market li{
+  background-color: #FCF9F2;
+}
+
+.input-row label{
+  padding:8px 5px;
+} 
+.table-view-cell {
+  padding: 11px 45px 11px 10px;
+}

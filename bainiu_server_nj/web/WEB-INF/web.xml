@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<display-name>mobile</display-name>
+	<!-- fileMan State-->
+	<servlet>
+		<servlet-name>elfinder-connector-servlet</servlet-name>
+		<servlet-class>com.ipu.server.fileServer.elfinder.servlet.ConnectorServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>elfinder-connector-servlet</servlet-name>
+		<url-pattern>/elfinder-servlet/connector</url-pattern>
+	</servlet-mapping>
+	<!-- fileMan End-->
+	<servlet>
+		<servlet-name>fileUploadServlet</servlet-name>
+		<servlet-class>com.ipu.server.util.FileUploadUtil
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fileUploadServlet</servlet-name>
+		<url-pattern>/fileUploadServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>fileDownLoadServlet</servlet-name>
+		<servlet-class>com.ipu.server.util.FileDownloadUtil
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fileDownLoadServlet</servlet-name>
+		<url-pattern>/fileDownLoadServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>mobile</servlet-name>
+		<servlet-class>
+			com.ailk.mobile.servlet.MobileUiServlet
+		</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>exportFile</servlet-name>
+		<servlet-class>
+			com.ipu.server.util.HttpRequest
+		</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>mobiledata</servlet-name>
+		<servlet-class>
+			com.ailk.mobile.servlet.MobileDataServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>duosuoSever</servlet-name>
+		<servlet-class>
+			com.ailk.mobile.servlet.MobileDataServlet
+		</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<servlet>
+	<servlet-name>ueditor</servlet-name>
+		<servlet-class>
+			com.ipu.server.fileServer.elfinder.servlet.UeditorServlet
+		</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>mobile</servlet-name>
+		<url-pattern>/mobile</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>exportFile</servlet-name>
+		<url-pattern>/exportFile</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>duosuoSever</servlet-name>
+		<url-pattern>/duosuoSever</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>mobiledata</servlet-name>
+		<url-pattern>/mobiledata/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ueditor</servlet-name>
+		<url-pattern>/biz/js/webjs/ueditor/myUeditor/*</url-pattern>
+	</servlet-mapping>
+	<filter>
+		<filter-name>MobileFilter</filter-name>
+		<filter-class>
+			com.ailk.mobile.servlet.MobileFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MobileFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>mobile</welcome-file>
+	</welcome-file-list>
+	
+	<!-- GTM参数 -->
+<!--  	<context-param>-->
+<!--        	<param-name>contextConfigLocation</param-name>-->
+<!--        	<param-value>/WEB-INF/spring-config.xml</param-value>-->
+<!--    	</context-param>-->
+<!--    	<listener>-->
+<!--        	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+<!--    	</listener>	-->
+	<!-- 生产参数 -->
+	  
+<!--	<filter>-->
+<!--       <filter-name>XSSChecker</filter-name>-->
+<!--       <filter-class>com.ipu.server.util.BainiuFilter</filter-class>-->
+<!--		<init-param>-->
+<!--			<param-name>HOST</param-name>-->
+<!--			<param-value>1212</param-value>-->
+<!--		</init-param>-->
+<!--	</filter>-->
+<!--	<filter-mapping>-->
+<!--     <filter-name>XSSChecker</filter-name>-->
+<!--     <url-pattern>/*</url-pattern>-->
+<!--	</filter-mapping>-->
+	     
+</web-app>

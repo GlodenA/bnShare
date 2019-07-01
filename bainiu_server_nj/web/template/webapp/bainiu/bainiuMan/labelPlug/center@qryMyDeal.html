@@ -1,0 +1,47 @@
+<table border="0" cellspacing="0" cellpadding="0" class="query_list"
+	width="100%">
+	{%#ANSLIST%}
+	<tr>
+		<td width="90%">
+			<a href="">{%.EX_ABSTRACT%}</a> {%^pub%}
+			<span class="sm_tips plat_tips">未发布</span>{%/pub%} {%#pub%}
+			<span class="sm_tips excp_tips">已发布</span>{%/pub%}
+		</td>
+		<td align="center" class="upvote active">
+			<span class="glyphicon glyphicon-thumbs-up"></span>
+			<b style="display: block">0</b>
+		</td>
+	</tr>
+	{%/ANSLIST%}
+</table>
+<span id="qryMyDealParames" style="display: none">{%QRYMYDEAL.PARAMS%}</span>
+<div class="bottom">
+	<div class="dataTables_info" role="status"
+		style="clear: both; float: left; padding-top: 0.755em;"
+		aria-live="polite">
+	</div>
+	<div class="dataTables_paginate paging_full_numbers">
+		<ul class="pagination" id="qryMyDealPagination"
+			style="float: right; text-align: right; padding-top: 0.25em;">
+			<li class="paginate_button first" id="example_first">
+				<a pagIdex="1" style="cursor: pointer">首页</a>
+			</li>
+			<li class="paginate_button last">
+				<a pagIdex="{%QRYMYDEAL.LAST_PAGE%}" style="cursor: pointer">上一页</a>
+			</li>
+			{%#QRYMYDEAL.PAGINATIONS%}
+			<li class="paginate_button {%#CURRENT_PAGE%}active{%/CURRENT_PAGE%}">
+				<a pagIdex="{%.ROW_INDEX%}" name="flash" style="cursor: pointer">{%.ROW_INDEX%}</a>
+			</li>
+			{%/QRYMYDEAL.PAGINATIONS%}
+			<li class="paginate_button next">
+				<a pagIdex="{%QRYMYDEAL.NEXT_PAGE%}" style="cursor: pointer">下一页</a>
+			</li>
+			<li class="paginate_button previous">
+				<a pagIdex="{%QRYMYDEAL.PAGE_COUNT%}" style="cursor: pointer">末页</a>
+			</li>
+
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>

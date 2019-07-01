@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	<config name="name" value="IpuServer"/>
+	<config name="productMode" value="true"/>
+	<config name="version" value="1.0"/>
+	<!-- 服务端应用编码 -->
+	<config name="encode" value="UTF-8"/>
+	<!-- 缓存类型,目前支持mem和jvm -->
+	<config name="cache" value="jvm"/>
+	<!-- 初始页 -->
+	<config name="indexPage" value="Index"/>
+	<!-- 文件是否加密 -->
+	<config name="fileEncrypt" value="true"/>
+	<!-- 自定义异常管理器 -->	
+	<config name="exceptionHandler" value="com.ipu.server.core.handle.IpuExceptionHandler"/>
+	<!-- 自定义Session管理器 -->
+	<config name="sessionManager" value="com.ipu.server.core.session.IpuSessionManager"/>
+	<!-- 自定义安全管理器 -->
+	<config name="securityHandler" value="com.ipu.server.core.handle.IpuSecurityHandler"/>
+</configs>
+
+
+
+
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet"/>
+<script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+{%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/Mlog.js"></script>
+<title></title>
+</head>
+<body>
+<div class="header subHeader">
+    
+    <div class="bn_version">
+        <b>Bainiu</b><i>摆牛知识库 V1.0</i><div id="leftNavCtrl" class="left-nav-ctrl">导航</div>
+    </div>
+<!--    
+			<div class="form_wrapper" style="width:100px;">
+				<div class="home_sh_form">
+					<div class="sel_ipt">
+						<span class="choose_list" id="sysDomain">所有类别</span><b></b>
+						<div class="choose_pop">
+							<ul>
+								<li>
+									<a href="javascript:void(0)">所有类别</a>
+								</li>
+								{%#TYPE_LIST%}
+								<li>
+									<a href="javascript:void(0)">{%.ENUM_CODE%}</a>
+								</li>
+								{%/TYPE_LIST%}
+							</ul>
+						</div>
+					</div>
+					<span class="sh_ipt"> <input type="text" value="" id="keyWord"
+							name="keywords" placeholder="" />
+						<div class="async_area">
+							<ul>
+								<li>
+								</li>
+								<li>
+								</li>
+								<li>
+								</li>
+								<li>
+								</li>
+								<li>
+								</li>
+								<li>
+								</li>
+							</ul>
+						</div> 
+                        <span class="search_btn" id="qry"></span>
+                      </span>
+				</div>
+			</div>
+-->    
+
+    <ol class="top_tool">
+        <li><a id="signOut" class="signout"></a></li>   
+        <!--<li><a href="">开启全屏</a></li>-->
+        <li><a class="email_tips  {%#showNoRead%} active {%/showNoRead%}" id="sysmailink"><b>{%.noRead%}</b></a></li>
+        <li class="admin_ipt"><a id="personalCenter">欢迎{%.NAME%}</a>
+<!--    <i></i>  
+        <dl class="dropdownlist">
+            <dd><a href="javascript:;">个人中心</a></dd>
+            <dd><a href="javascript:;">注销</a></dd>
+            <dd><a href="javascript:;">测试</a></dd>
+        </dl>
+-->        </li>
+    </ol>
+</div>
+<script type="text/javascript" src="biz/js/webjs/Index.js"></script>
+</body>
+</html>

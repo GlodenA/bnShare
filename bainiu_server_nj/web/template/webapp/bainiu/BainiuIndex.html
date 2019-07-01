@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BaiNiu</title>
+		<meta name="description" content="这是一个form页面">
+		<meta name="keywords" content="form">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/png" href="assets/i/favicon.png">
+		<link rel="apple-touch-icon-precomposed"
+			href="assets/i/app-icon72x72@2x.png">
+		<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+		<link rel="stylesheet" href="biz/assets/css/amazeui.min.css" />
+		<link rel="stylesheet" href="biz/assets/css/admin.css">
+	</head>
+	<body>
+		{%>template/common/Nav.html%}
+		<div class="am-cf admin-main">
+			<!-- sidebar start -->
+			{%>template/common/Sidebar.html%}
+			<!-- sidebar end -->
+			<!-- content start -->
+			<div class="admin-content">
+
+
+
+				<ul
+					class="am-avg-md-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
+
+					<li>
+						<div class="am-text-success"><canvas width="100"
+								height="200" id="errTypePie" pieData="{%.ERR_TYPE_PIEDATE%}"/> <br />异常模块<br />308</div>
+								<div class="am-text-success"><br />异常模块 </div>
+					</li>
+					<li>
+						<div class="am-text-success"><canvas width="100"
+								height="200" id="errInsertPie" pieData="{%.ERR_INSERT_PIEDATE%}"/> <br />录入统计<br />308</div>
+								<div class="am-text-success"><br />录入统计 </div>
+					</li>
+					<li>
+						<div class="am-text-success"><canvas width="100"
+								height="200" id="errSolvedPie" pieData="{%.ERR_SOLECED_PIEDATE%}"/> <br />解决统计<br />308</div>
+						<div class="am-text-success"><br />解决统计 </div>
+					</li>
+					<li>
+						<div class="am-text-success"><canvas width="100"
+								height="200" id="errSolvePie" pieData="{%.ERR_SOLVE_PIEDATE%}"/> <br />解决情况<br />2300</div>
+								<div class="am-text-success"><br />解决情况 </div>	
+					</li>
+				</ul>
+
+
+
+				<div class="am-g">
+					<div class="am-u-md-6">
+						<div class="am-panel am-panel-default">
+							<div class="am-panel-hd am-cf"
+								data-am-collapse="{target: '#collapse-panel-2'}">
+								浏览器统计
+								<span class="am-icon-chevron-down am-fr"></span>
+							</div>
+							<div id="collapse-panel-2" class="am-in">
+								<table
+									class="am-table am-table-bd am-table-bdrs am-table-striped am-table-hover">
+									<tbody>
+										<tr>
+											<th class="am-text-center">
+												#
+											</th>
+											<th>
+												浏览器
+											</th>
+											<th>
+												访问量
+											</th>
+										</tr>
+										<tr>
+											<td class="am-text-center">
+												<img src="biz/assets/i/examples/admin-chrome.png" alt="">
+											</td>
+											<td>
+												Google Chrome
+											</td>
+											<td>
+												{%.GoogleChrome%}
+											</td>
+										</tr>
+										<tr>
+											<td class="am-text-center">
+												<img src="biz/assets/i/examples/admin-firefox.png" alt="">
+											</td>
+											<td>
+												Mozilla Firefox
+											</td>
+											<td>
+												{%.MozillaFirefox%}
+											</td>
+										</tr>
+										<tr>
+											<td class="am-text-center">
+												<img src="biz/assets/i/examples/admin-ie.png" alt="">
+											</td>
+											<td>
+												Internet Explorer
+											</td>
+											<td>
+												{%.InternetExplorer%}
+											</td>
+										</tr>
+										<tr>
+											<td class="am-text-center">
+												<img src="biz/assets/i/examples/admin-opera.png" alt="">
+											</td>
+											<td>
+												Opera
+											</td>
+											<td>
+												{%.InternetExplorer%}
+											</td>
+										</tr>
+										<tr>
+											<td class="am-text-center">
+												<img src="biz/assets/i/examples/admin-safari.png" alt="">
+											</td>
+											<td>
+												Safari
+											</td>
+											<td>
+												{%.Safari%}
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div class="am-u-md-6">
+
+						<div class="am-panel am-panel-default">
+							<div class="am-panel-hd am-cf"
+								data-am-collapse="{target: '#collapse-panel-3'}">
+								最近留言
+								<span class="am-icon-chevron-down am-fr"></span>
+							</div>
+							<div class="am-panel-bd am-collapse am-in am-cf"
+								id="collapse-panel-3">
+								<ul class="am-comments-list admin-content-comment">
+								{%#COMMENT_INFOS%}
+									<li class="am-comment">
+										<a href="#"><img
+												src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96"
+												alt="" class="am-comment-avatar" width="48" height="48">
+										</a>
+										
+										<div class="am-comment-main">
+											<header class="am-comment-hd">
+											<div class="am-comment-meta">
+												<a href="#" class="am-comment-author">{%.REQ_NAME%}</a> 于
+												<time>
+												{%.WHEN_REQ%}
+												</time>
+											</div>
+											</header>
+											<div class="am-comment-bd">
+												<p>{%.CONTENT_REQ%}</p>
+											</div>
+										</div>
+									</li>
+									{%/COMMENT_INFOS%}
+
+								</ul>
+								<ul class="am-pagination am-fr admin-content-pagination" id="paginations">
+									<li class="am-disabled">
+										<a href="#">&laquo;</a>
+									</li>
+									{%#PAGINATIONS%}
+										<li>
+											<a pagIdex="{%.ROW_INDEX%}">{%.ROW_INDEX%}</a>
+										</li>
+									{%/PAGINATIONS%}
+									<li>
+										<a href="#">&raquo;</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<footer>
+				<hr>
+				<p class="am-padding-left">
+					© 2015 ASIAINFO, Inc.
+				</p>
+				</footer>
+			</div>
+			<!-- content end -->
+		</div>
+		<script src="biz/assets/js/jquery.min.js"></script>
+		<script src="biz/assets/js/amazeui.min.js"></script>
+		<script src="biz/assets/js/app.js"></script>
+
+		{%>template/common/Head.html%}
+		<script type="text/javascript" src="biz/js/webjs/BainiuIndex.js"></script>
+
+	</body>
+<html>

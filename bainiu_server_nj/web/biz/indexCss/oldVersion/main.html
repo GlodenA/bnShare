@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>北牛知识库</title>
+<script src="js/jquery.js"></script>
+<script src="js/placeholder.js"></script>
+<script src="js/pagination.js"></script>
+<script src="js/base.js"></script>
+<link href="css/common.css" rel="stylesheet"/>
+<script>
+    $(function () {
+        var pageIndex = 0;     //页面索引初始值
+        var pageSize = 5;     //每页显示条数初始化，修改显示条数，修改这里即可
+        InitTable(0);    //Load事件，初始化页面索引为0（第一页）
+
+        //分页，100是总条目数，这是必选参数，其它参数都是可选
+        $("#pag1").pagination(100/*total变量,即总条目数*/, {
+            callback: PageCallback,
+            prev_text: '<',       //上一页按钮里text
+            next_text: '>',       //下一页按钮里text
+            items_per_page: pageSize,  //显示条数
+            num_display_entries: 4,    //连续分页主体部分分页条目数
+            current_page: pageIndex,   //当前页索引
+            num_edge_entries: 0       //两侧首尾分页条目数
+        });
+
+        //翻页调用
+        function PageCallback(index, jq) {
+            $('.gotopage').val("")//点击时清空后面的回车跳转页值
+            InitTable(index);
+
+        }
+
+        //跳转到指定页面
+        $('.gotopage').keydown(function (evt) {
+                    var keycode = evt.which;//获取键值
+                    var gopage=$('.gotopage').val();
+                    if (keycode == 13)//回车
+                    {
+                        InitTable(gopage);
+                    }
+
+                }
+        );
+
+        $('.ok_btn').click(function(){
+            var gopage=$('.gotopage').val();
+            if(gopage){
+                InitTable(gopage-1);
+            }
+        });
+
+        //请求数据
+        function InitTable(pageIndex) {
+            $.ajax({
+                type: "POST",
+                dataType: "JSON",
+                url: 'xxxx',
+                data: "pageIndex=" + pageIndex + "&pageSize=" + pageSize+"&gotopage="+$('.gotopage').val(),          //提交3个参数：pageIndex(页面索引)，pageSize(显示条数),gotopage(回车跳转页)
+                success: function (data) {
+                    var total=data.total //获取总条数,
+                    $('.total_pages').text(total);显示总条目数
+                    //其他DOM操作
+                }
+            });
+        }
+
+    })
+
+</script>
+</head>
+<body>
+
+<div class="bn_main">
+
+<div class="main_col">
+    <div class="main_wrap clear">
+    <div class="header">
+
+        <div class="form_wrapper">
+            <form action="" method="post" class="main_sh_form">
+    <span class="sel_ipt">
+        <select name="">
+            <option>所有类别</option>
+            <option value="">所有1111</option>
+            <option value="">所有2222</option>
+        </select>
+    </span>
+        <span class="sh_ipt">
+             <input type="text" value="" name="" placeholder="喂点草"/>
+        </span>
+                <span class="bn_btn sh_sub"></span>
+            </form>
+        </div>
+
+
+        <ol>
+            <li><a href="">开启全屏</a></li>
+            <li class="admin_ipt"><a href="javascript:;">管理员录入</a><i></i>
+                <dl>
+                    <dd><a href="javascript:;">列表11111</a></dd>
+                    <dd><a href="javascript:;">列表22222</a></dd>
+                    <dd><a href="javascript:;">列表33333</a></dd>
+                </dl>
+            </li>
+            <li><a href="">收件箱</a></li>
+        </ol>
+
+    </div>
+
+        <div class="article clear">
+
+            <ul>
+                <li>
+                    <div class="article_block clear"><a href="" class="article_tit">SQL造成对应服务堵死</a><span
+                            class="sm_tips plat_tips">平台类</span></div>
+                    <div class="article_details">
+                        <a>录入人：王小强</a>
+                        <a>审核人：孙小续</a>
+                        <a>审核日期：2015-08-06</a>
+                    </div>
+                    <div class="articel_con">
+                        select * from tf_F_user U,Tf_f_User_Svc swhere serial_number = :VSERIAL_NUMBERand net_type_code
+                        = '33'and remove_tag = '0'and s.user
+                        _id = u.user_idand s.partition_id = u.partition_idand s.service_id = :VSERVICE_IDand s.end_date
+                        < sysdateand not exists(select 1 from
+                        tf_b_trade t,tf_b_trade_svc b where t.user_id = u.user_id and t.next_deal_tag != 'Z' and
+                        b.trade_id = t.trade_id and b.accept_month
+                        b.modify_tag in('0','A') )"
+                    </div>
+                </li>
+                <li>
+                    <div class="article_block clear"><a href="" class="article_tit">SQL造成对应服务堵死</a><span
+                            class="sm_tips bus_tips">业务类</span></div>
+                    <div class="article_details">
+                        <a>录入人：王小强</a>
+                        <a>审核人：孙小续</a>
+                        <a>审核日期：2015-08-06</a>
+                    </div>
+                    <div class="articel_con">
+                        select * from tf_F_user U,Tf_f_User_Svc swhere serial_number = :VSERIAL_NUMBERand net_type_code
+                        = '33'and remove_tag = '0'and s.user
+                        _id = u.user_idand s.partition_id = u.partition_idand s.service_id = :VSERVICE_IDand s.end_date
+                        < sysdateand not exists(select 1 from
+                        tf_b_trade t,tf_b_trade_svc b where t.user_id = u.user_id and t.next_deal_tag != 'Z' and
+                        b.trade_id = t.trade_id and b.accept_month
+                        b.modify_tag in('0','A') )"
+                    </div>
+                </li>
+                <li>
+                    <div class="article_block clear"><a href="" class="article_tit">SQL造成对应服务堵死</a><span
+                            class="sm_tips excp_tips">报错类</span></div>
+                    <div class="article_details">
+                        <a>录入人：王小强</a>
+                        <a>审核人：孙小续</a>
+                        <a>审核日期：2015-08-06</a>
+                    </div>
+                    <div class="articel_con">
+                        select * from tf_F_user U,Tf_f_User_Svc swhere serial_number = :VSERIAL_NUMBERand net_type_code
+                        = '33'and remove_tag = '0'and s.user
+                        _id = u.user_idand s.partition_id = u.partition_idand s.service_id = :VSERVICE_IDand s.end_date
+                        < sysdateand not exists(select 1 from
+                        tf_b_trade t,tf_b_trade_svc b where t.user_id = u.user_id and t.next_deal_tag != 'Z' and
+                        b.trade_id = t.trade_id and b.accept_month
+                        b.modify_tag in('0','A') )"
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="pagination_area">
+            <span id="pag1" class="pagination"></span>
+            <span class="pagination_add"><a style="padding:0 10px">共<span class="total_pages">26</span>页</a><a>到第<span><input type="text" name="gotopage" class="gotopage"/></span>页</a>
+            <a class="bn_btn ok_btn">确定</a>
+            </span>
+
+        </div>
+
+
+
+
+
+    </div>
+</div>
+
+
+<div class="aside">
+    <div class="bn_version">
+        <b>Beiniu</b><i>北牛知识库 V1.0</i>
+    </div>
+    <div class="nav">
+            <dl>
+                <dt class="home"><span>首页</span></dt>
+            </dl>
+            <dl class="active">
+                <dt class="module"><span>模块</span><i></i></dt>
+                <dd><a href="#">个人资料</a></dd>
+                <dd><a href="#">帮助页面</a></dd>
+                <dd><a href="#">相册页面</a><b>3</b></dd>
+                <dd><a href="#">系统日志</a></dd>
+                <dd><a href="#">404</a></dd>
+            </dl>
+            <dl>
+                <dt class="excel"><span>表格</span><i></i></dt>
+                <dd><a href="#">个人资料</a></dd>
+                <dd><a href="#">帮助页面</a></dd>
+            </dl>
+            <dl>
+                <dt class="form"><span>表单</span><i></i></dt>
+                <dd><a href="#">个人资料</a></dd>
+            </dl>
+        <dl>
+            <dt class="quit"><span>注销</span></dt>
+        </dl>
+
+    </div>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>BookMan.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+    <!-- Bootstrap-->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--自己的样式-->
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.ext.css" rel="stylesheet" type="text/css" />    
+    <!--下拉框-->
+	<style type="text/css">
+		#div1 {
+		border:1px solid grey;
+		width:100px;
+		height:100px;
+		overflow:auto;
+		text-align:left;
+		background-color:#CEDDED;
+		padding:6px;
+		position:absolute;
+		z-index:99;
+		display:none; /*使div初始化时隐藏*/
+		}
+		#loanBook {
+			width:39px;
+			height:19px;
+			padding: 0px 2px;
+			background-color:#ff9600;
+			margin-left: 30%;
+			color:#f3f3f3;
+			font-size: x-small;
+		}
+
+	</style>
+	<script type="text/javascript">
+/* 	$(function(){
+	//alert("haha");
+	}); */
+	//点击checkbox事件
+	function c(){
+		var strList="";
+		$('input[type="checkbox"][name="likes"]:checked').each(function(){
+			if(strList==""){
+				strList = strList+$(this).val();
+			}else{
+				strList = strList+","+$(this).val();
+			}
+		});
+		//alert(strList);
+		$('#IS_TARGROUPID').val(strList);
+	}
+	//input获取焦点事件
+	function f(){
+		//input获取焦点时在其旁边显示div
+		$('#IS_TARGROUPID').click(function(){
+		var input = $('#IS_TARGROUPID');
+		var offset = input.offset();
+		//先后设置div的位置，最后显示出来（渐进效果）
+		//第一个.css设置div1在当前窗口的相对偏移(左偏移)，左偏移与input1一样
+		//第二个.css设置div1在当前窗口的相对偏移(顶偏移)，在input1顶偏移的基础上再向下偏移input1的高度+4
+		//注：相对偏移只有left和top
+		//第三个.cc设置div1的宽度为input1宽度-10
+		//.fadeIn是渐进效果，也就是渐渐展开div1，详见jquery.js文档 
+		$('#div1').css('left',offset.left + 'px')
+		.css('top',offset.top + input.height() + 4 + 'px') .css('width',input.width() - 10 +'px')
+		.fadeIn();
+		});
+	}
+	//td鼠标离开事件
+	function l(){
+		//当鼠标离开td1时，div1隐藏
+		$('#div1').hide("slow");
+	}
+	</script>    
+  </head>
+  
+<body  style="background:#f3f7f8;">
+<div class="frame_content">
+   <div class="furlough">
+        <ul class="nav nav-tabs" role="tablist">
+        	<li role="presentation" class="col-xs-3 col-sm-3 active"><a id="apply_query" >书籍管理</a></li>
+			<li role="presentation" class="fur_apply col-xs-3 col-sm-3 "><a id="fur_apply">查询管理</a></li>            
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="apply_query" >
+                 <div class="apply_query">
+                    <div class="query_table_list">
+	                    	<form class="form-inline header_query">
+	                    	<input type="hidden" id="userID" value="{%.USER_ID%}"/>
+	                    	<div class="form-group">
+	                            <label for="">书籍名称</label>
+	                            <input type="text" class="form-control" id="INPUT_BOOKNAME" placeholder="输入查找图书" style="width:150px;" value="{%.BOOK_NAME%}">
+	                        </div>
+	                        <div class="form-group">
+							    	<label>状态</label>
+							    	<select	class="form-control" id="BOOK_COPY"> 
+								        <option value="">所有库存</option>
+								        <option value="0">可用借阅</option>
+								        <option value="1">已有借阅</option>
+									</select>
+							</div>	                        
+	                        <div class="form-group">
+	                            <button type="button" id="bookQuery" class="btn btn-default query_btn col-xs-12">查询</button>
+	                        </div>
+	                        {%#BOOKOPERATERIGHT%} 
+	                        <div class="form-group" id="userType">
+	                        	<div class="form-group">
+		                            <button type="button" id="bookCreate" class="btn btn-default query_btn col-xs-12">图书上架</button>                            
+		                        </div>
+		                        <div class="form-group">
+		                            <button type="button" id="bookBack" class="btn btn-default query_btn col-xs-12">图书归还</button>                            
+		                        </div>	                        
+	                        </div>
+	                        {%/BOOKOPERATERIGHT%}               	                        
+							<!--新增弹层-->
+							<br>
+							<div class="create_Book form-group" style="display:none;" id="create_Book">
+								<br>
+							    <div class="form-group"><label>书籍名称:</label><input id="BO_NAME" rows="1" cols="45" class="form-control" placeholder="必填" ></input></div>
+							    <br>
+							    <div class="form-group"><label>作者:</label><input id="BO_AUTHOR" rows="1" cols="20" class="form-control" placeholder="必填"></input></div>
+							    <div class="form-group"><label>出版社:</label><input id="BO_PUBLISH" rows="1" cols="20" class="form-control" placeholder="必填"></input></div>
+							    <div class="form-group"><label>ISBN号:</label><input id="ISBN" rows="1" cols="20" class="form-control" value="1-1-1-1-1" placeholder=""></input></div>
+							    <br>
+							    <div class="form-group"><label>价格:</label><input id="PRICE" rows="1" cols="20" class="form-control" value="0.00" placeholder=""></input></div>
+							    <div class="form-group"><label>副本数:</label><input id="COPY" rows="1" cols="20" class="form-control" value="1" placeholder=""></input></div>
+							    <br>
+							    <div class="form-group"><label>采购渠道:</label><input id="BUYCNL" rows="1" cols="20" class="form-control" placeholder="必填"></input></div>
+							    <div class="form-group">
+							    	<label>归属组:</label>
+							    	<select	class="form-control" id="OW_TEAM"> 
+								        <option value="N6">北六</option>
+								        <option value="CB">cBSS</option>
+									</select>
+							    </div>
+					      		<div class="form-group">
+							    	<button type="button"   id="createSubmit" class="btn btn-default query_btn col-xs-12">确认</button> 
+							    </div>
+							    <div class="form-group">
+							    	<button type="button"   id="createCancle" class="btn btn-default query_btn col-xs-12">取消</button>
+							    </div>
+							    <br>
+							</div> 
+	                    </form>
+                        <table id="bookstable" class="table table-striped table-bordered table-hover dataTables-example dataTable"
+                               cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th class="tn" style="text-align:center;"><input id="checkall" name="" type="checkbox" value=""></th>
+                                <th style="text-align:center;">编号</th>
+                                <th style="text-align:center;">名称</th>
+                                <!-- <th style="text-align:center;">出版社</th> -->
+                                <th style="text-align:center;">ISBN</th>
+                                <!-- <th style="text-align:center;">价格</th> -->
+                                <th style="text-align:center;">原库存</th>
+                                <th style="text-align:center;">现可用</th>
+                                <th style="text-align:center;">采购于</th>
+                                <th style="text-align:center;">入库</th>
+                                <th style="text-align:center;">归属组</th>
+                                <th style="text-align:center;">管理员</th>
+                                <!-- <th style="text-align:center;">状态</th> -->
+                                <th style="text-align:center;width:90px">借阅</th>                                
+                            </tr>
+                            </thead>
+                            <tbody>
+                             {%#BOOOKSLIST%}
+                            <tr BOOK_ID="{%.BOOK_ID%}" LOAN_SUM="{%.LOAN_SUM%}">
+                                <td style="text-align:center;"><input  name="chkItem" type="checkbox" value=""></td>
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.BOOK_ID%}</td>
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.BOOK_NAME%}</td>
+                                <!-- <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.BOOK_PUBLISH%}</td> -->
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.ISBN%}</td>
+                                <!-- <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.PRICE%}</td> -->
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.ORG_COPY%}</td>
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.COPY%}</td>
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.BUYCNL%}</td>
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.INS_TIME%}</td>
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.OWNER_TEAM%}</td>
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.BOOK_ADMINNAME%}</td>
+                                <!--<td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.STATE%}</td> -->
+                                <td style="text-align:center;" BOOK_ID="{%.BOOK_ID%}" LOAD_SUM="{%.LOAN_SUM%}" BOOK_PUB="{%.BOOK_PUBLISH%}">
+									{%^.CAN_LOAN%}
+									不可借阅
+									{%/.CAN_LOAN%} 
+									{%#.CAN_LOAN%}
+	                            	<button type="button" class="btn btn-default query_btn col-xs-12" name="loanBook" id="loanBook" >借阅</button>                            
+									{%/.CAN_LOAN%}
+								</td>
+                            </tr>
+                            {%/BOOOKSLIST%}
+                            </tbody>
+                        </table>
+                        {%>template/common/Paginate.html%}
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+  <div class="modal-box" id="loanInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top:160px;height:200px;">
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content" style="height:238px;">
+      <div class="modal-header">
+        <button type="button" class="close" id="modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">图书借阅信息</h4>
+      </div>
+      <div class="modal-body" id="backTimeConfirm">
+      		<table class="table table-striped table-bordered table-hover dataTables-example dataTable">
+      		   <tr>
+      		   	<td style="text-align:center;vertical-align:middle;">书籍名称</td>
+      		   	<td id="bo_name" style="text-align:center;vertical-align:middle;"></td>
+      		   </tr>
+      		   <tr>
+      		   	<td style="text-align:center;vertical-align:middle;">出版社</td>
+      		   	<td id="bo_pub" style="text-align:center;vertical-align:middle;"></td>
+      		   </tr>
+               <tr>
+               <td style="text-align:center;vertical-align:middle;">归还时间</td>
+               <td style="text-align:center;vertical-align:middle;">
+               	<input style="text-align:center;vertical-align:middle;width: 50%;margin-left: 25%;" id="BACK_TIME" class="laydate-icon form-control"  placeholder="必填">
+               </td>
+               </tr>
+      		</table>
+      		<div>
+      			<input style="display:none;" value="" id="bo_id">
+               	<button style="background-color:#ff9600;width:10%;margin-left:90%;margin-top:13px;" type="button" name="submit" class="btn btn-default query_btn col-xs-12">提交</button>               
+      		</div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+<div class="modal-box" id="loanHis" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top:50%;display:none;left:50%;transform: translate(-50%, -50%);position: fixed;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="modal-close-bk" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">借阅历史</h4>
+      </div>
+      <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-qjt">
+              <tbody id="querygroup">
+              </tbody>
+            </table>
+          </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<div id="bg" style=""></div>
+
+<!--下面是dataTables需要的文件-->
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+
+   {%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/BookMan.js"></script>   
+<script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
+<script>
+;!function(){
+    function dateOption(obj){
+	    var ldateOption = {
+		    elem: obj, //需显示日期的元素选择器
+		    event: 'click', //触发事件
+		    format: 'YYYY-MM-DD hh:mm:ss', //日期格式
+		    istime: true, //是否开启时间选择
+		    isclear: true, //是否显示清空
+		    istoday: true, //是否显示今天
+		    issure: true, //是否显示确认
+		    festival: true, //是否显示节日
+		    min: '2016-01-01 23:59:59', //最小日期laydate.now()
+		    max: '2099-12-31 23:59:59', //最大日期
+		    start: laydate.now(),  //开始日期laydate.now()
+		    fixed: false, //是否固定在可视区域
+		    zIndex: 99999999, //css z-index
+		    choose: function(dates){ //选择好日期的回调
+		    }    
+	    };
+	    return ldateOption;
+    }
+	$('.laydate-icon').each(function (i) {
+    	laydate(dateOption('#'+$(this).attr("id")));
+    });
+}();
+</script>
+{%>template/common/Footer.html%}
+</body>
+</html>

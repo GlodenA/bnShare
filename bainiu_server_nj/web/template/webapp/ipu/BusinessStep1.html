@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4G流量包</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+    <link rel="apple-touch-icon-precomposed" href="touch-icon-iphone.png" />
+    <!--1，引入CSS文件 -->
+    <link rel="stylesheet" href="biz/ipu/theme/hum.css">
+<body>
+	<header class="ui-toolbar" id="header" >
+		<button class="ui-toolbar-btn ui-btn-link fn-left">
+			<span class="ui-icon icon-left-nav"></span>
+		</button>
+		<h1 class="ui-toolbar-title">4G可选流量包</h1>
+	</header>	
+
+  <div class="container">
+	<div class="ui-panel-content">
+		<div class="ui-list-item ui-media">
+			<img class="ui-media-object fn-left" src="biz/ipu/temp/busi_detail.png"  width="90" height="90">	
+			<div class="ui-media-body">
+				<h4>4G可选流量包</h4>
+				<p>
+					未开通
+				</p>
+				<p>
+					<button class="ui-btn ui-btn-green" id="opening4g">立即开通</button>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-panel-content">
+		<div class="ui-tab">
+			<a class="ui-tab-item active">业务概览</a>
+			<a class="ui-tab-item">详细介绍</a>
+			<a class="ui-tab-item">温馨提示</a>
+			<a class="ui-tab-item">办理方法</a>
+		</div>
+	</div>
+
+	<div class="ui-panel">
+		<ul class="ui-summary">
+			<li class="ui-summary-item">
+				<span class="ui-summary-item-key">名称：</span>上网流量包
+			</li>
+		</ul>
+		<ul class="ui-summary ui-summary-2">
+			<li class="ui-summary-item">
+				<span class="ui-summary-item-key">热度：</span>五颗星
+			</li>
+			<li class="ui-summary-item">
+				<span class="ui-summary-item-key">品牌：</span>全球通 神州行 动感地带
+			</li>
+			<li class="ui-summary-item">
+				<span class="ui-summary-item-key">资费：</span>月费5元
+			</li>
+			<li class="ui-summary-item">
+				<span class="ui-summary-item-key">热度：</span>五颗星
+			</li>
+			<li class="ui-summary-item">
+				<span class="ui-summary-item-key">品牌：</span>全球通 神州行 动感地带
+			</li>
+			<li class="ui-summary-item">
+				<span class="ui-summary-item-key">资费：</span>月费5元
+			</li>
+			<li class="ui-summary-item">
+				<span class="ui-summary-item-key">介绍：</span>含30M国内（不含港澳台）移动数据流量
+			</li>
+		</ul>
+	</div>
+
+	<div class="ui-panel">
+		<div class="ui-panel-head fn-clear">
+			<h3 class="ui-panel-head-title">推荐业务</h3>
+		</div>
+		<div class="ui-panel-container">
+			<ul class="ui-list">
+				<li class="ui-list-item">
+					<a class="icon-navigate-right">4G闲时流量包</a>
+				</li>
+				<li class="ui-list-item">
+					<a class="icon-navigate-right">移动数据功能</a>
+				</li>
+			</ul>
+		</div>	
+	</div>
+</div>
+
+<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+<script src="biz/ipu/res/js/bootstrap.min.js"></script> 
+
+<script>
+	$(function(){
+        var $bulltxts = $('.ui-tab-item');
+        $bulltxts.click(function(){
+        	$(this).addClass("active").siblings().removeClass("active");
+        	return false;
+        })
+    })
+
+</script>
+	{%>template/common/Head.html%}
+	<script type="text/javascript" src="biz/js/BusinessStep1.js"></script>
+</body>
+</html>

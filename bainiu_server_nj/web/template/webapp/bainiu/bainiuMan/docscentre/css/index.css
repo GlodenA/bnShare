@@ -1,0 +1,629 @@
+/*-----------------------
+* Site:  index
+* Author: 7*
+* Updated: 2019-06-14 16:59
+* Version: 1.0.0
+* -----------------------*/
+
+@charset "UTF-8";
+
+/*----------------icon-font-----------------*/
+
+@font-face {
+    font-family: 'iconfont';
+    /* project id 1061809 */
+    src: url("//at.alicdn.com/t/font_1061809_6n7p2ygxehb.eot");
+    src: url("//at.alicdn.com/t/font_1061809_6n7p2ygxehb.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_1061809_6n7p2ygxehb.woff2") format("woff2"), url("//at.alicdn.com/t/font_1061809_6n7p2ygxehb.woff") format("woff"), url("//at.alicdn.com/t/font_1061809_6n7p2ygxehb.ttf") format("truetype"), url("//at.alicdn.com/t/font_1061809_6n7p2ygxehb.svg#iconfont") format("svg");
+}
+
+[class^='icon-'],
+[class*=' icon-'],
+.iconfont,
+.icon {
+    font-family: 'iconfont' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-stroke-width: 0.2px;
+}
+
+.hover-up {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.hover-up:hover {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+}
+
+.block-shadow-primary:hover {
+    -webkit-box-shadow: 0 10px 20px rgba(255, 225, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(255, 225, 0, 0.3);
+}
+
+.color-primary {
+    color: #ffe100;
+}
+
+.bg-gray {
+    background-color: #f5f5f5;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.fn-hide {
+    display: none !important;
+}
+
+.fn-show {
+    display: block !important;
+}
+
+
+/* 清理浮动 */
+
+.fn-clear:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.fn-clear {
+    zoom: 1;
+    /* for IE6 IE7 */
+}
+
+.fn-left {
+    float: left;
+}
+
+.fn-right {
+    float: right;
+}
+
+
+/* 单行文字溢出时出现省略号，需设定宽度 */
+
+.fn-text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* 人民币符号 */
+
+.fn-rmb {
+    font-family: arial;
+    font-style: normal;
+    padding-right: 4px;
+}
+
+
+/* chrome 下字体过小的问题 */
+
+.fn-webkit-adjust {
+    -webkit-text-size-adjust: none;
+}
+
+
+/*----7*--2015.11.20-update----*/
+
+.fn-overflow {
+    overflow: hidden;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.fn-text-left {
+    text-align: left;
+}
+
+.fn-text-center {
+    text-align: center;
+}
+
+.fn-text-right {
+    text-align: right;
+}
+
+.fn-block {
+    display: block;
+}
+
+.red {
+    color: #bd0505;
+}
+
+.gray {
+    background-color: #f6f6f6;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.mr14 {
+    margin-right: 14px;
+}
+
+.fn-blur {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.fn-fade-up {
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+.fn-fade-up.show {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.fn-delay-04 {
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+
+.fn-delay-55 {
+    -webkit-transition-delay: 0.55s;
+    transition-delay: 0.55s;
+}
+
+.radius-5 {
+    border-radius: 5px;
+}
+
+.show-round {
+    border-radius: 50%;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.transition-02,
+.hover-up {
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.transition-35 {
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+}
+
+.transition-05 {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.transition-1 {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+
+html {
+    min-height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-overflow-scrolling: touch;
+    background-color: #fff;
+    padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+
+/* HTML5 媒体文件跟 img 保持一致 */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+
+body,
+button,
+input,
+select,
+textarea {
+    font-style: normal;
+    font-size: 30px;
+    font-family: \5FAE\8F6F\96C5\9ED1, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, tahoma, arial, "Hiragino Sans GB", \5b8b\4f53, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #333333;
+}
+
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* IE bug fixed: th 不继承 text-align*/
+
+th {
+    text-align: inherit;
+}
+
+
+/* 去除默认边框 */
+
+fieldset,
+img {
+    border: 0;
+}
+
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+
+iframe {
+    display: block;
+}
+
+
+/* 去掉 firefox 下此元素的边框 */
+
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+
+/* 一致的 del 样式 */
+
+del {
+    text-decoration: line-through;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+    font-style: normal;
+    font-weight: 500;
+}
+
+
+/* 去掉列表前的标识, li 会继承 */
+
+ol,
+ul {
+    list-style: none;
+}
+
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+
+caption,
+th {
+    text-align: left;
+}
+
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: 500;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+
+/* 统一上标和下标 */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+/* 正常链接 未访问 */
+
+a:link {
+    text-decoration: none;
+}
+
+
+/* 鼠标悬停 */
+
+a:hover {
+    text-decoration: none;
+    color: #f0c238;
+}
+
+
+/* 默认不显示下划线，保持页面简洁 */
+
+ins,
+a {
+    text-decoration: none;
+}
+
+
+/* 代码字体 */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+
+/* 隐藏, 通常用来与 JS 配合 */
+
+body .fn-hide {
+    display: none;
+}
+
+
+/* a链接去掉点击时候的虚线*/
+
+a,
+button,
+input {
+    text-decoration: none;
+    outline: none;
+    /*ff*/
+    hide-focus: expression(this.hideFocus=true);
+    /*ie*/
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+/*初始化系统默认样式*/
+
+i,
+em {
+    font-style: normal;
+}
+
+input,
+select,
+textarea {
+    vertical-align: middle;
+    -webkit-appearance: none;
+    border-radius: 0;
+    outline: none;
+    font-family: \5FAE\8F6F\96C5\9ED1, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, tahoma, arial, "Hiragino Sans GB", \5b8b\4f53, sans-serif;
+    color: #333;
+}
+
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* 清除浏览器默认行为 */
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+}
+
+a,
+button {
+    -webkit-user-select: none;
+}
+
+input[type=tel],
+input[type=number],
+input[type=password],
+input[type=date] {
+    font-family: tahoma, arial, "Hiragino Sans GB", \5b8b\4f53, sans-serif;
+}
+
+
+/*input[type="date"]:before {
+    content: attr(placeholder);
+    color:#c7c7c7;width: 100%;
+    text-align: center;
+}*/
+
+body {
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100%;
+}
+
+a {
+    color: #666;
+}
+
+
+/*------often-used-------*/
+
+body.gray {
+    background-color: #f6f6f6;
+}
+
+body.fix {
+    padding-bottom: 120px;
+    height: auto;
+}
+
+body.fix-default {
+    padding-bottom: 80px;
+    height: auto;
+}
+
+body.overflow {
+    overflow: hidden;
+}
+
+.main {
+    width: 100%;
+}
+
+.main-container {
+    width: 100%;
+    padding: 0 80px;
+    min-height: calc(100vh - 134px);
+}
+
+.main-wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.main-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+}
+
+.main-container .title-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    font-size: 14px;
+}

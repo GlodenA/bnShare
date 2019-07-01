@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="2cf99f4a-af53-4b5e-a570-8783cb3b69c3" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/bainiu-server_svn.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bainiu-server.war" beforeDir="false" afterPath="$PROJECT_DIR$/bainiu-server.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ipu/server/bean/IshareBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ipu/server/bean/IshareBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ipu/server/bean/MsgBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ipu/server/bean/MsgBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ipu/server/dao/VacationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ipu/server/dao/VacationDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ipu/server/util/BainiuFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ipu/server/util/BainiuFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/ErrBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/ErrBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/GroupBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/GroupBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/Index.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/Index.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/MsgBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/MsgBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/RightBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/RightBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/UserBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/UserBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/bean/AppBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/bean/AppBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/bean/IpuAppBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/bean/IpuAppBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/context/IpuContextData.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/context/IpuContextData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/handle/IpuExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/handle/IpuExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/handle/IpuSecurityHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/handle/IpuSecurityHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/session/IpuSessionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/core/session/IpuSessionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/BaseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/BaseDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/CommentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/CommentDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/DaoHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/DaoHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/DaoUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/DaoUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/ErrDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/ErrDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/GroupDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/GroupDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/IpuMemberInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/IpuMemberInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/LoginDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/LoginDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/MsgDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/MsgDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/RightDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/RightDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/SmartBaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/SmartBaseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/Constant$Cache.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/Constant$Cache.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/Constant$Context.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/Constant$Context.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/Constant$Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/Constant$Session.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/FileUpload.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/FileUpload.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/ImageVerify.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/ImageVerify.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/ImageZipUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/ImageZipUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/StringUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/StringUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/aiServer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/aiServer.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/server-data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/server-data.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/server-page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/server-page.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/BainiuRightApply.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/BainiuRightApply.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/Comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/Comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/Details.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/Details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/Login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/GroupMan.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/GroupMan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/answer.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/answer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/aside.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/aside.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/authorizationManagement.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/authorizationManagement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/dataAnalysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/dataAnalysis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/furlough.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/furlough.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/log.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/log.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/msgbox.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/msgbox.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/msgdetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/msgdetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/proipt.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/proipt.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/tro_query.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/tro_query.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/webFileManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/bainiuMan/webFileManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/bainiu/reg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/ipu/BainiuIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/ipu/BainiuIndex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/encrypt/template/webapp/ipu/ErrDtl.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/encrypt/template/webapp/ipu/ErrDtl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/res.version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/web/res.version.properties" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/web/WEB-INF/classes/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>核心产品部</find>
+      <find>爱分享管理</find>
+      <find>elfinder-connector-servlet</find>
+      <find>lay</find>
+      <find>pmInfos</find>
+      <find>newPminfo</find>
+      <find>adao.queryUserByUserId(PmUserbuf.getString(&quot;USER_ID&quot;))</find>
+      <find>PmUserInfo</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/com/ipu/server/bean/IshareBean.java" />
+        <option value="$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/ConnectorController.java" />
+        <option value="$PROJECT_DIR$/src/com/ipu/server/util/BainiuFilter.java" />
+        <option value="$PROJECT_DIR$/src/com/ipu/server/bean/MsgBean.java" />
+        <option value="$PROJECT_DIR$/src/com/ipu/server/dao/VacationDao.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="1522" />
+    <option name="height" value="1932" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ipu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ipu" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bainiu-server_svn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bainiu_server_nj" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ipu" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../cb-ability-app" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\toby7\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\workbea\bainiu6\KNGE\KNGE\bainiuold\bainiu_server_nj" />
+          <option name="myCopyRoot" value="C:\workbea\bainiu6\KNGE\KNGE\bainiuold\bainiu_server_nj" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\workbea\bainiu6\KNGE\KNGE\bainiuold\bainiu_server_nj" />
+          <option name="myCopyRoot" value="C:\workbea\bainiu6\KNGE\KNGE\bainiuold\bainiu_server_nj" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2cf99f4a-af53-4b5e-a570-8783cb3b69c3" name="Default" comment="" />
+      <created>1535438840074</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1535438840074</updated>
+      <workItem from="1535438845081" duration="4168000" />
+      <workItem from="1536647803850" duration="929000" />
+      <workItem from="1537409412665" duration="1800000" />
+      <workItem from="1537437585338" duration="2352000" />
+      <workItem from="1542359384026" duration="330000" />
+      <workItem from="1547025593199" duration="620000" />
+      <workItem from="1547084858433" duration="625000" />
+      <workItem from="1547173121045" duration="4149000" />
+      <workItem from="1547187290715" duration="1057000" />
+      <workItem from="1547192911731" duration="3216000" />
+      <workItem from="1547275266648" duration="484000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="19730000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Java Enterprise" order="7" weight="0.3292683" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32923833" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3292683" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2281787" />
+      <window_info id="Web" order="2" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.07079038" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3292683" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.10927835" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.1941032" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+    <buildFile url="file://$PROJECT_DIR$/build/build.xml">
+      <targetFilters>
+        <filter targetName="all" isVisible="false" />
+        <filter targetName="clean" isVisible="true" />
+        <filter targetName="copy" isVisible="false" />
+        <filter targetName="compile" isVisible="false" />
+        <filter targetName="war" isVisible="false" />
+        <filter targetName="encrypt" isVisible="true" />
+        <filter targetName="version" isVisible="true" />
+      </targetFilters>
+      <expanded value="true" />
+    </buildFile>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/web/template/webapp/bainiu/bainiuMan/IshareMailEnrol.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/biz/js/common/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="40" lean-forward="true" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/CommandExecutionContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/biz/js/common/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1958">
+          <caret line="89" column="23" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/servlet/ConnectorServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/servlet/UeditorServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/ConnectorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="38" column="44" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/CommandExecutorFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/CommandExecutionContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/CommandExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/AbstractCommandExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/service/FsServiceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/DefaultCommandExecutorFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/dao/BookManDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/build.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/core/bean/AppBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="128" column="15" lean-forward="true" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/util/MailUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="64" column="43" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/dao/TempletManDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/elfinder-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1723">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/impl/StaticFsServiceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/service/FsServiceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/CommandExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/AbstractCommandExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/servlet/UeditorServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/servlet/ConnectorServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/spring-context-3.2.10.RELEASE.jar!/org/springframework/stereotype/Controller.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/CommandExecutionContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/ConnectorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="38" column="44" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/CommandExecutorFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/IshareBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2639">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/template/webapp/bainiu/bainiuMan/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/template/webapp/bainiu/bainiuMan/BookMan.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/template/webapp/bainiu/bainiuMan/IshareMailEnrol.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/biz/js/common/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/biz/js/common/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1958">
+          <caret line="89" column="23" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/fileServer/elfinder/controller/executor/DefaultCommandExecutorFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/util/BainiuFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2662">
+          <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/学习/msgTst/msgTst/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/dao/BaseDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36608">
+          <caret line="1691" column="40" selection-start-line="1691" selection-start-column="40" selection-end-line="1691" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/wade-mobile-server.jar!/com/ailk/mobile/frame/bean/CommonBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/dao/VacationDao.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="908">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/wade-common.jar!/com/ailk/common/data/IDataset.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="30" column="15" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/wade-common.jar!/com/ailk/common/data/impl/DatasetList.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="144" column="26" lean-forward="true" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/dao/GroupDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="350" column="64" selection-start-line="350" selection-start-column="54" selection-end-line="350" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/dao/VacationDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="47" column="6" lean-forward="true" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/classes/com/ipu/server/bean/MsgBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="336" selection-start-line="336" selection-end-line="336" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/bean/BookManBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/bean/IshareBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1545">
+          <caret line="469" column="29" selection-start-line="469" selection-start-column="29" selection-end-line="469" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/bean/MsgBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="342" column="41" selection-start-line="342" selection-start-column="41" selection-end-line="342" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ipu/server/util/BainiuFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>bainiu-server_svn</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>aiServer</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

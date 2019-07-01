@@ -1,0 +1,72 @@
+
+			<div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+				<div class="am-offcanvas-bar admin-offcanvas-bar">
+					<ul class="am-list admin-sidebar-list">
+						<li>
+							<a id="goToIndex"><span class="am-icon-home"></span>
+								首页</a>
+						</li>
+						<li class="admin-parent">
+							<a class="am-cf" data-am-collapse="{target: '#question-nav'}"><span
+								class="am-icon-puzzle-piece"></span> 知识库管理 <span
+								class="am-icon-angle-right am-fr am-margin-right"></span> </a>
+							<ul class="am-list am-collapse admin-sidebar-sub am-in"
+								id="question-nav">
+								{%#QUESTION_NAV%}
+								<li>
+									<a action="{%.MOD_FILE%}"  class="am-cf" style="cursor:pointer"> <span
+										class="{%.RIGHT_ICON%}"></span>{%.RIGHT_TEXT%}<span
+										class="{%.UNDO_CLASS%}">{%.UNDO_NUM%}</span>
+									</a>
+								</li>
+								{%/QUESTION_NAV%}
+							</ul>
+						</li>
+						<li class="admin-parent">
+							<a class="am-cf" data-am-collapse="{target: '#sysman-nav'}"><span
+								class="am-icon-puzzle-piece"></span> 系统管理 <span
+								class="am-icon-angle-right am-fr am-margin-right"></span> </a>
+							<ul class="am-list am-collapse admin-sidebar-sub am-in"
+								id="sysman-nav">
+								{%#SYSMAN_NAV%}
+								<li>
+									<a action="{%.MOD_FILE%}"  class="am-cf" style="cursor:pointer"> <span
+										class="{%.RIGHT_ICON%}"></span>{%.RIGHT_TEXT%}<span
+										class="{%.UNDO_CLASS%}">{%.UNDO_NUM%}</span>
+									</a>
+								</li>
+								{%/SYSMAN_NAV%}
+							</ul>
+						</li>
+						<li>
+						<a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span
+								class="am-icon-wrench"></span> 常用工具 <span
+								class="am-icon-angle-right am-fr am-margin-right"></span> </a>
+						</li>
+					 
+					</ul>
+
+					<div class="am-panel am-panel-default admin-sidebar-panel">
+						<div class="am-panel-bd">
+							<p>
+								<span class="am-icon-bookmark"></span> 公告
+							</p>
+							<p>
+								版本初期，你我共同成长。—— BaiNiu
+							</p>
+						</div>
+					</div>
+
+					<div class="am-panel am-panel-default admin-sidebar-panel">
+						<div class="am-panel-bd">
+							<p>
+								<span class="am-icon-tag"></span> 目前版本
+							</p>
+							<p>
+								
+                               V 0.1
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>

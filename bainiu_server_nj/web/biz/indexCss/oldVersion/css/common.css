@@ -1,0 +1,169 @@
+/*reset css*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+}
+
+body {
+    line-height: 1;
+    font-size: 12px;
+ /*   font-family: "微软雅黑";*/
+    background: #fff;
+    color:#555
+
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.clear {
+    zoom: 1
+}
+
+.clear:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+b{font-weight:normal}
+b,i{font-style: normal}
+a{
+    text-decoration: none;
+    color:#555
+}
+a:hover{text-decoration: underline}
+
+:focus {
+    outline: 0;
+}
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.opacity {
+    background: #fff;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+
+/*公共样式*/
+
+.bn_btn {
+    width: 104px;
+    height: 40px;
+    background: #ff8810;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.bn_btn:active{background:#f48f28}
+.form_wrapper .sel_ipt{width:103px; height:38px;border:1px solid #d5d5d5; display:inline-block; line-height: 38px; text-align: center;
+border-radius:2px 0 0 2px; float:left; }
+.form_wrapper .sel_ipt select{ border:none; width:80px; outline: none}
+.form_wrapper .sh_ipt{ height:38px; border:1px solid #ff9831; width:430px;float:left; margin-left:-1px; overflow:hidden }
+.form_wrapper .sh_ipt input{height:24px; padding:7px; line-height: 24px; border:none; width:416px;}
+.form_wrapper .sh_sub{float:left; margin-left:-1px;}
+.sm_tips{padding:0 6px; height:14px; line-height:14px;text-align: center; color:#fff; border-radius: 4px; display: inline-block}
+.plat_tips{background:#9bc07c}
+.bus_tips{background:#73bed8}
+.excp_tips{background:#ca6593}
+.pagination_area{padding:30px 38px;}
+.pagination_area span.pagination,.pagination_area span.pagination_add{vertical-align: middle}
+.pagination_area span.pagination_add .ok_btn{width:43px; height:26px; line-height: 26px;margin-left:10px;}
+.pagination a {color: #313131; border:1px solid #ebebeb; margin-left:-1px; padding:6px 10px; display: inline-block}
+.pagination .current {border:1px solid #ff8000; color:#fff; background:#ff8000; padding:6px 10px;  display: inline-block}
+.pagination .current.prev, .pagination .current.next{cursor:default;color:#ebebeb}
+.pagination .prev{margin-right:10px; font-weight:bold;color:#313131;background:#fff; border-color:#ebebeb}
+.pagination .next{margin-left:10px; font-weight:bold;color:#313131;background:#fff;border-color:#ebebeb}
+.pagination_add  a:hover{text-decoration:none}
+.pagination_add  a .gotopage{width:26px; line-height:22px; height:22px; border:1px solid #e6e6e6;  display: inline-block;margin:0 10px;  text-align: center}
+
+/*首页样式*/
+.bn_home .header{ height:40px;border-bottom:1px solid #f0f1f1\9; box-shadow: 0 2px 5px rgba(0,0,0,.1)}
+.bn_home .header ol{float:right; margin-right:20px;}
+.bn_home .header ol li{ float:right; margin-left:30px;}
+.bn_home .header ol a{ line-height:44px;}
+.bn_home .section{ width:640px;  position:absolute; left:50%;  margin-left:-320px; margin-top:80px; }
+.bn_home .section .logo_area{ text-align: center; margin-bottom:40px;}
+.bn_home .footer{position:absolute; bottom:14px;text-align: center; width:100% }
+.bn_home .footer p{text-align: center; color:#cccccc; font-size: 14px;}
+.bn_home .footer p a{color:#cccccc}
+
+/*内页样式*/
+
+html,body,.bn_main{height:100%}
+.main_col{width:100%; float:left}
+.main_col .main_wrap{margin-left:176px; height:100px;}
+.bn_main .aside{ float:left; width:176px; margin-left:-100%;  height:100%;}
+.bn_main .aside .bn_version{ height:44px; background:#22a4f0;text-align: center}
+.bn_main .aside .bn_version b{font-size:18px; color:#fff; padding-right:6px; font-family:"微软雅黑"; line-height: 44px; }
+.bn_main .aside .bn_version i{ color:#fff}
+.aside .nav dl dt{ height:45px; line-height:45px; cursor:pointer; color:#fff; font-size:14px; font-family:"microsoft yahei"; padding-left:50px; }
+.aside .nav dl dt.home{ background:url('../images/home_icon.png') no-repeat 18px 50%; background-size:22px 22px;}
+.aside .nav dl dt.module{background:url('../images/module_icon.png') no-repeat 18px 50%;background-size:22px 22px;}
+.aside .nav dl dt.excel{background:url('../images/excel_icon.png') no-repeat 18px 50%;background-size:22px 22px;}
+.aside .nav dl dt.sysmanage{background:url('../images/sysmanage_icon.png') no-repeat 18px 50%;background-size:22px 22px;}
+.aside .nav dl dt.managetools{background:url('../images/managetools_icon.png') no-repeat 18px 50%;background-size:22px 22px;}
+.aside .nav dl dt.form{background:url('../images/form_icon.png') no-repeat 18px 50%;background-size:22px 22px;}
+.aside .nav dl dt.quit{background:url('../images/quit_icon.png') no-repeat 18px 50%;background-size:22px 22px;}
+.aside .nav dl dt span{width:96px; display: inline-block}
+.aside .nav dl.active dt i{width:7px; height:4px; display: inline-block;vertical-align: middle;  background:url('../images/slideD.png') no-repeat }
+.aside .nav dl.active dt{background-color:#21282e}
+.aside .nav dl dt i{width:7px; height:4px; display: inline-block;vertical-align: middle;  background:url('../images/slideU.png') no-repeat }
+.aside .nav dl dd{display:none;line-height: 30px;padding-left:50px;}
+.aside .nav dl dd.active a{color:#63a8eb}
+.aside .nav dl dd a{color:#a6a6a6; width:92px; display: inline-block}
+.aside .nav dl dd b{width:16px; height:16px; line-height: 16px; text-align: center; color:#fff; border-radius: 8px; display:inline-block ;background:#f96768; }
+.aside .nav dl.active dd{display:block;}
+.main_wrap .header{height:44px;border-bottom:1px solid #f0f1f1\9; box-shadow: 0 2px 5px rgba(0,0,0,.1);}
+.main_wrap .header ol{float:right; margin-right:20px;}
+.main_wrap .header ol li{float:right; margin-left:30px; line-height: 44px; position:relative}
+.main_wrap .header ol li i{width:8px; height:5px; margin-left:4px; display: inline-block; background:url('../images/sd2.png') no-repeat 0 50%}
+.main_wrap .header ol li dl{display: none}
+.main_wrap .header ol li.active i{width:8px; height:5px; margin-left:4px; display: inline-block; background:url('../images/su2.png') no-repeat 0 50%}
+.main_wrap .header ol li.active dl{position:absolute; padding:10px; background:#fff; top:34px;width:72px; border: 1px solid rgba(0,0,0,.15);
+border-radius: 4px;border:1px solid #f0f1f1\9;box-shadow: 0 2px 5px rgba(0,0,0,.175);}
+.main_wrap .header ol li dl dd {line-height: 28px; }
+.main_wrap .form_wrapper{margin:10px 0 0 40px; float:left;}
+.main_wrap .form_wrapper .sel_ipt{width:99px; height:26px;border:none; background:#eceff3; display:inline-block; line-height: 26px; text-align: center;
+    border-radius:2px 0 0 2px; float:left;}
+.main_wrap .form_wrapper .sel_ipt select{ border:none; width:80px;background:#eceff3;}
+.main_wrap .form_wrapper .sh_ipt{ height:26px;border:none; background:#eceff3; border-left:1px solid #e6e9ed; width:438px;float:left;  overflow:hidden }
+.main_wrap .form_wrapper .sh_ipt input{height:20px;line-height: 20px; padding:3px 5px; border:none; width:428px;background:none;}
+.main_wrap .form_wrapper .sh_sub{float:left;width:44px; height:26px; border-radius:0 2px 2px 0; background:url('../images/sh.png') no-repeat center center; background-color:#ff850a;  }
+.main_wrap .article{padding-right:300px; padding-left:38px; height:500px; overflow:auto}
+.main_wrap .article .article_block{margin-top:45px;}
+.main_wrap .article .article_block .article_tit{line-height: 28px; font-size:16px; font-weight:bold}
+.main_wrap .article .article_tit{ padding-right:10px;}
+.main_wrap .article .article_tit,.main_wrap .article .sm_tips{vertical-align: middle}
+.main_wrap .article .article_details a{line-height: 24px;color:#a5a5a5; padding-right:20px;}
+.main_wrap .article .articel_con{color:#a5a5a5; }
+.main_wrap .article .articel_con{line-height: 17px;}
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<weblogic-web-app>
+  <session-descriptor>
+    <session-param>
+      <param-name>TimeoutSecs</param-name>
+      <param-value>28800</param-value>
+    </session-param>
+    <session-param>
+      <param-name>CookieName</param-name>
+      <param-value>BSS_JSESSIONID</param-value>
+    </session-param>
+    <session-param>
+     <param-name>PersistentStoreType</param-name>
+     <param-value>replicated_if_clustered</param-value>
+    </session-param>
+     <session-param>
+     <param-name>PersistentStorePool</param-name>
+     <param-value>ds_crm_uop_cen_sess</param-value>
+    </session-param>
+    <session-param>
+     <param-name>PersistentStoreTable</param-name>
+     <param-value>SYS_SESSION_STORE</param-value>
+   </session-param>
+  </session-descriptor>
+	<jsp-descriptor>
+		<jsp-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</jsp-param>
+	</jsp-descriptor>
+  <container-descriptor>
+      <servlet-reload-check-secs>-1</servlet-reload-check-secs>
+  </container-descriptor>
+  <context-root>/</context-root>
+</weblogic-web-app>

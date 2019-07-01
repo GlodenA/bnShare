@@ -1,0 +1,67 @@
+
+<table id="bro_stat"
+	class="table-hover row-border stat_list_table dataTable"
+	cellspacing="0" width="100%">
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+
+		{%#RIGHT.DATA_SUGG_REPLY%}
+		<span id="replyRight" style="display: none">true</span>
+		{%/RIGHT.DATA_SUGG_REPLY%} {%#COMMENT_INFOS%}
+		<tr>
+			<td>
+				<img src="template/webapp/bainiu/bainiuMan/images/photo.png" />
+			</td>
+			<td>
+				<div class="per_info">
+					<p class="email">{%.REQ_NAME%}</p>
+					<p class="date_time">{%.WHEN_REQ%}</p>
+				</div>
+			</td>
+			<td align="right" class="sug">{%.CONTENT_REQ_SBU%}</td>
+			<td align="right" class="sugDat" style="display: none">{%.CONTENT_REQ%}</td>
+			<td align="right" class="reqp" style="display: none">{%.CONTENT_REQP%}</td>
+			<td align="right" class="keyId" style="display: none">{%.KEYID%}</td>
+		</tr>
+		{%/COMMENT_INFOS%}
+	</tbody>
+</table>
+<span id="qryCommentParames" style="display: none">{%QRYCOMM.PARAMS%}</span>
+<div class="bottom">
+	<div class="dataTables_info" role="status"
+		style="clear: both; float: left; padding-top: 0.755em;"
+		aria-live="polite">
+	</div>
+	<div class="dataTables_paginate paging_full_numbers">
+		<ul class="pagination" id="qryMyPagination"
+			style="float: right; text-align: right; padding-top: 0.25em;">
+			<li class="paginate_button first" id="example_first">
+				<a pagIdex="1" style="cursor: pointer">首页</a>
+			</li>
+			<li class="paginate_button last">
+				<a pagIdex="{%QRYCOMM.LAST_PAGE%}" style="cursor: pointer">上一页</a>
+			</li>
+			{%#QRYCOMM.PAGINATIONS%}
+			<li class="paginate_button {%#CURRENT_PAGE%}active{%/CURRENT_PAGE%}">
+				<a pagIdex="{%.ROW_INDEX%}" name="flash" style="cursor: pointer">{%.ROW_INDEX%}</a>
+			</li>
+			{%/QRYCOMM.PAGINATIONS%}
+			<li class="paginate_button next">
+				<a pagIdex="{%QRYCOMM.NEXT_PAGE%}" style="cursor: pointer">下一页</a>
+			</li>
+			<li class="paginate_button previous">
+				<a pagIdex="{%QRYCOMM.PAGE_COUNT%}" style="cursor: pointer">末页</a>
+			</li>
+
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>
+
+

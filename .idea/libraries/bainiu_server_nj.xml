@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="bainiu_server_nj">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/bainiu-server.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/aiServer.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

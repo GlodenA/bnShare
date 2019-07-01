@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap和dataTables样式 -->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <!--自己的样式-->
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.ext.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+</head>
+<body  style="background:#f3f7f8">
+<div class="frame_content">
+
+
+    <div class="data_analysis clear">
+        <div class="data_analysis_panel">
+            <div class="title"><h1>数据分析</h1><span class="collapse_btn"></span></div>
+            <div class="con clear">
+             
+               <div style="height:155px;width:25%;float:left;position:relative;">
+               <!--  <h3 style="position:absolute;left:50%; width:78px; margin-left:-15px; line-height:150px;">解决统计</h3>-->
+               <canvas id="errSolvePie" pieData="{%.ERR_SOLVE_PIEDATE%}" style="height:155px;width:25%;float:left;"></canvas></div>
+               <div style="height:155px;width:25%;float:left;">          
+               <canvas id="errTypePie" pieData="{%.ERR_TYPE_PIEDATE%}" style="height:155px;width:25%;float:left;"></canvas></div>
+               <div style="height:155px;width:25%;float:left;">
+               <canvas id="errInsertPie" pieData="{%.ERR_INSERT_PIEDATE%}" style="height:155px;width:25%;float:left;"></canvas></div>
+               <div style="height:155px;width:25%;float:left;">
+               <canvas id="errSolvedPie" pieData="{%.ERR_SOLECED_PIEDATE%}" style="height:155px;width:25%;float:left;"></canvas></div>
+            </div>
+        </div>
+
+        <table class="stat_list" cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr>
+            <td valign="top">
+                <div class="data_analysis_panel">
+                    <div class="title"><h1>最近留言</h1><span class="collapse_btn"></span></div>
+                    <div class="con clear">
+
+                        <table id="bro_stat" class="table-hover row-border stat_list_table dataTable" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th style="width:60px;"></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {%#RIGHT.DATA_SUGG_REPLY%}
+                            <span  id="replyRight" style="display:none">true</span>
+                            {%/RIGHT.DATA_SUGG_REPLY%}
+                            {%#COMMENT_INFOS%}
+                            <tr>
+                                <td><img src="template/webapp/bainiu/bainiuMan/images/photo.png"/></td>
+                                <td>
+                                    <div class="per_info">
+                                        <p class="email">{%.REQ_NAME%}</p>
+                                        <p class="date_time">{%.WHEN_REQ%}</p>
+                                    </div>
+                                </td>
+                                <td align="right" class="sug" >{%.CONTENT_REQ_SBU%}</td>
+                                <td align="right" class="sugDat" style="display:none">{%.CONTENT_REQ%}</td>
+                                <td align="right" class="reqp" style="display:none">{%.CONTENT_REQP%}</td>
+                                <td align="right" class="keyId" style="display:none">{%.KEYID%}</td>
+                                
+                            </tr>
+                            {%/COMMENT_INFOS%}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+            <td width="20">
+
+            </td>
+            <td  valign="top">
+                <div class="data_analysis_panel" >
+                    <div class="title"><h1>浏览器统计</h1><span class="collapse_btn"></span></div>
+                    <div class="con clear">
+                        <table id="recent_msg" class="table-hover stat_list_table row-border dataTable" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th style="width:60px;"></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><img src="biz/assets/i/examples/admin-chrome.png" alt=""></td>
+                                <td>
+                                    <div class="per_info">
+                                        <p class="email">Google Chrome</p>
+                                        <p class="date_time">&nbsp</p>
+                                    </div>
+                                </td>
+                                <td align="right">{%.GoogleChrome%}</td>
+                            </tr>
+                            <tr>
+                                <td><img src="biz/assets/i/examples/admin-firefox.png" alt=""></td>
+                                <td>
+                                    <div class="per_info">
+                                        <p class="email">Mozilla Firefox</p>
+                                        <p class="date_time">&nbsp</p>
+                                    </div>
+                                </td>
+                                <td align="right">{%.MozillaFirefox%}</td>
+                            </tr>
+                            <tr>
+                                <td><img src="biz/assets/i/examples/admin-ie.png" alt=""></td>
+                                <td>
+                                    <div class="per_info">
+                                        <p class="email">Internet Explorer</p>
+                                        <p class="date_time">&nbsp</p>
+                                    </div>
+                                </td>
+                                <td align="right">{%.InternetExplorer%}</td>
+                            </tr>
+                            <tr>
+                            <td><img src="biz/assets/i/examples/admin-opera.png" alt=""></td>
+                                <td>
+                                    <div class="per_info">
+                                        <p class="email">Opera</p>
+                                        <p class="date_time">&nbsp</p>
+                                    </div>
+                                </td>
+                                <td align="right">{%.InternetExplorer%}</td>
+                            </tr>
+                            <td><img src="biz/assets/i/examples/admin-safari.png" alt=""></td>
+                                <td>
+                                    <div class="per_info">
+                                        <p class="email">Safari</p>
+                                        <p class="date_time">&nbsp</p>
+                                    </div>
+                                </td>
+                                <td align="right">{%.Safari%}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </table>
+
+
+
+    </div>
+</div>
+
+<div class="reply_temp" style="display:none">
+<div class="reply_wrap">
+    <div class="sugmsg">留言详情：<span class="sugmsg_details"></span></div>
+    <div class="reply_til">回复：<span class="email_to"></span></div>
+    <div class="reply_con">
+        <textarea id="replyText"></textarea>
+    </div>
+    <div class="reply_btn_area">
+    	{%#RIGHT.DATA_SUGG_REPLY%}
+        <button type="button" class="btn btn-default btn-xs reply_sub">确定</button>
+        {%/RIGHT.DATA_SUGG_REPLY%}
+        <button type="button" class="btn btn-default btn-xs reply_can">取消</button>
+    </div>
+</div>
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="template/webapp/bainiu/bainiuMan/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+<!--下面是dataTables需要的文件-->
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/jquery.min.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/bootstrap.min.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/colResizable-1.5.min.js"></script>
+{%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/MdataAnalysis.js"></script>
+{%>template/common/Footer.html%}
+
+<script type="text/javascript">
+    $(function() {
+
+        //折叠小图标
+        $('.collapse_btn').on('click', function () {
+            var _this = $(this).parent().next('.con')
+            if ($(this).hasClass('onoff')) {
+                _this.slideDown();
+                $(this).removeClass('onoff');
+            } else {
+                _this.slideUp();
+                $(this).addClass('onoff');
+            }
+        })
+
+
+        
+
+
+
+
+        //使用col插件实现表格头宽度拖拽
+        $(".table").colResizable();
+
+        //在搜索，或者分页的时候，调用该方法
+        //这里只做具体说明，没有做实际服务端数据测试
+        //重新加载表格数据（同等于刷新）
+        //添加fnReloadAjax  js引用
+        //参考http://www.datatables.net/plug-ins/api/fnReloadAjax
+        $("#tb-refresh").on("click",function(){
+            //加载一个新的文件
+            //fnReloadAjax方法有3个主要参数
+            //1、oSettings=[类似jquery ajax的data:{id:2}]
+            //2、sNewSource=加载数据的URL
+            //3、回调函数fnCallback
+            //table.fnReloadAjax( 'media/examples_support/json_source2.txt' );
+            //刷新新的数据
+            //table.fnReloadAjax();
+        });
+
+
+    })
+
+
+
+</script>
+
+
+
+
+
+

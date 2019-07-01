@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --> 
+  <title>Bootstrap 101 Template</title> 
+  <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet" /> 
+  <!--自己的样式--> 
+  <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" /> 
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --> 
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// --> 
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+    <style>
+    .bn_inline_table td{padding-left:5px; padding-right:5px;}
+    #example{margin-top:10px;}
+    
+    .nav {
+	  padding-left: 0;
+	  margin-bottom: 0;
+	  list-style: none;
+	  margin-bottom:20px;
+	}
+	.nav-tabs {
+	  border-bottom: 1px solid #ff9600;
+	}
+	.nav-tabs > li.active > a,
+	.nav-tabs > li.active > a:hover,
+	.nav-tabs > li.active > a:focus {
+	  background-color: #ff9600;
+	  border: 1px solid #ff9600;
+	}
+	.col-xs-3{
+	  float: left;
+	  width: 118px;
+	  position: relative;
+	  min-height: 1px;
+	  padding-right: 15px;
+	  padding-left: 15px;
+	}
+	
+    </style>
+ </head> 
+<body  style="background:#f3f7f8">
+<div class="frame_content">
+    <div class="authorization clear">
+    	<ul class="nav nav-tabs" role="tablist">
+           <li role="presentation" class="fur_apply active col-xs-3 col-sm-3 "><a id="fur_apply" href="javascript:void(0);">人力管理</a></li>
+        </ul>
+	    <div class="ued-content"> 
+	     <table cellspacing="0" width="100%" class='bn_inline_table'>
+	      <tbody> 	      
+	       <tr> 
+	         <td>归属团队</td><td><select id="group1" class="form-control">{%#GROUP1TREE%}<option value="{%.GROUP1_ID%}">{%.GROUP1_NAME%}</option>{%/GROUP1TREE%}</select></td>
+	         <td>一级属组</td><td><select id="group2" class="form-control"></select></td>
+	         <td>二级属组</td><td><select id="group3" class="form-control"></select></td>
+	         <td>业务模块</td><td><select id="group4" class="form-control"></select></td>
+	        <td><input  type="text" name="qkeys" id="qkeys" class="form-control"  placeholder="姓名或电话或帐号"/> </td>
+	        <td><select id="memstate" class="form-control memstate" >
+                    	<option value="all">-所有-</option>
+                        <option value="0">有效</option>
+                        <option value="1">失效</option>
+            </select></td>
+	        <td align="right"><button type="button" class="btn btn-info btn_qgroup">查询 </button></td> 
+	        {%#FLAT%}
+	        <td align="right"><button type="button" id="export" class="btn btn-info">导出</button></td>
+	        {%/FLAT%}
+	        </tr>  
+	      </tbody> 
+	     </table> 
+	    </div> 
+	    <table id="example" class="table table-striped table-bordered table-hover dataTables-example dataTable" cellspacing="0" width="100%">
+	     <thead> 
+	      <tr>
+	       <th class="tn"><input id="selectall" name="" type="checkbox" value=""></th> 
+	       <th name="txuhao" id="10001" > 序号</th>
+	       <th name="treny" id="10002" > 人员</th> 
+	       <th name="tgsgs" id="10003" > 归属公司 </th> 
+	       <th name="tgh" id="10004" > 工号</th> 
+	       <th name="tgroup1" id="10005" > 归属团队 </th> 
+	       <!--<th name="tgroup2" id="10006" > 一级归属组 </th>--> 
+	       <th name="tgroup3" id="10007" > 二级归属组</th> 
+	       <th name="tgroup4" id="10008" > 业务模块 </th> 
+	       <!--<th name="torg" id="10009" > 归属部门</th>-->
+	       <th name="tborg" id="10010" > 大部门</th>
+	       <th name="tphone" id="10011" > 手机</th> 
+	       <th name="temail" id="10012" > 邮箱 </th> 
+	       <th name="tstate" id="10013" > 状态 </th> 
+	       <!--<th name="tin" id="10014" > 加入 </th>--> 
+	       <!--<th name="tout" id="10015" > 退出 </th>--> 
+	       <!--<th name="tremark" id="10016" > 备注 </th>--> 
+	       <!--<th name="tupd" id="10017" > 更新人</th>--> 
+	       <th name="tgroup1No" id="10018" style="display: none;"> 公司团队编号</th>  
+	       <th name="tgroup2No" id="10019" style="display: none;"> 一级归属组编号</th> 
+	       <th name="tgroup3No" id="10020" style="display: none;"> 二级归属组编号</th> 
+	       <th name="tgroup4No" id="10021" style="display: none;"> 业务模块编号</th> 
+	       <th name="tuserId" id="10022" style="display: none;"> 用户标识</th>
+	      </tr> 
+	     </thead>
+	                <tbody id="querygroup">
+	                <tr>
+	                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+						<td></td><td></td><td></td><td></td>
+						<td style="display: none;"></td>
+						<td style="display: none;"></td>
+						<td style="display: none;"></td>
+						<td style="display: none;"></td>
+						<td style="display: none;"></td>
+	                </tr>
+	                </tbody>
+	    </table>
+	    <!-- {%>template/common/Paginate.html%} -->
+	    <table cellspacing="0" width="100%" class="bn_inline_table">
+	     	<tr>                    
+                    <td><select class="form-control groupoper" >
+                    	<option value="sel">-操作-</option>
+                        <option value="mov">移动</option>
+                        <option value="cop">复制</option>
+                        <option value="del">删除</option>
+                        <option value="add">添加</option>
+                    </select></td>                	 	         
+		             <td>归属团队</td><td><select id="groupt1" class="form-control">{%#GROUP1TREE%}<option value="{%.GROUP1_ID%}">{%.GROUP1_NAME%}</option>{%/GROUP1TREE%}<option value="+">--+--</option></select></td>
+			         <td>一级属组</td><td><select id="groupt2" class="form-control"></select></td>
+			         <td>二级属组</td><td><select id="groupt3" class="form-control"></select></td>
+			         <td>业务模块</td><td><select id="groupt4" class="form-control"></select></td>
+			         <td><input id="operreason" placeholder="原因" class="form-control"/></td>
+			         <td align='right'><button type="button" class="btn btn-info btn_man">确认 </button></td>
+        </tr>
+        </table>
+        <div class="groupin" id="groupin" style="display:none">
+        <table class="bn_inline_table" style="margin:10px 0">
+        <tr>
+        	<td><input class="form-control" type="text" id="qaddkey" placeholder="姓名/电话/账号"/></td>
+        	<td><button type="button" class="btn btn-info btn_qadd">查询 </button></td>
+        </tr>
+        </table>
+        
+        <table id="example" class="table table-striped table-bordered table-hover dataTables-example dataTable" cellspacing="0" width="100%">
+      		<thead>
+      		<tr>
+      		<th class="tn"><input id="newuser" name="" type="checkbox" value=""></th> 
+	       	<th name="ygname"  id="30002" > 姓名</th> 
+	       	<th name="ygno"    id="30003" > 工号 </th> 
+	       	<th name="ygphone" id="30004" > 电话</th> 
+	       	<th name="ygemail" id="30003" > 邮箱 </th> 
+	       	<th name="ygorg"   id="30004" > 部门</th> 	  
+	       	</tr>     	
+      		</thead>      		
+      		<tbody id="queryforadd">
+      			<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	        </tbody>
+    	</table>
+    	</div>
+    	
+        <div class="addgroup" id="addgroup" style="display:none">
+        <table class="bn_inline_table" style="margin-top:10px;">
+        <tr>
+            <p style="display:none;" id="grouplevel"></p>
+        	<td><input id="groupname" type="text" class="form-control" placeholder="群组名称"/></td>
+        	<td><input id="groupremark" type="text" class="form-control" placeholder="群组备注"/></td>
+        	<td><button type="button" class="btn btn-info btn_addgroupok">添加 </button></td>
+        	<td><button type="button" class="btn btn-info btn_addgroupesc">取消 </button></td>
+        </tr>
+        </table>
+    	</div>    	
+  </div> 
+  </div>
+  
+  
+  <div class="modal-box" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top:160px;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">个人信息</h4>
+      </div>
+      <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-qjt">
+              <tbody id="querygroupTab">
+              </tbody>
+            </table>
+          </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<div id="bg"></div>
+  
+  
+  <script src="biz/assets/js/jquery.min.js"></script> 
+  <script src="biz/assets/js/amazeui.min.js"></script> 
+  <script src="biz/assets/js/app.js"></script> 
+  <script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+   {%>template/common/Head.html%}
+  <script type="text/javascript" src="biz/js/webjs/GroupMan.js"></script>   
+  {%>template/common/Footer.html%}
+<!--  <script>
+  	$(document).ready(function(){ 
+      $("#frame_footer").attr("style","position:absolute; bottom:10px; color:#999; width:100%; text-align:left; line-height:150%;");
+  	}); 
+  </script>
+--> </body>
+</html>

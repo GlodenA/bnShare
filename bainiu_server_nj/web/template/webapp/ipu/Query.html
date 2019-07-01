@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>查询营业厅</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+    <link rel="apple-touch-icon-precomposed" href="touch-icon-iphone.png" />
+    <!--1，引入CSS文件 -->
+    <link rel="stylesheet" href="biz/ipu/theme/hum.css">
+  </head>
+  <body>
+  
+  <header class="ui-toolbar"  id="header" >
+      <a class="ui-icon icon-left-nav fn-left" href="javascript:;"></a>
+      <button class="ui-toolbar-btn ui-btn-link fn-right">
+        <span class="ui-icon icon-search"></span>
+      </button>
+      <h1 class="ui-toolbar-title">查询营业厅</h1>
+  </header>
+
+
+  <div class="ui-panel-content">
+      <div class="ui-tab">
+       	<a class="ui-tab-item active" href="javascript:;">人工客服</a>
+          <a class="ui-tab-item" href="javascript:;" id="listSiteBtn" >网点列表</a>
+          <a class="ui-tab-item" href="javascript:;">关于我们</a>
+          <!-- <a class="ui-tab-item" href="javascript:;">其它功能</a> -->
+      </div>
+  </div>
+
+
+  <div id="tabWrap">
+  
+  	  <div class="ui-panel" >
+	        <button class="ui-btn ui-btn-block" id="linkMe">
+			    <span class="ui-icon icon-person"></span>
+			    联系我们
+			</button>
+	  </div>
+  
+	  <div class="ui-panel fn-hide" >
+	      <ul class="ui-list" id="listSite">
+	          <li class="ui-list-item ui-media" >
+	              <a class="icon-navigate-right" href="javascript:;" id="business4g" >
+	                  <span class="ui-media-object fn-left ui-icon icon-star"></span>
+	                  <div class="ui-media-body">网点一</div>
+	              </a>
+	          </li>
+	          
+	          <li class="ui-list-item ui-media">
+	              <a class="icon-navigate-right" href="javascript:;">
+	                  <span class="ui-media-object fn-left ui-icon icon-star"></span>
+	                  <div class="ui-media-body">网点二</div>
+	              </a>
+	          </li>
+	          
+	          <li class="ui-list-item ui-media">
+	              <a class="icon-navigate-right" href="javascript:;">
+	                  <span class="ui-media-object fn-left ui-icon icon-star"></span>
+	                  <div class="ui-media-body">网点三</div>
+	              </a>
+	          </li>
+	          
+	         <li class="ui-list-item ui-media">
+	              <a class="icon-navigate-right" href="javascript:;">
+	                  <span class="ui-media-object fn-left ui-icon icon-star"></span>
+	                  <div class="ui-media-body">查看全部</div>
+	              </a>
+	          </li>
+	      </ul>
+	  </div>
+
+		<div class="ui-panel fn-hide">
+		    <div class="ui-panel-head fn-clear">
+		        <h3 class="ui-panel-head-title">关于我们</h3>
+		    </div>
+		    <div class="ui-panel-content">
+		        <div class="ui-panel-container">亚信艾扑专注于智能终端开发框架与设计标准，以亚信的全体员工为受众群体，为智能终端项目、智能终端技术学习提供服务，未来将打造成亚信针对智能终端的开源共享服务平台。艾扑为使用者提供了简单易用、灵活支撑、贴合实际、封装完善的智能终端开发框架及其组件，使用者可参照使用说明快速的搭建起自己的工程项目，为项目的开发带来便捷的开发体验。艾扑还为技术人员提供智能终端开发与设计过程中的学习支持，为学习者提供源代码，使技术人员能够近距离的学习开发知识与设计标准。艾扑作为开源的平台，提供开源社区似的代码管理方式，任何人都可以共享自己的代码和提交框架的缺陷，以开源的贡献精神为平台的发展和框架的进步作出贡献。</div>
+		    </div>
+		</div>
+
+		<!-- <div class="ui-panel fn-hide">
+		    <ul class="ui-list">
+		        <li class="ui-list-item ui-media">
+		            <a class="icon-navigate-right">
+		                <span class="ui-media-object fn-left ui-icon icon-star"></span>
+		                <div class="ui-media-body">4G业务</div>
+		            </a>
+		        </li>
+		        <li class="ui-list-item ui-media">
+		            <a class="icon-navigate-right">
+		                <span class="ui-media-object fn-left ui-icon icon-sound"></span>
+		                <div class="ui-media-body">家庭亲情网</div>
+		            </a>
+		        </li>
+		        <li class="ui-list-item ui-media">
+		            <a class="icon-navigate-right">
+		                <span class="ui-media-object fn-left ui-icon icon-pages"></span>
+		                <div class="ui-media-body">虚拟网</div>
+		            </a>
+		        </li>
+		    </ul>
+		</div> -->
+	</div>
+
+  <script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+  <script>
+  $(function(){
+      var $bulltxts = $('.ui-tab-item');
+      var $tab = $("#tabWrap .ui-panel")
+      $bulltxts.click(function(){
+      	var idx = $bulltxts.index(this);
+      	$tab.eq(idx).show().siblings().hide();
+        $(this).addClass("active").siblings().removeClass("active");
+        return false;
+      })
+  })
+  </script>
+  
+  	{%>template/common/Head.html%}
+	<script type="text/javascript" src="biz/js/Query.js"></script>
+  </body>
+</html></html>
+

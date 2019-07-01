@@ -1,0 +1,191 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BaiNiu</title>
+		<meta name="description" content="这是一个form页面">
+		<meta name="keywords" content="form">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/png" href="assets/i/favicon.png">
+		<link rel="apple-touch-icon-precomposed"
+			href="assets/i/app-icon72x72@2x.png">
+		<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+		<link rel="stylesheet" href="biz/assets/css/amazeui.min.css" />
+		<link rel="stylesheet" href="biz/assets/css/admin.css">
+	</head>
+	<body>
+		{%>template/common/Nav.html%}
+		<div class="am-cf admin-main">
+			<!-- sidebar start -->
+			{%>template/common/Sidebar.html%}			
+			<!-- sidebar end -->
+			<!-- content start -->
+			<div class="admin-content">
+				<div class="admin-content">
+
+					<div class="am-cf am-padding">
+						<div class="am-fl am-cf">
+							<strong class="am-text-primary am-text-lg">权限管理</strong>
+						</div>
+					</div>
+					<div class="am-g">
+						&nbsp
+					</div>
+					<div class="am-g">
+						<div class="am-u-sm-12 am-u-md-3">
+							<div class="am-input-group am-input-group-sm">
+								<span class="am-input-group-label">账号</span>
+								<input type="text" id="USER_ACCT" class="am-form-field">
+							</div>
+						</div>
+						<div class="am-u-sm-12 am-u-md-3">
+							<div class="am-input-group am-input-group-sm">
+								<span class="am-input-group-label">权限名称</span>
+								<input type="text" id="RIGHT_NAME" class="am-form-field">
+							</div>
+						</div>
+						<div class="am-u-sm-12 am-u-md-3">
+							<div class="am-input-group">
+								<button class="am-btn am-btn-primary am-btn-sm" id="queryDetail" type="button">
+									查询
+								</button>
+							</div>
+						</div>
+					</div>
+					<hr />
+					<div class="am-g">
+					
+						<div class="am-u-sm-12 am-u-md-6">
+							<div class="am-btn-toolbar">
+								<div class="am-btn-group am-btn-group-xs">
+								    <div id="apply"  class="am-btn am-btn-default">
+										<span class="am-icon-archive"></span>申请
+									</div>
+									{%#RIGHT.DATA_RIGHT_ADM%}
+									<div id="authorizeAll"  class="am-btn am-btn-default">
+										<span class="am-icon-archive"></span> 审核
+									</div>
+									<div  id="cancelAuthorizeAll"  class="am-btn am-btn-default">
+										<span class="am-icon-trash-o"></span> 删除
+									</div>
+									{%/RIGHT.DATA_RIGHT_ADM%}
+								</div>
+							</div>
+						</div>
+                   
+					</div>
+
+
+
+
+
+					<div class="am-g">
+						<div class="am-u-sm-12">
+							<form class="am-form">
+								<table
+									class="am-table am-table-striped am-table-hover table-main">
+									<thead>
+										<tr>
+											<th class="table-check">
+												<input type="checkbox" id="selectAll" />
+											</th>
+											<th class="table-title">
+												账号
+											</th>
+											<th class="table-type">
+												权限类型
+											</th>
+											<th class="table-author am-hide-sm-only">
+												权限名称
+											</th>
+											<th class="table-date am-hide-sm-only">
+												权限状态
+											</th>
+											{%#RIGHT.DATA_RIGHT_ADM%}
+											<th class="table-set">
+												操作
+											</th>
+											{%/RIGHT.DATA_RIGHT_ADM%}
+										</tr>
+									</thead>
+									<tbody id="rightList">
+									{%#RIGHTLIST%}
+									<tr>
+									        <td>
+												<input type="checkbox" name="chkItem" user_id='{%.USER_ID%}' right_code='{%.RIGHT_CODE%}' state_code='{%.STATE_CODE%}'/>
+											</td>
+										<td class="am-hide-sm-only" ex_id="{%.USER_ID%}">
+											{%.USER_ACCT%}
+										</td>
+										<td class="am-hide-sm-only">
+											{%.TYPE_NAME%}
+										</td>
+										<td class="am-hide-sm-only">
+											{%.RIGHT_NAME%}
+										</td>
+										<td class="am-hide-sm-only">
+											{%.STATE%}
+										</td>
+										<td {%^RIGHT.DATA_RIGHT_ADM%} style="display:none" {%/RIGHT.DATA_RIGHT_ADM%}>
+												<div class="am-btn-toolbar">
+													<div class="am-btn-group am-btn-group-xs">
+														<div name='authorize' user_id='{%.USER_ID%}' right_code='{%.RIGHT_CODE%}' state_code='{%.STATE_CODE%}'
+														 class="am-btn am-btn-default am-btn-xs am-hide-sm-only">
+															<span class="am-icon-copy"></span> 授权
+														</div>
+														<div name='cancelAuthorize'  user_id='{%.USER_ID%}' right_code='{%.RIGHT_CODE%}' 
+															class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+															<span class="am-icon-trash-o"></span> 取消授权
+														</div>
+														
+													</div>
+												</div>
+									  </td>
+										
+									</tr>
+									{%/RIGHTLIST%}
+									 
+									</tbody>
+								</table>
+								<div class="am-cf">
+								共 {%PAGINATION_COUNT%} 条记录
+								<div class="am-fr">
+									<ul class="am-pagination" id="paginations">
+										<li class="am-disabled">
+											<a pagIdex="0">«</a>
+										</li>
+										{%#PAGINATIONS%}
+										<li>
+											<a pagIdex="{%.ROW_INDEX%}">{%.ROW_INDEX%}</a>
+										</li>
+										{%/PAGINATIONS%}
+										<li>
+											<a >»</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+								<hr />
+								<p>
+									注：.....
+								</p>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- content end -->
+		</div>
+		<script src="biz/assets/js/jquery.min.js"></script>
+		<script src="biz/assets/js/amazeui.min.js"></script>
+		<script src="biz/assets/js/app.js"></script>
+		<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+		{%>template/common/Head.html%}
+		<script type="text/javascript" src="biz/js/webjs/Right.js"></script>
+	</body>
+<html>

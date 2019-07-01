@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>Bootstrap 101 Template</title>
+
+	<!-- Bootstrap和dataTables样式 -->
+	<link
+			href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css"
+			rel="stylesheet">
+	<link
+			href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css"
+			rel="stylesheet" type="text/css" />
+	<link
+			href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css"
+			rel="stylesheet" type="text/css" />
+	<!--自己的样式-->
+	<link href="template/webapp/bainiu/bainiuMan/css/manage.css"
+		  rel="stylesheet" type="text/css" />
+	<link href="template/webapp/bainiu/bainiuMan/docscentre/css/query-result.css" rel="stylesheet" type="text/css" />
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+
+<div class="query-container">
+	<div class="title-wrap">
+		<div class="title">
+			<div class="photo">
+				<img src="template/webapp/bainiu/bainiuMan/images/per_photo.png" alt="">
+			</div>
+			<div class="details">
+				<span class="short">{%.NAME%}作品信息表</span>
+				<div class="explain">
+					<div class="state">
+						<span>归属部门:</span>
+						<span>{%.ORG_NAME%}</span>
+					</div>
+					<div class="state">
+						<span>邮箱:</span>
+						<span>{%.EMAIL%}</span>
+					</div>
+					<div class="state">
+						<span>电话:</span>
+						<span>{%.PHONE%}</span>
+					</div>
+					<div class="end">
+                            <span>NT账号:<span>
+                            <span>{%.NTACCT%}</span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="midlle-wrap">
+		<div class="midlle">
+			<span class="production">作品信息表</span>
+		</div>
+		<div class="query_table_list">
+			<table id="example1" class="table table-striped table-bordered table-hover dataTables-example dataTable"
+				   cellspacing="0">
+				<thead>
+				<tr>
+					<th>资料名称</th>
+					<th>作者</th>
+					<th>标签</th>
+					<th>上传时间</th>
+					<th>下载量</th>
+					<th style="display: none">资料路径</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				{%#DOCLIST%}
+				<tr>
+					<td name="DOC_NAME">{%.DOC_NAME%}</td>
+					<td name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_NAME%}</td>
+					<td name="DOC_LABEL">{%.DOC_LABEL%}</td>
+					<td name="INS_TIME">{%.INS_TIME%}</td>
+					<td name="DOWNLOAD_CNT">{%.DOWNLOAD_CNT%}</td>
+					<td name="DOC_PATH" style="display: none">{%.DOC_PATH%}</td>
+					<td align="center" DOC_ID="{%.DOC_ID%}" >
+						<a href="#"  name="downLoad">下载</a>
+					</td>
+				</tr>
+				{%/DOCLIST%}
+				</tbody>
+			</table>
+			{%>template/common/Paginate.html%}
+		</div>
+	</div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script
+		src="template/webapp/bainiu/bainiuMan/bootstrap/js/bootstrap.min.js"></script>
+{%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/UserDocs.js"></script>
+<script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
+<script type="text/javascript" src="biz/js/webjs/extend/layer.ext.js"></script>
+
+{%>template/common/Footer.html%}
+</body>
+
+</html>

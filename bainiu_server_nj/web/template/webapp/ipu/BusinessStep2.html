@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4G流量包</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+    <link rel="apple-touch-icon-precomposed" href="touch-icon-iphone.png" />
+    <!--1，引入CSS文件 -->
+    <link rel="stylesheet" href="biz/ipu/theme/hum.css">
+	<style type="text/css">
+	 
+
+		#service-rating {
+			color:  #6CBFF1;
+		}
+		#service-suggest {
+			height: 80px;
+			border-bottom: 0;
+			text-indent: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		#service-suggest textarea{
+			width: 98%;
+			height: 98%;
+			padding: 5px 10px;
+		}
+	</style>
+<body>
+	<header class="ui-toolbar" id="header" >
+		<button class="ui-toolbar-btn ui-btn-link fn-left">
+			<span class="ui-icon icon-left-nav"></span>
+		</button>
+		<button class="ui-toolbar-btn ui-btn-link fn-right">
+			<span class="ui-icon icon-share"></span>
+		</button>
+		<h1 class="ui-toolbar-title">4G可选流量包</h1>
+	</header>	
+
+
+
+	<div class="ui-panel-content">
+	    <div class="ui-alert ui-alert-large">
+	        <h2><span class="ui-icon icon-check" style="font-size:36px;"></span>提交成功</h2>
+	        <p>尊敬的客户，你已成功开通4G流量10元加油包1份，共计10元。中国移动全心全意为您服务！</p>
+	    </div>
+		<a class="ui-btn ui-btn-block" href="javascript:;" id="continue" >继续办理业务</a>
+	</div>
+ 
+</body>
+	{%>template/common/Head.html%}
+	<script type="text/javascript" src="biz/js/BusinessStep2.js"></script>
+</html>

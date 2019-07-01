@@ -1,0 +1,69 @@
+ <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap和dataTables样式 -->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--自己的样式-->
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+	<script  src="biz/js/webjs/ueditor/ueditor.parse.js"></script>
+	<script type="text/javascript">
+		uParse(".msg_details_con", {
+    		rootPath: "biz/js/webjs/ueditor"
+		});
+				uParse(".sug_con", {
+    		rootPath: "biz/js/webjs/ueditor"
+		});
+				uParse(".excp_reason_con", {
+    		rootPath: "biz/js/webjs/ueditor"
+		});
+	</script>
+</head>
+<body  style="background:#f3f7f8">
+<div class="frame_content">
+    <div class="authorization clear frame_content_bg">
+        <div class="title mymsg"><h1>我的收信箱</h1></div>
+            <div class="tool_btn msgtool">
+                <span class="btn btn-info" id="refreshMsg">《返回</span>
+                <span class="btn btn-info" id="deleteDetailMsg" S_ID="{%.SMS_ID%}" U_ID="{%.USER_ID%}">删除</span>
+            </div>
+
+        <div class="msg_details">
+          <div class="msg_til">
+            <h2>{%.SMS_TITLE%}</h2>
+            <div><span class="bn_badge"> {%.SMS_TYPE_NAME%}</span><span class="pb_date">发布日期： {%.INS_TIME%}</span></div>
+          </div>
+            <div class="msg_details_con">
+                {%&.SMS_CONTENT%}
+            </div>
+        </div>
+        </div>
+
+
+</div>
+ 
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="template/webapp/bainiu/bainiuMan/bootstrap/js/bootstrap.min.js"></script>
+ {%>template/common/Head.html%}
+ <script type="text/javascript" src="biz/js/webjs/MsgBox.js"></script>
+</body>
+</html>
+
+
+
+

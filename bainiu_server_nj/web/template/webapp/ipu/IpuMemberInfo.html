@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>详细信息</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+    <link rel="apple-touch-icon-precomposed" href="touch-icon-iphone.png" />
+    <!--1，引入CSS文件 -->
+    <link rel="stylesheet" href="biz/ipu/theme/hum.css">
+  </head>
+  <body>
+  
+  <header class="ui-toolbar"  id="header" >
+      <a class="ui-icon icon-left-nav  fn-left" href="javascript:;"></a>
+      <button class="ui-toolbar-btn ui-btn-link fn-right">
+      </button>
+      <h1 class="ui-toolbar-title">IpuMemberInfo</h1>
+  </header>
+
+
+  <div class="ui-panel-content">
+      <div class="ui-tab">
+      </div>
+  </div>
+
+<div id="tabWrap">
+		<div class="ui-panel" id="updateInfos" >
+		        <button class="ui-btn ui-btn-block">
+				    <span class="ui-icon icon-gear"></span>
+				    更新数据
+				</button>
+		</div>
+		<div class="ui-panel" id="insertInfos" >
+		        <button class="ui-btn ui-btn-block">
+				    <span class="ui-icon icon-gear"></span>
+				    插入数据
+				</button>
+		</div>
+		<div class="ui-panel" id="deleteInfos" >
+		        <button class="ui-btn ui-btn-block">
+				    <span class="ui-icon icon-gear"></span>
+				    删除数据
+				</button>
+		</div>
+</div>
+
+  <div class="ui-panel">
+  
+      <ul class="ui-list">
+
+        {%#INFOS%}
+
+          <li class="ui-list-item ui-media">
+              <a class="icon-navigate-right" href="javascript:;" >
+                  <span class="ui-media-object ui-icon"></span>
+                  <div class="ui-media-body">STAFF_ID:&nbsp;{%.STAFF_ID%}</div>
+              </a>
+          </li>
+          <li class="ui-list-item ui-media">
+              <a class="icon-navigate-right" href="javascript:;"  >
+                  <span class="ui-media-object  ui-icon"></span>
+                  <div class="ui-media-body">STAFF_NAME:&nbsp;{%.STAFF_NAME%}</div>
+              </a>
+          </li>
+          <li class="ui-list-item ui-media">
+              <a class="icon-navigate-right" href="javascript:;"  >
+                  <span class="ui-media-object ui-icon"></span>
+                  <div class="ui-media-body">PASSWORD:&nbsp;<span id="password">{%.PASSWORD%}</span></div>
+              </a>
+          </li>
+          
+      {%/INFOS%} 
+
+      </ul>
+  </div>
+
+  <script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+  <script>
+  $(function(){
+      var $bulltxts = $('.ui-tab-item');
+      $bulltxts.click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+        return false;
+      })
+  })
+  </script>
+	{%>template/common/Head.html%}
+	<script type="text/javascript" src="biz/js/IpuMemberInfo.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+属性：
+id 唯一标识（必选）                示例：id="TestSwitchID1"
+value 开关默认状态   true开、false关   默认：true  示例：value=false
+lable 开关显示的值   开状态显示的值|关状态显示的值   默认：On|Off  示例：lable="开|关"
+onAction 开关被打开时的回调函数  示例：onAction="console.log('开')"
+offAction 开关被关闭时的回调函数   示例：offAction="console.log('关')"
+onChange 开关状态被改变时的回调函数  示例：onChange="console.log('变化')"
+isEnable 开关状态是否可以被用户修改，开关的动画是否可用  true可用、false不可用  默认：true  示例：isEnable=false
+
+函数：
+new wmSwitch(id);  构造器   示例：var obj=new wmSwitch("TestSwitchID1");
+create   创建开关     示例：obj.create();
+isEnable(enable) 设置开关是否可用   示例：obj.isEnable(false);
+isEnable() 获取开关是否可用  示例：var enable=obj.isEnable();
+setValue(val) 设置开关的状态  示例：obj.setValue(false)
+getValue()  获取开关的状态 示例：var val=obj.getValue()
+setOnAction(callback)  设置开关打开的回调事件  触发时机：1.开关被单击后，即将变为开启状态2.开关被拖拽至开的一侧，鼠标松开后。
+setOffAction(callback)   设置开关关闭的回调事件  触发时机：1.开关被单击后，即将变为关闭状态2.开关被拖拽至关的一侧，鼠标松开后。
+setChangeAction(callback)  设置开关状态改变的回调事件   触发时机：1.开关被单击后2.开关被拖拽至开|关的一侧，鼠标松开后。3.开关不可用，但出现上述两种情况时。
+
+示例：
+	<wm-switch id="TestSwitchID1" value=false lable="开|关" onAction="console.log('开')" offAction="console.log('关')" onChange="console.log('变化')" isEnable=false >
+	</wm-switch>

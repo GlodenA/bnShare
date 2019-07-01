@@ -1,0 +1,242 @@
+$border-color:#e6e6e6;
+$font-size:30px;
+$font-color:#333333;
+$font-color-gray:#999;
+$--color-primary :#ffe100;
+$--color-info:#efefef;
+$--color-secondary :#faa639;
+$--color-link:#22A4F0;
+$--color-link-hover:#f0c238;
+$--color-deep:#fe6600;
+$--color-look:#ffc600;
+$--color-info-lighter:#fafafa;
+$bg-gray:#f5f5f5;
+$error-404:#4c58fb;
+// button
+$--button-info-color:$font-color;
+$--button-primary-color:$font-color;
+$--button-font-size :40px;
+$--button-padding-vertical: 16px;
+$--button-padding-horizontal: 40px;
+$--button-border-radius:8px;
+$footer-bg-color:#efefef;
+$footer-font-color:#575757;
+$copyright-bg-color:#e6e6e6;
+$main-content-width:100%;
+$main-wrapper-width :100%;
+$fade-height:100px;
+$translateY:-10px;
+$block-border-radius: 10px;
+$block-border-radius-big: 20px;
+$border: 1px solid $border-color;
+// Button
+.hover-up {
+    @extend .transition-02;
+    transform: translate3d(0, 0, 0);
+    &:hover {
+        transform: translate3d(0, $translateY, 0);
+    }
+}
+
+.block-shadow-primary {
+    &:hover {
+        box-shadow: 0 10px 20px rgba($--color-primary, 0.3);
+    }
+}
+
+.color-primary {
+    color: $--color-primary;
+}
+
+.bg-gray {
+    background-color: $bg-gray
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.gray {
+    color: #9b9b9b
+}
+
+.fn-hide {
+    display: none !important;
+}
+
+.fn-show {
+    display: block !important;
+}
+
+
+/* 清理浮动 */
+
+.fn-clear:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.fn-clear {
+    zoom: 1;
+    /* for IE6 IE7 */
+}
+
+.fn-left {
+    float: left;
+}
+
+.fn-right {
+    float: right;
+}
+
+
+/* 单行文字溢出时出现省略号，需设定宽度 */
+
+.fn-text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* 人民币符号 */
+
+.fn-rmb {
+    font-family: arial;
+    font-style: normal;
+    padding-right: 4px;
+}
+
+
+/* chrome 下字体过小的问题 */
+
+.fn-webkit-adjust {
+    -webkit-text-size-adjust: none;
+}
+
+
+/*----7*--2015.11.20-update----*/
+
+.fn-overflow {
+    overflow: hidden;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.fn-text-left {
+    text-align: left;
+}
+
+.fn-text-center {
+    text-align: center;
+}
+
+.fn-text-right {
+    text-align: right;
+}
+
+.fn-block {
+    display: block;
+}
+
+.red {
+    color: #bd0505;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.mr14 {
+    margin-right: 14px;
+}
+
+.fn-blur {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.fn-fade-up {
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+.fn-fade-up.show {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: cubic-bezier(.25, .1, .25, 1);
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(.25, .1, .25, 1);
+}
+
+.fn-delay-04 {
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+
+.fn-delay-55 {
+    -webkit-transition-delay: 0.55s;
+    transition-delay: 0.55s;
+}
+
+.radius-5 {
+    border-radius: 5px;
+}
+
+.show-round {
+    border-radius: 50%;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.transition-02 {
+    transition: all 0.2s ease;
+}
+
+.transition-35 {
+    transition: all 0.35s ease;
+}
+
+.transition-05 {
+    transition: all 0.5s ease;
+}
+
+.transition-1 {
+    transition: all 1s ease;
+}
+
+@mixin text-overflow($size:2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $size;
+    -webkit-box-orient: vertical;
+}
+
+@mixin flex-center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

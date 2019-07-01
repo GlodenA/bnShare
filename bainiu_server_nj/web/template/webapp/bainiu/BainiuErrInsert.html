@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BaiNiu</title>
+		<meta name="description" content="这是一个form页面">
+		<meta name="keywords" content="form">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/png" href="assets/i/favicon.png">
+		<link rel="apple-touch-icon-precomposed"
+			href="assets/i/app-icon72x72@2x.png">
+		<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+		<link rel="stylesheet" href="biz/assets/css/amazeui.min.css" />
+		<link rel="stylesheet" href="biz/assets/css/admin.css">
+	</head>
+	<body>
+		{%>template/common/Nav.html%}
+		<div class="am-cf admin-main">
+			<!-- sidebar start -->
+			{%>template/common/Sidebar.html%}
+			<!-- sidebar end -->
+			<!-- content start -->
+			<div class="admin-content">
+				<!-- form start -->
+				<form class="am-form">
+				
+				 <div class="am-g am-margin-top">
+						<div class="am-u-sm-4 am-u-md-2 am-text-right">
+							问题概述
+						</div>
+						<div class="am-u-sm-8 am-u-md-8">
+							<textarea id="EX_ABSTRACT" rows="5" placeholder="描述异常场景"></textarea>
+						</div>
+						<div class="am-hide-sm-only am-u-md-2">
+							*必填，不可重复
+						</div>
+					</div>
+				
+				
+					<div class="am-g am-margin-top">
+						<div class="am-u-sm-4 am-u-md-2 am-text-right">
+							详细描述
+						</div>
+						<div class="am-u-sm-8 am-u-md-8">
+							<textarea id="EX_DESC" rows="5" placeholder="描述异常场景"></textarea>
+						</div>
+						<div class="am-hide-sm-only am-u-md-2">
+							*必填，不可重复
+						</div>
+					</div>
+
+					<div class="am-g am-margin-top">
+						<div class="am-u-sm-4 am-u-md-2 am-text-right">
+							大类
+						</div>
+						<div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+							<select id="B_TYPE" data-am-selected="{btnSize: 'sm'}">
+								 {%#BTYPELIST%}
+								  <option value="{%.ENUM_CODE%}">
+									{%.ENUM_NAME%}
+								  </option>
+								  {%/BTYPELIST%}
+							</select>
+						</div>
+					</div>
+
+					<div class="am-g am-margin-top">
+						<div class="am-u-sm-4 am-u-md-2 am-text-right">
+							小类
+						</div>
+						<div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+							<select id="S_TYPE" data-am-selected="{btnSize: 'sm'}">
+								 {%#STYPELIST%}
+								  <option value="{%.ENUM_CODE%}">
+									{%.ENUM_NAME%}
+								  </option>
+								  {%/STYPELIST%}
+							</select>
+						</div>
+					</div>
+
+
+					<div class="am-g am-margin-top">
+						<div class="am-u-sm-4 am-u-md-2 am-text-right">
+							原因
+						</div>
+						<div class="am-u-sm-8 am-u-md-8">
+							<textarea id="EX_REASON" rows="5" placeholder="问题可能的原因"></textarea>
+						</div>
+						<div class="am-hide-sm-only am-u-md-2">
+							&nbsp
+						</div>
+					</div>
+
+					<div class="am-g am-margin-top">
+						<div class="am-u-sm-4 am-u-md-2 am-text-right">
+							解决方法
+						</div>
+						<div class="am-u-sm-8 am-u-md-8">
+							<textarea id="EX_SOLUTION" rows="5" placeholder="请简述解决办法"></textarea>
+						</div>
+						<div class="am-hide-sm-only am-u-md-2">
+							&nbsp
+						</div>
+					</div>
+					<div class="am-g am-margin-top">
+						<div class="am-u-sm-4 am-u-md-2 am-text-right">
+							关键词
+						</div>
+						<div class="am-u-sm-8 am-u-md-8">
+							<input  id="KEY_LIST" type="text" class="am-input-sm" placeholder="多个关键词请用逗号隔开">
+						</div>
+						<div class="am-hide-sm-only am-u-md-2">
+							&nbsp
+						</div>
+					</div>
+					<div class="am-g am-margin-top">
+						<div class="am-u-sm-9 am-u-sm-push-3">
+							<button id="sub" type="button" class="am-btn am-btn-primary">
+								录入
+							</button>
+						</div>
+					</div>
+				</form>
+				<!-- form end -->
+			</div>
+			<!-- content end -->
+		</div>
+		<script src="biz/assets/js/jquery.min.js"></script>
+		<script src="biz/assets/js/amazeui.min.js"></script>
+		<script src="biz/assets/js/app.js"></script>
+		<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+		<script type="text/javascript" src="biz/js/webjs/ueditor/ueditor.config.js"></script>
+		<script type="text/javascript" src="biz/js/webjs/ueditor/ueditor.all.js"></script>
+
+		{%>template/common/Head.html%}
+		<script type="text/javascript" src="biz/js/webjs/Error.js"></script>
+	</body>
+<html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-autowire="byName" default-lazy-init="true">
+	<!--配置调度程序quartz ，其中配置JobDetail有两种方式-->
+	<!--方式一：使用JobDetailBean，任务类必须实现Job接口 -->
+<!-- 	<bean id="myjob" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="name" value="exampleJob"></property>
+		<property name="jobClass" value="com.ncs.hj.SpringQtz"></property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="service">
+					<value>simple is the beat</value>
+				</entry>
+			</map>
+		</property>
+	</bean> -->
+	<!--运行时请将方式一注释掉！ -->
+	<!-- 方式二：使用MethodInvokingJobDetailFactoryBean，任务类可以不实现Job接口，通过targetMethod指定调用方法-->
+	<!-- 定义目标bean和bean中的方法 -->
+	<bean id="SpringQtzJob" class="com.ipu.server.bean.gtm.VacationGtmBean"/>
+	<bean id="SpringQtzJobMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="SpringQtzJob"/>
+		</property>
+		<property name="targetMethod">
+			<!-- 要执行的方法名称 -->
+			<value>execute</value>
+		</property>
+	</bean>
+
+	<!-- ======================== 调度触发器 ======================== -->
+	<bean id="CronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="SpringQtzJobMethod"></property>
+		<property name="cronExpression" value="0 0 9 1/1 * ?"></property>
+	</bean>
+
+	<!-- ======================== 调度工厂 ======================== -->
+	<bean id="SpringJobSchedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="CronTriggerBean"/>
+			</list>
+		</property>
+	</bean>
+</beans>

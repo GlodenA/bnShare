@@ -1,0 +1,105 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BaiNiu</title>
+		<meta name="description" content="问题回答">
+		<meta name="keywords" content="form">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/png" href="assets/i/favicon.png">
+		<link rel="apple-touch-icon-precomposed"
+			href="assets/i/app-icon72x72@2x.png">
+		<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+		<link rel="stylesheet" href="biz/assets/css/amazeui.min.css" />
+		<link rel="stylesheet" href="biz/assets/css/admin.css">
+		<script type="text/javascript">
+		uParse(".admin-content", {
+    		rootPath: "biz/js/webjs/ueditor"
+		});
+	</script>
+	</head>
+	<body>
+		{%>template/common/Nav.html%}
+		<div class="am-cf admin-main">
+			<!-- sidebar start -->
+			{%>template/common/Sidebar.html%}
+			<!-- sidebar end -->
+			<!-- content start -->
+			<div class="admin-content">
+				<div class="am-cf admin-main">
+					<!-- content start -->
+					<div class="admin-content">
+						{%#ERRDTL%}
+						<div class="am-cf am-padding">
+							<div class="am-fl am-cf">
+								<strong class="am-text-primary am-text-lg">异常回答</strong> /
+								<small>EX_ID:{%.EX_ID%}</small>
+							</div>
+						</div>
+
+						<hr />
+
+						<div class="am-g">
+							<div class="am-u-sm-12 am-u-sm-centered">
+								<h2>
+									异常描述：
+								</h2>
+								<p>
+									{%&EX_DESC%}
+								</p>
+								<hr />
+							</div>
+
+							<div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+								<form class="am-form am-form-horizontal">
+									<h3>
+										异常原因：
+									</h3>
+									<p>
+									<div class="am-form-group">
+										<textarea rows="10" id="exReason"
+											placeholder="{%&EX_REASON%}"></textarea>
+									</div>
+									</p>
+									<h3>
+										处理建议：
+									</h3>
+									<p>
+									<div class="am-form-group">
+										<textarea rows="10" id="exSolution" placeholder="{%&EX_SOLUTION%}"></textarea>
+									</div>
+									</p>
+								</form>
+							</div>
+						</div>
+						<div class="am-g am-margin-top">
+							<div class="am-u-sm-9 am-u-sm-push-3">
+								<div id="saveSoled" oldExId="{%.EX_ID%}" oldExdesc="{%.EX_DESC%}" oldExEeason="{%.EX_REASON%}" oldExSolution="{%.EX_SOLUTION%}" class="am-btn am-btn-primary">
+									保存回答
+								</div>
+								<div id="confirmSoled" {%^RIGHT.DATA_ERR_CONFIRM%} style="display:none" {%/RIGHT.DATA_ERR_CONFIRM%}   oldExId="{%.EX_ID%}" oldExdesc="{%.EX_DESC%}" oldExEeason="{%.EX_REASON%}" oldExSolution="{%.EX_SOLUTION%}" class="am-btn am-btn-primary">
+									确认回答
+								</div>
+							</div>
+						</div>
+						{%/ERRDTL%}
+					</div>
+					<!-- content end -->
+				</div>
+			</div>
+			<!-- content end -->
+		</div>
+		<script src="biz/assets/js/jquery.min.js"></script>
+		<script src="biz/assets/js/amazeui.min.js"></script>
+		<script src="biz/assets/js/app.js"></script>
+		<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+		<script type="text/javascript" src="biz/js/webjs/ueditor/ueditor.config.js"></script>
+		<script type="text/javascript" src="biz/js/webjs/ueditor/ueditor.all.js"></script>
+		{%>template/common/Head.html%}
+		<script type="text/javascript" src="biz/js/webjs/BainiuSolvedErr.js"></script>
+	</body>
+<html>

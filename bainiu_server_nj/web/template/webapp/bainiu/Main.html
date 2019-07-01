@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>摆牛知识库</title>
+		<script src="biz/indexCss/js/jquery.js"></script>
+		<script src="biz/indexCss/js/placeholder.js"></script>
+		<script src="biz/indexCss/js/pagination.js"></script>
+		<script src="biz/indexCss/js/base.js"></script>
+		<link href="biz/indexCss/css/common.css" rel="stylesheet" />
+		<script>
+	
+	</script>
+	</head>
+	<body>
+
+		<div class="bn_main">
+
+			<div class="main_col">
+				<div class="main_wrap clear">
+					<div class="header">
+						<div class="bn_version" id="headLogo" style="cursor:pointer">
+							<b>BaiNiu</b><i>摆牛知识库 V1.0</i>
+						</div>
+						<div class="form_wrapper">
+							<div class="main_sh_form">
+								<div class="sel_ipt">
+									<span class="choose_list" id="sysDomain">{%.CHOOSE_TYPE%}</span><b></b>
+									<div class="choose_pop">
+										<ul>
+											<li>
+												<a href="javascript:void(0)">所有类别</a>
+											</li>
+											{%#TYPE_LIST%}
+											<li>
+												<a href="javascript:void(0)">{%.ENUM_CODE%}</a>
+											</li>
+											{%/TYPE_LIST%}
+										</ul>
+									</div>
+								</div>
+								<span class="sh_ipt"> <input type="text"
+										value="{%.KEY_WORD%}" name="" id="keyWord" placeholder="" />
+									<div class="async_area">
+										<ul>
+											<li>
+											</li>
+											<li>
+											</li>
+											<li>
+											</li>
+											<li>
+											</li>
+											<li>
+											</li>
+											<li>
+											</li>
+										</ul>
+									</div> </span>
+								<span class="bn_btn sh_sub" id="qry"></span>
+							</div>
+						</div>
+
+						<ol class="clear">
+							<li>
+								{%^NAME%}
+								<a id="loginLink" style="cursor:pointer">登录</a> {%/NAME%} {%#NAME%}
+								<a id="goToMangerlink" style="cursor:pointer">欢迎[{%.%}]</a> {%/NAME%}
+							</li>
+							<li>
+								<a id="regLink">注册</a>
+							</li>
+							<!-- 
+							<li>
+								<a href="">开启全屏</a>
+							</li>
+							<li class="admin_ipt">
+								<a href="javascript:;">管理员录入</a><i></i>
+								<dl>
+									<dd>
+										<a href="javascript:;">列表11111</a>
+									</dd>
+									<dd>
+										<a href="javascript:;">列表22222</a>
+									</dd>
+									<dd>
+										<a href="javascript:;">列表33333</a>
+									</dd>
+								</dl>
+							</li>
+							<li>
+								<a href="">收件箱</a>
+							</li>
+							 -->
+						</ol>
+
+					</div>
+					{%#SHOW_RES%}
+					<div class="article clear">
+
+						<ul id="errList">
+
+							{%#ERRLIST%}
+							<li>
+								<div class="article_block clear">
+									<a class="article_tit" ex_id={%.EX_ID%}>{%.EX_ABSTRACT%}</a><span
+										class="{%.B_TYPE_CLASS%}">{%.B_TYPE_NAME%}</span>
+								</div>
+								<div class="article_details">
+									<a>录入人：{%.INS_USER_NAME%}</a>
+									<a>审核人：{%.DEAL_USER_NAME%}</a>
+									<a>审核日期：{%.DEAL_TIME%}</a>
+								</div>
+								<div class="articel_con">
+									{%&EX_DESC%}
+								</div>
+							</li>
+							{%/ERRLIST%}
+						</ul>
+					</div>
+
+					<div class="pagination_area">
+						<span class="pagination" id="paginations"> {%#GOQRYPAGE.PAGINATIONS%}
+
+							<span> <a pagIdex="{%.ROW_INDEX%}" {%#CURRENT_PAGE%}class="current"{%/CURRENT_PAGE%}>{%.ROW_INDEX%}</a>
+						</span> {%/GOQRYPAGE.PAGINATIONS%} </span>
+						<span class="pagination_add"><a style="padding: 0 10px">共<span
+								id="total_pages_nums" class="total_pages"
+								page_count="{%GOQRYPAGE.PAGINATION_COUNT%}">{%GOQRYPAGE.PAGINATION_COUNT%}</span>条记录 共{%GOQRYPAGE.PAGE_COUNT%}页</a><a>到第<span><input
+										type="text" id="gotopage" class="gotopage"   onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"  
+                                    onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}"/> </span>页</a> <a
+							id="gotopagesubmit" class="bn_btn ok_btn">确定</a> </span>
+
+					</div>
+					{%/SHOW_RES%} {%^SHOW_RES%}
+					<div class="no_article">
+						<img src="biz/indexCss/images/no_article.png" alt="" width="380"
+							height="352" />
+					</div>
+					{%/SHOW_RES%}
+
+				</div>
+			</div>
+
+		
+		</div>
+		{%>template/common/Head.html%}
+		<script type="text/javascript" src="biz/js/webjs/Main.js"></script>
+		{%>template/common/Footer.html%}
+    <style type="text/css">
+	.footer p{ text-align:center;}    
+    </style>
+
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>登录</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<link rel="apple-touch-icon-precomposed" href="touch-icon-iphone.png" />
+<!--1，引入CSS文件 -->
+<link rel="stylesheet" href="biz/ipu/theme/hum.css">
+</head>
+<body>
+	<header class="ui-toolbar" id="header">
+		<a class="ui-icon icon-left-nav fn-left" href="javascript:;"
+			action="Index"></a>
+		<h1 class="ui-toolbar-title">登录</h1>
+	</header>
+
+	<div class="ui-panel-content">
+		<form>
+			<input type="text" placeholder="用户名" id="userName" /> <input
+				type="text" placeholder="密码" id="passWord" /> <img id="verifyIMG"
+				alt="点击更换验证码" src="data:image/png;base64, {%VERIFY_IMG%}"><input
+				type="text" placeholder="验证码" id="verifyCode" />
+			<button type="button" class="ui-btn ui-btn-block" id="loginBtn">登录</button>
+		</form>
+	</div>
+
+</body>
+<input type="hidden" id="sessionId" value="{%SESSION_ID%}">
+{%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/Login.js"></script>
+</html>

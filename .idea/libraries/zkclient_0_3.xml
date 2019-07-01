@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="zkclient-0.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/zkclient-0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/zookeeper-3.3.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

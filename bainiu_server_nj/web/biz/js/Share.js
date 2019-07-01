@@ -1,0 +1,11 @@
+require(["mobile","zepto","wadeMobile"],function(Mobile,$,WadeMobile){
+	$("#header").children().click(function(){
+		Mobile.back();
+	});
+	$("#shareByBluetooth").click(function(){
+		WadeMobile.shareByBluetooth();
+	});
+	$("#shareByQQ").click(function(){
+		Mobile.openPage("Building");
+	});
+});

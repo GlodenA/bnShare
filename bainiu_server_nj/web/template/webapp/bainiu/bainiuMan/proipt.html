@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>Bootstrap 101 Template</title>
+
+<link
+	href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css"
+	rel="stylesheet">
+<link href="template/webapp/bainiu/bainiuMan/tab/css/tab.css"
+	rel="stylesheet" type="text/css" />
+<!--自己的样式-->
+<link href="template/webapp/bainiu/bainiuMan/css/manage.css"
+	rel="stylesheet" type="text/css" />
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body style="background:#f3f7f8">
+	<div class="frame_content">
+		<div class="proipt">
+			<div class="row">
+				<form action="" method="" name="">
+					<div class="col-md-6">
+						<h1 class="pro_desc_title" style="font-weight:800;">问题描述</h1>
+						<div class="pro_desc ">
+							<h2 style="font-weight:600;">
+								<span>*</span>问题概述
+							</h2>
+							<textarea placeholder="请简要描述问题" id="EX_ABSTRACT"
+								class="form-control"></textarea>
+						</div>
+						<div class="detail_desc clear">
+							<h2 style="font-weight:600;">
+								<span>*</span>详细描述
+							</h2>
+							<script id="EX_DESC" style="height:80px;" class="editer" name=""
+								type="text/plain"></script>
+						</div>
+						<div class="cata">
+							<ul>
+								<li class="big_c">
+									<h2 style="font-weight:600;">大类</h2> <select
+									class="form-control" id="B_TYPE"> {%#BTYPELIST%}
+										<option value="{%.ENUM_CODE%}">{%.ENUM_NAME%}</option>
+										{%/BTYPELIST%}
+								</select>
+								</li>
+								<li class="small_c">
+									<h2 style="font-weight:600;">小类</h2> <select
+									class="form-control" id="S_TYPE"> {%#STYPELIST%}
+										<option value="{%.ENUM_CODE%}">{%.ENUM_NAME%}</option>
+										{%/STYPELIST%}
+								</select>
+								</li>
+							</ul>
+						</div>
+						<div class="cata">
+							<li class="small_c">
+									 <select
+									class="form-control" id="SECURITY_LEVEL">
+									{%#SECURITYLIST%} 
+										<option value="{%.ENUM_CODE%}">{%.ENUM_NAME%}</option>
+									{%/SECURITYLIST%}	
+								</select>
+								</li>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<h1 class="resolve_title" style="font-weight:800;">解决方法</h1>
+						<div class="pro_res clear">
+							<h2 style="font-weight:600;">问题原因</h2>
+							<script id="EX_REASON" style="height:80px;" class="editer"
+								name="" type="text/plain"></script>
+						</div>
+						<div class="resolve clear">
+							<h2 style="font-weight:600;">解决方法</h2>
+							<script id="EX_SOLUTION" style="height:80px;" class="editer"
+								name="" type="text/plain"></script>
+						</div>
+						<div class="keys" style="height: 30%">
+							<h2 style="font-weight:600;">关键词</h2>
+
+							<div class="plus-tag tagbtn clearfix" id="myTags"></div>
+							<div class="plus-tag-add">
+
+								<ul class="Form FancyForm">
+									<li>
+									  <input type="text" class="form-control" maxlength="20"  placeholder="输入关键词后按ENTER键确认"/>
+									</li>
+								</ul>
+								<span class="error"></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<span class="bn_btn ipt_btn" id="sub">录入</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="biz/js/common/jquery.js"></script>
+
+	<script src="template/webapp/bainiu/bainiuMan/tab/js/tab.js"></script>
+	{%>template/common/Head.html%}
+	{%>template/common/Footer.html%}
+	<script type="text/javascript"
+		src="biz/js/webjs/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript"
+		src="biz/js/webjs/ueditor/ueditor.all.js"></script>
+	<script type="text/javascript" src="biz/js/webjs/Error.js"></script>
+</body>
+</html>
+
+

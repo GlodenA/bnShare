@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE datas [
+  <!ENTITY component.data SYSTEM "classpath:server-data-comp.xml">
+]>
+<datas>
+	<action name="init" class="com.ipu.server.bean.ErrBean" method="init" verify="false"></action>
+	<action name="CloseApp" class="com.ipu.server.bean.Login" method="CloseApp" verify="false"></action>
+	<action name="Index.init" class="com.ipu.server.bean.ErrBean" method="getDomain" verify="false"></action>
+    <action name="BainiuIndex.getErrInfos" class="com.ipu.server.bean.ErrBean" method="getErrInfos" verify="false"></action>
+    <action name="BainiuIndex.goQry" class="com.ipu.server.bean.ErrBean" method="goQry" verify="false"></action>
+    <action name="Login.doLogin" class="com.ipu.server.bean.Login" method="doLogin" verify="false"></action>
+    <action name="Login.findPwd" class="com.ipu.server.bean.Login" method="findPwd" verify="false"></action>
+    <action name="Index.getHotKey" class="com.ipu.server.bean.ErrBean" method="getHotKey" verify="false"></action>
+    <action name="Qry.goQry" class="com.ipu.server.bean.ErrBean" method="goQry" verify="false"></action>
+    <action name="ErrDtl.getErrDtl" class="com.ipu.server.bean.ErrBean" method="getErrDtl" verify="false"></action>
+    <action name="ErrDtl.getUnDealErrDtl" class="com.ipu.server.bean.ErrBean" method="getUnDealErrDtl" verify="false"></action>
+    <action name="BainiuSolvedErr.deleteErr" class="com.ipu.server.bean.ErrBean" method="deleteErr" verify="false"></action>
+    <action name="User.register" class="com.ipu.server.bean.UserBean" method="register" verify="false"></action>
+    <action name="Err.insertErr" class="com.ipu.server.bean.ErrBean" method="insertErr" verify="false"></action>
+    <action name="Right.queryRight" class="com.ipu.server.bean.RightBean" method="queryRight" verify="false"></action>
+    <action name="Err.querySelectType" class="com.ipu.server.bean.ErrBean" method="querySelectType" verify="false"></action>
+    <action name="Right.authorize" class="com.ipu.server.bean.RightBean" method="authorize" verify="false"></action>
+    <action name="Right.cancelAuthorize" class="com.ipu.server.bean.RightBean" method="cancelAuthorize" verify="false"></action>
+    <action name="Right.authorizeAll" class="com.ipu.server.bean.RightBean" method="authorizeAll" verify="false"></action>
+    <action name="Right.cancelAuthorizeAll" class="com.ipu.server.bean.RightBean" method="cancelAuthorizeAll" verify="false"></action>
+    <action name="Right.queryAvailableRight" class="com.ipu.server.bean.RightBean" method="queryAvailableRight" verify="false"></action>
+    <action name="Right.addUserRight" class="com.ipu.server.bean.RightBean" method="addUserRight" verify="false"></action>
+    <action name="UnsolvedErrQry.qryUnsolved" class="com.ipu.server.bean.ErrBean" method="qryUnsolved" verify="false"></action>
+    <action name="BainiuSolvedErr.updateErr" class="com.ipu.server.bean.ErrBean" method="updateErr" verify="false"></action>
+ 	<action name="BainiuSolvedErr.updateErr" class="com.ipu.server.bean.ErrBean" method="updateErr" verify="false"></action>
+    <action name="FileMan.validate" class="com.ipu.server.bean.ErrBean" method="init" verify="true"></action>
+ 
+    <action name="BainiuIndex.initData" class="com.ipu.server.bean.Index" method="initData" verify="false"></action>
+    <action name="BainiuIndex.getComment" class="com.ipu.server.bean.Index" method="getComment"></action>
+    <action name="Comment.submit" class="com.ipu.server.bean.Index" method="submitComment" verify="false"></action>
+    <action name="Reg.doRegister" class="com.ipu.server.bean.UserBean" method="doRegister" verify="false"></action>
+    <action name="Msg.queryMsg" class="com.ipu.server.bean.MsgBean" method="queryMsg" verify="false"></action>
+    <action name="Msg.signMsg" class="com.ipu.server.bean.MsgBean" method="signMsg" verify="false"></action>
+    <action name="Msg.queryDetailMsg" class="com.ipu.server.bean.MsgBean" method="queryDetailMsg" verify="false"></action>
+    <action name="BainiuIndex.insReply" class="com.ipu.server.bean.Index" method="insReply" verify="false"></action>
+    <action name="UnsolvedErrQry.getUnsolvedInfo" class="com.ipu.server.bean.ErrBean" method="getUnsolvedInfo" verify="false"></action>
+    
+    <action name="Group.init" class="com.ipu.server.bean.GroupBean" method="init" verify="false"></action>
+    <action name="Group.modifyGroup" class="com.ipu.server.bean.GroupBean" method="modifyGroup" verify="false"></action>
+    <action name="Group.queryGroup" class="com.ipu.server.bean.GroupBean" method="queryGroup" verify="false"></action>
+    <action name="Group.queryGroupTree" class="com.ipu.server.bean.GroupBean" method="queryGroupTree" verify="false"></action>
+    <action name="Group.queryUser" class="com.ipu.server.bean.GroupBean" method="queryUser" verify="false"></action>
+    <action name="Group.modifyGroup" class="com.ipu.server.bean.GroupBean" method="modifyGroup" verify="false"></action>
+    <action name="Personal.queryUser" class="com.ipu.server.bean.UserBean" method="queryUserInfo" verify="false"></action>
+    <action name="Group.QueryUserList" class="com.ipu.server.bean.GroupBean" method="QueryUserList" verify="false"></action>
+    
+    <action name="Msg.queryNoReadMsg" class="com.ipu.server.bean.MsgBean" method="queryNoReadMsg" verify="false"></action>
+    <action name="Personal.modifyUser" class="com.ipu.server.bean.UserBean" method="modifyUser" verify="false"></action>
+
+	<action name="Leave.init" class="com.ipu.server.bean.VacationBean" method="init" verify="false"></action>
+    <action name="Leave.submitLeave" class="com.ipu.server.bean.VacationBean" method="submitLeave" verify="false"></action>
+    <action name="Leave.queryOwnLeave" class="com.ipu.server.bean.VacationBean" method="queryOwnLeave" verify="false"></action>
+    <action name="Leave.exportLeave" class="com.ipu.server.bean.VacationBean" method="exportAskleave" verify="false"></action>
+    <action name="Leave.queryResultData" class="com.ipu.server.bean.VacationBean" method="queryResultData" verify="false"></action>
+    <action name="MsgBox.auditLeava" class="com.ipu.server.bean.MsgBean" method="auditLeava" verify="false"></action>
+    <action name="Personal.qryMyErr" class="com.ipu.server.bean.UserBean" method="getMoreMyErr" verify="false"></action>
+	<action name="Personal.qryMyDeal" class="com.ipu.server.bean.UserBean" method="getMoreMyDealErr" verify="false"></action>
+    
+    <action name="Leave.chkLeave" class="com.ipu.server.bean.MsgBean" method="chkLeave" verify="false"></action>
+    
+	<action name="Ishare.queryIshare" class="com.ipu.server.bean.IshareBean" method="queryIshare" verify="false"></action>
+	<action name="Ishare.qIshareEntry" class="com.ipu.server.bean.IshareBean" method="qIshareEntry" verify="false"></action>
+	<action name="Ishare.enrolIshare" class="com.ipu.server.bean.IshareBean" method="enrolIshare" verify="false"></action>
+	<action name="Ishare.queryResultData" class="com.ipu.server.bean.IshareBean" method="queryResultData" verify="false"></action>
+	<action name="Ishare.dealIshare" class="com.ipu.server.bean.IshareBean" method="dealIshare" verify="false"></action>
+	<action name="Ishare.chgIshare" class="com.ipu.server.bean.IshareBean" method="chgIshare" verify="false"></action>
+	
+	<action name="Templet.querySelectType" class="com.ipu.server.bean.TempletManBean" method="querySelectType" verify="false"></action>
+	<action name="Templet.dealTemplet" class="com.ipu.server.bean.TempletManBean" method="dealTemplet" verify="false"></action>
+	<action name="Templet.chgTemplet" class="com.ipu.server.bean.TempletManBean" method="chgTemplet" verify="false"></action>
+	<action name="Templet.queryTemplet" class="com.ipu.server.bean.TempletManBean" method="queryTemplet" verify="false"></action>
+	<action name="Templet.queryResultData" class="com.ipu.server.bean.TempletManBean" method="queryResultData" verify="false"></action>
+	
+	<action name="User.getLinkAcct" class="com.ipu.server.bean.UserBean" method="getLinkAcct" verify="false"></action>
+	
+	<action name="User.init" class="com.ipu.server.bean.UserBean" method="init" verify="false"></action>
+	<action name="User.updUser" class="com.ipu.server.bean.UserBean" method="updUser" verify="false"></action>
+	<action name="User.delUser" class="com.ipu.server.bean.UserBean" method="delUser" verify="false"></action>
+	
+	<action name="BookMan.init" class="com.ipu.server.bean.BookManBean" method="init" verify="false"></action>
+	<action name="BookMan.queryBook" class="com.ipu.server.bean.BookManBean" method="queryBook" verify="false"></action>
+	<action name="BookMan.loanBook" class="com.ipu.server.bean.BookManBean" method="loanBook" verify="false"></action>
+	<action name="BookMan.qryLoanHis" class="com.ipu.server.bean.BookManBean" method="qryLoanHis" verify="false"></action>
+	<action name="BookMan.backBook" class="com.ipu.server.bean.BookManBean" method="backBook" verify="false"></action>
+	<action name="BookMan.createBook" class="com.ipu.server.bean.BookManBean" method="createBook" verify="false"></action>
+
+
+
+
+    <action name="DocsCentre.init" class="com.ipu.server.bean.DocsCentreBean" method="init" verify="false"></action>
+    <action name="DocsCentre.queryDocs" class="com.ipu.server.bean.DocsCentreBean" method="queryDocs" verify="false"></action>
+    <action name="DocsCentre.queryDocsByUserName" class="com.ipu.server.bean.DocsCentreBean" method="queryDocsByUserName" verify="false"></action>
+    <action name="DocsCentre.queryDocsByHotKey" class="com.ipu.server.bean.DocsCentreBean" method="queryDocsByHotKey" verify="false"></action>
+</datas>

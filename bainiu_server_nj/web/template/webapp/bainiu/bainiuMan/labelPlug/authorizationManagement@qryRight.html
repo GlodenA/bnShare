@@ -1,0 +1,68 @@
+<table id="example"
+	class="table table-striped table-bordered table-hover dataTables-example dataTable"
+	cellspacing="0" width="100%">
+	<thead>
+		<tr>
+			<th class="tn">
+				<input id="checkall" name="" type="checkbox" value="">
+			</th>
+			<th>
+				账号
+			</th>
+			<th>
+				申请人
+			</th>
+			<th>
+				权限类型
+			</th>
+			<th>
+				权限名称
+			</th>
+			<th>
+				权限状态
+			</th>
+			<th {%^RIGHT.DATA_RIGHT_ADM%} style="display: none;"{%/RIGHT.DATA_RIGHT_ADM%}>
+				操作
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		{%#RIGHTLIST%}
+		<tr>
+			<td>
+				<input type="checkbox" name="chkItem" user_id='{%.USER_ID%}'
+					right_code='{%.RIGHT_CODE%}' state_code='{%.STATE_CODE%}' />
+			</td>
+			<td ex_id="{%.USER_ID%}">
+				{%.USER_ACCT%}
+			</td>
+			<td>
+				{%.NAME%}
+			</td>
+			<td>
+				{%.TYPE_NAME%}
+			</td>
+			<td>
+				{%.RIGHT_NAME%}
+			</td>
+			<td>
+				{%.STATE_NAME%}
+			</td>
+			<td {%^RIGHT.DATA_RIGHT_ADM%} style="display: none;"
+				{%/RIGHT.DATA_RIGHT_ADM%} align="center" user_id='{%.USER_ID%}'
+				right_code='{%.RIGHT_CODE%}' state_code='{%.STATE_CODE%}'>
+				{%^.STATE_TAG%}
+				<button type="button" class="bn_btn auth_btn">
+					授权
+				</button>
+				{%/.STATE_TAG%} {%#.STATE_TAG%}
+				<button type="button" class="bn_btn auth_btn active">
+					取消授权
+				</button>
+				{%/.STATE_TAG%}
+			</td>
+		</tr>
+		{%/RIGHTLIST%}
+	</tbody>
+</table>
+{%>template/common/Paginate.html%}

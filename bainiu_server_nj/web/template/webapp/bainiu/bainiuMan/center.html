@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>Bootstrap 101 Template</title>
+
+		<!-- Bootstrap和dataTables样式 -->
+		<link
+			href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css"
+			rel="stylesheet">
+		<link
+			href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css"
+			rel="stylesheet" type="text/css" />
+		<link
+			href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css"
+			rel="stylesheet" type="text/css" />
+		<!--自己的样式-->
+		<link href="template/webapp/bainiu/bainiuMan/css/manage.css"
+			rel="stylesheet" type="text/css" />
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+		<style type="text/css">
+.excp_tips {
+	background: #ca6593;
+}
+
+.plat_tips {
+	background: #9bc07c;
+}
+
+.sm_tips {
+	padding: 0 6px;
+	height: 14px;
+	line-height: 14px;
+	text-align: center;
+	color: #fff;
+	border-radius: 4px;
+	display: inline-block;
+}
+</style>
+	</head>
+	<body>
+		<div class="container-fluid per_center">
+			<div class="row">
+
+				<div class="col-md-3">
+					<div class="per_profile">
+						<div class="per_photo">
+							<img src="template/webapp/bainiu/bainiuMan/images/per_photo.png"
+								class="thumbnail" />
+						</div>
+						<ul class="per_desc">
+							<li class="clearfix">
+								<span class="desc_key">姓名</span><span name="NAME" 
+								class="desc_value edit">{%.NAME%}</span>
+							</li>
+							<li class="clearfix">
+								<span class="desc_key">所属域</span><span class="desc_value">{%.SYS_DOMAIN%}</span>
+							</li>
+							<li class="clearfix">
+								<span class="desc_key">NT账号</span><span name="NTACCT" 
+								class="desc_value edit">{%.NTACCT%}</span>
+							</li>
+							<li class="clearfix">
+								<span class="desc_key">归属部门</span><span name="ORG_NAME"
+									class="desc_value  acc_value edit">{%.ORG_NAME%}</span>
+							</li>
+							<li class="clearfix">
+								<span class="desc_key">昵称</span><span name="NICK_NAME"
+									class="desc_value edit">{%.NICK_NAME%}</span>
+							</li>
+							<li class="clearfix">
+								<span class="desc_key">电话</span><span name="PHONE"
+									class="desc_value edit">{%.PHONE%}</span>
+							</li>
+							<li class="clearfix">
+								<span class="desc_key">邮箱</span><span name="EMAIL"
+									class="desc_value edit">{%.EMAIL%}</span>
+							</li>
+
+							<li class="clearfix" style="display: none">
+								<span class="desc_key">密码</span><span name="PASSWORD"
+									class="desc_value edit"> <input name='PASSWORD'
+										type='password' value="{%.PASSWORD%}" /> </span>
+							</li>
+							<li class="clearfix">
+								<span class="desc_key niubi">牛币</span><span
+									class="desc_value niubi">{%.NB%}</span>
+							</li>
+						</ul>
+						<div class="clearfix">
+							<span class="btn btn-info mod">修改</span>
+						</div>
+					</div>
+					<div class="acc_manage">
+						<div class="head_title">
+							账户管理
+						</div>
+						<ul>
+
+							<li class="clearfix">
+								<span class="desc_key">绑定NT账号</span><span
+									class="desc_value bind_btn active">解除绑定</span>
+							</li>
+							<li class="clearfix">
+								<span class="desc_key">更改系统域</span><span
+									class="desc_value bind_btn">立即绑定</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-9">
+
+					<div class="row modules">
+
+						<div class="col-md-6">
+							<div id="flashArea1">
+							{%>template/webapp/bainiu/bainiuMan/labelPlug/center@qryMyErr.html%}
+							</div>
+							<div class="module_panel questions">
+								<div class="title">
+									<h1>
+										我的回答
+									</h1>
+								</div>
+								<div id="flashArea2">
+								{%>template/webapp/bainiu/bainiuMan/labelPlug/center@qryMyDeal.html%}
+								</div>
+							</div>
+						</div>
+					<div class="col-md-6">
+							<div class="module_panel fur_agi">
+								<div class="title">
+									<h1>
+										休假管理
+									</h1>
+									<a href="###">查看详情></a>
+								</div>
+								 {%#LEAVELIST%}
+								<div class="query_list">
+									<div class="fur_agi_text">
+ 								<span {%^FIR_CHK%} style="display:none"{%/FIR_CHK%}><span>一级审批：{%.FIR_CHK_NAME%}</span><span class="status">审批中...</span></span>	
+								<span {%^SEC_CHK%} style="display:none"{%/SEC_CHK%}><span>二级审批：{%.SEC_CHK_NAME%}</span><span class="status">审批中...</span></span>	
+								<span {%^SICK_LEAVE%} style="display:none"{%/SICK_LEAVE%}><span>销假人：{%.USER_NAME%}</span><span class="status">待销假...</span></span>
+								<span {%^ENDDING%} style="display:none"{%/ENDDING%}><span class="status">结束</span></span> 
+								<span {%^FIR_CHK_NO_PASS%} style="display:none"{%/FIR_CHK_NO_PASS%}><span>一级审批：{%.FIR_CHK_NAME%}</span><span class="status">审批不通过：{%.FIR_PS%}</span></span> 
+								<span {%^SEC_CHK_NO_PASS%}%} style="display:none"{%/SEC_CHK_NO_PASS%}%}><span>二级审批：{%.SEC_CHK_NAME%}</span><span class="status">审批不通过：{%.SEC_PS%}</span></span>
+									</div>
+
+									<div class="process_ul clear">
+										<div class="process_li">
+									 <div class="process_li_img agree">
+												<img src="template/webapp/bainiu/bainiuMan/images/me.png" />
+											</div>
+											<ol>
+												<li>
+													{%.USER_NAME%}
+												</li>
+												<li>
+													{%.REQ_TIME%}
+												</li>
+												<li>
+													{%.REQ_TYPE%}
+												</li>
+											</ol>
+										</div>
+										<div class="process_li line_sep">
+											<div class="process_line">										 
+									          <img src="template/webapp/bainiu/bainiuMan/images/agree_line.png" /> 												
+											</div>
+										</div>
+										<div class="process_li">
+									 {%#FIR_CHK%}<div class="process_li_img">{%/FIR_CHK%}
+									 {%#SEC_CHK%}<div class="process_li_img agree">{%/SEC_CHK%}
+									 {%#SICK_LEAVE%}<div class="process_li_img agree">{%/SICK_LEAVE%}
+									 {%#ENDDING%}<div class="process_li_img agree">{%/ENDDING%} 
+									 {%#FIR_CHK_NO_PASS%}<div class="process_li_img refuse">{%/FIR_CHK_NO_PASS%}
+									 {%#SEC_CHK_NO_PASS%}<div class="process_li_img agree">{%/SEC_CHK_NO_PASS%}
+												<img
+													src="template/webapp/bainiu/bainiuMan/images/leader_lv1.png" />
+											</div>
+											<ol>
+												<li>
+												   {%.FIR_CHK_NAME%}
+												</li>
+												<li>
+													{%.FIR_CHKTIME%}
+												</li>
+												{%#SEC_CHK%}
+												<li class="apply_state agr">
+													同意
+												</li>
+												{%/SEC_CHK%}
+												{%#SEC_CHK_NO_PASS%}
+												<li class="apply_state agr">
+													同意
+												</li>
+												{%/SEC_CHK_NO_PASS%}
+												{%#SICK_LEAVE%}
+												<li class="apply_state agr">
+													同意
+												</li>
+												{%/SICK_LEAVE%}
+												{%#ENDDING%}
+												<li class="apply_state agr">
+													同意
+												</li>
+												{%/ENDDING%}
+												{%#FIR_CHK_NO_PASS%}
+												<li class="apply_state ref">
+													拒绝
+												</li>
+												{%/FIR_CHK_NO_PASS%}
+												
+											</ol>
+										</div>
+										
+										<div class="process_li line_sep">
+											<div class="process_line">
+											 {%#FIR_CHK%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/FIR_CHK%}
+									         {%#SEC_CHK%}<img src="template/webapp/bainiu/bainiuMan/images/agree_line.png" />{%/SEC_CHK%}
+									         {%#SICK_LEAVE%}<img src="template/webapp/bainiu/bainiuMan/images/agree_line.png" />{%/SICK_LEAVE%}
+									         {%#ENDDING%}<img src="template/webapp/bainiu/bainiuMan/images/agree_line.png" />{%/ENDDING%} 
+									         {%#FIR_CHK_NO_PASS%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/FIR_CHK_NO_PASS%}
+									         {%#SEC_CHK_NO_PASS%}<img src="template/webapp/bainiu/bainiuMan/images/agree_line.png" />{%/SEC_CHK_NO_PASS%}
+											</div>
+										</div>
+										<div class="process_li">
+											 {%#FIR_CHK%}<div class="process_li_img">{%/FIR_CHK%}
+									         {%#SEC_CHK%}<div class="process_li_img">{%/SEC_CHK%}
+									         {%#SICK_LEAVE%}<div class="process_li_img agree">{%/SICK_LEAVE%}
+									         {%#ENDDING%}<div class="process_li_img agree">{%/ENDDING%} 
+									         {%#FIR_CHK_NO_PASS%}<div class="process_li_img">{%/FIR_CHK_NO_PASS%}
+									         {%#SEC_CHK_NO_PASS%}<div class="process_li_img refuse">{%/SEC_CHK_NO_PASS%}
+												<img
+													src="template/webapp/bainiu/bainiuMan/images/leader_lv2.png" />
+											</div>
+											<ol>
+												<li>
+												 {%.SEC_CHK_NAME%}
+												</li>
+												<li>
+													{%.SEC_CHKTIME%}
+												</li>
+												{%#SICK_LEAVE%}
+												<li class="apply_state agr">
+													同意
+												</li>
+												{%/SICK_LEAVE%}
+												{%#ENDDING%}
+												<li class="apply_state agr">
+													同意
+												</li>
+												{%/ENDDING%}
+												{%#SEC_CHK_NO_PASS%}
+												<li class="apply_state ref">
+													拒绝
+												</li>
+												{%/SEC_CHK_NO_PASS%}
+											</ol>
+										</div>
+										<div class="process_li line_sep">
+											<div class="process_line">
+											 {%#FIR_CHK%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/FIR_CHK%}
+									         {%#SEC_CHK%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/SEC_CHK%}
+									         {%#SICK_LEAVE%}<img src="template/webapp/bainiu/bainiuMan/images/agree_line.png" />{%/SICK_LEAVE%}
+									         {%#ENDDING%}<img src="template/webapp/bainiu/bainiuMan/images/agree_line.png" />{%/ENDDING%} 
+									         {%#FIR_CHK_NO_PASS%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/FIR_CHK_NO_PASS%}
+									         {%#SEC_CHK_NO_PASS%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/SEC_CHK_NO_PASS%}
+											</div>
+										</div>
+										<div class="process_li">
+											 {%#FIR_CHK%}<div class="process_li_img">{%/FIR_CHK%}
+									         {%#SEC_CHK%}<div class="process_li_img">{%/SEC_CHK%}
+									         {%#SICK_LEAVE%}<div class="process_li_img">{%/SICK_LEAVE%}
+									         {%#ENDDING%}<div class="process_li_img agree">{%/ENDDING%} 
+									         {%#FIR_CHK_NO_PASS%}<div class="process_li_img">{%/FIR_CHK_NO_PASS%}
+									         {%#SEC_CHK_NO_PASS%}<div class="process_li_img">{%/SEC_CHK_NO_PASS%}
+												<img src="template/webapp/bainiu/bainiuMan/images/me.png" />
+											</div>
+											<ol>
+											
+												{%#SICK_LEAVE%}
+											    <li>
+													销假
+												</li>
+												{%/SICK_LEAVE%}
+												<li>{%.RETURN_TIME%}</li>
+												
+												{%#SICK_LEAVE%}
+												<li class="apply_state">
+													待销假
+												</li>
+												{%/SICK_LEAVE%}
+												{%#ENDDING%}
+											    <li>
+													销假
+												</li>
+												<li>{%.RETURN_TIME%}</li>
+												
+												<li class="apply_state agr">
+													已销假
+												</li>
+												{%/ENDDING%}
+											</ol>
+										</div>
+										<div class="process_li line_sep">
+											<div class="process_line">
+											 {%#FIR_CHK%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/FIR_CHK%}
+									         {%#SEC_CHK%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/SEC_CHK%}
+									         {%#SICK_LEAVE%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/SICK_LEAVE%}
+									         {%#ENDDING%}<img src="template/webapp/bainiu/bainiuMan/images/agree_line.png" />{%/ENDDING%} 
+									         {%#FIR_CHK_NO_PASS%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/FIR_CHK_NO_PASS%}
+									         {%#SEC_CHK_NO_PASS%}<img src="template/webapp/bainiu/bainiuMan/images/default_line.png" />{%/SEC_CHK_NO_PASS%}
+											</div>
+										</div>
+										<div class="process_li">
+											 {%#FIR_CHK%}<div class="process_li_img">{%/FIR_CHK%}
+									         {%#SEC_CHK%}<div class="process_li_img">{%/SEC_CHK%}
+									         {%#SICK_LEAVE%}<div class="process_li_img">{%/SICK_LEAVE%}
+									         {%#ENDDING%}<div class="process_li_img agree">{%/ENDDING%} 
+									         {%#FIR_CHK_NO_PASS%}<div class="process_li_img">{%/FIR_CHK_NO_PASS%}
+									         {%#SEC_CHK_NO_PASS%}<div class="process_li_img">{%/SEC_CHK_NO_PASS%}
+												<img
+													src="template/webapp/bainiu/bainiuMan/images/process_end.png" />
+											</div>
+											<ol>
+												{%#ENDDING%}
+												<li>
+													已销假
+												</li>
+												<li></li>
+												<li class="apply_state agr">
+												结束
+												</li>
+												{%/ENDDING%}
+												
+											</ol>
+										</div>
+									</div>
+
+
+
+									<!--  <div class="text-right">
+										<span class="btn btn-info mod ">取消休假</span>
+									</div>-->
+								</div>
+								 {%/LEAVELIST%}
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script
+			src="template/webapp/bainiu/bainiuMan/bootstrap/js/bootstrap.min.js"></script>
+			 {%>template/common/Head.html%}
+     <script type="text/javascript" src="biz/js/webjs/Center.js"></script>
+     
+	</body>
+</html>
+<script>
+    //绑定切换按钮
+    $('.bind_btn').click(function(){
+        if($(this).hasClass('active')){
+            $(this).removeClass('active')
+            $(this).text('授权');
+        }else{
+            $(this).addClass('active');
+            $(this).text('取消授权');
+        }
+    })
+
+ 
+</script>

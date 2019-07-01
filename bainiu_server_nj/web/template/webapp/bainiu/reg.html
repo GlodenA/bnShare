@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title></title>
+<link rel="stylesheet" href="biz/indexCss/css/common.css"/>
+<script src="biz/indexCss/js/jquery.js"></script>
+<script src="biz/indexCss/js/placeholder.js"></script>
+<script>
+    $(function(){
+        $('input').placeholder();
+    })
+</script>
+</head>
+<body>
+<div class="header">
+    <ol class="clear">
+        <li><a id="gotoIndex">首页</a></li>
+    </ol>
+</div>
+<div class="reg_area">
+    <form action="" method="post" class="reg_form">
+        <table border="0" cellpadding="0" cellspacing="0" >
+            <tr>
+                <td colspan="2">
+                    <div class="reg_logo">
+                        <img src="biz/indexCss/images/bn_logo.png"/>
+                    </div>
+                    <!--<div class="subtitle"><span>加入摆牛，</span>与大家分享你的知识、经验和见解</div>-->
+                </td>
+            </tr>
+            <tr>
+                <td width="16"><b class="blank_mark">*</b></td>
+                <td><div class="acc"><input type="text" id="acc_id" placeholder="请输入手机号或邮箱，用于登录和找回密码"  value=""/><span class="label">账号/NT账号:</span></div></td>
+            </tr>
+            <tr>
+                <td><b class="blank_mark">*</b></td>
+                <td><div class="pass"><input type="password" id="password" placeholder="支持6-14位数字、字母和下划线,与NT账号密码无关"  value=""/><span class="label">密码:</span></div></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><div class="pet_name"><input type="text" id="name" placeholder="给自己起个响亮的名字吧"  value=""/><span class="label">昵称:</span></div></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span class="bn_btn l_btn" id="regBtn">注&nbsp;册</span></td>
+            </tr>
+            <tr><td class="td-30"></td><td class="td-30"><span class="btndownlink">我有账号，<a id="loginLink">立即登陆!</a></span></td></tr>
+        </table>
+    </form>
+</div>
+{%>template/common/Footer.html%}
+    <style type="text/css">
+	.footer p{ text-align:center;}    
+    </style>
+
+<div class="messagebox errorbox">
+	<!--<span class="closemessage"></span>-->
+	<div class="valid_area"></div>
+</div>
+			
+{%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/Register.js"></script>
+		
+</body>
+</html>

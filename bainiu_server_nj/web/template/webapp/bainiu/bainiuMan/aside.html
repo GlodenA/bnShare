@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head lang="zh-CN">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>北牛知识库</title>
+<script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+<script src="template/webapp/bainiu/bainiuMan/js/placeholder.js"></script>
+<link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet"/>
+{%>template/common/Head.html%}
+<script src="biz/js/webjs/Maside.js" ></script>
+<script>
+
+    $(function(){
+
+
+
+        //左边导航
+        function navClick() {
+
+            $('.nav').on('click', 'dl dt', function () {
+                var _obj = $(this).parent('dl');
+                if (_obj.hasClass('active')) {
+                    _obj.removeClass('active');
+                    if (_obj.children('dd').size()) {
+                        $('.nav dl dd').slideUp();
+                    }
+                } else {
+                    _obj.addClass('active');
+                    _obj.siblings('dl').removeClass('active');
+                    $('.nav dl').not('.active').each(function () {
+                        $(this).children('dd').css({'display': 'none'});
+                    });
+                    if (_obj.children('dd').size()) {
+                        $('.nav dl.active dd').slideDown();
+                    }
+                }
+            });
+
+            $('.nav').on('click', 'dl dd', function () {
+                $('.nav dl dd').removeClass('active')
+                $(this).addClass('active')
+            });
+
+        }
+
+            navClick();
+    });
+
+
+</script>
+</head>
+<body style="background:#212330">
+    <div class="aside">
+        <div class="nav">
+            <dl>
+                <dt class="home" id="goToIndex" ><span>我的工作台</span></dt>
+            </dl>
+            <dl class="active" id="question-nav">
+                <dt class="module"><span>知识库管理</span><i></i></dt>
+                {%#QUESTION_NAV%}
+                <dd><a action="{%.MOD_FILE%}" style="cursor:pointer"  target="content" >{%.RIGHT_TEXT%}</a><b style="{%.UNDO_CLASS%}">{%.UNDO_NUM%}</b></dd>
+                {%/QUESTION_NAV%}
+            </dl>
+            <dl id="pm-nav">
+                <dt class="sysmanage"><span>项目管理</span><i></i></dt>
+                {%#PM_NAV%}
+                <dd><a action="{%.MOD_FILE%}" style="cursor:pointer"  target="content" >{%.RIGHT_TEXT%}</a><b style="{%.UNDO_CLASS%}">{%.UNDO_NUM%}</b></dd>
+                {%/PM_NAV%}
+            </dl>
+            <dl id="sysman-nav">
+                <dt class="managetools"><span>系统管理</span><i></i></dt>
+                {%#SYSMAN_NAV%}
+                <dd><a action="{%.MOD_FILE%}" style="cursor:pointer"  target="content" >{%.RIGHT_TEXT%}</a><b style="{%.UNDO_CLASS%}">{%.UNDO_NUM%}</b></dd>
+                {%/SYSMAN_NAV%}
+            </dl>
+            <dl  id="bps-nav">
+                <dt class="module"><span>智享库</span><i></i></dt>
+                {%#BPS_NAV%}
+                <dd><a action="{%.MOD_FILE%}" style="cursor:pointer"  target="content" >{%.RIGHT_TEXT%}</a><b style="{%.UNDO_CLASS%}">{%.UNDO_NUM%}</b></dd>
+                {%/BPS_NAV%}
+            </dl>
+            <dl id="tools-nav">
+                <dt class="form"><span>文件管理</span><i></i></dt>
+                {%#TOOLS_NAV%}
+                <dd><a action="{%.MOD_FILE%}" style="cursor:pointer"  target="content" >{%.RIGHT_TEXT%}</a><b style="{%.UNDO_CLASS%}">{%.UNDO_NUM%}</b></dd>
+                {%/TOOLS_NAV%}
+            </dl>
+
+
+
+<!--            <dl>
+                <dt class="quit" id="signOut" target="_top"><span>注销</span></dt>
+            </dl>
+-->
+        </div>
+
+    </div>
+
+
+</body>
+</html>

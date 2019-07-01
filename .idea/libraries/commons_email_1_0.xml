@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-email-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bainiu_server_nj/web/WEB-INF/lib/commons-email-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

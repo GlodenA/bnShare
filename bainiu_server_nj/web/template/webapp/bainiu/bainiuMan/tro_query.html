@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap和dataTables样式 -->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <!--自己的样式-->
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body  style="background:#f3f7f8">
+<div class="frame_content" style="padding-top:0">
+    <div class="row tro_query">
+        <div class="col-md-4">
+        {%#UNSOLVED_TYPE_INFOS_1%}
+            <div class="module_panel green_skin">
+                <div class="title"><h1>{%.EX_TYPE_DESC%}</h1><a href="###">更多></a></div>
+                <div class="query">
+                    <div class="query_con"><input type="text" class="form-control" name="" placeholder="查询"/><span class="sh"></span></div>
+                </div>
+                <ul class="query_list">
+                	{%#.UNSOLVED_INFOS%}
+                	<!-- 我偷懒了，不安全 -->
+                    <li><a href="mobile?action=SolvedErr&data={'SESSION_ID':{%.SESSION_ID%},'EX_ID':{%.EX_ID%}}">{%.EX_ABSTRACT%}</a><span class="bonus"><i>{%.REWARD%}</i></span></li>
+                    {%/.UNSOLVED_INFOS%}
+                </ul>
+            </div>
+         {%/UNSOLVED_TYPE_INFOS_1%}
+        </div>
+        <div class="col-md-4">
+        {%#UNSOLVED_TYPE_INFOS_2%}
+            <div class="module_panel org_skin">
+                <div class="title"><h1>{%.EX_TYPE_DESC%}</h1><a href="###">更多></a></div>
+                <div class="query">
+                    <div class="query_con"><input type="text" class="form-control" name="" placeholder="查询"/><span class="sh"></span></div>
+                </div>
+                <ul class="query_list">
+                	{%#.UNSOLVED_INFOS%}
+                    <li><a href="mobile?action=SolvedErr&data={'SESSION_ID':{%.SESSION_ID%},'EX_ID':{%.EX_ID%}}">{%.EX_ABSTRACT%}</a><span class="bonus"><i>{%.REWARD%}</i></span></li>
+                    {%/.UNSOLVED_INFOS%}
+                </ul>
+            </div>
+		{%/UNSOLVED_TYPE_INFOS_2%}
+        </div>
+        <div class="col-md-4">
+        {%#UNSOLVED_TYPE_INFOS_3%}
+            <div class="module_panel blue_skin">
+                <div class="title"><h1>{%.EX_TYPE_DESC%}</h1><a href="###">更多></a></div>
+                <div class="query">
+                    <div class="query_con"><input type="text" class="form-control" name="" placeholder="查询"/><span class="sh"></span></div>
+                </div>
+                <ul class="query_list">
+                	{%#.UNSOLVED_INFOS%}
+                    <li><a href="mobile?action=SolvedErr&data={'SESSION_ID':{%.SESSION_ID%},'EX_ID':{%.EX_ID%}}">{%.EX_ABSTRACT%}</a><span class="bonus"><i>{%.REWARD%}</i></span></li>
+                    {%/.UNSOLVED_INFOS%}
+                </ul>
+            </div>
+		{%/UNSOLVED_TYPE_INFOS_3%}
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="template/webapp/bainiu/bainiuMan/bootstrap/js/bootstrap.min.js"></script>
+{%>template/common/Head.html%}
+{%>template/common/Footer.html%}
+</body>
+</html>
+
+        <script>
+
+$(function(){
+    $('.module_panel .title').on('click','a',function(){
+        if($(this).hasClass('active')){
+            $(this).parents('.module_panel').parent().attr('class','col-md-4');
+            $(this).parents('.tro_query').find('.module_panel').css('display','block');
+            $(this).text('更多>').removeClass('active');
+        }else{
+            $(this).parents('.tro_query').find('.module_panel').css('display','none');
+            $(this).parent('.title').parent('.module_panel').css('display','block');
+            $(this).parents('.module_panel').parent().attr('class','col-md-12');
+            $(this).text('<返回').addClass('active');
+        }
+
+    })
+})
+
+        </script>

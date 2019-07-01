@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>首页</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+    <link rel="apple-touch-icon-precomposed" href="touch-icon-iphone.png" />
+    <!--1，引入CSS文件 -->
+    <link rel="stylesheet" href="biz/ipu/theme/hum.css">
+  </head>
+  <body>
+      <header class="ui-toolbar">
+          <h1 class="ui-toolbar-title">业务大全</h1>
+      </header>
+
+
+      <nav class="ui-navbar" >
+          <a class="ui-navbar-item active" href="javascript:;">
+              <span class="ui-icon icon-home"></span>
+              <span class="ui-navbar-item-label">首页</span>
+          </a>
+          <a class="ui-navbar-item" href="javascript:;">
+              <span class="ui-icon icon-person"></span>
+              <span class="ui-navbar-item-label">服务</span>
+          </a>
+          <a class="ui-navbar-item" href="javascript:;">
+              <span class="ui-icon icon-star-filled"></span>
+              <span class="ui-navbar-item-label">套餐</span>
+          </a>
+          <a class="ui-navbar-item" href="javascript:;">
+              <span class="ui-icon icon-search"></span>
+              <span class="ui-navbar-item-label">优惠</span>
+          </a>
+          <a class="ui-navbar-item" href="javascript:;" id="openTestPage" >
+              <span class="ui-icon icon-gear"></span>
+              <span class="ui-navbar-item-label">测试页面</span>
+          </a>
+      </nav>
+
+
+      <div class="ui-slider fn-clear" >
+          <div class="ui-slider-media" id="mySwipe1">
+              <div class="ui-slider-warp" >
+                  <div>
+                      <img src="biz/ipu/temp/slider-01.jpg" class="img-responsive"/>        
+                  </div>
+                  <div>
+                      <img src="biz/ipu/temp/slider-02.jpg" class="img-responsive"/>        
+                  </div>
+                  <div>
+                      <img src="biz/ipu/temp/slider-03.jpg" class="img-responsive"/>        
+                  </div>
+              </div>
+          </div>
+          <div class="ui-slider-desc">
+              <div class="ui-slide-desc-text fn-left">
+                  <p>冲50送送50.</p>
+                  <p class="fn-hide">冲100送送100.</p>
+                  <p class="fn-hide">冲1000送送1000.</p>
+              </div>
+              <div class="ui-slide-desc-icon fn-right">
+                  <em class="active">•</em>
+                  <em>•</em>
+                  <em>•</em>
+              </div>
+          </div>
+      </div>
+      <div class="ui-category fn-clear" id="menuList" >
+      
+      {%#MENUS%}
+          <a {%#.ACTION%}action="{%.%}"{%/.ACTION%} href="javascript:;" class="ui-category-item  ">
+              <span class="ui-category-icon {%.COLOR%}">
+                  <span class="ui-icon {%.ICON%}"></span>
+              </span>
+         	  {%.VIEW%}
+          </a>
+      {%/MENUS%} 
+      </div>
+      <script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+      <script src="biz/ipu/res/js/bootstrap.min.js"></script> 
+      <script src="biz/ipu/res/swiper/swipe.js"></script>
+      <script>
+      $(function(){
+           window.mySwipe = $('#mySwipe1').Swipe({
+            callback: function(idx , pos) {
+              $('.ui-slide-desc-text p').eq(idx).removeClass("fn-hide").siblings().addClass("fn-hide");
+              $('.ui-slide-desc-icon em').eq(idx).addClass("active").siblings().removeClass("active");
+            }
+          }).data('Swipe');
+      });
+      </script> 
+  </body>
+      {%>template/common/Head.html%}
+	<script type="text/javascript" src="biz/js/Index.js"></script>
+</html>

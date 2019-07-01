@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>ishare.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+    <!-- Bootstrap-->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--自己的样式-->
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.ext.css" rel="stylesheet" type="text/css" />    
+    <!--下拉框-->
+	<style type="text/css">
+		#div1 {
+		border:1px solid grey;
+		width:100px;
+		height:100px;
+		overflow:auto;
+		text-align:left;
+		background-color:#CEDDED;
+		padding:6px;
+		position:absolute;
+		z-index:99;
+		display:none; /*使div初始化时隐藏*/
+		}
+	</style>
+	<script type="text/javascript">
+/* 	$(function(){
+	//alert("haha");
+	}); */
+	//点击checkbox事件
+	function c(){
+		var strList="";
+		$('input[type="checkbox"][name="likes"]:checked').each(function(){
+			if(strList==""){
+				strList = strList+$(this).val();
+			}else{
+				strList = strList+","+$(this).val();
+			}
+		});
+		//alert(strList);
+		$('#IS_TARGROUPID').val(strList);
+	}
+	//input获取焦点事件
+	function f(){
+		//input获取焦点时在其旁边显示div
+		$('#IS_TARGROUPID').click(function(){
+		var input = $('#IS_TARGROUPID');
+		var offset = input.offset();
+		//先后设置div的位置，最后显示出来（渐进效果）
+		//第一个.css设置div1在当前窗口的相对偏移(左偏移)，左偏移与input1一样
+		//第二个.css设置div1在当前窗口的相对偏移(顶偏移)，在input1顶偏移的基础上再向下偏移input1的高度+4
+		//注：相对偏移只有left和top
+		//第三个.cc设置div1的宽度为input1宽度-10
+		//.fadeIn是渐进效果，也就是渐渐展开div1，详见jquery.js文档 
+		$('#div1').css('left',offset.left + 'px')
+		.css('top',offset.top + input.height() + 4 + 'px') .css('width',input.width() - 10 +'px')
+		.fadeIn();
+		});
+	}
+	//td鼠标离开事件
+	function l(){
+		//当鼠标离开td1时，div1隐藏
+		$('#div1').hide("slow");
+	}
+	</script>    
+  </head>
+  
+<body  style="background:#f3f7f8;">
+<div class="frame_content">
+   <div class="furlough">
+        <ul class="nav nav-tabs" role="tablist">
+        	<li role="presentation" class="col-xs-3 col-sm-3 active"><a id="apply_query" >查询管理</a></li>
+			<li role="presentation" class="fur_apply col-xs-3 col-sm-3 "><a id="fur_apply">活动统计</a></li>            
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="apply_query" >
+                            <div class="apply_query">
+                    <form class="form-inline header_query">
+                    	<input type="hidden" id="userID" value="{%.USER_ID%}"/>
+                    	<div class="form-group">
+                            <label for="">主题</label>
+                            <input type="text" class="form-control" id="IS_NAME" placeholder="输入查找主题" style="width:150px;" value="{%.IS_NAME%}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">状态</label>
+						    <select	class="form-control" id="IS_STATE"> 
+						        <option value="">全部</option>
+                           		{%#ISHARESTATE%}
+								<option value="{%.ENUM_CODE%}">{%.ENUM_NAME%}</option>
+								{%/ISHARESTATE%}
+							</select>                           
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="button" id="ishareQ" class="btn btn-default query_btn col-xs-12">查询</button>
+                        </div>
+                        {%#ISHARERIGHT%}
+                        <div class="form-group" id="userType">
+	                        <div class="form-group">
+	                            <button type="button" id="ishareNew" class="btn btn-default query_btn col-xs-12">新活动</button>                            
+	                        </div> 
+	                        <div class="form-group">
+	                            <button type="button" id="ishareChg" class="btn btn-default query_btn col-xs-12">活动修改</button>                            
+	                        </div>	                                               
+	                        <div class="form-group">
+	                            <button type="button" id="ishareEnd" class="btn btn-default query_btn col-xs-12">活动结束</button>                            
+	                        </div>
+	                        <div class="form-group">
+	                            <button type="button" id="ishareCancel" class="btn btn-default query_btn col-xs-12">活动取消</button>                            
+	                        </div>
+	                        <div class="form-group" style="display: none">                            
+	                            <input type="text" type="hidden" class="form-control" style="width:150px;" id="REMARK" placeholder="取消原因">
+	                        </div>	                        
+                        </div>
+
+                       	<div class="form-group">
+                           	<button type="button" id="export" class="btn btn-default query_btn col-xs-12">导出</button>                            
+                       	</div>              
+                        {%/ISHARERIGHT%}           
+                        
+						<!--新增弹层-->
+						<div class="create_Ishare form-group" style="display:none;" id="create_Ishare">
+							<br>
+						    <div class="form-group"><label>主题：</label><textarea id="IS_NAME" rows="1" cols="100" class="form-control" placeholder="必填" ></textarea></div>
+						    <br>
+						    <div class="form-group"><label>简介：</label><textarea id="IS_EXPLAIN" rows="2" cols="100" class="form-control" placeholder=""></textarea></div>
+						    <br>
+						    <div class="form-group"><label>预期：</label><textarea id="IS_EXPRESULT" rows="" cols="100" class="form-control" placeholder=""></textarea></div>
+						    <br>
+						    <div class="form-group"><label>期数：</label><input id="IS_NO" type="text" class="form-control"  placeholder="必填，格式：第X期"></div>
+						    <div class="form-group"><label>讲师：</label><input id="IS_LECTURER" type="text" class="form-control" placeholder="必填，格式：名字,邮箱|名字,邮箱"></div>						    
+						    <br>						    
+						    <br>
+						    <div class="form-group"><label>时间：</label><input id="IS_TIME" class="laydate-icon form-control"  placeholder="必填"></div>
+						    <div class="form-group"><label>地点：</label><input id="IS_PLACE" type="text" class="form-control" placeholder="必填"></div>
+						    <div class="form-group"><label>对象：</label><input id="IS_TARGROUP" type="text" class="form-control" placeholder="必填"></div>
+						    <br>
+						    <div class="form-group"><label>联系人：</label><input id="IS_LINKUSER" type="text" class="form-control" placeholder=""></div>
+						    <div class="form-group"><label>人数限制：</label><input id="IS_LIMITNUM" type="number" value="10" class="form-control" placeholder=""></div>
+						    <div class="form-group"><label>最迟报名：</label><input id="IS_ENDENROL" class="laydate-icon form-control"  placeholder="必填"></div>
+						    <br>
+						    <div class="form-group"><label>邮件组：</label><input id="IS_EMAILGROUP" type="text" class="form-control" placeholder="若填邮件组则以此为准，格式：邮箱组|邮箱组"></div>
+						    <div class="form-group" id="td1" onmouseleave="l()">
+						    	<label>对象群组：</label>
+						    	<input id="IS_TARGROUPID" readonly="readonly" onfocus="f()" class="form-control" placeholder="必填">
+								<div id="div1">
+								<input type="checkbox" name="likes" value="10004" onclick="c()">北六<br>
+								<input type="checkbox" name="likes" value="10005" onclick="c()">CBS<br>
+								</div>						    	
+						    </div>
+						    <br>
+						    <div class="form-group"><label>开课提醒时间：</label><input id="IS_TIPSTIME" class="laydate-icon form-control"  placeholder=""></div>
+						    <div class="form-group"><label>备注：</label><input id="REMARK" class="form-control" type="text"  placeholder=""></div>
+						    <div class="form-group">
+						    	<button type="button"   id="newis_btn" class="btn btn-default query_btn col-xs-12">确认</button> 
+						    </div>
+						    <div class="form-group">
+						    	<button type="button"   id="cancelnewis_btn" class="btn btn-default query_btn col-xs-12">取消</button>
+						    </div>
+						</div> 
+						
+						<!--修改弹层-->
+						<div class="chg_Ishare form-group" style="display:none;" id="chg_Ishare">
+							<br>
+						    <div class="form-group"><label>时间：</label><input id="NIS_TIME" class="laydate-icon form-control"  placeholder=""></div>
+						    <div class="form-group"><label>地点：</label><input id="NIS_PLACE" type="text" class="form-control" placeholder=""></div>						      
+						    <div class="form-group"><label>最迟报名：</label><input id="NIS_ENDENROL" class="laydate-icon form-control"  placeholder=""></div>
+						    <br>						    
+						    <div class="form-group"><label>开课提醒时间：</label><input id="NIS_TIPSTIME" class="laydate-icon form-control" placeholder=""></div>
+						    <div class="form-group"><label>备注：</label><input id="NREMARK" class="form-control" type="text"  placeholder=""></div>
+						    <div class="form-group">
+						    	<button type="button" id="chgis_btn" class="btn btn-default query_btn col-xs-12">确认</button> 
+						    </div>
+						    <div class="form-group">
+						    	<button type="button" id="cancelchgis_btn" class="btn btn-default query_btn col-xs-12">取消</button>
+						    </div>
+						</div>     
+                    </form>
+                    <div class="query_table_list">
+                        <table id="example1" class="table table-striped table-bordered table-hover dataTables-example dataTable"
+                               cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th class="tn"><input id="checkall" name="" type="checkbox" value=""></th>
+                                <th>期数</th>
+                                <th>主题</th>
+                                <th>时间</th>
+                                <th>地点</th>
+                                <th>对象</th>
+                                <th>讲师</th>
+                                <th>截止</th>
+                                <th>状态</th>
+                                <th>报名</th>                                
+                            </tr>
+                            </thead>
+                            <tbody>
+                             {%#ISHARELIST%}
+                            <tr IS_EXPLAIN="{%.IS_EXPLAIN%}" IS_EXPRESULT="{%.IS_EXPRESULT%}" IS_ID="{%.IS_ID%}" IS_TARGROUPID="{%.IS_TARGROUPID%}" IS_LIMITNUM="{%.IS_LIMITNUM%}" WAIT_SUM="{%.WAIT_SUM%}" 
+                            IN_SUM="{%.IN_SUM%}" CANCEL_SUM="{%.CANCEL_SUM%}" UPD_USER="{%.UPD_USER%}" UPD_TIME="{%.UPD_TIME%}" IS_NO="{%.IS_NO%}" IS_LINKUSER="{%.IS_LINKUSER%}">
+                                <td><input  name="chkItem" type="checkbox" value="" IS_ID="{%.IS_ID%}" IS_STATE="{%.IS_STATE%}"></td>
+                                <td name="itemCkecked">{%.IS_NO%}</td>
+                                <td name="itemCkecked">{%.IS_NAME%}</td>
+                                <td name="itemCkecked">{%.IS_TIME%}</td>
+                                <td name="itemCkecked">{%.IS_PLACE%}</td>
+                                <td name="itemCkecked">{%.IS_TARGROUP%}</td>
+                                <td name="itemCkecked">{%.IS_LECTURER%}</td>
+                                <td name="itemCkecked">{%.IS_ENDENROL%}</td>
+                                <td name="itemCkecked">{%.IS_STATENAME%}</td>
+                                <td align="center" IS_ID="{%.IS_ID%}" IS_LIMITNUM="{%.IS_LIMITNUM%}" ALL_SUM="{%.ALL_SUM%}" IN_SUM="{%.IN_SUM%}">
+									{%^.ADD_TAG%}
+									<button type="button" class="bn_btn ishare_btn" id="authorizeRole">+</button>
+									{%/.ADD_TAG%} 
+									{%#.ADD_TAG%}
+									<button type="button" class="bn_btn ishare_btn active" id="cancelAuthorizeRole">-</button>
+									{%/.ADD_TAG%}
+								</td>
+                            </tr>
+                            {%/ISHARELIST%}
+                            </tbody>
+                        </table>
+                        {%>template/common/Paginate.html%}
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+<div class="modal-box" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">报名清单</h4>
+      </div>
+      <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-qjt">
+              <tbody id="querygroup">
+              </tbody>
+            </table>
+          </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<div id="bg"></div>
+
+<!--下面是dataTables需要的文件-->
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+
+   {%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/IshareMan.js"></script>   
+<script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
+<script>
+;!function(){
+    function dateOption(obj){
+	    var ldateOption = {
+		    elem: obj, //需显示日期的元素选择器
+		    event: 'click', //触发事件
+		    format: 'YYYY-MM-DD hh:mm:ss', //日期格式
+		    istime: true, //是否开启时间选择
+		    isclear: true, //是否显示清空
+		    istoday: true, //是否显示今天
+		    issure: true, //是否显示确认
+		    festival: true, //是否显示节日
+		    min: '2016-01-01 23:59:59', //最小日期laydate.now()
+		    max: '2099-12-31 23:59:59', //最大日期
+		    start: laydate.now(),  //开始日期laydate.now()
+		    fixed: false, //是否固定在可视区域
+		    zIndex: 99999999, //css z-index
+		    choose: function(dates){ //选择好日期的回调
+		    }    
+	    };
+	    return ldateOption;
+    }
+	$('.laydate-icon').each(function (i) {
+    	laydate(dateOption('#'+$(this).attr("id")));
+    });
+}();
+</script>
+{%>template/common/Footer.html%}
+</body>
+</html>

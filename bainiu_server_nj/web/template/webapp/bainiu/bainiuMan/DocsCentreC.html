@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>DocsCentreC.html</title>
+    <!-- Bootstrap-->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--自己的样式-->
+    <link href="biz/indexCss/css/common.css" rel="stylesheet" />
+    <link href="biz/js/webjs/skin/layer.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.ext.css" rel="stylesheet" type="text/css" />
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <link href="template/webapp/bainiu/bainiuMan/docscentre/css/data-uploading.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="bn_home">
+
+
+<div class="uploading-container">
+    <ul class="title-wrap" role="tablist" >
+        <li role="presentation" class="title gray " id="apply_query">资料下载</li>
+        <li role="presentation" class="title active" id="fur_apply" >资料上传<em></em></li>
+    </ul>
+    <form  id="dataForm">
+        <input type="hidden" id="USER_ID" name = "USER_ID" value="{%.USER_ID%}"/>
+        <input type="hidden" id="USER_NAME" name = "USER_NAME" value="{%.USER_NAME%}"/>
+        <input type="hidden" id="DOC_TYPE" name = "DOC_TYPE" value="1"/>
+        <div class="middle-wrap">
+            <div class="middle-select">
+                <span class="type">资料类型:</span>
+                <div class="radioself" id="1">
+                 <span class="circle blue">
+                   <i class="cir"></i>
+                 </span>
+                    <span class="name">能力提升</span>
+                </div>
+                <div class="radioself" id="2">
+                 <span class="circle" >
+                   <i class="cir"></i>
+                 </span>
+                    <span class="name">产品方案</span>
+                </div>
+                <div class="radioself" id="3">
+                 <span class="circle" >
+                   <i class="cir"></i>
+                 </span>
+                    <span class="name">成功案例</span>
+                </div>
+                <div class="radioself" id="4">
+                 <span class="circle" >
+                   <i class="cir"></i>
+                 </span>
+                    <span class="name">客户洞察</span>
+                </div>
+                <div class="radioself" id="5">
+                 <span class="circle" >
+                   <i class="cir"></i>
+                 </span>
+                    <span class="name">创新探索</span>
+                </div>
+            </div>
+            <div class="writer-block link">
+                <span class="writer">作者:</span>
+                <div class="required">
+                <span class="import">必填</span>
+                <input type="text" class="form-control" id="DOC_WRITER" name="DOC_WRITER" placeholder="登录帐号" value="{%.DOC_WRITER%}">
+                   <div class="async_area">
+                       <ul>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                       </ul>
+                   </div>
+                </span>
+                </div>
+            </div>
+            <div class="writer-block">
+                <span class="writer">标签:</span>
+                <div class="required">
+                    <span class="import">必填</span>
+                    <input type="text"  class="form-control" id="DOC_LABEL" name="DOC_LABEL" placeholder="请输入(提示逗号分隔)">
+                </div>
+            </div>
+            <div class="writer-block">
+                <span class="writer">文件:</span>
+                <div class="required">
+                    <span class="import">必填</span>
+                    <input type="text" class="form-control" id="DOC_NAME"  name="DOC_NAME" value="" placeholder="选择文件时自动填入"></input>
+                </div>
+            </div>
+            <div class="writer-block">
+                <span class="writer"></span>
+                <span class="paper">选择文件</span>
+                <span >
+                <input type="file" id="choice_doc" name="upfile" value="" style="display:none" onchange="showPathName()"></input>
+                </span>
+                <span class="uploading" id="upload_doc">上传</span>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+<script src="template/webapp/bainiu/bainiuMan/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+{%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/DocsCentreC.js"></script>
+<script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
+<script type="text/javascript" src="biz/js/webjs/extend/layer.ext.js"></script>
+
+<script>
+    function showPathName(){
+        $('#DOC_NAME').val($("#choice_doc").val());
+    }
+
+</script>
+{%>template/common/Footer.html%}
+</body>
+
+
+</html>
