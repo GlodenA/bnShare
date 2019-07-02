@@ -15,7 +15,7 @@
 	<bainiu
 		type="dbcp"
 		driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://10.20.16.75:3306/bn?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;cacheServerConfiguration=true&amp;useLocalSessionState=true&amp;useOldAliasMetadataBehavior=true;"
+		url="jdbc:mysql://10.20.16.75:3306/bn?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;cacheServerConfiguration=true&amp;useLocalSessionState=true&amp;useOldAliasMetadataBehavior=true&amp;"
 		user="sbn"
 		passwd="s123"
 		initialSize="5"

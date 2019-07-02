@@ -159,10 +159,15 @@ public class FileUpload {
 					//可能是name|acct
 					String writer = (String) request.getAttribute("DOC_WRITER");
 					String str[] = writer.split("\\|");
-					for(int i=0;i<str.length;i++)
+					if(str.length>1)
 					{
 						inparam.put("DOC_AUTHOR_NAME", str[0]);
 						inparam.put("DOC_AUTHOR_ACCT", str[1]);
+					}
+					else
+					{
+						inparam.put("DOC_AUTHOR_NAME", str[0]);
+						inparam.put("DOC_AUTHOR_ACCT", "");
 					}
 					inparam.put("DOC_LABEL", request.getAttribute("DOC_LABEL"));
 					inparam.put("DOC_PATH", savePathStr+File.separator+filename);

@@ -148,8 +148,14 @@ public class DocsCentreBean extends AppBean {
         IData resultData = getResultData();
         DocsCentreDao docsCentreDao = new DocsCentreDao("bainiu");
         resultData = docsCentreDao.queryDocs(param, resultData, "DOCLIST");
-        IData userInfo = docsCentreDao.queryUserInfo(param);
-        resultData.putAll(userInfo);
+        if(param.containsKey("DOC_AUTHOR_ACCT")&&!"".endsWith(param.getString("DOC_AUTHOR_ACCT")))
+        {
+            IData userInfo = docsCentreDao.queryUserInfo(param);
+            resultData.putAll(userInfo);
+        }
+
+        resultData.put("DOC_AUTHOR_NAME",param.getString("DOC_AUTHOR_NAME"));
+
         return resultData;
     }
 

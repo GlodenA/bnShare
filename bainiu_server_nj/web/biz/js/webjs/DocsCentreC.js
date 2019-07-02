@@ -118,15 +118,19 @@ require(["mobile","jquery","jcl","layer","common","util"],function(Mobile,$,Wade
                             var listsub = list.get(i);
                             lis[i].innerHTML=listsub.get("NAME")+"|"+listsub.get("USER_ACCT");
                         }
+                        $('.link .async_area').css('display', 'block');
                     }
                     else
-                        lis[0].innerHTML="查找的账号不存在";
+                        //lis[0].innerHTML="作者不存在于本系统";
+                        $('.link .async_area').css('display', 'none');
+
                 }
             });
         }, 500);
-        $('.link .async_area').css('display','block');
     });
-
+    // $(' .link input').mouseleave(function(){
+    //     $('.link .async_area').css('display','none');
+    // });
     //意见反馈和批次号底部显示
     function footerClass(){
         var windowFlow = $(window).height()-$(".frame_content").height()-60>0?true:false;

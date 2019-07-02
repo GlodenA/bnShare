@@ -26,8 +26,10 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
     $('#example1 a[name=DOC_AUTHOR_NAME]').bind("click",function(){
 
         var DOC_AUTHOR_ACCT=$(this).parent().attr("DOC_AUTHOR_ACCT");
+        var DOC_AUTHOR_NAME=$(this).html();
         var param = Wade.DataMap();
         param.put("DOC_AUTHOR_ACCT",DOC_AUTHOR_ACCT);
+        param.put("DOC_AUTHOR_NAME",DOC_AUTHOR_NAME);
         Common.openPage("UserDocs",param);
         footerClass();
     });
