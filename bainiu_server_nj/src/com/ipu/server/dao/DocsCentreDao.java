@@ -67,7 +67,7 @@ public class DocsCentreDao extends SmartBaseDao{
         // TODO Auto-generated method stub
         StringBuffer strBuf  = new StringBuffer();
         int count = 0;
-        strBuf.append("insert into tf_f_docs values (?,?,?,?,?,?,?,?,?,0,NOW())");
+        strBuf.append("insert into tf_f_docs values (?,?,?,?,?,?,?,?,?,0,NOW(),?)");
         count = this.executeUpdate(strBuf.toString(),new Object[]{
                 inparam.getString("DOC_ID"),
                 inparam.getString("DOC_NAME"),
@@ -77,7 +77,8 @@ public class DocsCentreDao extends SmartBaseDao{
                 inparam.getString("DOC_PATH"),
                 inparam.getString("DOC_TYPE"),
                 inparam.getString("DOC_UPLOADER_ID"),
-                inparam.getString("DOC_UPLOADER_NAME")
+                inparam.getString("DOC_UPLOADER_NAME"),
+                inparam.getString("DOC_SUMMARY")
         });
 
         this.commit();

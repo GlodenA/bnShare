@@ -35,6 +35,11 @@ require(["mobile","jquery","jcl","layer","common","util"],function(Mobile,$,Wade
             Common.showFail("请您输入资料标签！");
             return ;
         }
+        if(Util.isEmpty($("#DOC_SUMMARY").val()))
+        {
+            Common.showFail("请输入简介！");
+            return ;
+        }
         if(Util.isEmpty($("#choice_doc").val()))
         {
             Common.showFail("请您选择文件！");
