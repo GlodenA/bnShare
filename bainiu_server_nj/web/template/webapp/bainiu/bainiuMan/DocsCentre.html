@@ -46,6 +46,7 @@
         </div>
         <div class="category">
             <input type="hidden" id="userID" value="{%.USER_ID%}"/>
+            <input type="hidden" id="queryTag" value="{%.QUERY_TAG%}"/>
             <input type="hidden" id="DOC_TYPE" value=""/>
             <span class="caption">关键词:</span>
             <div class="required">
@@ -61,8 +62,8 @@
 
         </div>
     </div>
-    <div class="middle-wrap">
-        <div class="middle-left">
+    <div class="middle-wrap" >
+        <div class="middle-left" id="middle-left0">
             <div class="middle">
                 <span class="download">下载排行榜总览<em></em></span>
             </div>
@@ -72,6 +73,50 @@
                 </div>
                 <div class="download-rank-month">
                 </div>
+            </div>
+        </div>
+        <div class="middle-left" id="middle-left1" style="display: none;">
+            <div class="middle-content">
+                <div class="operation">
+                    <div class="opera">文档操作<em></em></div>
+                </div>
+
+            </div>
+            <div class="query_table_list">
+                <table id="example2" class="table table-striped table-bordered table-hover dataTables-example dataTable"
+                       cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>资料名称</th>
+                        <th>作者</th>
+                        <th>标签</th>
+                        <th>上传时间</th>
+                        <th>下载量</th>
+                        <th style="display: none">资料路径</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%#DOCLIST%}
+                    <tr>
+                        <td name="DOC_NAME">{%.DOC_NAME%}</td>
+                        <td name="DOC_AUTHOR_NAME" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
+                            <a href="#" name="DOC_AUTHOR_NAME">
+                                {%.DOC_AUTHOR_NAME%}
+                            </a>
+                        </td>
+                        <td name="DOC_LABEL">{%.DOC_LABEL%}</td>
+                        <td name="INS_TIME">{%.INS_TIME%}</td>
+                        <td name="DOWNLOAD_CNT">{%.DOWNLOAD_CNT%}</td>
+                        <td name="DOC_PATH" style="display: none">{%.DOC_PATH%}</td>
+                        <td align="center" DOC_ID="{%.DOC_ID%}" >
+                            <a href="#"  name="downLoad">下载</a>
+                        </td>
+                    </tr>
+                    {%/DOCLIST%}
+                    </tbody>
+                </table>
+                {%>template/common/Paginate.html%}
             </div>
         </div>
         <div class="middle-right">
@@ -134,14 +179,14 @@
         </div>
     </div>
 
-    <div class="middle-content">
+    <div class="middle-content" id="middle-content">
         <div class="operation">
             <div class="opera">文档操作<em></em></div>
         </div>
 
     </div>
 </div>
-<div class="query_table_list">
+<div class="query_table_list" id="query_table_list">
     <table id="example1" class="table table-striped table-bordered table-hover dataTables-example dataTable"
            cellspacing="0">
         <thead>
