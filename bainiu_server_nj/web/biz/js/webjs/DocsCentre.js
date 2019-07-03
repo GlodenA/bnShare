@@ -1,11 +1,19 @@
 require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wade,ChartPie,Layer,Common){
 
     Common.pagination("DocsCentre");
+    console.log($("#queryTag").val());
+    if($("#queryTag").val()=="1"){
+        $('#middle-left0').css('display','none');
+        $('#middle-content').css('display','none');
+        $('#query_table_list').css('display','none');
+        $('#middle-left1').css('display','block');
+    }
     // //tab切换
     // //dataTable显示隐藏切换错位重绘
     $('.title-wrap li').click(function (e) {
         e.preventDefault();
         var param = Wade.DataMap();
+        param.put("QUERY_TAG","0");
         if($(this).attr("id")=="fur_apply")
         {
             Common.openPage("DocsCentreC",param) ;
@@ -48,11 +56,22 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         param.put("DOC_NAME",$("#HOT_KEY").val());
         param.put("DOC_LABEL",$("#HOT_KEY").val());
         param.put("HOT_KEY",$("#HOT_KEY").val());
+        param.put("QUERY_TAG","1");
         Common.openPage("DocsCentre",param) ;
 
         footerClass();
     });
 
+    //给图标label换行
+     function formatter(val) {
+        var strs = val.split(''); //字符串数组
+        var str = ''
+        for(var i = 0, s; s = strs[i++];) { //遍历字符串数组
+            str += s;
+            if(!(i % 10)) str += '\n'; //按需要求余
+        }
+        return str
+    }
     //报表
     var pieData1= $("#recRank").attr("chartData");
     var pieData= $("#sumRank").attr("chartData");
@@ -63,7 +82,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
     var totaldata = new Array();
 
     for(var i=0;i<totallist.length;i++){
-        totallabels[i]=totallist.get(i).get("NAME");
+        totallabels[i]=formatter(totallist.get(i).get("NAME"));
         totaldata[i]=totallist.get(i).get("COU");
     }
 
@@ -73,7 +92,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
     var mondata = new Array();
 
     for(var i=0;i<monlist.length;i++){
-        monlabels[i]=monlist.get(i).get("NAME");
+        monlabels[i]=formatter(monlist.get(i).get("NAME"));
         mondata[i]=monlist.get(i).get("COU");
     }
 
@@ -81,7 +100,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
 
     var option = {
         title: {
-            text: '下载排行榜趋势图',
+            text: '下载排行榜',
             x: 'center',
             y: 'top',
             textAlign: 'center',
@@ -326,4 +345,56 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
             $("#frame_footer").attr("style","bottom:5px;text-align: center; width:100%");
         }
     }
+
+    $("#modal-close").bind("click", function () {
+        $(".modal-box").hide();
+        $("#bg").hide();
+    });
+    // 表格点击事件
+    $("#example1 tbody tr td[name='itemCkecked']").bind("click", function () {//点击浮层
+        var innerHtml = "";
+        var is_name = $(this).parent().attr("DOC_NAME"),
+            is_author = $(this).parent().attr("DOC_AUTHOR_NAME"),
+            upd_time = $(this).parent().attr("INS_TIME"),
+            is_tag = $(this).parent().attr("DOC_LABEL"),
+            is_downnum = $(this).parent().attr("DOWNLOAD_CNT"),
+            // is_path=$(this).parent().attr("DOC_PATH"),
+            is_info = $(this).parent().attr("DOC_SUMMARY");
+
+        innerHtml = innerHtml
+            + '<tr>'
+            + '	<td class="active" width="25%">资料名称</td>'
+            + '	<td width="75%">' + is_name + '</td>'
+            + '</tr>'
+            + '<tr>'
+            + '	<td class="active" width="25%">上传时间</td>'
+            + '	<td>' + upd_time + '</td>'
+            + '</tr>'
+            + '<tr>'
+            + '	<td class="active" width="25%">作者</td>'
+            + '	<td>' + is_author + '</td>'
+            + '</tr>'
+            + '<tr>'
+            + '	<td class="active" width="25%">资料标签</td>'
+            + '	<td>' + is_tag + '</td>'
+            + '</tr>'
+            + '<tr>'
+            + '	<td class="active" width="25%">下载次数</td>'
+            + '	<td>' + is_downnum + '</td>'
+            + '</tr>'
+            + '<tr>'
+            + '	<td class="active" width="25%" >简介</td>'
+            + '	<td>' + is_info + '</td>'
+            + '</tr>';
+        $('#querygroup').html(innerHtml);
+        $(".modal-box").show();
+        $("#bg").height(document.body.clientHeight);
+        var windowFlow = $(window).height() - $(".frame_content").height() - 60 > 0 ? true : false;
+        if (windowFlow) {
+            $("#bg").height($(window).height());
+        } else {
+            $("#bg").height(document.body.clientHeight);
+        }
+        $("#bg").show();
+    })
 });

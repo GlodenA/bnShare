@@ -51,6 +51,12 @@ public class DocsCentreBean extends AppBean {
         IData resultData = getResultData();
         DocsCentreDao docsCentreDao = new DocsCentreDao("bainiu");
         resultData = docsCentreDao.queryDocs(param, resultData, "DOCLIST");
+
+        //判断查询标记，显示不同数据
+        if(!"".equals(param.getString("QUERY_TAG")) && param.getString("QUERY_TAG") != null) {
+            String queryTag = param.getString("QUERY_TAG");
+            resultData.put("QUERY_TAG",queryTag);
+        }
         //查询入日志表
         if(!"".equals(param.getString("HOT_KEY")) && param.getString("HOT_KEY") != null){
             randomNum rand = new randomNum();
