@@ -693,7 +693,8 @@ body.overflow {
           font-size: 14px;
           color: #ffffff;
           border-top-right-radius: 0;
-          border-bottom-right-radius: 0; }
+          border-bottom-right-radius: 0;
+          cursor: pointer;}
           .download-container .middle-wrap .middle-right .message .time .hot {
             margin-left: 6px; }
           .download-container .middle-wrap .middle-right .message .time .icon {
@@ -716,7 +717,8 @@ body.overflow {
           font-size: 14px;
           color: #333333;
           border-top-left-radius: 0;
-          border-bottom-left-radius: 0; }
+          border-bottom-left-radius: 0;
+          cursor: pointer;}
           .download-container .middle-wrap .middle-right .message .attention .circle {
             display: -webkit-box;
             display: -ms-flexbox;

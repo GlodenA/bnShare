@@ -161,18 +161,18 @@ public class DocsCentreBean extends AppBean {
 
     /**
      *
-     * @Title: queryDocsByUserName
+     * @Title: queryHotKeySort
      * @Description: TODO(这里用一句话描述这个方法的作用)
-     * @author fengsq
+     * @author wangdd
      * @param param
      * @return
      * @throws Exception
      */
-    /*public IData queryDocsByHotKey(IData param) throws Exception{
+    public IData queryHotKeySort(IData param) throws Exception{
 
         IData resultData = getResultData();
         DocsCentreDao docsCentreDao = new DocsCentreDao("bainiu");
-        resultData = docsCentreDao.queryDocs(param, resultData, "DOCLIST");
+        resultData = docsCentreDao.queryDocs(param, resultData, "HOTKEY_LIST");
         String userId = "";
         userId = getContextData().getUserID();
         String userName = getContextData().getName();
@@ -191,7 +191,7 @@ public class DocsCentreBean extends AppBean {
         queryData.put("QUERYDATA", querytop5List);
         resultData.put("QRYHISDATA", queryData);
         return resultData;
-    }*/
+    }
 
 
 }
