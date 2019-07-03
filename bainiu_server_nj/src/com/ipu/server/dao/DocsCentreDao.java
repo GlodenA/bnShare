@@ -15,7 +15,7 @@ public class DocsCentreDao extends SmartBaseDao{
     }
     public IData queryDocs(IData params, IData outParams, String keyList) throws Exception {
         StringBuffer strBuf = new StringBuffer();
-        strBuf.append("SELECT  DOC_ID,DOC_NAME,DOC_AUTHOR_NAME,DOC_AUTHOR_ACCT,DOC_LABEL,DOC_PATH,DOC_TYPE,DOC_UPLOADER_ID,DOC_UPLOADER_NAME,DOWNLOAD_CNT,date_format(INS_TIME, '%Y/%m/%d %H:%i') INS_TIME ");
+        strBuf.append("SELECT  DOC_ID,DOC_NAME,DOC_AUTHOR_NAME,DOC_AUTHOR_ACCT,DOC_LABEL,DOC_PATH,DOC_TYPE,DOC_UPLOADER_ID,DOC_UPLOADER_NAME,DOWNLOAD_CNT,DOC_SUMMARY,date_format(INS_TIME, '%Y/%m/%d %H:%i') INS_TIME ");
         strBuf.append("FROM tf_f_docs a");
         strBuf.append(" WHERE 1=1 ");
         if(!"".equals(params.getString("DOC_NAME")) && params.getString("DOC_NAME") != null){

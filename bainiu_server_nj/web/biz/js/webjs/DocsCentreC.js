@@ -45,9 +45,13 @@ require(["mobile","jquery","jcl","layer","common","util"],function(Mobile,$,Wade
             url: 'fileUploadServlet',
             type: 'POST',
             dataType: 'text',
+            var: lay = '',
             data: new FormData(form),
             processData: false,
             contentType: false,
+            beforeSend: function(){
+                lay = Layer.load();
+            },
             success: function (responseText) {
 
                 Common.showSuccess(responseText);
@@ -55,11 +59,13 @@ require(["mobile","jquery","jcl","layer","common","util"],function(Mobile,$,Wade
                 $("#DOC_LABEL").val('');
                 $("#choice_doc").val('');
                 Common.callSvc("DocsCentre.init",param,function(resultData){});	//上传后参数未传递到界面上，初始化
+                Layer.close(lay);
             },
             error: function(){
                 Common.showFail("上传失败！");
                 console.log("error");
                 Common.callSvc("DocsCentre.init",param,function(resultData){});	//上传后参数未传递到界面上，初始化
+                Layer.close(lay);
             }
         });
     });

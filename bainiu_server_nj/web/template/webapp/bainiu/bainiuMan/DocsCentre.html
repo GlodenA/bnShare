@@ -8,14 +8,21 @@
     <title>资料中心</title>
     <!-- Bootstrap-->
     <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
-    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css"/>
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet"
+          type="text/css"/>
     <link rel="stylesheet" href="template/webapp/bainiu/bainiuMan/docscentre/css/data-download.css">
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.2.1/echarts.min.js"></script>
     <script type="text/javascript" src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
 
-    <script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+    <script type="text/javascript"
+            src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+    <script type="text/javascript"
+            src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
 
 </head>
 
@@ -23,19 +30,19 @@
 
 
 <div class="download-container">
-    <ul class="title-wrap" role="tablist" >
+    <ul class="title-wrap" role="tablist">
         <li role="presentation" class="title gray " id="apply_query">资料下载<em></em></li>
-        <li role="presentation" class="title unique" id="fur_apply" >资料上传</li>
+        <li role="presentation" class="title unique" id="fur_apply">资料上传</li>
     </ul>
     <div class="title-content">
         <div class="category">
             <span class="caption">所属类目:</span>
-            <span class="matter matteren" id ="">不  限</span>
-            <span class="matter" id ="1">能力提升</span>
-            <span class="matter" id ="2">产品方案</span>
-            <span class="matter" id ="3">成功案例</span>
-            <span class="matter" id ="4">客户洞察</span>
-            <span class="matter" id ="5">创新探索</span>
+            <span class="matter matteren" id="">不  限</span>
+            <span class="matter" id="1">能力提升</span>
+            <span class="matter" id="2">产品方案</span>
+            <span class="matter" id="3">成功案例</span>
+            <span class="matter" id="4">客户洞察</span>
+            <span class="matter" id="5">创新探索</span>
         </div>
         <div class="category">
             <input type="hidden" id="userID" value="{%.USER_ID%}"/>
@@ -141,33 +148,62 @@
         <tr>
             <th>资料名称</th>
             <th>作者</th>
-            <th>标签</th>
+            <!--<th>标签</th>-->
             <th>上传时间</th>
             <th>下载量</th>
             <th style="display: none">资料路径</th>
             <th>操作</th>
+            <th style="display: none">简介</th>
         </tr>
         </thead>
         <tbody>
         {%#DOCLIST%}
-        <tr>
-            <td name="DOC_NAME">{%.DOC_NAME%}</td>
-            <td name="DOC_AUTHOR_NAME" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
+        <tr DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
+            DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}">
+            <td name="itemCkecked">{%.DOC_NAME%}</td>
+            <td name="itemCkecked" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
                 <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_NAME%}</a>
             </td>
-            <td name="DOC_LABEL">{%.DOC_LABEL%}</td>
-            <td name="INS_TIME">{%.INS_TIME%}</td>
-            <td name="DOWNLOAD_CNT">{%.DOWNLOAD_CNT%}</td>
-            <td name="DOC_PATH" style="display: none">{%.DOC_PATH%}</td>
-            <td align="center" DOC_ID="{%.DOC_ID%}" >
-                <a href="#"  name="downLoad">下载</a>
+            <!--<td name="DOC_LABEL">{%.DOC_LABEL%}</td>-->
+            <td name="itemCkecked">{%.INS_TIME%}</td>
+            <td name="itemCkecked">{%.DOWNLOAD_CNT%}</td>
+            <td name="itemCkecked" style="display: none">{%.DOC_PATH%}</td>
+            <td align="center" DOC_ID="{%.DOC_ID%}">
+                <a href="#" name="downLoad">下载</a>
             </td>
+            <td name="itemCkecked" style="display: none">{%.DOC_SUMMARY%}</td>
         </tr>
         {%/DOCLIST%}
         </tbody>
     </table>
     {%>template/common/Paginate.html%}
 </div>
+
+<div class="modal-box" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">资料详情</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-qjt">
+                        <tbody id="querygroup">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+
 
 {%>template/common/Head.html%}
 <script type="text/javascript" src="biz/js/webjs/DocsCentre.js"></script>
