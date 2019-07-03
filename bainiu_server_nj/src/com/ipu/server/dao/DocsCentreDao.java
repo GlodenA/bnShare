@@ -138,4 +138,18 @@ public class DocsCentreDao extends SmartBaseDao{
         strBuf.append("select  distinct(HOT_KEY) HOT_KEY from  tf_f_docsquery_log a where a.user_id =:USER_ID ORDER BY  query_time desc LIMIT 0,5");
         return this.queryList(strBuf.toString(), param);
     }
+
+    public IDataset getQRYHOTKEYTOP5(IData param) throws Exception {
+        StringBuffer strBuf = new StringBuffer();
+        String typeString = param.getString("TYPE_KEY");
+        if("ONE".equals(typeString))
+        {
+            strBuf.append("select HOT_KEY ,VALUE  from  tf_b_hotkeysum_log a where a.DATE =date_format(sysdate() ,'%Y%m%d') ORDER BY  VALUE desc LIMIT 0,5 ");
+        }
+        else
+        {
+            strBuf.append("select b.HOT_KEY,b.VALUE from ( select HOT_KEY ,VALUE1+VALUE2+VALUE3+VALUE4+VALUE5+VALUE6+VALUE7   VALUE from  tf_b_hotkeysum_log a ) b   ORDER BY  b.VALUE desc LIMIT 0,5;");
+        }
+        return this.queryList(strBuf.toString(), param);
+    }
 }
