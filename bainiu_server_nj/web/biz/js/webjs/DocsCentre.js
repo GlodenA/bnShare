@@ -41,9 +41,9 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         Common.openPage("UserDocs",param);
         footerClass();
     });
-    $('#example1 a[name=HOTKEYSORT]').bind("click",function(){
+    $('a[name=HOTKEYSORT]').bind("click",function(){
         var HOT_KEY = document.getElementById("HOT_KEY");
-        HOT_KEY.value = $(this).parent().attr("HOTKEYSORT");
+        HOT_KEY.value = $(this).html();
         var param = Wade.DataMap();
         console.log('---DOC_TYPE-----'+$("#DOC_TYPE").val());
         param.put("DOC_TYPE",$("#DOC_TYPE").val());
@@ -71,7 +71,6 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         param.put("HOT_KEY",$("#HOT_KEY").val());
         param.put("QUERY_TAG","1");
         Common.openPage("DocsCentre",param) ;
-
         footerClass();
     });
 
