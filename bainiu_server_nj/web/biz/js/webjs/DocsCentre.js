@@ -281,7 +281,6 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         $(this).parents('.data_analysis_panel').find('.con').children('.con_item').css('display','none')
         $(this).parents('.data_analysis_panel').find('.con').children('.con_item').eq(index).show();
     });
-    $('.time').click();
     $('.time').click(function() {
 
         $('.attention').css("background","#ffffff");
@@ -292,7 +291,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         $('.time').css("color","#ffffff");
         $('.time').css("border","2px solid #1098f4");
         var param = Wade.DataMap();
-        param.put("KEY","ONE");//查询今日关注
+        param.put("TYPE_KEY","ONE");//查询今日关注
         Common.callSvc("DocsCentre.queryHotKeySort",param,function(res){
             if(res.get("X_RESULTCODE")=="0"){
                 var list = res.get("HOTKEY_LIST");
@@ -310,6 +309,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         });
 
     });
+    $('.time').click();
     $('.attention').click(function() {
         $('.time').css("background","#ffffff");
         $('.time').css("color","#333333");
@@ -319,7 +319,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         $('.attention').css("color","#ffffff");
         $('.attention').css("border","2px solid #1098f4");
         var param = Wade.DataMap();
-        param.put("KEY","seven");//查询周关注
+        param.put("TYPE_KEY","seven");//查询周关注
         Common.callSvc("DocsCentre.queryHotKeySort",param,function(res){
             if(res.get("X_RESULTCODE")=="0"){
                 var list = res.get("HOTKEY_LIST");

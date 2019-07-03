@@ -96,4 +96,5 @@
     <action name="DocsCentre.queryDocs" class="com.ipu.server.bean.DocsCentreBean" method="queryDocs" verify="false"></action>
     <action name="DocsCentre.queryDocsByUserName" class="com.ipu.server.bean.DocsCentreBean" method="queryDocsByUserName" verify="false"></action>
     <action name="DocsCentre.queryDocsByHotKey" class="com.ipu.server.bean.DocsCentreBean" method="queryDocsByHotKey" verify="false"></action>
+    <action name="DocsCentre.queryHotKeySort" class="com.ipu.server.bean.DocsCentreBean" method="queryHotKeySort" verify="false"></action>
 </datas>
