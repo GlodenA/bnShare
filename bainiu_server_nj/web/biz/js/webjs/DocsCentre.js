@@ -1,11 +1,19 @@
 require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wade,ChartPie,Layer,Common){
 
     Common.pagination("DocsCentre");
+    console.log($("#queryTag").val());
+    if($("#queryTag").val()=="1"){
+        $('#middle-left0').css('display','none');
+        $('#middle-content').css('display','none');
+        $('#query_table_list').css('display','none');
+        $('#middle-left1').css('display','block');
+    }
     // //tab切换
     // //dataTable显示隐藏切换错位重绘
     $('.title-wrap li').click(function (e) {
         e.preventDefault();
         var param = Wade.DataMap();
+        param.put("QUERY_TAG","0");
         if($(this).attr("id")=="fur_apply")
         {
             Common.openPage("DocsCentreC",param) ;
@@ -48,11 +56,22 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         param.put("DOC_NAME",$("#HOT_KEY").val());
         param.put("DOC_LABEL",$("#HOT_KEY").val());
         param.put("HOT_KEY",$("#HOT_KEY").val());
+        param.put("QUERY_TAG","1");
         Common.openPage("DocsCentre",param) ;
 
         footerClass();
     });
 
+    //给图标label换行
+     function formatter(val) {
+        var strs = val.split(''); //字符串数组
+        var str = ''
+        for(var i = 0, s; s = strs[i++];) { //遍历字符串数组
+            str += s;
+            if(!(i % 10)) str += '\n'; //按需要求余
+        }
+        return str
+    }
     //报表
     var pieData1= $("#recRank").attr("chartData");
     var pieData= $("#sumRank").attr("chartData");
@@ -63,7 +82,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
     var totaldata = new Array();
 
     for(var i=0;i<totallist.length;i++){
-        totallabels[i]=totallist.get(i).get("NAME");
+        totallabels[i]=formatter(totallist.get(i).get("NAME"));
         totaldata[i]=totallist.get(i).get("COU");
     }
 
@@ -73,7 +92,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
     var mondata = new Array();
 
     for(var i=0;i<monlist.length;i++){
-        monlabels[i]=monlist.get(i).get("NAME");
+        monlabels[i]=formatter(monlist.get(i).get("NAME"));
         mondata[i]=monlist.get(i).get("COU");
     }
 
@@ -81,7 +100,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
 
     var option = {
         title: {
-            text: '下载排行榜趋势图',
+            text: '下载排行榜',
             x: 'center',
             y: 'top',
             textAlign: 'center',
