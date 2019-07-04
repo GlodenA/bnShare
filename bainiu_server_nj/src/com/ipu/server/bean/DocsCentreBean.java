@@ -10,6 +10,7 @@ import com.ipu.server.dao.RightDao;
 import com.ipu.server.util.HttpRequest;
 import com.ipu.server.util.SeqMaker;
 import com.ipu.server.util.randomNum;
+import org.bouncycastle.jce.provider.JDKKeyFactory;
 
 /**
  *
@@ -187,5 +188,10 @@ public class DocsCentreBean extends AppBean {
 
         DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
         DocsDao.updateDocs_Name_Lable_SummaryByID(param);
+    }
+
+    public void DeleDocByID(IData param) throws Exception{
+        DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
+        DocsDao.DeleDocByID(param);
     }
 }
