@@ -91,7 +91,17 @@ require(["mobile","jquery","jcl","layer","common","util"],function(Mobile,$,Wade
         var fileInput = document.getElementById("choice_doc");
         fileInput.click();
     });
-
+    $('.gcs-checkbox').click(function() {
+        if($(this).prop('checked'))
+        {
+            var docLabel = $('#DOC_LABEL').val();
+            if(docLabel.length > 0 && docLabel.charAt(docLabel.length - 1) != ",")
+            {
+                docLabel = docLabel +",";
+            }
+            $('#DOC_LABEL').val( docLabel+$(this).attr('id'));
+        }
+    })
     $('.uploading-container   .link .async_area ul li').mouseenter(function(){
         $(this).addClass('active')
     }).mouseleave(function(){

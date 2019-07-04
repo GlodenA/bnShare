@@ -1,7 +1,7 @@
 require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wade,ChartPie,Layer,Common){
 
     Common.pagination("DocsCentre");
-    console.log($("#queryTag").val());
+
     if($("#queryTag").val()=="1"){
         $('#middle-left0').css('display','none');
         $('#middle-content').css('display','none');
