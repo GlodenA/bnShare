@@ -113,7 +113,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
 
     });
 
-    $('#example1 a[name=Delete]').bind("click",function(){
+    $('a[name=Delete]').bind("click",function(){
         var is_id = $(this).parent().attr("DOC_ID");
         var param = Wade.DataMap();
         param.put("QUERY_TAG","0");
