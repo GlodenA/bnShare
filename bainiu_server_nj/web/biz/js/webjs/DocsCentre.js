@@ -55,6 +55,52 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         footerClass();
     });
 
+    $('#example1 a[name=UpData]').bind("click",function(){
+        var innerHtml = "";
+        var is_name = $(this).parent().attr("DOC_NAME"),
+            is_author = $(this).parent().attr("DOC_AUTHOR_NAME"),
+            upd_time = $(this).parent().attr("INS_TIME"),
+            is_tag = $(this).parent().attr("DOC_LABEL"),
+            is_downnum = $(this).parent().attr("DOWNLOAD_CNT"),
+            // is_path=$(this).parent().attr("DOC_PATH"),
+            is_info = $(this).parent().attr("DOC_SUMMARY");
+        innerHtml = innerHtml
+            + '<tr>'
+            + '	<td class="active" width="25%">资料名称</td>'
+            + '	<td width="75%">'
+            + '<input type="text"  placeholder="{%.is_name%}">'
+            +'</td>'
+            + '</tr>'
+            + '<tr>'
+            + '	<td class="active" width="25%">上传时间</td>'
+            + '	<td>' + upd_time + '</td>'
+            + '</tr>'
+            + '<tr>'
+            + '	<td class="active" width="25%">作者</td>'
+            + '	<td>' + is_author + '</td>'
+            + '</tr>'
+            + '<tr>'
+            + '	<td class="active" width="25%">资料标签</td>'
+            + '	<td>' + is_tag + '</td>'
+            + '</tr>'
+            + '<tr>'
+            + '	<td class="active" width="25%" >简介</td>'
+            + '	<td>' + is_info + '</td>'
+            + '</tr>';
+        $('#querygroup').html(innerHtml);
+        $(".modal-box").show();
+        $("#bg").height(document.body.clientHeight);
+        var windowFlow = $(window).height() - $(".frame_content").height() - 60 > 0 ? true : false;
+        if (windowFlow) {
+            $("#bg").height($(window).height());
+        } else {
+            $("#bg").height(document.body.clientHeight);
+        }
+        $("#bg").show();
+        Common.callSvc("DocsCentre.init",param,function(resultData){});	//上传后参数未传递到界面上，初始化
+
+    });
+
     $('.matter').click(function() {
         $(this).addClass('matteren').siblings().removeClass('matteren');
 
