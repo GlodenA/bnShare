@@ -5,6 +5,8 @@ import com.ailk.common.data.IDataset;
 import com.ipu.server.util.Pagination;
 import org.apache.log4j.Logger;
 
+import java.io.File;
+
 public class DocsCentreDao extends SmartBaseDao{
     private static transient Logger log = Logger.getLogger(DocsCentreDao.class);
     static String TABLE_NAME = "TF_F_DOCS";
@@ -157,7 +159,7 @@ public class DocsCentreDao extends SmartBaseDao{
     public void updateDocs_Name_Lable_SummaryByID(IData params) throws Exception{
         StringBuffer strBuf = new StringBuffer();
         int count=0;
-        strBuf.append("UPDATE tf_f_docs a SET a.DOC_NAME=? a.DOC_LABEL=? a.DOC_SUMMARY=? where a.DOC_ID=?");
+        strBuf.append("UPDATE tf_f_docs A SET a.DOC_NAME=? a.DOC_LABEL=? a.DOC_SUMMARY=? where a.DOC_ID=?");
         count = this.executeUpdate(strBuf.toString(), new Object[]{
                 params.getString("DOC_NAME"),
                 params.getString("DOC_LABEL"),
@@ -166,4 +168,30 @@ public class DocsCentreDao extends SmartBaseDao{
         });
         this.commit();
     }
+    public void DeleDocByID(IData params) throws Exception{
+
+        StringBuffer strBuf = new StringBuffer();
+
+        strBuf.append("DELETE from tf_f_docs where DOC_ID=?");
+        this.executeUpdate(strBuf.toString(),new Object[]{
+                params.getInt("DOC_ID")
+        });
+        this.commit();
+    }
+    private void clearFiles(String workspaceRootPath){
+        File file = new File(workspaceRootPath);
+        if(file.exists()){
+            deleteFile(file);
+        }
+    }
+    private void deleteFile(File file){
+        if(file.isDirectory()){
+            File[] files = file.listFiles();
+            for(int i=0; i<files.length; i++){
+                deleteFile(files[i]);
+            }
+        }
+        file.delete();
+    }
+
 }

@@ -113,9 +113,15 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
 
     });
 
-    // $('#example1 a[name=Delete]').bind("click",function(){
-    //     Common.callSvc("",);
-    // }
+    $('#example1 a[name=Delete]').bind("click",function(){
+        var is_id = $(this).parent().attr("DOC_ID");
+        var param = Wade.DataMap();
+        param.put("QUERY_TAG","0");
+        param.put("DOC_ID",is_id);
+        Common.callSvc("DocsCentre.DeleDocByID",param,function () {
+            Common.openPage("DocsCentre",param) ;
+        });
+    })
 
     $('a[name=updoc]').bind("click",function(){
         var param = Wade.DataMap();
@@ -123,7 +129,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         param.put("DOC_NAME",$("#name").val());
         param.put("DOC_LABEL",$("#tag").val());
         param.put("DOC_SUMMARY",$("#info").val());
-        Common.callSvc("updateDocs_Name_Lable_SummaryByID",param);
+        Common.callSvc("DocsCentre.updateDocs_Name_Lable_SummaryByID",param);
     })
 
     $('.matter').click(function() {
