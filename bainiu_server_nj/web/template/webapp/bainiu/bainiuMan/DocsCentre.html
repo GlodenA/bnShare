@@ -10,9 +10,11 @@
     <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
 
-    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css"/>
-    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet"
-          type="text/css"/>
+    <!--<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet"
+          type="text/css"/>-->
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
     <link rel="stylesheet" href="template/webapp/bainiu/bainiuMan/docscentre/css/data-download.css">
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -21,6 +23,7 @@
 
     <script type="text/javascript"
             src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+
     <script type="text/javascript"
             src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
 
@@ -62,7 +65,7 @@
 
         </div>
     </div>
-    <div class="middle-wrap" >
+    <div class="middle-wrap">
         <div class="middle-left" id="middle-left0">
             <div class="middle">
                 <span class="download">下载排行榜总览<em></em></span>
@@ -98,20 +101,26 @@
                     </thead>
                     <tbody>
                     {%#DOCLIST%}
-                    <tr>
-                        <td name="DOC_NAME">{%.DOC_NAME%}</td>
-                        <td name="DOC_AUTHOR_NAME" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
-                            <a href="#" name="DOC_AUTHOR_NAME">
-                                {%.DOC_AUTHOR_NAME%}
-                            </a>
+                    <tr DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
+                        DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}" DOC_ID="{%.DOC_ID%}">
+                        <td name="itemCkecked">{%.DOC_NAME%}</td>
+                        <td DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
+                            <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_NAME%}</a>
                         </td>
-                        <td name="DOC_LABEL">{%.DOC_LABEL%}</td>
-                        <td name="INS_TIME">{%.INS_TIME%}</td>
-                        <td name="DOWNLOAD_CNT">{%.DOWNLOAD_CNT%}</td>
-                        <td name="DOC_PATH" style="display: none">{%.DOC_PATH%}</td>
-                        <td align="center" DOC_ID="{%.DOC_ID%}" >
-                            <a href="#"  name="downLoad">下载</a>
+                        <td>
+                            <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_ACCT%}</a>
                         </td>
+                        <!--<td name="DOC_LABEL">{%.DOC_LABEL%}</td>-->
+                        <td name="itemCkecked">{%.INS_TIME%}</td>
+                        <td name="itemCkecked">{%.DOWNLOAD_CNT%}</td>
+                        <td name="itemCkecked" style="display: none">{%.DOC_PATH%}</td>
+                        <td align="center" DOC_ID="{%.DOC_ID%}" DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
+                            DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}">
+                            <a href="#" name="UpData">修改</a>
+                            <a href="#" name="downLoad">下载</a>
+                            <a href="#" name="Delete">删除</a>
+                        </td>
+                        <td name="itemCkecked" style="display: none">{%.DOC_SUMMARY%}</td>
                     </tr>
                     {%/DOCLIST%}
                     </tbody>
@@ -250,17 +259,23 @@
         </div>
     </div>
 </div>
-<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+<!--<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
 <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 <script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
 <script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
-<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>-->
 
 
 {%>template/common/Head.html%}
+
 <script type="text/javascript" src="biz/js/webjs/DocsCentre.js"></script>
 <script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
 <script type="text/javascript" src="biz/js/webjs/extend/layer.ext.js"></script>
+<!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+
+</script>
 
 {%>template/common/Footer.html%}
 </body>

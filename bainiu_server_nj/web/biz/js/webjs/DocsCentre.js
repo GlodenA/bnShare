@@ -8,6 +8,9 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         $('#query_table_list').css('display','none');
         $('#middle-left1').css('display','block');
     }
+    /*$(document).ready(function() {
+        $('#example1').DataTable();
+    } );*/
     // //tab切换
     // //dataTable显示隐藏切换错位重绘
     $('.title-wrap li').click(function (e) {
@@ -24,14 +27,14 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         }
     });
 
-    $('#example1 a[name=downLoad]').bind("click",function(){
+    $('a[name=downLoad]').bind("click",function(){
         var docId=$(this).parent().attr("DOC_ID");
         location.href = "/fileDownLoadServlet?DOWNLOAD_DOC_ID="+docId;
         var param = Wade.DataMap();
         Common.callSvc("DocsCentre.init",param,function(resultData){});	//上传后参数未传递到界面上，初始化
 
     });
-    $('#example1 a[name=DOC_AUTHOR_NAME]').bind("click",function(){
+    $('a[name=DOC_AUTHOR_NAME]').bind("click",function(){
 
         var DOC_AUTHOR_ACCT=$(this).parent().attr("DOC_AUTHOR_ACCT");
         var DOC_AUTHOR_NAME=$(this).html();
@@ -55,7 +58,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         footerClass();
     });
 
-    $('#example1 a[name=UpData]').bind("click",function(){
+    $('a[name=UpData]').bind("click",function(){
         var innerHtml = "";
         var is_id = $(this).parent().attr("DOC_ID"),
             is_name = $(this).parent().attr("DOC_NAME"),
