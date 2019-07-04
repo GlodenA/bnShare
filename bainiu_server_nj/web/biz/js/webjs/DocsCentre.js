@@ -57,18 +57,18 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
 
     $('#example1 a[name=UpData]').bind("click",function(){
         var innerHtml = "";
-        var is_name = $(this).parent().attr("DOC_NAME"),
+        var is_id = $(this).parent().attr("DOC_ID"),
+            is_name = $(this).parent().attr("DOC_NAME"),
             is_author = $(this).parent().attr("DOC_AUTHOR_NAME"),
             upd_time = $(this).parent().attr("INS_TIME"),
             is_tag = $(this).parent().attr("DOC_LABEL"),
-            is_downnum = $(this).parent().attr("DOWNLOAD_CNT"),
             // is_path=$(this).parent().attr("DOC_PATH"),
             is_info = $(this).parent().attr("DOC_SUMMARY");
         innerHtml = innerHtml
             + '<tr>'
             + '	<td class="active" width="25%">资料名称</td>'
             + '	<td width="75%">'
-            + '<input type="text"  placeholder="{%.is_name%}">'
+            + '<textarea id="name" rows="1" cols="50">'+is_name+'</textarea>'
             +'</td>'
             + '</tr>'
             + '<tr>'
@@ -81,11 +81,21 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
             + '</tr>'
             + '<tr>'
             + '	<td class="active" width="25%">资料标签</td>'
-            + '<input type="text"  placeholder="{%.is_tag%}">'
+            + '	<td width="75%">'
+            + '<textarea id="tag" rows="1" cols="50">'+is_tag+'</textarea>'
+            + '</td>'
             + '</tr>'
             + '<tr>'
             + '	<td class="active" width="25%" >简介</td>'
-            + '<input type="text"  placeholder="{%.is_info%}">'
+            + '	<td width="75%">'
+            + '<textarea id="info" rows="10" cols="50">'+is_info+'</textarea>'
+            + '</td>'
+            + '<td>'
+            + '<a href="#" name="updoc">保存</a>'
+            + '</td>'
+            + '<td style="display: none" width="75%">'
+            + '<textarea id="doc_id" rows="10" cols="50">'+is_id+'</textarea>'
+            + '</td>'
             + '</tr>';
         $('#querygroup').html(innerHtml);
         $(".modal-box").show();
@@ -97,9 +107,21 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
             $("#bg").height(document.body.clientHeight);
         }
         $("#bg").show();
-        Common.callSvc("DocsCentre.init",param,function(resultData){});	//上传后参数未传递到界面上，初始化
 
     });
+
+    // $('#example1 a[name=Delete]').bind("click",function(){
+    //     Common.callSvc("",);
+    // }
+
+    $('a[name=updoc]').bind("click",function(){
+        var param = Wade.DataMap();
+        param.put("DOC_ID",$("#doc_id").val());
+        param.put("DOC_NAME",$("#name").val());
+        param.put("DOC_LABEL",$("#tag").val());
+        param.put("DOC_SUMMARY",$("#info").val());
+        Common.callSvc("updateDocs_Name_Lable_SummaryByID",param);
+    })
 
     $('.matter').click(function() {
         $(this).addClass('matteren').siblings().removeClass('matteren');

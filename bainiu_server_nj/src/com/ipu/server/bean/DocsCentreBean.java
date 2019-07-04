@@ -183,5 +183,9 @@ public class DocsCentreBean extends AppBean {
         return resultData;
     }
 
+    public void updateDocs_Name_Lable_SummaryByID(IData param) throws  Exception{
 
+        DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
+        DocsDao.updateDocs_Name_Lable_SummaryByID(param);
+    }
 }

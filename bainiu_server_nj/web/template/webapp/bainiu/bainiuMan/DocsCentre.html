@@ -205,7 +205,7 @@
         <tbody>
         {%#DOCLIST%}
         <tr DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
-            DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}">
+            DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}" DOC_ID="{%.DOC_ID%}">
             <td name="itemCkecked">{%.DOC_NAME%}</td>
             <td DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
                 <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_NAME%}</a>
@@ -217,7 +217,8 @@
             <td name="itemCkecked">{%.INS_TIME%}</td>
             <td name="itemCkecked">{%.DOWNLOAD_CNT%}</td>
             <td name="itemCkecked" style="display: none">{%.DOC_PATH%}</td>
-            <td align="center" DOC_ID="{%.DOC_ID%}">
+            <td align="center" DOC_ID="{%.DOC_ID%}" DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
+                DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}">
                 <a href="#" name="UpData">修改</a>
                 <a href="#" name="downLoad">下载</a>
                 <a href="#" name="Delete">删除</a>
