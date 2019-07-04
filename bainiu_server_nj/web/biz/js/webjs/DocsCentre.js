@@ -81,11 +81,11 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
             + '</tr>'
             + '<tr>'
             + '	<td class="active" width="25%">资料标签</td>'
-            + '	<td>' + is_tag + '</td>'
+            + '<input type="text"  placeholder="{%.is_tag%}">'
             + '</tr>'
             + '<tr>'
             + '	<td class="active" width="25%" >简介</td>'
-            + '	<td>' + is_info + '</td>'
+            + '<input type="text"  placeholder="{%.is_info%}">'
             + '</tr>';
         $('#querygroup').html(innerHtml);
         $(".modal-box").show();
