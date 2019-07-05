@@ -13,7 +13,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
     } );*/
     // //tab切换
     // //dataTable显示隐藏切换错位重绘
-    $('.title-wrap li').click(function (e) {
+    $('.title-wrap li').click(function flush(e) {
         e.preventDefault();
         var param = Wade.DataMap();
         param.put("QUERY_TAG","0");
@@ -113,16 +113,17 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
 
     });
 
-    $('#example1 a[name=Delete]').bind("click",function(){
+    $('#example1 a[name=Delete]').bind("click",function() {
         var is_id = $(this).parent().attr("DOC_ID");
         var param = Wade.DataMap();
-        param.put("QUERY_TAG","0");
-        param.put("DOC_ID",is_id);
-        Common.callSvc("DocsCentre.DeleDocByID",param,function () {
-            Common.openPage("DocsCentre",param) ;
+        param.put("DOC_ID", is_id);
+        Common.callSvc("DocsCentre.DeleDocByID", param, function () {
+            Common.showSuccess("删除成功");
+            var params = Wade.DataMap();
+            params.put("QUERY_TAG","1");
+            Common.openPage("DocsCentre",params) ;
         });
     })
-
     $('a[name=updoc]').bind("click",function(){
         var param = Wade.DataMap();
         param.put("DOC_ID",$("#doc_id").val());
@@ -475,15 +476,37 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
             + '	<td class="active" width="25%" >简介</td>'
             + '	<td>' + is_info + '</td>'
             + '</tr>';
-        $('#querygroup').html(innerHtml);
-        $(".modal-box").show();
-        $("#bg").height(document.body.clientHeight);
-        var windowFlow = $(window).height() - $(".frame_content").height() - 60 > 0 ? true : false;
-        if (windowFlow) {
-            $("#bg").height($(window).height());
-        } else {
-            $("#bg").height(document.body.clientHeight);
-        }
-        $("#bg").show();
+        // $('#querygroup').html(innerHtml);
+        // $(".modal-box").show();
+        // $("#bg").height(document.body.clientHeight);
+        // var windowFlow = $(window).height() - $(".frame_content").height() - 60 > 0 ? true : false;
+        // if (windowFlow) {
+        //     $("#bg").height($(window).height());
+        // } else {
+        //     $("#bg").height(document.body.clientHeight);
+        // }
+        // $("#bg").show();
+        Layer.open({
+            type: 1
+            , title: "open方式弹出层" //不显示标题栏   title : false/标题
+            , closeBtn: true
+            , area: '300px;'
+            , shade: 0.8
+            , id: 'LAY_layuipro' //设定一个id，防止重复弹出
+            , resize: false
+            , btn: ['保存']
+            , btnAlign: 'c'
+            , moveType: 1 //拖拽模式，0或者1
+            , content: innerHtml
+            , success: function (layero) {
+                var param = Wade.DataMap();
+                param.put("DOC_ID", $("#doc_id").val());
+                param.put("DOC_NAME", $("#name").val());
+                param.put("DOC_LABEL", $("#tag").val());
+                param.put("DOC_SUMMARY", $("#info").val());
+                Common.callSvc("updateDocs_Name_Lable_SummaryByID", param);
+            }
+
+        })
     })
 });

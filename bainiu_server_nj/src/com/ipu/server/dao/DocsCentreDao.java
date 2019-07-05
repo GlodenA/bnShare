@@ -170,8 +170,12 @@ public class DocsCentreDao extends SmartBaseDao{
     }
     public void DeleDocByID(IData params) throws Exception{
 
+        StringBuffer str = new StringBuffer();
+        str.append("select DOC_PATH from tf_f_docs where DOC_ID="+params.getInt("DOC_ID"));
+        IDataset datapath = this.queryList(str.toString(),params);
+        IData data = datapath.toData();
+        clearFiles(data.getString("DOC_PATH"));
         StringBuffer strBuf = new StringBuffer();
-
         strBuf.append("DELETE from tf_f_docs where DOC_ID=?");
         this.executeUpdate(strBuf.toString(),new Object[]{
                 params.getInt("DOC_ID")
