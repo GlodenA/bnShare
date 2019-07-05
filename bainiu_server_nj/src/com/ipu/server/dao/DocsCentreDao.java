@@ -159,12 +159,12 @@ public class DocsCentreDao extends SmartBaseDao{
     public void updateDocs_Name_Lable_SummaryByID(IData params) throws Exception{
         StringBuffer strBuf = new StringBuffer();
         int count=0;
-        strBuf.append("UPDATE tf_f_docs A SET a.DOC_NAME=? a.DOC_LABEL=? a.DOC_SUMMARY=? where a.DOC_ID=?");
+        strBuf.append("UPDATE tf_f_docs SET DOC_NAME=?,DOC_LABEL=?,DOC_SUMMARY=? where DOC_ID=?");
         count = this.executeUpdate(strBuf.toString(), new Object[]{
                 params.getString("DOC_NAME"),
                 params.getString("DOC_LABEL"),
                 params.getString("DOC_SUMMARY"),
-                params.getString("DOC_ID"),
+                params.getInt("DOC_ID"),
         });
         this.commit();
     }
