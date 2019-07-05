@@ -476,37 +476,16 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
             + '	<td class="active" width="25%" >简介</td>'
             + '	<td>' + is_info + '</td>'
             + '</tr>';
-        // $('#querygroup').html(innerHtml);
-        // $(".modal-box").show();
-        // $("#bg").height(document.body.clientHeight);
-        // var windowFlow = $(window).height() - $(".frame_content").height() - 60 > 0 ? true : false;
-        // if (windowFlow) {
-        //     $("#bg").height($(window).height());
-        // } else {
-        //     $("#bg").height(document.body.clientHeight);
-        // }
-        // $("#bg").show();
-        Layer.open({
-            type: 1
-            , title: "open方式弹出层" //不显示标题栏   title : false/标题
-            , closeBtn: true
-            , area: '300px;'
-            , shade: 0.8
-            , id: 'LAY_layuipro' //设定一个id，防止重复弹出
-            , resize: false
-            , btn: ['保存']
-            , btnAlign: 'c'
-            , moveType: 1 //拖拽模式，0或者1
-            , content: innerHtml
-            , success: function (layero) {
-                var param = Wade.DataMap();
-                param.put("DOC_ID", $("#doc_id").val());
-                param.put("DOC_NAME", $("#name").val());
-                param.put("DOC_LABEL", $("#tag").val());
-                param.put("DOC_SUMMARY", $("#info").val());
-                Common.callSvc("updateDocs_Name_Lable_SummaryByID", param);
-            }
+        $('#querygroup').html(innerHtml);
+        $(".modal-box").show();
+        $("#bg").height(document.body.clientHeight);
+        var windowFlow = $(window).height() - $(".frame_content").height() - 60 > 0 ? true : false;
+        if (windowFlow) {
+            $("#bg").height($(window).height());
+        } else {
+            $("#bg").height(document.body.clientHeight);
+        }
+        $("#bg").show();
 
-        })
     })
 });
