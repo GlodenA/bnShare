@@ -8,6 +8,12 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         $('#query_table_list').css('display', 'none');
         $('#middle-left1').css('display', 'block');
     }
+    if ($("#queryTag").val() == "2") {
+        $('#middle-left0').css('display', 'block');
+        $('#middle-content').css('display', 'block');
+        $('#query_table_list').css('display', 'block');
+        $('#middle-left1').css('display', 'none');
+    }
     /*$(document).ready(function() {
         $('#example1').DataTable();
     } );*/
@@ -81,7 +87,7 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         Common.callSvc("DocsCentre.DeleDocByID", param, function () {
             Common.showSuccess("删除成功");
             var params = Wade.DataMap();
-            params.put("QUERY_TAG", "1");
+            params.put("QUERY_TAG", "2");
             Common.openPage("DocsCentre", params);
         });
     })
@@ -96,7 +102,7 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
             sbtitle.style.display = 'none';
             Common.showSuccess("保存成功");
             var params = Wade.DataMap();
-            params.put("QUERY_TAG", "1");
+            params.put("QUERY_TAG", "2");
             Common.openPage("DocsCentre", params);
         });
     })
