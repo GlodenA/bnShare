@@ -252,7 +252,51 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         param.put("DOC_NAME", name.toString());
         Common.callSvc("DocsCentre.queryDOC_SUMMARY", param, function (res){
             var list = res.get("DOC_INFO");
+            var li = list.get(0);
             console.log(list);
+            var innerHtml = "";
+            var is_author = li.get("DOC_AUTHOR_NAME"),
+                upd_time = li.get("INS_TIME"),
+                is_tag = li.get("DOC_LABEL"),
+                is_downnum =li.get("DOWNLOAD_CNT"),
+                // is_path=$(this).parent().attr("DOC_PATH"),
+                is_info = li.get("DOC_SUMMARY");
+
+            innerHtml = innerHtml
+                + '<tr>'
+                + '	<td class="active" width="25%">资料名称</td>'
+                + '	<td width="75%">' + name + '</td>'
+                + '</tr>'
+                + '<tr>'
+                + '	<td class="active" width="25%">上传时间</td>'
+                + '	<td>' + upd_time + '</td>'
+                + '</tr>'
+                + '<tr>'
+                + '	<td class="active" width="25%">作者</td>'
+                + '	<td>' + is_author + '</td>'
+                + '</tr>'
+                + '<tr>'
+                + '	<td class="active" width="25%">资料标签</td>'
+                + '	<td>' + is_tag + '</td>'
+                + '</tr>'
+                + '<tr>'
+                + '	<td class="active" width="25%">下载次数</td>'
+                + '	<td>' + is_downnum + '</td>'
+                + '</tr>'
+                + '<tr>'
+                + '	<td class="active" width="25%" >简介</td>'
+                + '	<td>' + is_info + '</td>'
+                + '</tr>';
+            $('#querygroup').html(innerHtml);
+            $(".modal-box").show();
+            $("#bg").height(document.body.clientHeight);
+            var windowFlow = $(window).height() - $(".frame_content").height() - 60 > 0 ? true : false;
+            if (windowFlow) {
+                $("#bg").height($(window).height());
+            } else {
+                $("#bg").height(document.body.clientHeight);
+            }
+            $("#bg").show();
         });
 
     });
@@ -336,6 +380,58 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
     };
     monthChart.setOption(monthOption);
     monthChart.on('click', function (params) {
+        var n = params.name;
+        var name = n.replace(/\n/,"");
+        var param = Wade.DataMap();
+        param.put("DOC_NAME", name.toString());
+        Common.callSvc("DocsCentre.queryDOC_SUMMARY", param, function (res){
+            var list = res.get("DOC_INFO");
+            var li = list.get(0);
+            console.log(list);
+            var innerHtml = "";
+            var is_author = li.get("DOC_AUTHOR_NAME"),
+                upd_time = li.get("INS_TIME"),
+                is_tag = li.get("DOC_LABEL"),
+                is_downnum =li.get("DOWNLOAD_CNT"),
+                // is_path=$(this).parent().attr("DOC_PATH"),
+                is_info = li.get("DOC_SUMMARY");
+
+            innerHtml = innerHtml
+                + '<tr>'
+                + '	<td class="active" width="25%">资料名称</td>'
+                + '	<td width="75%">' + name + '</td>'
+                + '</tr>'
+                + '<tr>'
+                + '	<td class="active" width="25%">上传时间</td>'
+                + '	<td>' + upd_time + '</td>'
+                + '</tr>'
+                + '<tr>'
+                + '	<td class="active" width="25%">作者</td>'
+                + '	<td>' + is_author + '</td>'
+                + '</tr>'
+                + '<tr>'
+                + '	<td class="active" width="25%">资料标签</td>'
+                + '	<td>' + is_tag + '</td>'
+                + '</tr>'
+                + '<tr>'
+                + '	<td class="active" width="25%">下载次数</td>'
+                + '	<td>' + is_downnum + '</td>'
+                + '</tr>'
+                + '<tr>'
+                + '	<td class="active" width="25%" >简介</td>'
+                + '	<td>' + is_info + '</td>'
+                + '</tr>';
+            $('#querygroup').html(innerHtml);
+            $(".modal-box").show();
+            $("#bg").height(document.body.clientHeight);
+            var windowFlow = $(window).height() - $(".frame_content").height() - 60 > 0 ? true : false;
+            if (windowFlow) {
+                $("#bg").height($(window).height());
+            } else {
+                $("#bg").height(document.body.clientHeight);
+            }
+            $("#bg").show();
+        });
     });
 
     var queryhisData = $("#queryHotKey").attr("chartData");

@@ -201,7 +201,7 @@ public class DocsCentreDao extends SmartBaseDao{
     public IDataset queryDOC_SUMMARY(IData param) throws Exception{
         StringBuffer strBuf = new StringBuffer();
         String doc_name = param.getString("DOC_NAME");
-        strBuf.append("select DOC_AUTHOR_NAME ,DOC_LABEL, DOWNLOAD_CNT,INS_TIME,DOC_SUMMARY  from  tf_f_docs  where DOC_NAME="+doc_name);
+        strBuf.append("select DOC_AUTHOR_NAME ,DOC_LABEL, DOWNLOAD_CNT,INS_TIME,DOC_SUMMARY  from  tf_f_docs  where DOC_NAME='"+doc_name+"'");
         return this.queryList(strBuf.toString(), param);
     }
 }
