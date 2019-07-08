@@ -440,7 +440,7 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         $("#bg").hide();
     });
     // 表格点击事件
-    $("#example1 tbody tr td[name='itemCkecked']").bind("click", function () {//点击浮层
+    $("tbody tr td[name='itemCkecked']").bind("click", function () {//点击浮层
         var innerHtml = "";
         var is_name = $(this).parent().attr("DOC_NAME"),
             is_author = $(this).parent().attr("DOC_AUTHOR_NAME"),

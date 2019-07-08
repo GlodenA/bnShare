@@ -65,12 +65,12 @@ public class FileUpload {
 		//String path = request.getContextPath()+File.separator+"bnUpload";
 		//String temp = request.getContextPath()+File.separator+"bnUploadTemp";
 		//测试
-		//String path = "/webapp"+File.separator+"bnUpload";
-		//String temp = "/webapp"+File.separator+"bnUploadTemp";
+		String path = "/webapp"+File.separator+"bnUpload";
+		String temp = "/webapp"+File.separator+"bnUploadTemp";
 
 		//生产
-		String path = "/data/webapp"+File.separator+"bnUpload";
-		String temp = "/data/webapp"+File.separator+"bnUploadTemp";
+		//String path = "/data/webapp"+File.separator+"bnUpload";
+		//String temp = "/data/webapp"+File.separator+"bnUploadTemp";
 
 		System.out.println(temp);
 		File file = new File(temp);
