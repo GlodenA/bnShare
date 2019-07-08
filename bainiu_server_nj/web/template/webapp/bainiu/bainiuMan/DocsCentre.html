@@ -9,7 +9,7 @@
     <!-- Bootstrap-->
     <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
-
+    <link href="template/webapp/bainiu/bainiuMan/css/2019-07-05.css" rel="stylesheet" type="text/css" />
     <!--<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css"/>-->
     <!--<link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet"
           type="text/css"/>-->
@@ -195,6 +195,36 @@
     </div>
 </div>
 <div class="query_table_list" id="query_table_list">
+    <a name="UpDate_DOC">
+    <ul id="doc_up" style="display: none" class="dataDetailsAlter">
+        <li style="display: none">
+            <div class="label">资料编号：</div>
+            <div class="content"><input type="text" name="id" id="id" value="" readonly/></div>
+        </li>
+        <li>
+            <div class="label">资料名称：</div>
+            <div class="content"><input type="text" name="name" id="name" value="" /></div>
+        </li>
+        <li>
+            <div class="label">上传时间：</div>
+            <div class="content"><input type="text" name="time" id="time" value="" readonly /> </div>
+        </li>
+        <li>
+            <div class="label">作者：</div>
+            <div class="content"><input type="text" name="author" id="author" value="" readonly /> </div>
+        </li>
+        <li>
+            <div class="label">标签：</div>
+            <div class="content"><input type="text" name="tag" id="tag" value="" /></div>
+        </li>
+        <li>
+            <div class="label">简介：</div>
+            <div class="content"><textarea name="info" id="info" rows="4"/></textarea></div>
+        </li>
+        <li>
+            <div class="btnWrap"><a href="#" name="updoc" class="saveBtn">保存</a></div>
+        </li>
+    </ul>
     <table id="example1" class="table table-striped table-bordered table-hover dataTables-example dataTable"
            cellspacing="0">
         <thead>
@@ -227,7 +257,7 @@
             <td name="itemCkecked" style="display: none">{%.DOC_PATH%}</td>
             <td align="center" DOC_ID="{%.DOC_ID%}" DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
                 DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}">
-                <a href="#" name="UpData">修改</a>
+                <a href="#UpDate_DOC" name="UpData">修改</a>
                 <a href="#" name="downLoad">下载</a>
                 <a href="#" name="Delete">删除</a>
             </td>
@@ -237,6 +267,7 @@
         </tbody>
     </table>
     {%>template/common/Paginate.html%}
+    </a>
 </div>
 
 <div class="modal-box" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -258,6 +289,9 @@
         </div>
     </div>
 </div>
+
+
+
 <!--<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
 <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 <script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
