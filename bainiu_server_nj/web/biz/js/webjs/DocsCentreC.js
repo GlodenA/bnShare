@@ -63,6 +63,8 @@ require(["mobile","jquery","jcl","layer","common","util"],function(Mobile,$,Wade
                 $("#DOC_WRITER").val('');
                 $("#DOC_LABEL").val('');
                 $("#choice_doc").val('');
+                $("#DOC_SUMMARY").val('');
+                $('.gcs-checkbox').prop('checked',false);
                 Common.callSvc("DocsCentre.init",param,function(resultData){});	//上传后参数未传递到界面上，初始化
                 Layer.close(lay);
             },
