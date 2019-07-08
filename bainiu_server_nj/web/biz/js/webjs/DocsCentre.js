@@ -245,6 +245,17 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         )
     };
     totalChart.setOption(option);
+    totalChart.on('click', function (params) {
+        var n = params.name;
+        var name = n.replace(/\n/,"");
+        var param = Wade.DataMap();
+        param.put("DOC_NAME", name.toString());
+        Common.callSvc("DocsCentre.queryDOC_SUMMARY", param, function (res){
+            var list = res.get("DOC_INFO");
+            console.log(list);
+        });
+
+    });
 
     var monthChart = echarts.init($('.download-rank-month')[0]);
 
@@ -324,7 +335,8 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         )
     };
     monthChart.setOption(monthOption);
-
+    monthChart.on('click', function (params) {
+    });
 
     var queryhisData = $("#queryHotKey").attr("chartData");
     console.log("queryhisData====" + queryhisData);

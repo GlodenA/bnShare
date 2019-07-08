@@ -194,4 +194,12 @@ public class DocsCentreBean extends AppBean {
         DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
         DocsDao.DeleDocByID(param);
     }
+    public IData queryDOC_SUMMARY(IData param) throws Exception{
+
+        IData resultData = getResultData();
+        DocsCentreDao docsCentreDao = new DocsCentreDao("bainiu");
+        IDataset queryData = docsCentreDao.queryDOC_SUMMARY(param);
+        resultData.put("DOC_INFO", queryData);
+        return resultData;
+    }
 }
