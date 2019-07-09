@@ -94,14 +94,34 @@ require(["mobile","jquery","jcl","layer","common","util"],function(Mobile,$,Wade
         fileInput.click();
     });
     $('.gcs-checkbox').click(function() {
-        if($(this).prop('checked'))
+        if($(this).prop('checked')) {
+            var docLabel = $('#DOC_LABEL').val();
+            if (docLabel.length > 0 && docLabel.charAt(docLabel.length - 1) != ",") {
+                docLabel = docLabel + ",";
+            }
+            $('#DOC_LABEL').val(docLabel + $(this).attr('id'));
+        }
+        else
         {
             var docLabel = $('#DOC_LABEL').val();
-            if(docLabel.length > 0 && docLabel.charAt(docLabel.length - 1) != ",")
+            var str=$(this).attr('id');
+            if (docLabel.length > 0)
             {
-                docLabel = docLabel +",";
+                var arr = docLabel.split(',');
+                console.log("tag:"+$.inArray(str,arr))
+                while($.inArray(str,arr) != -1) {
+                    console.log("tag2:"+$.inArray(str,arr))
+                    arr.splice($.inArray(str, arr), 1);
+                }
+                if(arr.length > 0)
+                {
+                    $('#DOC_LABEL').val(arr.join(','));
+                }
+                else
+                {
+                    $('#DOC_LABEL').val('');
+                }
             }
-            $('#DOC_LABEL').val( docLabel+$(this).attr('id'));
         }
     })
     $('.uploading-container   .link .async_area ul li').mouseenter(function(){

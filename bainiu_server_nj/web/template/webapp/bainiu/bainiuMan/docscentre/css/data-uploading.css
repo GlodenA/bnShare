@@ -904,3 +904,28 @@ body.overflow {
   color: white;
 
 }
+
+/* 智享库-资料中心-资料上传-chechbox */
+.checkboxWrap {
+  height: 36px;
+  line-height: 36px;
+  margin-left: 16px;
+}
+
+.checkboxWrap .gcs-checkbox+label {
+  vertical-align: middle;
+  border-radius: 4px;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  margin: 0 4px 0 8px;
+}
+
+.checkboxWrap .gcs-checkbox:checked+label {
+  font-size: 12px;
+  border-color: #2da5ed;
+}
+
+.checkboxWrap .gcs-checkbox:checked+label:after {
+  color: #2da5ed;
+}
