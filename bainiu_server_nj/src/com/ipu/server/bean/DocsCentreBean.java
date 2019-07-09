@@ -12,6 +12,8 @@ import com.ipu.server.util.SeqMaker;
 import com.ipu.server.util.randomNum;
 import org.bouncycastle.jce.provider.JDKKeyFactory;
 
+import com.ipu.server.util.*;
+
 /**
  *
  * @ClassName: DocsCentreBean
@@ -66,6 +68,156 @@ public class DocsCentreBean extends AppBean {
             param.put("USER_ID",userId);
             docsCentreDao.insertQueryLog(param,resultData);
         }
+
+        //统计入库 begin
+        String sysDate = DateUtil.getDateString("yyyyMMdd");
+        String sysWeekday = DateUtil.getWeekOfDate();
+        System.out.println("今天日期:" + sysDate);
+        System.out.println("今天星期:" + sysWeekday);
+        //String[] weekDays =e {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
+        if (!"".equals(param.getString("HOT_KEY")) && param.getString("HOT_KEY") != null) {
+            IDataset isHotKeyList = docsCentreDao.getHotKeyCount(param);
+            if (isHotKeyList.size() > 0) {
+                System.out.println(isHotKeyList.toString());
+                System.out.println("exist hot key2");
+                //for (int i = 0; i < isHotKeyList.size(); i++) {
+                IData t_data = isHotKeyList.getData(0);
+                System.out.println(t_data.toString());
+                if (sysWeekday.equals("星期一")) {
+                    if (!isHotKeyList.getData(0).getString("DATE1").equals(sysDate)) {
+                        int count = 1;
+                        t_data.put("DATE1", sysDate);
+                        t_data.put("VALUE1", count);
+                    } else {
+                        int count = t_data.getInt("VALUE1") + 1;
+                        t_data.put("VALUE1", count);
+                    }
+                    int todayCount = t_data.getInt("VALUE1");
+                    t_data.put("VALUE",todayCount);
+
+                } else if (sysWeekday.equals("星期二")) {
+                    if (!t_data.getString("DATE2").equals(sysDate)) {
+                        int count = 1;
+                        t_data.put("DATE2", sysDate);
+                        t_data.put("VALUE2", count);
+                    } else {
+                        int count = t_data.getInt("VALUE2") + 1;
+                        t_data.put("VALUE2", count);
+                    }
+                    int todayCount = t_data.getInt("VALUE2");
+                    t_data.put("VALUE",todayCount);
+
+                } else if (sysWeekday.equals("星期三")) {
+                    if (!t_data.getString("DATE3").equals(sysDate)) {
+                        int count = 1;
+                        t_data.put("DATE3", sysDate);
+                        t_data.put("VALUE3", count);
+                    } else {
+                        int count = t_data.getInt("VALUE3") + 1;
+                        t_data.put("VALUE3", count);
+                    }
+                    int todayCount = t_data.getInt("VALUE3");
+                    t_data.put("VALUE",todayCount);
+
+                } else if (sysWeekday.equals("星期四")) {
+                    if (!t_data.getString("DATE4").equals(sysDate)) {
+                        int count = 1;
+                        t_data.put("DATE4", sysDate);
+                        t_data.put("VALUE4", count);
+                    } else {
+                        int count = t_data.getInt("VALUE4") + 1;
+                        t_data.put("VALUE4", count);
+                    }
+                    int todayCount = t_data.getInt("VALUE4");
+                    t_data.put("VALUE",todayCount);
+
+                } else if (sysWeekday.equals("星期五")) {
+                    if (!t_data.getString("DATE5").equals(sysDate)) {
+                        int count = 1;
+                        t_data.put("DATE5", sysDate);
+                        t_data.put("VALUE5", count);
+                    } else {
+                        int count = t_data.getInt("VALUE5") + 1;
+                        t_data.put("VALUE5", count);
+                    }
+                    int todayCount = t_data.getInt("VALUE5");
+                    t_data.put("VALUE",todayCount);
+
+                } else if (sysWeekday.equals("星期六")) {
+                    if (!t_data.getString("DATE6").equals(sysDate)) {
+                        int count = 1;
+                        t_data.put("DATE6", sysDate);
+                        t_data.put("VALUE6", count);
+                    } else {
+                        int count = t_data.getInt("VALUE6") + 1;
+                        t_data.put("VALUE6", count);
+                    }
+                    int todayCount = t_data.getInt("VALUE6");
+                    t_data.put("VALUE",todayCount);
+
+                } else if (sysWeekday.equals("星期日")) {
+                    if (!t_data.getString("DATE7").equals(sysDate)) {
+                        int count = 1;
+                        t_data.put("DATE7", sysDate);
+                        t_data.put("VALUE7", count);
+                    } else {
+                        int count = t_data.getInt("VALUE7") + 1;
+                        t_data.put("VALUE7", count);
+                    }
+                    int todayCount = t_data.getInt("VALUE7");
+                    t_data.put("VALUE",todayCount);
+
+                }
+                IData t_resultdata = new DataMap();
+                docsCentreDao.updateHotKeyCount(t_data, t_resultdata);
+
+            }
+            else {
+                System.out.println("no exist hot key");
+                IData t_resultdata = new DataMap();
+                param.put("VALUE1", 0);
+                param.put("VALUE2", 0);
+                param.put("VALUE3", 0);
+                param.put("VALUE4", 0);
+                param.put("VALUE5", 0);
+                param.put("VALUE6", 0);
+                param.put("VALUE7", 0);
+                param.put("DATE1", sysDate);
+                param.put("DATE2", sysDate);
+                param.put("DATE3", sysDate);
+                param.put("DATE4", sysDate);
+                param.put("DATE5", sysDate);
+                param.put("DATE6", sysDate);
+                param.put("DATE7", sysDate);
+                param.put("DATE", sysDate);
+                if (sysWeekday.equals("星期一")) {
+                    param.put("VALUE1", 1);
+
+                } else if (sysWeekday.equals("星期二")) {
+                    param.put("VALUE2", 1);
+
+                } else if (sysWeekday.equals("星期三")) {
+                    param.put("VALUE3", 1);
+
+                } else if (sysWeekday.equals("星期四")) {
+                    param.put("VALUE4", 1);
+
+                } else if (sysWeekday.equals("星期五")) {
+                    param.put("VALUE5", 1);
+
+                } else if (sysWeekday.equals("星期六")) {
+                    param.put("VALUE6", 1);
+
+                } else if (sysWeekday.equals("星期日")) {
+                    param.put("VALUE7", 1);
+
+                }
+                param.put("VALUE",1);
+                docsCentreDao.insertHotKeyCount(param, t_resultdata);
+
+            }
+        }
+        //统计入库 end
         //组织图标数据
         //总下载量
         IData lineData =  new DataMap();

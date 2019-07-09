@@ -204,4 +204,71 @@ public class DocsCentreDao extends SmartBaseDao{
         strBuf.append("select DOC_AUTHOR_NAME ,DOC_LABEL, DOWNLOAD_CNT,INS_TIME,DOC_SUMMARY  from  tf_f_docs  where DOC_NAME='"+doc_name+"'");
         return this.queryList(strBuf.toString(), param);
     }
+
+    public IDataset getHotKeyCount(IData param) throws Exception {
+        StringBuffer strBuf = new StringBuffer();
+        strBuf.append("select HOT_KEY,VALUE1, VALUE2,VALUE3,VALUE4,VALUE5,VALUE6,VALUE7, " +
+                " DATE1, DATE2, DATE3," +
+                "DATE4" +
+                ",DATE5,DATE6," +
+                "DATE7 from  tf_b_hotkeysum_log a where HOT_KEY=:HOT_KEY");
+        return this.queryList(strBuf.toString(), param);
+    }
+
+    public IData insertHotKeyCount(IData inparam, IData result) throws Exception {
+        // TODO Auto-generated method stub
+        StringBuffer strBuf  = new StringBuffer();
+        int count = 0;
+        strBuf.append("insert into tf_b_hotkeysum_log values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),?)");
+        count = this.executeUpdate(strBuf.toString(),new Object[]{
+                inparam.getString("HOT_KEY"),
+                inparam.getString("VALUE1"),
+                inparam.getString("VALUE2"),
+                inparam.getString("VALUE3"),
+                inparam.getString("VALUE4"),
+                inparam.getString("VALUE5"),
+                inparam.getString("VALUE6"),
+                inparam.getString("VALUE7"),
+                inparam.getString("DATE1"),
+                inparam.getString("DATE2"),
+                inparam.getString("DATE3"),
+                inparam.getString("DATE4"),
+                inparam.getString("DATE5"),
+                inparam.getString("DATE6"),
+                inparam.getString("DATE7"),
+                inparam.getString("VALUE"),
+                inparam.getString("DATE")
+        });
+        this.commit();
+        result.put("result", count);
+        return result;
+    }
+
+    public IData updateHotKeyCount(IData params, IData outParam) throws Exception {
+        StringBuffer strBuf = new StringBuffer();
+        int count=0;
+        strBuf.append("UPDATE tf_b_hotkeysum_log A SET a.VALUE1=? , a.VALUE2=?,a.VALUE3=?,a.VALUE4=?,a.VALUE5=?,a.VALUE6=?" +
+                ", a.VALUE1=? , a.DATE1=?,a.DATE2=?,a.DATE3=?,a.DATE4=?,a.DATE5=?,a.DATE6=?,a.DATE7=?,a.VALUE=?,a.update_time=now() where a.HOT_KEY=?");
+        count = this.executeUpdate(strBuf.toString(), new Object[]{
+                params.getString("VALUE1"),
+                params.getString("VALUE2"),
+                params.getString("VALUE3"),
+                params.getString("VALUE4"),
+                params.getString("VALUE5"),
+                params.getString("VALUE6"),
+                params.getString("VALUE7"),
+                params.getString("DATE1"),
+                params.getString("DATE2"),
+                params.getString("DATE3"),
+                params.getString("DATE4"),
+                params.getString("DATE5"),
+                params.getString("DATE6"),
+                params.getString("DATE7"),
+                params.getString("VALUE"),
+                params.getString("HOT_KEY")
+        });
+        this.commit();
+        outParam.put("result", count);
+        return outParam;
+    }
 }
