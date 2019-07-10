@@ -72,17 +72,17 @@ public class DocsCentreBean extends AppBean {
         //统计入库 begin
         String sysDate = DateUtil.getDateString("yyyyMMdd");
         String sysWeekday = DateUtil.getWeekOfDate();
-        System.out.println("今天日期:" + sysDate);
-        System.out.println("今天星期:" + sysWeekday);
-        //String[] weekDays =e {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
+        //更新统计表
+        IData dataParam = new DataMap();
+        dataParam.put("DATE",sysDate);
+        dataParam.put("SYSWEEKDAY",sysWeekday);
+        docsCentreDao.isUpdateHotKeyAll(dataParam);
+
+
         if (!"".equals(param.getString("HOT_KEY")) && param.getString("HOT_KEY") != null) {
             IDataset isHotKeyList = docsCentreDao.getHotKeyCount(param);
             if (isHotKeyList.size() > 0) {
-                System.out.println(isHotKeyList.toString());
-                System.out.println("exist hot key2");
-                //for (int i = 0; i < isHotKeyList.size(); i++) {
                 IData t_data = isHotKeyList.getData(0);
-                System.out.println(t_data.toString());
                 if (sysWeekday.equals("星期一")) {
                     if (!isHotKeyList.getData(0).getString("DATE1").equals(sysDate)) {
                         int count = 1;
@@ -168,12 +168,12 @@ public class DocsCentreBean extends AppBean {
                     t_data.put("VALUE",todayCount);
 
                 }
+                t_data.put("DATE", sysDate);
                 IData t_resultdata = new DataMap();
                 docsCentreDao.updateHotKeyCount(t_data, t_resultdata);
 
             }
             else {
-                System.out.println("no exist hot key");
                 IData t_resultdata = new DataMap();
                 param.put("VALUE1", 0);
                 param.put("VALUE2", 0);
@@ -182,6 +182,7 @@ public class DocsCentreBean extends AppBean {
                 param.put("VALUE5", 0);
                 param.put("VALUE6", 0);
                 param.put("VALUE7", 0);
+                param.put("VALUE",1);
                 param.put("DATE1", sysDate);
                 param.put("DATE2", sysDate);
                 param.put("DATE3", sysDate);
@@ -212,7 +213,6 @@ public class DocsCentreBean extends AppBean {
                     param.put("VALUE7", 1);
 
                 }
-                param.put("VALUE",1);
                 docsCentreDao.insertHotKeyCount(param, t_resultdata);
 
             }
@@ -342,9 +342,29 @@ public class DocsCentreBean extends AppBean {
         DocsDao.updateDocs_Name_Lable_SummaryByID(param);
     }
 
-    public void DeleDocByID(IData param) throws Exception{
-        DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
-        DocsDao.DeleDocByID(param);
+    public IData DeleDocByID(IData param) throws Exception{
+        IData resultData = getResultData();
+        resultData.put("result","100");
+        try {
+            RightDao rightDao = new RightDao("bainiu");
+            String userId = getContextData().getUserID();
+            if (!rightDao.queryUserRight(userId, "DATA_DOCSCENTRE_OPER")) {
+                resultData.put("result", "0");
+                resultData.put("resultInfo", "对不起，您没有删除权限！");
+
+            }
+            else {
+                DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
+                DocsDao.DeleDocByID(param);
+                return resultData;
+            }
+        } catch (Exception e) {
+           e.printStackTrace();
+           resultData.put("result","0");
+           resultData.put("resultInfo","系统异常:"+e);
+           return resultData;
+        }
+        return resultData;
     }
     public IData queryDOC_SUMMARY(IData param) throws Exception{
 

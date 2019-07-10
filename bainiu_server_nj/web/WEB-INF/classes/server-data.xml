@@ -99,4 +99,5 @@
     <action name="DocsCentre.queryHotKeySort" class="com.ipu.server.bean.DocsCentreBean" method="queryHotKeySort" verify="false"></action>
     <action name="DocsCentre.DeleDocByID" class="com.ipu.server.bean.DocsCentreBean" method="DeleDocByID" verify="false"></action>
     <action name="DocsCentre.updateDocs_Name_Lable_SummaryByID" class="com.ipu.server.bean.DocsCentreBean" method="updateDocs_Name_Lable_SummaryByID" verify="false"></action>
+    <action name="DocsCentre.queryDOC_SUMMARY" class="com.ipu.server.bean.DocsCentreBean" method="queryDOC_SUMMARY" verify="false"></action>
 </datas>

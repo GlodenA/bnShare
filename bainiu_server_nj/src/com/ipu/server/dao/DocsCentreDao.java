@@ -147,11 +147,11 @@ public class DocsCentreDao extends SmartBaseDao{
         String typeString = param.getString("TYPE_KEY");
         if("ONE".equals(typeString))
         {
-            strBuf.append("select HOT_KEY ,VALUE  from  tf_b_hotkeysum_log a where a.DATE =date_format(sysdate() ,'%Y%m%d') ORDER BY  VALUE desc LIMIT 0,5 ");
+            strBuf.append("select HOT_KEY ,VALUE  from  tf_b_hotkeysum_log a where a.DATE =date_format(sysdate() ,'%Y%m%d') and a.value <> 0 ORDER BY  VALUE desc LIMIT 0,5 ");
         }
         else
         {
-            strBuf.append("select b.HOT_KEY,b.VALUE from ( select HOT_KEY ,VALUE1+VALUE2+VALUE3+VALUE4+VALUE5+VALUE6+VALUE7   VALUE from  tf_b_hotkeysum_log a ) b   ORDER BY  b.VALUE desc LIMIT 0,5;");
+            strBuf.append("select b.HOT_KEY,b.VALUE from ( select HOT_KEY ,VALUE1+VALUE2+VALUE3+VALUE4+VALUE5+VALUE6+VALUE7   VALUE from  tf_b_hotkeysum_log a ) b   where b.value <> 0 ORDER BY  b.VALUE desc LIMIT 0,5 ");
         }
         return this.queryList(strBuf.toString(), param);
     }
@@ -271,4 +271,34 @@ public class DocsCentreDao extends SmartBaseDao{
         outParam.put("result", count);
         return outParam;
     }
+    public void isUpdateHotKeyAll(IData param ) throws Exception {
+        StringBuffer strBuf = new StringBuffer();
+        strBuf.append("select * from  tf_b_hotkeysum_log a where DATE=?");
+        IDataset  resultData = this.queryList(strBuf.toString(), param);
+        if (resultData.size() == 0)
+        {
+            StringBuffer strBufUp = new StringBuffer();
+            strBuf.append("update  tf_b_hotkeysum_log set ");
+            String sysWeekday = param.getString("SYSWEEKDAY");
+            if (sysWeekday.equals("星期一")) {
+                strBuf.append(" DATE1 = "+param.getString("DATE") + " , " + " VALUE1 = 0 , ");
+            } else if (sysWeekday.equals("星期二")) {
+                strBuf.append(" DATE2 = "+param.getString("DATE") + " , " + " VALUE2 = 0 , ");
+            } else if (sysWeekday.equals("星期三")) {
+                strBuf.append(" DATE3 = "+param.getString("DATE") + " , " + " VALUE3 = 0 , ");
+            } else if (sysWeekday.equals("星期四")) {
+                strBuf.append(" DATE4 = "+param.getString("DATE") + " , " + " VALUE4 = 0 , ");
+            } else if (sysWeekday.equals("星期五")) {
+                strBuf.append(" DATE5 = "+param.getString("DATE") + " , " + " VALUE5 = 0 , ");
+            } else if (sysWeekday.equals("星期六")) {
+                strBuf.append(" DATE6 = "+param.getString("DATE") + " , " + " VALUE6 = 0 , ");
+            } else if (sysWeekday.equals("星期日")) {
+                strBuf.append(" DATE7 = "+param.getString("DATE") + " , " + " VALUE7 = 0 , ");
+            }
+            strBuf.append(" DATE = "+param.getString("DATE") + " , " + " VALUE = 0 ");
+            this.executeUpdate(strBuf.toString(),param);
+            this.commit();
+        }
+    }
+
 }
