@@ -60,6 +60,11 @@ public class DocsCentreBean extends AppBean {
             String queryTag = param.getString("QUERY_TAG");
             resultData.put("QUERY_TAG",queryTag);
         }
+
+        RightDao rightDao = new RightDao("bainiu");
+        if (rightDao.queryUserRight(userId, "DATA_DOCSCENTRE_OPER")) {
+            resultData.put("DATA_DOCSCENTRE_OPER","1");
+        }
         //查询入日志表
         if(!"".equals(param.getString("HOT_KEY")) && param.getString("HOT_KEY") != null){
             randomNum rand = new randomNum();
@@ -344,8 +349,8 @@ public class DocsCentreBean extends AppBean {
 
     public IData DeleDocByID(IData param) throws Exception{
         RightDao rightDao = new RightDao("bainiu");
-        String userId = getContextData().getUserID();
-        if (!rightDao.queryUserRight(userId, "DATA_DOCSCENTRE_OPER")) {
+
+        if ("1".equals(param.getString("DATA_DOCSCENTRE_OPER")) && param.getString("DATA_DOCSCENTRE_OPER") != null) {
             param.put("result", 0);
             return param;
         }

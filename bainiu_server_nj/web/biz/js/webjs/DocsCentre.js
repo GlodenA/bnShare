@@ -84,6 +84,7 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         var is_id = $(this).parent().attr("DOC_ID");
         var param = Wade.DataMap();
         param.put("DOC_ID", is_id);
+        param.put("DATA_DOCSCENTRE_OPER",document.getElementById("DATA_DOCSCENTRE_OPER").value);
         Common.callSvc("DocsCentre.DeleDocByID", param, function (res) {
             if(res.get("result")==0){
                 Common.showFail("对不起，您没有删除权限！");
@@ -545,7 +546,7 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         $("#bg").hide();
     });
     // 表格点击事件
-    $("#example1 tbody tr td[name='itemCkecked']").bind("click", function () {//点击浮层
+    $("tbody tr td[name='itemCkecked']").bind("click", function () {//点击浮层
         var innerHtml = "";
         var is_name = $(this).parent().attr("DOC_NAME"),
             is_author = $(this).parent().attr("DOC_AUTHOR_NAME"),
