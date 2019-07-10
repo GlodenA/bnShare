@@ -317,5 +317,8 @@ public class DocsCentreDao extends SmartBaseDao {
             this.commit();
         }
     }
+    public IDataset getHotKey(IData param) throws Exception{
 
+        return this.queryList("SELECT HOT_KEY KEYWORD FROM tf_b_hotkeysum_log WHERE HOT_KEY LIKE  '%"+param.getString("KEY_WORD")+"%' ", param);
+    }
 }

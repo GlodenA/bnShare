@@ -1,7 +1,12 @@
 require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wade,ChartPie,Layer,Common){
 
     Common.pagination("UserDocs");
-
+    $(function(){
+        var len = $('#example1 tr').length;
+        for(var i = 1;i<len;i++){
+            $('#example1 tr:eq('+i+') td:first').text(i);
+        }
+    });
 
     $('#example1 a[name=downLoad]').bind("click",function(){
         var docId=$(this).parent().attr("DOC_ID");
