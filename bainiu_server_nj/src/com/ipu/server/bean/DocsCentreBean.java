@@ -59,7 +59,7 @@ public class DocsCentreBean extends AppBean {
         }
 
         RightDao rightDao = new RightDao("bainiu");
-        if (rightDao.queryUserRight(userId, "DATA_DOCSCENTRE_OPER")) {
+        if (!rightDao.queryUserRight(userId, "DATA_DOCSCENTRE_OPER")) {
             resultData.put("DATA_DOCSCENTRE_OPER","1");
         }
         //查询入日志表
