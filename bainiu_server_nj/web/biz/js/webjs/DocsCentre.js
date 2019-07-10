@@ -1,13 +1,16 @@
 require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wade,ChartPie,Layer,Common){
 
     Common.pagination("DocsCentre");
-
+    console.log($("#queryTag").val());
     if($("#queryTag").val()=="1"){
         $('#middle-left0').css('display','none');
         $('#middle-content').css('display','none');
         $('#query_table_list').css('display','none');
         $('#middle-left1').css('display','block');
     }
+    $(document).ready( function () {
+        $('#example1').DataTable();
+    } );
     // //tab切换
     // //dataTable显示隐藏切换错位重绘
     $('.title-wrap li').click(function (e) {
@@ -310,17 +313,6 @@ require(["mobile","jquery","jcl","chart","layer","common"],function(Mobile,$,Wad
         });
 
     });
-
-
-    $(document).ready( function () {
-        $('#example1').DataTable(
-            {
-                "aaSorting": [
-                    [ 4, "desc" ]
-                ]
-            }
-        );
-    } );
     $('.attention').click(function() {
         $('.time').css("background","#ffffff");
         $('.time').css("color","#333333");

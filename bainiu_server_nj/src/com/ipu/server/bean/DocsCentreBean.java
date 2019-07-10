@@ -178,24 +178,8 @@ public class DocsCentreBean extends AppBean {
 
         IData resultData = getResultData();
         DocsCentreDao docsCentreDao = new DocsCentreDao("bainiu");
-        resultData = docsCentreDao.queryDocs(param, resultData, "HOTKEY_LIST");
-        String userId = "";
-        userId = getContextData().getUserID();
-        String userName = getContextData().getName();
-        if(!"".equals(param.getString("HOT_KEY")) && param.getString("HOT_KEY") != null){
-            randomNum rand = new randomNum();
-            String LOGID = rand.generateNumber(8);
-            param.put("LOG_ID", LOGID);
-            param.put("USER_ID",userId);
-            docsCentreDao.insertQueryLog(param,resultData);
-        }
-        resultData.put("USER_ID", userId);
-        resultData.put("USER_NAME", userName);
-        //历史查询
-        IDataset querytop5List = docsCentreDao.getQRYTOP5(param);
-        IData queryData =  new DataMap();
-        queryData.put("QUERYDATA", querytop5List);
-        resultData.put("QRYHISDATA", queryData);
+        IDataset queryData = docsCentreDao.getQRYHOTKEYTOP5(param);
+        resultData.put("HOTKEY_LIST", queryData);
         return resultData;
     }
 

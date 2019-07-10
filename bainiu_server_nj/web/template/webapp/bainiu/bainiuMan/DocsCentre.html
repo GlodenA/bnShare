@@ -11,18 +11,14 @@
     <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
 
     <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css"/>
-    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet"
-          type="text/css"/>
+
     <link rel="stylesheet" href="template/webapp/bainiu/bainiuMan/docscentre/css/data-download.css">
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.2.1/echarts.min.js"></script>
-    <script type="text/javascript" src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
 
-    <script type="text/javascript"
-            src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
-    <script type="text/javascript"
-            src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+    <!--<script type="text/javascript"
+            src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>-->
 
 </head>
 
@@ -50,7 +46,7 @@
             <input type="hidden" id="DOC_TYPE" value=""/>
             <span class="caption">关键词:</span>
             <div class="required">
-                <input type="text" name="" id="HOT_KEY" placeholder="请输入..." value="{%.HOT_KEY%}">
+                <input type="text" name="HOT_KEY" id="HOT_KEY" placeholder="请输入..." value="{%.HOT_KEY%}">
                 <span class="import" id="dOCSQuery">查询</span>
             </div>
         </div>
@@ -123,13 +119,13 @@
             <div class="message">
                 <div class="time">
                     <i class="icon">&#xe619;</i>
-                    <span class="hot">实时热点</span>
+                    <span class="hot">今日关注</span>
                 </div>
                 <div class="attention">
                         <span class="circle bule">
                             <span class="cir">7</span>
                         </span>
-                    <span>今日关注</span>
+                    <span>一周关注</span>
                 </div>
             </div>
             <div class="list">
@@ -194,6 +190,7 @@
             <th>资料名称</th>
             <th>作者</th>
             <!--<th>标签</th>-->
+            <th>上传者</th>
             <th>上传时间</th>
             <th>下载量</th>
             <th style="display: none">资料路径</th>
@@ -206,15 +203,20 @@
         <tr DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
             DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}">
             <td name="itemCkecked">{%.DOC_NAME%}</td>
-            <td name="itemCkecked" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
+            <td DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
                 <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_NAME%}</a>
+            </td>
+            <td>
+                <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_ACCT%}</a>
             </td>
             <!--<td name="DOC_LABEL">{%.DOC_LABEL%}</td>-->
             <td name="itemCkecked">{%.INS_TIME%}</td>
             <td name="itemCkecked">{%.DOWNLOAD_CNT%}</td>
             <td name="itemCkecked" style="display: none">{%.DOC_PATH%}</td>
             <td align="center" DOC_ID="{%.DOC_ID%}">
+                <a href="#" name="UpData">修改</a>
                 <a href="#" name="downLoad">下载</a>
+                <a href="#" name="Delete">删除</a>
             </td>
             <td name="itemCkecked" style="display: none">{%.DOC_SUMMARY%}</td>
         </tr>
@@ -243,17 +245,14 @@
         </div>
     </div>
 </div>
-<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
-<link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
-<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
-<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
-<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
-
 
 {%>template/common/Head.html%}
 <script type="text/javascript" src="biz/js/webjs/DocsCentre.js"></script>
-<script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
-<script type="text/javascript" src="biz/js/webjs/extend/layer.ext.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"
+      type="text/css"/>
+<script type="text/javascript"
+        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 {%>template/common/Footer.html%}
 </body>
