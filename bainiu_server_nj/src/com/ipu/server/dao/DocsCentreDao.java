@@ -5,6 +5,8 @@ import com.ailk.common.data.IDataset;
 import com.ipu.server.util.Pagination;
 import org.apache.log4j.Logger;
 
+import java.io.File;
+
 public class DocsCentreDao extends SmartBaseDao{
     private static transient Logger log = Logger.getLogger(DocsCentreDao.class);
     static String TABLE_NAME = "TF_F_DOCS";
@@ -153,5 +155,121 @@ public class DocsCentreDao extends SmartBaseDao{
             strBuf.append("select b.HOT_KEY,b.VALUE from ( select HOT_KEY ,VALUE1+VALUE2+VALUE3+VALUE4+VALUE5+VALUE6+VALUE7   VALUE from  tf_b_hotkeysum_log a ) b   ORDER BY  b.VALUE desc LIMIT 0,5;");
         }
         return this.queryList(strBuf.toString(), param);
+    }
+
+    public void updateDocs_Name_Lable_SummaryByID(IData params) throws Exception{
+        StringBuffer strBuf = new StringBuffer();
+        int count=0;
+        strBuf.append("UPDATE tf_f_docs SET DOC_NAME=?,DOC_LABEL=?,DOC_SUMMARY=? where DOC_ID=?");
+        count = this.executeUpdate(strBuf.toString(), new Object[]{
+                params.getString("DOC_NAME"),
+                params.getString("DOC_LABEL"),
+                params.getString("DOC_SUMMARY"),
+                params.getInt("DOC_ID"),
+        });
+        this.commit();
+    }
+    public void DeleDocByID(IData params) throws Exception{
+
+        StringBuffer str = new StringBuffer();
+        str.append("select DOC_PATH from tf_f_docs where DOC_ID="+params.getInt("DOC_ID"));
+        IDataset datapath = this.queryList(str.toString(),params);
+        IData data = datapath.toData();
+        clearFiles(data.getString("DOC_PATH"));
+        StringBuffer strBuf = new StringBuffer();
+        strBuf.append("DELETE from tf_f_docs where DOC_ID=?");
+        this.executeUpdate(strBuf.toString(),new Object[]{
+                params.getInt("DOC_ID")
+        });
+        this.commit();
+    }
+    private void clearFiles(String workspaceRootPath){
+        File file = new File(workspaceRootPath);
+        if(file.exists()){
+            deleteFile(file);
+        }
+    }
+    private void deleteFile(File file){
+        if(file.isDirectory()){
+            File[] files = file.listFiles();
+            for(int i=0; i<files.length; i++){
+                deleteFile(files[i]);
+            }
+        }
+        file.delete();
+    }
+
+    public IDataset queryDOC_SUMMARY(IData param) throws Exception{
+        StringBuffer strBuf = new StringBuffer();
+        String doc_name = param.getString("DOC_NAME");
+        strBuf.append("select DOC_AUTHOR_NAME ,DOC_LABEL, DOWNLOAD_CNT,INS_TIME,DOC_SUMMARY  from  tf_f_docs  where DOC_NAME='"+doc_name+"'");
+        return this.queryList(strBuf.toString(), param);
+    }
+
+    public IDataset getHotKeyCount(IData param) throws Exception {
+        StringBuffer strBuf = new StringBuffer();
+        strBuf.append("select HOT_KEY,VALUE1, VALUE2,VALUE3,VALUE4,VALUE5,VALUE6,VALUE7, " +
+                " DATE1, DATE2, DATE3," +
+                "DATE4" +
+                ",DATE5,DATE6," +
+                "DATE7 from  tf_b_hotkeysum_log a where HOT_KEY=:HOT_KEY");
+        return this.queryList(strBuf.toString(), param);
+    }
+
+    public IData insertHotKeyCount(IData inparam, IData result) throws Exception {
+        // TODO Auto-generated method stub
+        StringBuffer strBuf  = new StringBuffer();
+        int count = 0;
+        strBuf.append("insert into tf_b_hotkeysum_log values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),?)");
+        count = this.executeUpdate(strBuf.toString(),new Object[]{
+                inparam.getString("HOT_KEY"),
+                inparam.getString("VALUE1"),
+                inparam.getString("VALUE2"),
+                inparam.getString("VALUE3"),
+                inparam.getString("VALUE4"),
+                inparam.getString("VALUE5"),
+                inparam.getString("VALUE6"),
+                inparam.getString("VALUE7"),
+                inparam.getString("DATE1"),
+                inparam.getString("DATE2"),
+                inparam.getString("DATE3"),
+                inparam.getString("DATE4"),
+                inparam.getString("DATE5"),
+                inparam.getString("DATE6"),
+                inparam.getString("DATE7"),
+                inparam.getString("VALUE"),
+                inparam.getString("DATE")
+        });
+        this.commit();
+        result.put("result", count);
+        return result;
+    }
+
+    public IData updateHotKeyCount(IData params, IData outParam) throws Exception {
+        StringBuffer strBuf = new StringBuffer();
+        int count=0;
+        strBuf.append("UPDATE tf_b_hotkeysum_log A SET a.VALUE1=? , a.VALUE2=?,a.VALUE3=?,a.VALUE4=?,a.VALUE5=?,a.VALUE6=?" +
+                ", a.VALUE1=? , a.DATE1=?,a.DATE2=?,a.DATE3=?,a.DATE4=?,a.DATE5=?,a.DATE6=?,a.DATE7=?,a.VALUE=?,a.update_time=now() where a.HOT_KEY=?");
+        count = this.executeUpdate(strBuf.toString(), new Object[]{
+                params.getString("VALUE1"),
+                params.getString("VALUE2"),
+                params.getString("VALUE3"),
+                params.getString("VALUE4"),
+                params.getString("VALUE5"),
+                params.getString("VALUE6"),
+                params.getString("VALUE7"),
+                params.getString("DATE1"),
+                params.getString("DATE2"),
+                params.getString("DATE3"),
+                params.getString("DATE4"),
+                params.getString("DATE5"),
+                params.getString("DATE6"),
+                params.getString("DATE7"),
+                params.getString("VALUE"),
+                params.getString("HOT_KEY")
+        });
+        this.commit();
+        outParam.put("result", count);
+        return outParam;
     }
 }
