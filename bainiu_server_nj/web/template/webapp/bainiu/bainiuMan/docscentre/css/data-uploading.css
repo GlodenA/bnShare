@@ -853,57 +853,57 @@ body.overflow {
         cursor: pointer;
         color: #22A4F0;
         font-size: 20px; }
-.gcs-checkbox+label {
+/*.gcs-checkbox+label {*/
 
 
-  background-color: white;
+/*  background-color: white;*/
 
-  border-radius: .05rem;
+/*  border-radius: .05rem;*/
 
-  border: 1px solid #d3d3d3;
+/*  border: 1px solid #d3d3d3;*/
 
-  width: 20px;
+/*  width: 20px;*/
 
-  height: 20px;
+/*  height: 20px;*/
 
-  display: inline-block;
+/*  display: inline-block;*/
 
-  text-align: center;
+/*  text-align: center;*/
 
-  vertical-align: bottom;
+/*  vertical-align: bottom;*/
 
-  line-height: 20px;
+/*  line-height: 20px;*/
 
-}
+/*}*/
 
-.gcs-checkbox {
+/*.gcs-checkbox {*/
 
-  display: none;
+/*  display: none;*/
 
-}
-.gcs-checkbox+label:hover {
+/*}*/
+/*.gcs-checkbox+label:hover {*/
 
-  cursor: pointer;
+/*  cursor: pointer;*/
 
-  border: 1px solid #22a4f0;
+/*  border: 1px solid #22a4f0;*/
 
-}
+/*}*/
 
-.gcs-checkbox:checked+label {
+/*.gcs-checkbox:checked+label {*/
 
-  background-color: #eee;
+/*  background-color: #eee;*/
 
-  background: #22a4f0;
+/*  background: #22a4f0;*/
 
-}
+/*}*/
 
-.gcs-checkbox:checked+label:after {
+/*.gcs-checkbox:checked+label:after {*/
 
-  content: "\2714";
+/*  content: "\2714";*/
 
-  color: white;
+/*  color: white;*/
 
-}
+/*}*/
 
 /* 智享库-资料中心-资料上传-chechbox */
 .checkboxWrap {
@@ -929,3 +929,5 @@ body.overflow {
 .checkboxWrap .gcs-checkbox:checked+label:after {
   color: #2da5ed;
 }
+
+

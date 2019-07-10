@@ -1071,3 +1071,50 @@ body.overflow {
     .download-container .copyright .notice {
       font-size: 14px;
       color: #22A4F0; }
+/* 智享库-资料中心-资料下载-修改资料详情弹出 */
+.dataDetailsAlter {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+.dataDetailsAlter li {
+  display: table;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.dataDetailsAlter .label {
+  display: table-cell;
+  width: 80px;
+  vertical-align: middle;
+  text-align: right;
+  color: #666;
+  padding-right: 8px;
+}
+
+.dataDetailsAlter .content input,
+.dataDetailsAlter .content textarea {
+  border: solid 1px #ddd;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dataDetailsAlter .content input {
+  height: 32px;
+  line-height: 32px;
+  padding: 0 8px;
+}
+
+.dataDetailsAlter .btnWrap {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.dataDetailsAlter .btnWrap a.saveBtn {
+  text-decoration: none;
+  display: inline-block;
+}
