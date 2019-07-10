@@ -343,28 +343,17 @@ public class DocsCentreBean extends AppBean {
     }
 
     public IData DeleDocByID(IData param) throws Exception{
-        IData resultData = getResultData();
-        resultData.put("result","100");
-        try {
-            RightDao rightDao = new RightDao("bainiu");
-            String userId = getContextData().getUserID();
-            if (!rightDao.queryUserRight(userId, "DATA_DOCSCENTRE_OPER")) {
-                resultData.put("result", "0");
-                resultData.put("resultInfo", "对不起，您没有删除权限！");
-
-            }
-            else {
-                DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
-                DocsDao.DeleDocByID(param);
-                return resultData;
-            }
-        } catch (Exception e) {
-           e.printStackTrace();
-           resultData.put("result","0");
-           resultData.put("resultInfo","系统异常:"+e);
-           return resultData;
+        RightDao rightDao = new RightDao("bainiu");
+        String userId = getContextData().getUserID();
+        if (!rightDao.queryUserRight(userId, "DATA_DOCSCENTRE_OPER")) {
+            param.put("result", 0);
+            return param;
         }
-        return resultData;
+        else {
+            DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
+            return DocsDao.DeleDocByID(param);
+        }
+
     }
     public IData queryDOC_SUMMARY(IData param) throws Exception{
 

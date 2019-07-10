@@ -84,17 +84,20 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         var is_id = $(this).parent().attr("DOC_ID");
         var param = Wade.DataMap();
         param.put("DOC_ID", is_id);
-        Common.callSvc("DocsCentre.DeleDocByID", param, function (resultData) {
-            if(resultData.get("result")!="0")
-            {
-                Common.showSuccess("删除成功");
-                var params = Wade.DataMap();
-                params.put("QUERY_TAG", "2");
-                Common.openPage("DocsCentre", params);
+        Common.callSvc("DocsCentre.DeleDocByID", param, function (res) {
+            if(res.get("result")==0){
+                Common.showFail("对不起，您没有删除权限！");
             }
-            else
-            {
-                Common.showFail("操作失败:"+resultData.get("resultInfo"));
+            else {
+                if (res.get("delete") == 0) {
+                    Common.showFail("删除失败，路径不存在");
+                }
+                else {
+                    Common.showSuccess("删除成功");
+                    var params = Wade.DataMap();
+                    params.put("QUERY_TAG", "2");
+                    Common.openPage("DocsCentre", params);
+                }
             }
         });
     })
