@@ -92,15 +92,25 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         sbtitle.style.display = 'block';
     });
 
-    $('#example1 a[name=Delete]').bind("click", function () {
+    $('a[name=Delete]').bind("click", function () {
         var is_id = $(this).parent().attr("DOC_ID");
         var param = Wade.DataMap();
         param.put("DOC_ID", is_id);
-        Common.callSvc("DocsCentre.DeleDocByID", param, function () {
-            Common.showSuccess("删除成功");
-            var params = Wade.DataMap();
-            params.put("QUERY_TAG", "2");
-            Common.openPage("DocsCentre", params);
+        Common.callSvc("DocsCentre.DeleDocByID", param, function (res) {
+            if(res.get("result")==0){
+                Common.showFail("对不起，您没有删除权限！");
+            }
+            else {
+                if (res.get("delete") == 0) {
+                    Common.showFail("删除失败，路径不存在");
+                }
+                else {
+                    Common.showSuccess("删除成功");
+                    var params = Wade.DataMap();
+                    params.put("QUERY_TAG", "2");
+                    Common.openPage("DocsCentre", params);
+                }
+            }
         });
     })
     $('a[name=updoc]').bind("click", function () {
@@ -109,7 +119,7 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         param.put("DOC_NAME", $("#name").val());
         param.put("DOC_LABEL", $("#tag").val());
         param.put("DOC_SUMMARY", $("#info").val());
-        Common.callSvc("DocsCentre.updateDocs_Name_Lable_SummaryByID", param, function () {
+        Common.callSvc("DocsCentre.updateDocsByID", param, function () {
             var sbtitle = document.getElementById("query_table_list");
             sbtitle.style.display = 'none';
             Common.showSuccess("保存成功");
@@ -262,7 +272,7 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         var name = n.replace(/\n/,"");
         var param = Wade.DataMap();
         param.put("DOC_NAME", name.toString());
-        Common.callSvc("DocsCentre.queryDOC_SUMMARY", param, function (res){
+        Common.callSvc("DocsCentre.queryDocsSum", param, function (res){
             var list = res.get("DOC_INFO");
             var li = list.get(0);
             console.log(list);
@@ -396,7 +406,7 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         var name = n.replace(/\n/,"");
         var param = Wade.DataMap();
         param.put("DOC_NAME", name.toString());
-        Common.callSvc("DocsCentre.queryDOC_SUMMARY", param, function (res){
+        Common.callSvc("DocsCentre.queryDocsSum", param, function (res){
             var list = res.get("DOC_INFO");
             var li = list.get(0);
             console.log(list);
@@ -481,6 +491,11 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
             if (res.get("X_RESULTCODE") == "0") {
                 var list = res.get("HOTKEY_LIST");
                 var lis = $('.middle-right .list ul li');
+                for(var i=0;i<5;i++){//先置空
+                    var a = lis[i + 1].children[1];
+                    a.children[0].innerHTML="";
+                    lis[i + 1].children[2].innerHTML="";
+                }
                 if (list.length > 0) {//新增节点
                     for (var i = 0; i < list.length; i++) {
                         var listsub = list.get(i);
@@ -509,6 +524,11 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
             if (res.get("X_RESULTCODE") == "0") {
                 var list = res.get("HOTKEY_LIST");
                 var lis = $('.middle-right .list ul li');
+                for(var i=0;i<5;i++){//先置空
+                    var a = lis[i + 1].children[1];
+                    a.children[0].innerHTML="";
+                    lis[i + 1].children[2].innerHTML="";
+                }
                 if (list.length > 0) {//新增节点
                     for (var i = 0; i < list.length; i++) {
                         var listsub = list.get(i);
