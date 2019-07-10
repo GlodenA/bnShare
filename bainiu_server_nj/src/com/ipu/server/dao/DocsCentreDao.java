@@ -134,7 +134,7 @@ public class DocsCentreDao extends SmartBaseDao {
 
     public IDataset getSUMTOP5(IData param) throws Exception {
         StringBuffer strBuf = new StringBuffer();
-        strBuf.append("select  DOWNLOAD_CNT COU, DOC_NAME NAME from tf_f_docs a  ORDER BY  COU desc LIMIT 0,5");
+        strBuf.append("select  DOWNLOAD_CNT COU, DOC_NAME NAME from tf_f_docs a  where DOWNLOAD_CNT <>0 ORDER BY  COU desc LIMIT 0,5");
         return this.queryList(strBuf.toString(), param);
     }
 
@@ -148,14 +148,14 @@ public class DocsCentreDao extends SmartBaseDao {
         StringBuffer strBuf = new StringBuffer();
         String typeString = param.getString("TYPE_KEY");
         if ("ONE".equals(typeString)) {
-            strBuf.append("select HOT_KEY ,VALUE  from  tf_b_hotkeysum_log a where a.DATE =date_format(sysdate() ,'%Y%m%d') ORDER BY  VALUE desc LIMIT 0,5 ");
+            strBuf.append("select HOT_KEY ,VALUE  from  tf_b_hotkeysum_log a where a.DATE =date_format(sysdate() ,'%Y%m%d') and a.value <>0 ORDER BY  VALUE desc LIMIT 0,5 ");
         } else {
-            strBuf.append("select b.HOT_KEY,b.VALUE from ( select HOT_KEY ,VALUE1+VALUE2+VALUE3+VALUE4+VALUE5+VALUE6+VALUE7   VALUE from  tf_b_hotkeysum_log a ) b   ORDER BY  b.VALUE desc LIMIT 0,5;");
+            strBuf.append("select b.HOT_KEY,b.VALUE from ( select HOT_KEY ,VALUE1+VALUE2+VALUE3+VALUE4+VALUE5+VALUE6+VALUE7   VALUE from  tf_b_hotkeysum_log a ) b  where b.value <>0 ORDER BY  b.VALUE desc LIMIT 0,5;");
         }
         return this.queryList(strBuf.toString(), param);
     }
 
-    public void updateDocs_Name_Lable_SummaryByID(IData params) throws Exception {
+    public void updateDocsByID(IData params) throws Exception {
         StringBuffer strBuf = new StringBuffer();
         int count = 0;
         strBuf.append("UPDATE tf_f_docs SET DOC_NAME=?,DOC_LABEL=?,DOC_SUMMARY=? where DOC_ID=?");
@@ -214,7 +214,7 @@ public class DocsCentreDao extends SmartBaseDao {
         file.delete();
     }
 
-    public IDataset queryDOC_SUMMARY(IData param) throws Exception {
+    public IDataset queryDocsSum(IData param) throws Exception {
         StringBuffer strBuf = new StringBuffer();
         String doc_name = param.getString("DOC_NAME");
         strBuf.append("select DOC_AUTHOR_NAME ,DOC_LABEL, DOWNLOAD_CNT,INS_TIME,DOC_SUMMARY  from  tf_f_docs  where DOC_NAME='" + doc_name + "'");
@@ -289,30 +289,30 @@ public class DocsCentreDao extends SmartBaseDao {
     }
     public void isUpdateHotKeyAll(IData param ) throws Exception {
         StringBuffer strBuf = new StringBuffer();
-        strBuf.append("select * from  tf_b_hotkeysum_log a where DATE=?");
+        strBuf.append("select * from  tf_b_hotkeysum_log a where DATE = "+param.getString("DATE"));
         IDataset  resultData = this.queryList(strBuf.toString(), param);
         if (resultData.size() == 0)
         {
             StringBuffer strBufUp = new StringBuffer();
-            strBuf.append("update  tf_b_hotkeysum_log set ");
+            strBufUp.append("update  tf_b_hotkeysum_log set ");
             String sysWeekday = param.getString("SYSWEEKDAY");
             if (sysWeekday.equals("星期一")) {
-                strBuf.append(" DATE1 = "+param.getString("DATE") + " , " + " VALUE1 = 0 , ");
+                strBufUp.append(" DATE1 = "+param.getString("DATE") + " , " + " VALUE1 = 0 , ");
             } else if (sysWeekday.equals("星期二")) {
-                strBuf.append(" DATE2 = "+param.getString("DATE") + " , " + " VALUE2 = 0 , ");
+                strBufUp.append(" DATE2 = "+param.getString("DATE") + " , " + " VALUE2 = 0 , ");
             } else if (sysWeekday.equals("星期三")) {
-                strBuf.append(" DATE3 = "+param.getString("DATE") + " , " + " VALUE3 = 0 , ");
+                strBufUp.append(" DATE3 = "+param.getString("DATE") + " , " + " VALUE3 = 0 , ");
             } else if (sysWeekday.equals("星期四")) {
-                strBuf.append(" DATE4 = "+param.getString("DATE") + " , " + " VALUE4 = 0 , ");
+                strBufUp.append(" DATE4 = "+param.getString("DATE") + " , " + " VALUE4 = 0 , ");
             } else if (sysWeekday.equals("星期五")) {
-                strBuf.append(" DATE5 = "+param.getString("DATE") + " , " + " VALUE5 = 0 , ");
+                strBufUp.append(" DATE5 = "+param.getString("DATE") + " , " + " VALUE5 = 0 , ");
             } else if (sysWeekday.equals("星期六")) {
-                strBuf.append(" DATE6 = "+param.getString("DATE") + " , " + " VALUE6 = 0 , ");
+                strBufUp.append(" DATE6 = "+param.getString("DATE") + " , " + " VALUE6 = 0 , ");
             } else if (sysWeekday.equals("星期日")) {
-                strBuf.append(" DATE7 = "+param.getString("DATE") + " , " + " VALUE7 = 0 , ");
+                strBufUp.append(" DATE7 = "+param.getString("DATE") + " , " + " VALUE7 = 0 , ");
             }
-            strBuf.append(" DATE = "+param.getString("DATE") + " , " + " VALUE = 0 ");
-            this.executeUpdate(strBuf.toString(),param);
+            strBufUp.append(" DATE = "+param.getString("DATE") + " , " + " VALUE = 0 ");
+            this.executeUpdate(strBufUp.toString(),param);
             this.commit();
         }
     }

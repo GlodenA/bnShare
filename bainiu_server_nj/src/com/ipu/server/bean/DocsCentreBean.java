@@ -336,10 +336,10 @@ public class DocsCentreBean extends AppBean {
         return resultData;
     }
 
-    public void updateDocs_Name_Lable_SummaryByID(IData param) throws  Exception{
+    public void updateDocsByID(IData param) throws  Exception{
 
         DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
-        DocsDao.updateDocs_Name_Lable_SummaryByID(param);
+        DocsDao.updateDocsByID(param);
     }
 
     public IData DeleDocByID(IData param) throws Exception{
@@ -355,11 +355,11 @@ public class DocsCentreBean extends AppBean {
         }
 
     }
-    public IData queryDOC_SUMMARY(IData param) throws Exception{
+    public IData queryDocsSum(IData param) throws Exception{
 
         IData resultData = getResultData();
         DocsCentreDao docsCentreDao = new DocsCentreDao("bainiu");
-        IDataset queryData = docsCentreDao.queryDOC_SUMMARY(param);
+        IDataset queryData = docsCentreDao.queryDocsSum(param);
         resultData.put("DOC_INFO", queryData);
         return resultData;
     }
