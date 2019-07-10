@@ -2,6 +2,18 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
 
     Common.pagination("DocsCentre");
 
+    $(function(){
+        var len = $('#example1 tr').length;
+        for(var i = 1;i<len;i++){
+            $('#example1 tr:eq('+i+') td:first').text(i);
+        }
+
+        var len1 = $('#example2 tr').length;
+        for(var i = 1;i<len1;i++){
+            $('#example2 tr:eq('+i+') td:first').text(i);
+        }
+    });
+
     if ($("#queryTag").val() == "1") {
         $('#middle-left0').css('display', 'none');
         $('#middle-content').css('display', 'none');

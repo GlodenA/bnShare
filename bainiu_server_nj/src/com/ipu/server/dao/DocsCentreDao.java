@@ -46,6 +46,7 @@ public class DocsCentreDao extends SmartBaseDao {
 
         strBuf.append(" order by DOWNLOAD_CNT desc");
         return this.queryPaginationList(strBuf.toString(), params, outParams, keyList, new Pagination(8, 6));
+
     }
 
     public IData insertDocDownloadLog(IData inparam, IData result) throws Exception {
