@@ -3,14 +3,11 @@ package com.ipu.server.bean;
 import com.ailk.common.data.IData;
 import com.ailk.common.data.IDataset;
 import com.ailk.common.data.impl.DataMap;
+import com.ailk.common.data.impl.DatasetList;
 import com.ipu.server.core.bean.AppBean;
-import com.ipu.server.dao.BookManDao;
 import com.ipu.server.dao.DocsCentreDao;
 import com.ipu.server.dao.RightDao;
-import com.ipu.server.util.HttpRequest;
-import com.ipu.server.util.SeqMaker;
 import com.ipu.server.util.randomNum;
-import org.bouncycastle.jce.provider.JDKKeyFactory;
 
 import com.ipu.server.util.*;
 
@@ -366,6 +363,16 @@ public class DocsCentreBean extends AppBean {
         DocsCentreDao docsCentreDao = new DocsCentreDao("bainiu");
         IDataset queryData = docsCentreDao.queryDocsSum(param);
         resultData.put("DOC_INFO", queryData);
+        return resultData;
+    }
+
+    public IData getHotKey(IData param) throws Exception{
+        IData resultData = getResultData();
+        IDataset keylist = new DatasetList();
+        DocsCentreDao dao = new DocsCentreDao("bainiu");
+        keylist=dao.getHotKey(param);
+        resultData.put("KEY_LIST", keylist);
+        resultData.putAll(param);
         return resultData;
     }
 }
