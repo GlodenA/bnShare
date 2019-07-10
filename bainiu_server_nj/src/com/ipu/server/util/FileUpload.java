@@ -62,11 +62,11 @@ public class FileUpload {
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		//获取路径
 		//本地
-		//String path = request.getContextPath()+File.separator+"bnUpload";
-		//String temp = request.getContextPath()+File.separator+"bnUploadTemp";
+		String path = request.getContextPath()+File.separator+"bnUpload";
+		String temp = request.getContextPath()+File.separator+"bnUploadTemp";
 		//测试
-		String path = "/webapp"+File.separator+"bnUpload";
-		String temp = "/webapp"+File.separator+"bnUploadTemp";
+//		String path = "/webapp"+File.separator+"bnUpload";
+//		String temp = "/webapp"+File.separator+"bnUploadTemp";
 
 		//生产
 		//String path = "/data/webapp"+File.separator+"bnUpload";

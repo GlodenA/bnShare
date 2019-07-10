@@ -342,9 +342,18 @@ public class DocsCentreBean extends AppBean {
         DocsDao.updateDocs_Name_Lable_SummaryByID(param);
     }
 
-    public void DeleDocByID(IData param) throws Exception{
-        DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
-        DocsDao.DeleDocByID(param);
+    public IData DeleDocByID(IData param) throws Exception{
+        RightDao rightDao = new RightDao("bainiu");
+        String userId = getContextData().getUserID();
+        if (rightDao.queryUserRight(userId, "DATA_DOCSCENTRE_OPER")) {
+            param.put("result", 0);
+            return param;
+        }
+        else {
+            DocsCentreDao DocsDao = new DocsCentreDao("bainiu");
+            return DocsDao.DeleDocByID(param);
+        }
+
     }
     public IData queryDOC_SUMMARY(IData param) throws Exception{
 

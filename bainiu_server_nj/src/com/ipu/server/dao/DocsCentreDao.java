@@ -4,10 +4,11 @@ import com.ailk.common.data.IData;
 import com.ailk.common.data.IDataset;
 import com.ipu.server.util.Pagination;
 import org.apache.log4j.Logger;
+import scala.annotation.meta.param;
 
 import java.io.File;
 
-public class DocsCentreDao extends SmartBaseDao{
+public class DocsCentreDao extends SmartBaseDao {
     private static transient Logger log = Logger.getLogger(DocsCentreDao.class);
     static String TABLE_NAME = "TF_F_DOCS";
 
@@ -15,43 +16,44 @@ public class DocsCentreDao extends SmartBaseDao{
         super(connName);
         // TODO Auto-generated constructor stub
     }
+
     public IData queryDocs(IData params, IData outParams, String keyList) throws Exception {
         StringBuffer strBuf = new StringBuffer();
         strBuf.append("SELECT  DOC_ID,DOC_NAME,DOC_AUTHOR_NAME,DOC_AUTHOR_ACCT,DOC_LABEL,DOC_PATH,DOC_TYPE,DOC_UPLOADER_ID,DOC_UPLOADER_NAME,DOWNLOAD_CNT,DOC_SUMMARY,date_format(INS_TIME, '%Y/%m/%d %H:%i') INS_TIME ");
         strBuf.append("FROM tf_f_docs a");
         strBuf.append(" WHERE 1=1 ");
-        if(!"".equals(params.getString("DOC_NAME")) && params.getString("DOC_NAME") != null){
-            if (!"".equals(params.getString("DOC_LABEL")) && params.getString("DOC_LABEL") != null){
-                strBuf.append("and (A.DOC_NAME like '%"+params.getString("DOC_NAME")+"%' ");
-                strBuf.append(" or A.DOC_LABEL like '%"+params.getString("DOC_LABEL")+"%' )");
-            }else {
+        if (!"".equals(params.getString("DOC_NAME")) && params.getString("DOC_NAME") != null) {
+            if (!"".equals(params.getString("DOC_LABEL")) && params.getString("DOC_LABEL") != null) {
+                strBuf.append("and (A.DOC_NAME like '%" + params.getString("DOC_NAME") + "%' ");
+                strBuf.append(" or A.DOC_LABEL like '%" + params.getString("DOC_LABEL") + "%' )");
+            } else {
                 strBuf.append("and A.DOC_NAME like '%" + params.getString("DOC_NAME") + "%' ");
             }
         }
-        if(!"".equals(params.getString("DOC_TYPE")) && params.getString("DOC_TYPE") != null){
-            strBuf.append("and A.DOC_TYPE = "+params.getString("DOC_TYPE"));
+        if (!"".equals(params.getString("DOC_TYPE")) && params.getString("DOC_TYPE") != null) {
+            strBuf.append("and A.DOC_TYPE = " + params.getString("DOC_TYPE"));
         }
 
-        if(!"".equals(params.getString("DOC_AUTHOR_NAME")) && params.getString("DOC_AUTHOR_NAME") != null){
-            strBuf.append("and A.DOC_AUTHOR_NAME like '%"+params.getString("DOC_AUTHOR_NAME")+"%' ");
+        if (!"".equals(params.getString("DOC_AUTHOR_NAME")) && params.getString("DOC_AUTHOR_NAME") != null) {
+            strBuf.append("and A.DOC_AUTHOR_NAME like '%" + params.getString("DOC_AUTHOR_NAME") + "%' ");
         }
-        if(!"".equals(params.getString("DOC_AUTHOR_ACCT")) && params.getString("DOC_AUTHOR_ACCT") != null){
-            strBuf.append("and A.DOC_AUTHOR_ACCT like '%"+params.getString("DOC_AUTHOR_ACCT")+"%' ");
+        if (!"".equals(params.getString("DOC_AUTHOR_ACCT")) && params.getString("DOC_AUTHOR_ACCT") != null) {
+            strBuf.append("and A.DOC_AUTHOR_ACCT like '%" + params.getString("DOC_AUTHOR_ACCT") + "%' ");
         }
-        if(!"".equals(params.getString("DOC_ID")) && params.getString("DOC_ID") != null){
-            strBuf.append("and A.DOC_ID = "+params.getString("DOC_ID") );
+        if (!"".equals(params.getString("DOC_ID")) && params.getString("DOC_ID") != null) {
+            strBuf.append("and A.DOC_ID = " + params.getString("DOC_ID"));
         }
 
-        strBuf.append(" order by DOWNLOAD_CNT desc" );
+        strBuf.append(" order by DOWNLOAD_CNT desc");
         return this.queryPaginationList(strBuf.toString(), params, outParams, keyList, new Pagination(8, 6));
     }
 
     public IData insertDocDownloadLog(IData inparam, IData result) throws Exception {
         // TODO Auto-generated method stub
-        StringBuffer strBuf  = new StringBuffer();
+        StringBuffer strBuf = new StringBuffer();
         int count = 0;
         strBuf.append("insert into tf_b_download_log values (?,?,?,?,?,?,?,NOW()) ");
-        count = this.executeUpdate(strBuf.toString(),new Object[]{
+        count = this.executeUpdate(strBuf.toString(), new Object[]{
                 inparam.getString("LOG_ID"),
                 inparam.getString("DOC_ID"),
                 inparam.getString("DOC_NAME"),
@@ -67,10 +69,10 @@ public class DocsCentreDao extends SmartBaseDao{
 
     public IData insertDocs(IData inparam, IData result) throws Exception {
         // TODO Auto-generated method stub
-        StringBuffer strBuf  = new StringBuffer();
+        StringBuffer strBuf = new StringBuffer();
         int count = 0;
         strBuf.append("insert into tf_f_docs values (?,?,?,?,?,?,?,?,?,0,NOW(),?)");
-        count = this.executeUpdate(strBuf.toString(),new Object[]{
+        count = this.executeUpdate(strBuf.toString(), new Object[]{
                 inparam.getString("DOC_ID"),
                 inparam.getString("DOC_NAME"),
                 inparam.getString("DOC_AUTHOR_NAME"),
@@ -90,10 +92,10 @@ public class DocsCentreDao extends SmartBaseDao{
 
     public IData insertQueryLog(IData inparam, IData result) throws Exception {
         // TODO Auto-generated method stub
-        StringBuffer strBuf  = new StringBuffer();
+        StringBuffer strBuf = new StringBuffer();
         int count = 0;
         strBuf.append("insert into tf_f_docsQuery_log values (?,?,?,NOW())");
-        count = this.executeUpdate(strBuf.toString(),new Object[]{
+        count = this.executeUpdate(strBuf.toString(), new Object[]{
                 inparam.getString("LOG_ID"),
                 inparam.getString("USER_ID"),
                 inparam.getString("HOT_KEY"),
@@ -104,9 +106,10 @@ public class DocsCentreDao extends SmartBaseDao{
         result.put("result", count);
         return result;
     }
+
     public IData updateDocDownloadcnt(IData params, IData outParam) throws Exception {
         StringBuffer strBuf = new StringBuffer();
-        int count=0;
+        int count = 0;
         strBuf.append("UPDATE tf_f_docs A SET a.DOWNLOAD_CNT=DOWNLOAD_CNT+1  where a.DOC_ID=?");
         count = this.executeUpdate(strBuf.toString(), new Object[]{
                 params.getString("DOC_ID"),
@@ -119,8 +122,7 @@ public class DocsCentreDao extends SmartBaseDao{
     /**
      * 查询用户信息
      */
-    public IData queryUserInfo(IData param) throws Exception
-    {
+    public IData queryUserInfo(IData param) throws Exception {
         return this.queryList("SELECT * FROM TF_F_USER WHERE USER_ACCT=:DOC_AUTHOR_ACCT", param).first();
     }
 
@@ -145,20 +147,17 @@ public class DocsCentreDao extends SmartBaseDao{
     public IDataset getQRYHOTKEYTOP5(IData param) throws Exception {
         StringBuffer strBuf = new StringBuffer();
         String typeString = param.getString("TYPE_KEY");
-        if("ONE".equals(typeString))
-        {
+        if ("ONE".equals(typeString)) {
             strBuf.append("select HOT_KEY ,VALUE  from  tf_b_hotkeysum_log a where a.DATE =date_format(sysdate() ,'%Y%m%d') ORDER BY  VALUE desc LIMIT 0,5 ");
-        }
-        else
-        {
+        } else {
             strBuf.append("select b.HOT_KEY,b.VALUE from ( select HOT_KEY ,VALUE1+VALUE2+VALUE3+VALUE4+VALUE5+VALUE6+VALUE7   VALUE from  tf_b_hotkeysum_log a ) b   ORDER BY  b.VALUE desc LIMIT 0,5;");
         }
         return this.queryList(strBuf.toString(), param);
     }
 
-    public void updateDocs_Name_Lable_SummaryByID(IData params) throws Exception{
+    public void updateDocs_Name_Lable_SummaryByID(IData params) throws Exception {
         StringBuffer strBuf = new StringBuffer();
-        int count=0;
+        int count = 0;
         strBuf.append("UPDATE tf_f_docs SET DOC_NAME=?,DOC_LABEL=?,DOC_SUMMARY=? where DOC_ID=?");
         count = this.executeUpdate(strBuf.toString(), new Object[]{
                 params.getString("DOC_NAME"),
@@ -168,40 +167,57 @@ public class DocsCentreDao extends SmartBaseDao{
         });
         this.commit();
     }
-    public void DeleDocByID(IData params) throws Exception{
 
+    public IData DeleDocByID(IData params) throws Exception {
         StringBuffer str = new StringBuffer();
-        str.append("select DOC_PATH from tf_f_docs where DOC_ID="+params.getInt("DOC_ID"));
-        IDataset datapath = this.queryList(str.toString(),params);
-        IData data = datapath.toData();
-        clearFiles(data.getString("DOC_PATH"));
+        str.append("select DOC_PATH from tf_f_docs where DOC_ID=" + params.getInt("DOC_ID"));
+        IDataset datapath = this.queryList(str.toString(), params);
+
         StringBuffer strBuf = new StringBuffer();
         strBuf.append("DELETE from tf_f_docs where DOC_ID=?");
-        this.executeUpdate(strBuf.toString(),new Object[]{
-                params.getInt("DOC_ID")
-        });
-        this.commit();
-    }
-    private void clearFiles(String workspaceRootPath){
-        File file = new File(workspaceRootPath);
-        if(file.exists()){
-            deleteFile(file);
+        if(datapath.size()>0){
+            if (clearFiles((datapath.getData(0)).getString("DOC_PATH"))) {
+                params.put("delete", 1);
+                params.put("result", 1);
+                this.executeUpdate(strBuf.toString(), new Object[]{
+                        params.getInt("DOC_ID")
+                });
+                this.commit();
+            } else {
+                params.put("delete", 0);
+            }
+            return params;
+        }else {
+            params.put("delete", 0);
+            return params;
         }
+
     }
-    private void deleteFile(File file){
-        if(file.isDirectory()){
+
+    private boolean clearFiles(String workspaceRootPath) {
+        workspaceRootPath.replace("[\"", "");
+        workspaceRootPath.replace("\"]", "");
+        File file = new File(workspaceRootPath.toString());
+        if (file.exists()) {
+            deleteFile(file);
+            return true;
+        } else return false;
+    }
+
+    private void deleteFile(File file) {
+        if (file.isDirectory()) {
             File[] files = file.listFiles();
-            for(int i=0; i<files.length; i++){
+            for (int i = 0; i < files.length; i++) {
                 deleteFile(files[i]);
             }
         }
         file.delete();
     }
 
-    public IDataset queryDOC_SUMMARY(IData param) throws Exception{
+    public IDataset queryDOC_SUMMARY(IData param) throws Exception {
         StringBuffer strBuf = new StringBuffer();
         String doc_name = param.getString("DOC_NAME");
-        strBuf.append("select DOC_AUTHOR_NAME ,DOC_LABEL, DOWNLOAD_CNT,INS_TIME,DOC_SUMMARY  from  tf_f_docs  where DOC_NAME='"+doc_name+"'");
+        strBuf.append("select DOC_AUTHOR_NAME ,DOC_LABEL, DOWNLOAD_CNT,INS_TIME,DOC_SUMMARY  from  tf_f_docs  where DOC_NAME='" + doc_name + "'");
         return this.queryList(strBuf.toString(), param);
     }
 
@@ -217,10 +233,10 @@ public class DocsCentreDao extends SmartBaseDao{
 
     public IData insertHotKeyCount(IData inparam, IData result) throws Exception {
         // TODO Auto-generated method stub
-        StringBuffer strBuf  = new StringBuffer();
+        StringBuffer strBuf = new StringBuffer();
         int count = 0;
         strBuf.append("insert into tf_b_hotkeysum_log values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),?)");
-        count = this.executeUpdate(strBuf.toString(),new Object[]{
+        count = this.executeUpdate(strBuf.toString(), new Object[]{
                 inparam.getString("HOT_KEY"),
                 inparam.getString("VALUE1"),
                 inparam.getString("VALUE2"),
@@ -246,7 +262,7 @@ public class DocsCentreDao extends SmartBaseDao{
 
     public IData updateHotKeyCount(IData params, IData outParam) throws Exception {
         StringBuffer strBuf = new StringBuffer();
-        int count=0;
+        int count = 0;
         strBuf.append("UPDATE tf_b_hotkeysum_log A SET a.VALUE1=? , a.VALUE2=?,a.VALUE3=?,a.VALUE4=?,a.VALUE5=?,a.VALUE6=?" +
                 ", a.VALUE1=? , a.DATE1=?,a.DATE2=?,a.DATE3=?,a.DATE4=?,a.DATE5=?,a.DATE6=?,a.DATE7=?,a.VALUE=?,a.update_time=now() where a.HOT_KEY=?");
         count = this.executeUpdate(strBuf.toString(), new Object[]{
