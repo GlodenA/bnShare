@@ -345,7 +345,7 @@ public class DocsCentreBean extends AppBean {
     public IData DeleDocByID(IData param) throws Exception{
         RightDao rightDao = new RightDao("bainiu");
         String userId = getContextData().getUserID();
-        if (rightDao.queryUserRight(userId, "DATA_DOCSCENTRE_OPER")) {
+        if (rightDao.queryUserRight(userId, "DATA_DOCSCENTRE_OPER"))  {
             param.put("result", 0);
             return param;
         }

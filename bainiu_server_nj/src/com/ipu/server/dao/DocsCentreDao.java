@@ -184,7 +184,7 @@ public class DocsCentreDao extends SmartBaseDao {
                 });
                 this.commit();
             } else {
-                params.put("delete", 0);
+                params.put("delete",  0);
             }
             return params;
         }else {
