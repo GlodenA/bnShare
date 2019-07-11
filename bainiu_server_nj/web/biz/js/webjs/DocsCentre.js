@@ -26,9 +26,7 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         $('#query_table_list').css('display', 'block');
         $('#middle-left1').css('display', 'none');
     }
-    /*$(document).ready(function() {
-        $('#example1').DataTable();
-    } );*/
+
     // //tab切换
     // //dataTable显示隐藏切换错位重绘
     $('.title-wrap li').click(function flush(e) {
@@ -576,6 +574,40 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         });
     });
 
+    //热词联想
+    $('#HOT_KEY').keyup(function(){
+        var timer;
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+            $.ajax({
+                url:'mobiledata?action=DocsCentre.getHotKey&data={"KEY_WORD":"'+$('#HOT_KEY').val()+'"}',
+                type:'POST',
+                dataType:'html',
+                //data:'UTF-8',
+                success:function(res){
+                    var msg =  eval("(" + res + ")");;
+                    if(0 == msg.X_RESULTCODE){
+                        var list = msg.KEY_LIST;
+                        var lis = $('.async_area ul li');
+                        if(list.length>0){
+                            //新增节点
+                            for(var i=0;i<6;i++){
+                                lis[i].innerHTML='';
+                            }
+                            for(var i=0;i<list.length && i<6;i++){
+                                lis[i].innerHTML=list[i].KEYWORD;
+                            }
+
+                        }
+
+                    }
+
+                }
+            })
+        }, 500);
+        $('.async_area').css('display','block');
+
+    });
     //意见反馈和批次号底部显示
     function footerClass() {
         var windowFlow = $(window).height() - $(".frame_content").height() - 60 > 0 ? true : false;

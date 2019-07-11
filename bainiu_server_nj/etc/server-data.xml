@@ -100,4 +100,5 @@
     <action name="DocsCentre.DeleDocByID" class="com.ipu.server.bean.DocsCentreBean" method="DeleDocByID" verify="false"></action>
     <action name="DocsCentre.updateDocsByID" class="com.ipu.server.bean.DocsCentreBean" method="updateDocsByID" verify="false"></action>
     <action name="DocsCentre.queryDocsSum" class="com.ipu.server.bean.DocsCentreBean" method="queryDocsSum" verify="false"></action>
+    <action name="DocsCentre.getHotKey" class="com.ipu.server.bean.DocsCentreBean" method="getHotKey" verify="false"></action>
 </datas>
