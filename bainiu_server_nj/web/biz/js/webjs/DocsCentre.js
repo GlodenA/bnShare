@@ -90,7 +90,7 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         sbtitle.style.display = 'block';
     });
 
-    $('a[name=Updata]').bind("click", function() {
+    $('a[name=UpDataBak]').bind("click", function() {
         var id = document.getElementById("id1"),
             name = document.getElementById("name1"),
             author = document.getElementById("author1"),
