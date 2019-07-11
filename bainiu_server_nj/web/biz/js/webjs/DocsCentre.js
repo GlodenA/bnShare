@@ -75,7 +75,7 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         footerClass();
     });
 
-    $('a[name=UpData]').bind("click", function () {
+    $('a[name=UpData]').bind("click", function() {
         var id = document.getElementById("id"),
             name = document.getElementById("name"),
             author = document.getElementById("author"),
@@ -89,6 +89,23 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         tag.value=$(this).parent().attr("DOC_LABEL");
         info.value=$(this).parent().attr("DOC_SUMMARY");
         var sbtitle = document.getElementById("doc_up");
+        sbtitle.style.display = 'block';
+    });
+
+    $('a[name=Updata]').bind("click", function() {
+        var id = document.getElementById("id1"),
+            name = document.getElementById("name1"),
+            author = document.getElementById("author1"),
+            time = document.getElementById("time1"),
+            tag = document.getElementById("tag1"),
+            info = document.getElementById("info1");
+        id.value=$(this).parent().attr("DOC_ID");
+        name.value= $(this).parent().attr("DOC_NAME");
+        author.value= $(this).parent().attr("DOC_AUTHOR_NAME");
+        time.value=$(this).parent().attr("INS_TIME");
+        tag.value=$(this).parent().attr("DOC_LABEL");
+        info.value=$(this).parent().attr("DOC_SUMMARY");
+        var sbtitle = document.getElementById("doc_up_1");
         sbtitle.style.display = 'block';
     });
 
@@ -120,6 +137,22 @@ require(["mobile", "jquery", "jcl", "chart", "layer", "common"], function (Mobil
         param.put("DOC_NAME", $("#name").val());
         param.put("DOC_LABEL", $("#tag").val());
         param.put("DOC_SUMMARY", $("#info").val());
+        Common.callSvc("DocsCentre.updateDocsByID", param, function () {
+            var sbtitle = document.getElementById("query_table_list");
+            sbtitle.style.display = 'none';
+            Common.showSuccess("保存成功");
+            var params = Wade.DataMap();
+            params.put("QUERY_TAG", "2");
+            Common.openPage("DocsCentre", params);
+        });
+    })
+
+    $('a[name=updoc_1]').bind("click", function () {
+        var param = Wade.DataMap();
+        param.put("DOC_ID", $("#id1").val());
+        param.put("DOC_NAME", $("#name1").val());
+        param.put("DOC_LABEL", $("#tag1").val());
+        param.put("DOC_SUMMARY", $("#info1").val());
         Common.callSvc("DocsCentre.updateDocsByID", param, function () {
             var sbtitle = document.getElementById("query_table_list");
             sbtitle.style.display = 'none';

@@ -8,18 +8,21 @@
     <title>资料中心</title>
     <!-- Bootstrap-->
     <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
-    <link href="template/webapp/bainiu/bainiuMan/css/2019-07-05.css" rel="stylesheet" type="text/css" />
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css"/>
+    <link href="template/webapp/bainiu/bainiuMan/css/2019-07-05.css" rel="stylesheet" type="text/css"/>
     <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css"/>
-    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
+    <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet"
+          type="text/css"/>
     <link rel="stylesheet" href="template/webapp/bainiu/bainiuMan/docscentre/css/data-download.css">
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.2.1/echarts.min.js"></script>
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
-    <script type="text/javascript"  src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
-    <script type="text/javascript"  src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+    <script type="text/javascript"
+            src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+    <script type="text/javascript"
+            src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
 </head>
 
 <body>
@@ -79,6 +82,37 @@
                 </div>
 
             </div>
+            <a name="Update_DOC">
+                <ul id="doc_up_1" style="display: none" class="dataDetailsAlter">
+                    <li style="display: none">
+                        <div class="label">资料编号：</div>
+                        <div class="content"><input type="text" name="id" id="id1" value="" readonly/></div>
+                    </li>
+                    <li>
+                        <div class="label">资料名称：</div>
+                        <div class="content"><input type="text" name="name" id="name1" value=""/></div>
+                    </li>
+                    <li>
+                        <div class="label">上传时间：</div>
+                        <div class="content"><input type="text" name="time" id="time1" value="" readonly/></div>
+                    </li>
+                    <li>
+                        <div class="label">作者：</div>
+                        <div class="content"><input type="text" name="author" id="author1" value="" readonly/></div>
+                    </li>
+                    <li>
+                        <div class="label">标签：</div>
+                        <div class="content"><input type="text" name="tag" id="tag1" value=""/></div>
+                    </li>
+                    <li>
+                        <div class="label">简介：</div>
+                        <div class="content"><textarea name="info" id="info1" rows="4"/></textarea></div>
+                    </li>
+                    <li>
+                        <div class="btnWrap"><a href="#" name="updoc_1" class="saveBtn">保存</a></div>
+                    </li>
+                </ul>
+            </a>
             <div class="query_table_list">
                 <table id="example2" class="table table-striped table-bordered table-hover dataTables-example dataTable"
                        cellspacing="0">
@@ -95,23 +129,28 @@
                     </thead>
                     <tbody>
                     {%#DOCLIST%}
-                    <tr DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
-                        DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}" DOC_ID="{%.DOC_ID%}">
+                    <tr DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}"
+                        DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
+                        DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}"
+                        DOC_SUMMARY="{%.DOC_SUMMARY%}" DOC_ID="{%.DOC_ID%}">
                         <td name="itemCkecked"></td>
                         <td name="itemCkecked">{%.DOC_NAME%}</td>
                         <td DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
                             <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_NAME%}</a>
                         </td>
-<!--                        <td>-->
-<!--                            <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_ACCT%}</a>-->
-<!--                        </td>-->
+                        <!--                        <td>-->
+                        <!--                            <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_ACCT%}</a>-->
+                        <!--                        </td>-->
                         <!--<td name="DOC_LABEL">{%.DOC_LABEL%}</td>-->
                         <td name="itemCkecked">{%.INS_TIME%}</td>
                         <td name="itemCkecked">{%.DOWNLOAD_CNT%}</td>
                         <td name="itemCkecked" style="display: none">{%.DOC_PATH%}</td>
-                        <td align="center" DOC_ID="{%.DOC_ID%}" DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
-                            DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}">
-                            <a href="#UpDate_DOC" name="UpData">修改</a>
+                        <td align="center" DOC_ID="{%.DOC_ID%}" DOC_NAME="{%.DOC_NAME%}"
+                            DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}"
+                            DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
+                            DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}"
+                            DOC_SUMMARY="{%.DOC_SUMMARY%}">
+                            <a href="#Update_DOC" name="Updata">修改</a>
                             <a href="#" name="downLoad">下载</a>
                             <a href="#" name="Delete">删除</a>
                         </td>
@@ -147,35 +186,35 @@
                             <span class="rank">
                                 <span class="beset">1</span>
                             </span>
-                        <span class="antistop"><a name="HOTKEYSORT"   href="#" ></a></span>
+                        <span class="antistop"><a name="HOTKEYSORT" href="#"></a></span>
                         <span class="hunt"></span>
                     </li>
                     <li class="list-content">
                             <span class="rank">
                                     <span class="beset">2</span>
                             </span>
-                        <span class="antistop"><a name="HOTKEYSORT"   href="#" ></a></span>
+                        <span class="antistop"><a name="HOTKEYSORT" href="#"></a></span>
                         <span class="hunt"></span>
                     </li>
                     <li class="list-content">
                             <span class="rank">
                                         <span class="beset">3</span>
                             </span>
-                        <span class="antistop"><a name="HOTKEYSORT"   href="#" ></a></span>
+                        <span class="antistop"><a name="HOTKEYSORT" href="#"></a></span>
                         <span class="hunt"></span>
                     </li>
                     <li class="list-content">
                             <span class="rank">
                                         <span class="beset trade">4</span>
                             </span>
-                        <span class="antistop"><a name="HOTKEYSORT"   href="#" ></a></span>
+                        <span class="antistop"><a name="HOTKEYSORT" href="#"></a></span>
                         <span class="hunt"></span>
                     </li>
                     <li class="list-content">
                             <span class="rank">
                                         <span class="beset trade">5</span>
                             </span>
-                        <span class="antistop"><a name="HOTKEYSORT"   href="#" ></a></span>
+                        <span class="antistop"><a name="HOTKEYSORT" href="#"></a></span>
                         <span class="hunt"></span>
                     </li>
                 </ul>
@@ -192,79 +231,83 @@
 </div>
 <div class="query_table_list" id="query_table_list">
     <a name="UpDate_DOC">
-    <ul id="doc_up" style="display: none" class="dataDetailsAlter">
-        <li style="display: none">
-            <div class="label">资料编号：</div>
-            <div class="content"><input type="text" name="id" id="id" value="" readonly/></div>
-        </li>
-        <li>
-            <div class="label">资料名称：</div>
-            <div class="content"><input type="text" name="name" id="name" value="" /></div>
-        </li>
-        <li>
-            <div class="label">上传时间：</div>
-            <div class="content"><input type="text" name="time" id="time" value="" readonly /> </div>
-        </li>
-        <li>
-            <div class="label">作者：</div>
-            <div class="content"><input type="text" name="author" id="author" value="" readonly /> </div>
-        </li>
-        <li>
-            <div class="label">标签：</div>
-            <div class="content"><input type="text" name="tag" id="tag" value="" /></div>
-        </li>
-        <li>
-            <div class="label">简介：</div>
-            <div class="content"><textarea name="info" id="info" rows="4"/></textarea></div>
-        </li>
-        <li>
-            <div class="btnWrap"><a href="#" name="updoc" class="saveBtn">保存</a></div>
-        </li>
-    </ul>
-    <table id="example1" class="table table-striped table-bordered table-hover dataTables-example dataTable"
-           cellspacing="0">
-        <thead>
-        <tr>
-            <th>序号</th>
-            <th>资料名称</th>
-            <th>作者</th>
-            <!--<th>标签</th>-->
-            <!--<th>上传者</th>-->
-            <th>上传时间</th>
-            <th>下载量</th>
-            <th style="display: none">资料路径</th>
-            <th>操作</th>
-            <th style="display: none">简介</th>
-        </tr>
-        </thead>
-        <tbody>
-        {%#DOCLIST%}
-        <tr DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
-            DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}" DOC_ID="{%.DOC_ID%}">
-            <td name="itemCkecked"></td>
-            <td name="itemCkecked">{%.DOC_NAME%}</td>
-            <td DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
-                <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_NAME%}</a>
-            </td>
-            <!--<td>-->
+        <ul id="doc_up" style="display: none" class="dataDetailsAlter">
+            <li style="display: none">
+                <div class="label">资料编号：</div>
+                <div class="content"><input type="text" name="id" id="id" value="" readonly/></div>
+            </li>
+            <li>
+                <div class="label">资料名称：</div>
+                <div class="content"><input type="text" name="name" id="name" value=""/></div>
+            </li>
+            <li>
+                <div class="label">上传时间：</div>
+                <div class="content"><input type="text" name="time" id="time" value="" readonly/></div>
+            </li>
+            <li>
+                <div class="label">作者：</div>
+                <div class="content"><input type="text" name="author" id="author" value="" readonly/></div>
+            </li>
+            <li>
+                <div class="label">标签：</div>
+                <div class="content"><input type="text" name="tag" id="tag" value=""/></div>
+            </li>
+            <li>
+                <div class="label">简介：</div>
+                <div class="content"><textarea name="info" id="info" rows="4"/></textarea></div>
+            </li>
+            <li>
+                <div class="btnWrap"><a href="#" name="updoc" class="saveBtn">保存</a></div>
+            </li>
+        </ul>
+        <table id="example1" class="table table-striped table-bordered table-hover dataTables-example dataTable"
+               cellspacing="0">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>资料名称</th>
+                <th>作者</th>
+                <!--<th>标签</th>-->
+                <!--<th>上传者</th>-->
+                <th>上传时间</th>
+                <th>下载量</th>
+                <th style="display: none">资料路径</th>
+                <th>操作</th>
+                <th style="display: none">简介</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%#DOCLIST%}
+            <tr DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}"
+                DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
+                DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}"
+                DOC_SUMMARY="{%.DOC_SUMMARY%}" DOC_ID="{%.DOC_ID%}">
+                <td name="itemCkecked"></td>
+                <td name="itemCkecked">{%.DOC_NAME%}</td>
+                <td DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}">
+                    <a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_NAME%}</a>
+                </td>
+                <!--<td>-->
                 <!--<a href="#" name="DOC_AUTHOR_NAME">{%.DOC_AUTHOR_ACCT%}</a>-->
-            <!--</td>-->
-            <!--<td name="DOC_LABEL">{%.DOC_LABEL%}</td>-->
-            <td name="itemCkecked">{%.INS_TIME%}</td>
-            <td name="itemCkecked">{%.DOWNLOAD_CNT%}</td>
-            <td name="itemCkecked" style="display: none">{%.DOC_PATH%}</td>
-            <td align="center" DOC_ID="{%.DOC_ID%}" DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}" INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
-                DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}" DOC_SUMMARY="{%.DOC_SUMMARY%}">
-                <a href="#UpDate_DOC" name="UpData">修改</a>
-                <a href="#" name="downLoad">下载</a>
-                <a href="#" name="Delete">删除</a>
-            </td>
-            <td name="itemCkecked" style="display: none">{%.DOC_SUMMARY%}</td>
-        </tr>
-        {%/DOCLIST%}
-        </tbody>
-    </table>
-    {%>template/common/Paginate.html%}
+                <!--</td>-->
+                <!--<td name="DOC_LABEL">{%.DOC_LABEL%}</td>-->
+                <td name="itemCkecked">{%.INS_TIME%}</td>
+                <td name="itemCkecked">{%.DOWNLOAD_CNT%}</td>
+                <td name="itemCkecked" style="display: none">{%.DOC_PATH%}</td>
+                <td align="center" DOC_ID="{%.DOC_ID%}" DOC_NAME="{%.DOC_NAME%}" DOC_AUTHOR_ACCT="{%.DOC_AUTHOR_ACCT%}"
+                    INS_TIME="{%.INS_TIME%}" DOC_AUTHOR_NAME="{%.DOC_AUTHOR_NAME%}"
+                    DOWNLOAD_CNT="{%.DOWNLOAD_CNT%}" DOC_LABEL="{%.DOC_LABEL%}" DOC_PATH="{%.DOC_PATH%}"
+                    DOC_SUMMARY="{%.DOC_SUMMARY%}">
+                    <a href="#UpDate_DOC" name="UpData">修改</a>
+                    <a href="#" name="downLoad">下载</a>
+                    <a href="#" name="Delete">删除</a>
+                </td>
+                <td name="itemCkecked" style="display: none">{%.DOC_SUMMARY%}</td>
+            </tr>
+            {%/DOCLIST%}
+            </tbody>
+        </table>
+        {%>template/common/Paginate.html%}
     </a>
 </div>
 
@@ -272,7 +315,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" id="modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" id="modal-close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">资料详情</h4>
             </div>
             <div class="modal-body">
