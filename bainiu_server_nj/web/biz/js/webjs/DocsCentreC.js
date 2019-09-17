@@ -40,6 +40,11 @@ require(["mobile","jquery","jcl","layer","common","util"],function(Mobile,$,Wade
             Common.showFail("请输入简介！");
             return ;
         }
+        if(Util.isEmpty($("#DOC_UPLOADER_NAME").val()))
+        {
+            Common.showFail("请输入发布者！");
+            return ;
+        }
         if(Util.isEmpty($("#choice_doc").val()))
         {
             Common.showFail("请您选择文件！");
@@ -64,6 +69,7 @@ require(["mobile","jquery","jcl","layer","common","util"],function(Mobile,$,Wade
                 $("#DOC_LABEL").val('');
                 $("#choice_doc").val('');
                 $("#DOC_SUMMARY").val('');
+                $("#DOC_UPLOADER_NAME").val('');
                 $('.gcs-checkbox').prop('checked',false);
                 Common.callSvc("DocsCentre.init",param,function(resultData){});	//上传后参数未传递到界面上，初始化
                 Layer.close(lay);
@@ -166,6 +172,54 @@ require(["mobile","jquery","jcl","layer","common","util"],function(Mobile,$,Wade
                     else
                         //lis[0].innerHTML="作者不存在于本系统";
                         $('.link .async_area').css('display', 'none');
+
+                }
+            });
+        }, 500);
+    });
+
+    $('.uploading-container   .link1 .async_area ul li').mouseenter(function(){
+        $(this).addClass('active')
+    }).mouseleave(function(){
+        $(this).removeClass('active')
+    });
+    $('.uploading-container   .link1 .async_area ul li').click(function(){
+        $(' .link1 input').val($(this).text());
+        var lis = $('.link1 .async_area ul li');//选择后清空历史
+        for(var i=0;i<5;i++){
+            lis[i].innerHTML='';
+        }
+        $('.async_area').css('display','none');
+    });
+    //热词联想
+    $(' .link1 input').keyup(function(){
+        var nttext = $(' .link1 input').val();
+        if(nttext.length<2) {
+            $('.async_area').css('display','none');//太短不联想
+            return;
+        }
+        var timer;
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+            var param = Wade.DataMap();
+            param.put("USER_ACCT",nttext);
+            Common.callSvc("User.getLinkAcct",param,function(res){
+                if(res.get("X_RESULTCODE")=="0"){
+                    var list = res.get("KEY_LIST");
+                    var lis = $('.link1 .async_area ul li');
+                    for(var i=0;i<5;i++){//只联想5个
+                        lis[i].innerHTML='';
+                    }
+                    if(list.length>0){//新增节点
+                        for(var i=0;i<list.length && i<5;i++){
+                            var listsub = list.get(i);
+                            lis[i].innerHTML=listsub.get("NAME")+"|"+listsub.get("USER_ACCT");
+                        }
+                        $('.link1 .async_area').css('display', 'block');
+                    }
+                    else
+                    lis[0].innerHTML="上传者不存在于本系统";
+                        //$('.link1 .async_area').css('display', 'none');
 
                 }
             });

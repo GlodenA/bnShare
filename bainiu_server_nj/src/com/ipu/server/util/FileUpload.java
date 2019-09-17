@@ -169,12 +169,17 @@ public class FileUpload {
 						inparam.put("DOC_AUTHOR_NAME", str[0]);
 						inparam.put("DOC_AUTHOR_ACCT", "");
 					}
+					//上传者必填 name|acct
+					String uploader = (String) request.getAttribute("DOC_UPLOADER_NAME");
+					String up[] = uploader.split("\\|");
+					inparam.put("DOC_UPLOADER_NAME", str[0]);
+					inparam.put("DOC_UPLOADER_ID", str[1]);
 					inparam.put("DOC_LABEL", request.getAttribute("DOC_LABEL"));
 					inparam.put("DOC_SUMMARY", request.getAttribute("DOC_SUMMARY"));
 					inparam.put("DOC_PATH", savePathStr+File.separator+filename);
 					inparam.put("DOC_TYPE",  request.getAttribute("DOC_TYPE"));
-					inparam.put("DOC_UPLOADER_ID", request.getAttribute("USER_ID"));
-					inparam.put("DOC_UPLOADER_NAME", request.getAttribute("USER_NAME"));
+					//inparam.put("DOC_UPLOADER_ID", request.getAttribute("USER_ID"));
+					//inparam.put("DOC_UPLOADER_NAME", request.getAttribute("USER_NAME"));
 					DocsCentreBean bean = new DocsCentreBean();
 					verParam.put("DOC_NAME",filename);
 					verParam.put("DOC_AUTHOR_ACCT",inparam.getString("DOC_AUTHOR_ACCT"));

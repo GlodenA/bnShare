@@ -322,7 +322,7 @@ public class DocsCentreBean extends AppBean {
 
     /**
      *
-     * @Title: queryHotKeySort
+     * @Title:
      * @Description: TODO(这里用一句话描述这个方法的作用)
      * @author wangdd
      * @param param
