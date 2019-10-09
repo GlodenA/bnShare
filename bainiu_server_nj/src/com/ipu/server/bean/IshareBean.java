@@ -463,7 +463,10 @@ public class IshareBean extends AppBean
 					smslBuf1.append("</br><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;地址：<a href=\""+StringUtil.domain+"\"><font color=\"green\"><b>www.bainiu6.com</b></font></a>");
 					/*smslBuf1.append("</br><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;内网：<a href=\""+StringUtil.innerdomain+"\"><font color=\"green\"><b>www.bainiu6.com</b></font></a>");*/
 					smslBuf1.append("</br><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;指导链接:摆牛-->知识库管理-->爱分享");
-						
+
+					if(params.getString("IS_JPG").length()>0)
+						mailContent += "</br>&nbsp; &nbsp;&nbsp;<img src=\""+params.getString("IS_JPG")+"\" border=\"0\">";
+
 					mailContent += mailCont(params);
 					mailContent += smslBuf1.toString();
 					String mailtitle="【i-Share通知】北方技术中心"+iShareNo+"爱分享活动之"+iShareName+"培训报名通知";
@@ -486,9 +489,9 @@ public class IshareBean extends AppBean
 						
 						/*smslBuf1.append("</br><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;内网报名链接：<a href=\""+StringUtil.innerdomain+"/mobile?action=IshareMailEnrol&data={'MAILFLAG':'mail','SUBDATA':'"
 								+StringUtil.praseStrByDES(params.getString("IS_ID")+"#0#"+tem.getString("USER_ID"), "mamashuomiyaoyidingyaochang", StringUtil.DES_ENCRYPT)+"'}\"><font color=\"green\"><b>点击报名</b></font></a>");*/
-										
-						if(params.getString("IS_LECTURER").indexOf("xieliang@")>0)
-							mailContent += "</br>&nbsp; &nbsp;&nbsp;<img src=\"http://bainiu6.com/elfinder-servlet/connector?cmd=file&target=B_L7Cut9bP7S_SNvMasLzIwMTYxMDE3MTU0NzM2LmpwZw_E_E\" border=\"0\">";
+
+						if(params.getString("IS_JPG").length()>0)
+							mailContent += "</br>&nbsp; &nbsp;&nbsp;<img src=\""+params.getString("IS_JPG")+"\" border=\"0\">";
 											
 						mailContent += mailCont(params);
 						//报名链接后移
