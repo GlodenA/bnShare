@@ -83,8 +83,21 @@ public class VacationDao extends SmartBaseDao
 		  strBuf1.append("select *  from tf_f_user_askleave t  where t.ID=:ID ");
 		  IDataset acct = this.queryList(strBuf1.toString(), buf);
 		  return acct.first();
- 	} 
-	
+ 	}
+
+	/**
+	 * 查询用户的历史请假 litj@20191001
+	 */
+	public IData queryLeaveByUserOnline(String id) throws Exception
+	{
+		IData buf = new DataMap();
+		buf.put("USER_ID", id);
+		StringBuffer strBuf1 = new StringBuffer();
+		strBuf1.append("select *  from tf_f_user_askleave t  where t.USER_ID=:USER_ID AND t.state in ('0','1','2')");
+		IDataset acct = this.queryList(strBuf1.toString(), buf);
+		return acct.first();
+	}
+
 	/**
 	 * 请假申请
 	 */
