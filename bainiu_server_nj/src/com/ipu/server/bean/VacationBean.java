@@ -32,15 +32,24 @@ public class VacationBean extends AppBean
 	}
 	
 	public IData submitLeave(IData param) throws Exception {
-		SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat df3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		IData resultData = getResultData();
 		VacationDao vacationDao = new VacationDao("bainiu");
 		IData BAKNT=vacationDao.queryUserByNT(param.getString("BAK_NT"));
+
+		String tradeUserId = getContextData().getUserID().toString();
 		
 		GroupDao gdao = new GroupDao("bainiu");
 		IData groupInfo 	= gdao.qryUserGroup(getContextData().getUserID().toString());
+		//增加异常判断  litj@20191001
+		if(groupInfo==null|| groupInfo.isEmpty())
+		{
+			resultData.put("result", "您还未加入任何项目组，请联系项目助理加入群组");
+			return resultData;
+		}
+
 		String groupName    = groupInfo.getString("GROUP2_NAME")+"->"+groupInfo.getString("GROUP3_NAME");
 		
 		if(BAKNT==null|| BAKNT.isEmpty())
@@ -64,6 +73,14 @@ public class VacationBean extends AppBean
 			resultData.put("result", "所属组长为一级审批人，不能是自己");
 			return resultData;
 		}
+
+		//有未处理的请假不允许再次请假-litj@20191001
+		IData hasOnLine=vacationDao.queryLeaveByUserOnline(tradeUserId);
+
+		if(hasOnLine != null) {
+			resultData.put("result", "您有请假还在审批中或未销假，不允许再请假");
+			return resultData;
+		}
 		
 		//获取自己的一级归属
 		String UserGroupID = vacationDao.queryGroupID(getContextData().getUserID());
@@ -80,7 +97,7 @@ public class VacationBean extends AppBean
 			return resultData;
 		}
 		
-		String[] leaveDays=param.getString("leaveDays").split("F");
+		String[] leaveDays=param.getString("leaveDays").split("到");
 		
 	     Date outDate = df.parse(leaveDays[0]);
 	     Date backDate = df.parse(leaveDays[1]);
