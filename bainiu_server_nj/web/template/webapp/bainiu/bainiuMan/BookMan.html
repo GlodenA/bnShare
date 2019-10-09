@@ -230,7 +230,7 @@
                <tr>
                <td style="text-align:center;vertical-align:middle;">归还时间</td>
                <td style="text-align:center;vertical-align:middle;">
-               	<input style="text-align:center;vertical-align:middle;width: 50%;margin-left: 25%;" id="BACK_TIME" class="laydate-icon form-control"  placeholder="必填">
+               	<input style="text-align:center;vertical-align:middle;width: 50%;margin-left: 25%;" id="BACK_TIME" class="laydate-icon form-control"  placeholder="必填,yyyy-MM-dd HH:mm:ss">
                </td>
                </tr>
       		</table>
@@ -269,36 +269,27 @@
 <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
 <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 <script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+<script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
 <script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
 <script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
 
    {%>template/common/Head.html%}
-<script type="text/javascript" src="biz/js/webjs/BookMan.js"></script>   
-<script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
+<script type="text/javascript" src="biz/js/webjs/BookMan.js"></script>
 <script>
 ;!function(){
-    function dateOption(obj){
-	    var ldateOption = {
-		    elem: obj, //需显示日期的元素选择器
-		    event: 'click', //触发事件
-		    format: 'YYYY-MM-DD hh:mm:ss', //日期格式
-		    istime: true, //是否开启时间选择
-		    isclear: true, //是否显示清空
-		    istoday: true, //是否显示今天
-		    issure: true, //是否显示确认
-		    festival: true, //是否显示节日
-		    min: '2016-01-01 23:59:59', //最小日期laydate.now()
-		    max: '2099-12-31 23:59:59', //最大日期
-		    start: laydate.now(),  //开始日期laydate.now()
-		    fixed: false, //是否固定在可视区域
-		    zIndex: 99999999, //css z-index
-		    choose: function(dates){ //选择好日期的回调
-		    }    
-	    };
-	    return ldateOption;
-    }
-	$('.laydate-icon').each(function (i) {
-    	laydate(dateOption('#'+$(this).attr("id")));
+    lay('.laydate-icon').each(function(){
+        laydate.render({
+            elem: this
+            ,event: 'click'//触发事件
+            ,format: 'yyyy-MM-dd HH:mm:ss' //日期格式
+            ,type: 'datetime'
+            ,btns: ['clear', 'confirm']
+            ,istoday: true//是否显示今天
+            ,calendar: true//是否显示节日
+            ,min: '2019-01-01 23:59:59'//最小日期laydate.now()
+            ,max: '2099-12-31 23:59:59'//最大日期
+            ,zIndex: 99999999//css z-index
+        });
     });
 }();
 </script>

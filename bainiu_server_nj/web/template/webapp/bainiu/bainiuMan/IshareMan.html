@@ -141,25 +141,27 @@
 						    <div class="form-group"><label>讲师：</label><input id="IS_LECTURER" type="text" class="form-control" placeholder="必填，格式：名字,邮箱|名字,邮箱"></div>						    
 						    <br>						    
 						    <br>
-						    <div class="form-group"><label>时间：</label><input id="IS_TIME" class="laydate-icon form-control"  placeholder="必填"></div>
+						    <div class="form-group"><label>时间：</label><input id="IS_TIME" class="laydate-icon form-control"  placeholder="必填,yyyy-MM-dd HH:mm:ss"></div>
 						    <div class="form-group"><label>地点：</label><input id="IS_PLACE" type="text" class="form-control" placeholder="必填"></div>
 						    <div class="form-group"><label>对象：</label><input id="IS_TARGROUP" type="text" class="form-control" placeholder="必填"></div>
 						    <br>
 						    <div class="form-group"><label>联系人：</label><input id="IS_LINKUSER" type="text" class="form-control" placeholder=""></div>
 						    <div class="form-group"><label>人数限制：</label><input id="IS_LIMITNUM" type="number" value="10" class="form-control" placeholder=""></div>
-						    <div class="form-group"><label>最迟报名：</label><input id="IS_ENDENROL" class="laydate-icon form-control"  placeholder="必填"></div>
+						    <div class="form-group"><label>最迟报名：</label><input id="IS_ENDENROL" class="laydate-icon form-control"  placeholder="必填,yyyy-MM-dd HH:mm:ss"></div>
 						    <br>
 						    <div class="form-group"><label>邮件组：</label><input id="IS_EMAILGROUP" type="text" class="form-control" placeholder="若填邮件组则以此为准，格式：邮箱组|邮箱组"></div>
 						    <div class="form-group" id="td1" onmouseleave="l()">
 						    	<label>对象群组：</label>
 						    	<input id="IS_TARGROUPID" readonly="readonly" onfocus="f()" class="form-control" placeholder="必填">
 								<div id="div1">
-								<input type="checkbox" name="likes" value="10004" onclick="c()">北六<br>
-								<input type="checkbox" name="likes" value="10005" onclick="c()">CBS<br>
+									<input type="checkbox" name="likes" value="10004" onclick="c()">北方技术中心<br>
+									<input type="checkbox" name="likes" value="10" onclick="c()">CB项目组<br>
+									<input type="checkbox" name="likes" value="10007" onclick="c()">功能测试<br>
 								</div>						    	
 						    </div>
 						    <br>
-						    <div class="form-group"><label>开课提醒时间：</label><input id="IS_TIPSTIME" class="laydate-icon form-control"  placeholder=""></div>
+						    <div class="form-group"><label>开课提醒时间：</label><input id="IS_TIPSTIME" class="laydate-icon form-control"  placeholder="yyyy-MM-dd HH:mm:ss"></div>
+							<div class="form-group"><label>课程宣传图片：</label><input id="IS_JPG" class="form-control"  placeholder="课程宣传图片网络地址"></div>
 						    <div class="form-group"><label>备注：</label><input id="REMARK" class="form-control" type="text"  placeholder=""></div>
 						    <div class="form-group">
 						    	<button type="button"   id="newis_btn" class="btn btn-default query_btn col-xs-12">确认</button> 
@@ -263,36 +265,27 @@
 <link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
 <link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 <script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+<script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
 <script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
 <script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
 
    {%>template/common/Head.html%}
-<script type="text/javascript" src="biz/js/webjs/IshareMan.js"></script>   
-<script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
+<script type="text/javascript" src="biz/js/webjs/IshareMan.js"></script>
 <script>
 ;!function(){
-    function dateOption(obj){
-	    var ldateOption = {
-		    elem: obj, //需显示日期的元素选择器
-		    event: 'click', //触发事件
-		    format: 'YYYY-MM-DD hh:mm:ss', //日期格式
-		    istime: true, //是否开启时间选择
-		    isclear: true, //是否显示清空
-		    istoday: true, //是否显示今天
-		    issure: true, //是否显示确认
-		    festival: true, //是否显示节日
-		    min: '2016-01-01 23:59:59', //最小日期laydate.now()
-		    max: '2099-12-31 23:59:59', //最大日期
-		    start: laydate.now(),  //开始日期laydate.now()
-		    fixed: false, //是否固定在可视区域
-		    zIndex: 99999999, //css z-index
-		    choose: function(dates){ //选择好日期的回调
-		    }    
-	    };
-	    return ldateOption;
-    }
-	$('.laydate-icon').each(function (i) {
-    	laydate(dateOption('#'+$(this).attr("id")));
+    lay('.laydate-icon').each(function(){
+        laydate.render({
+            elem: this
+            ,event: 'click'//触发事件
+            ,format: 'yyyy-MM-dd HH:mm:ss' //日期格式
+            ,type: 'datetime'
+            ,btns: ['clear', 'confirm']
+            ,istoday: true//是否显示今天
+            ,calendar: true//是否显示节日
+            ,min: '2019-01-01 23:59:59'//最小日期laydate.now()
+            ,max: '2099-12-31 23:59:59'//最大日期
+            ,zIndex: 99999999//css z-index
+        });
     });
 }();
 </script>

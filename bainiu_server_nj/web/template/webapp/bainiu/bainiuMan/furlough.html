@@ -34,15 +34,21 @@
 
 
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="fur_apply">
+            <div role="tabpanel" class="tab-pane active" id="fur_apply1">
                 <div class="row fur_apply">
                     <div class="col-xs-12  col-md-3 date_picker_area">
-                      <h1>选择请假时间</h1>
-                        <div class="date_picker_til"><span class="col-xs-6 col-xs-offset-3  col-md-6 col-md-offset-3"><img src="template/webapp/bainiu/bainiuMan/images/date_icon.png"/><i>选择日期</i>
-                        </span>
-                        </div>
-                        <div class="date_picker" id="date_picker"></div>
-                        <p class="marktip">* 可以点选一个或多个请假日期</p>
+                      <h1>选择请假起止日期</h1>
+                        <input type="text" class="form-control date-p" placeholder="开始 到 结束" id="date-p">
+                        <!--<div id="date-p-2"></div>-->
+                        <input type=text style="display:none"  id="date-s-t">
+                        <br>
+                        <p>* 请不要两人交叉时间内公用同一交接人</p><br>
+                        <p>* 若您为他人休假期间交接人则交叉时间不能请假</p><br>
+                        <p>* 请提前告知交接人确认可接收您休假期间的工作</p><br>
+                        <p>* 请假超过指定天数第二审批人会自动升级高一级领导</p><br>
+                        <p>* 只能有一次在途请假(审批中或待销假都不可再请假)</p><br>
+                        <p>* 非规定内轮休注意注明请假事由来源替换调休的日期</p><br>
+                        <p>* 本请假不替代公司OA请假[产婚年病等假需同步在OA申请审批]</p><br>
                     </div>
                     <div class="col-xs-12 col-md-9 ipt_detail_info">
                         <h1>填写详细信息</h1>
@@ -51,12 +57,12 @@
 
                                <li class="ipt_list_1 clear sh_ipt">
                                    <div class="form-group">
-                                       <label for="tel1">员工:</label>
+                                       <label>员工:</label>
                                        <input type="text" class="form-control"   value="{%.NAME%}" readonly="readonly">
                                    </div>
                                    
                                    <div class="form-group link1">
-                                       <label for="junc">交接人:</label>
+                                       <label>交接人:</label>
                                        <span>
                                        <input type="text" class="form-control" id="BAK_NT" placeholder="登录帐号">
                                        <div class="async_area">
@@ -71,7 +77,7 @@
                                        </span>                                       
                                     </div>
                                     <div class="form-group link2">
-                                       <label for="junc">所属组长:</label>
+                                       <label>所属组长:</label>
                                        <span>
                                        <input type="text" class="form-control" id="FIR_CHK_NT" placeholder="登录帐号">
                                        <div class="async_area">
@@ -90,7 +96,7 @@
                                <li class="ipt_list_2 clear">
                                    <div class="row_1">
                                    <div class="form-group">
-                                       <label for="">休假类型:</label>
+                                       <label>休假类型:</label>
 									    <select	class="form-control" id="REQ_TYPE"> 
 			                           		{%#LEAVE_TYPELIST%}
 											<option value="{%.ENUM_CODE%}">{%.ENUM_NAME%}</option>
@@ -98,17 +104,17 @@
 										</select>                                         
                                    </div>
                                    <div class="form-group">
-                                       <label for="">目的地:</label>
+                                       <label>目的地:</label>
                                        <input type="text" class="form-control" id="OUT_PLACE" placeholder="请填写">
                                    </div>
                                    </div>
                                    <div class="row_2">
                                    <div class="form-group">
-                                       <label for="">公司:</label>
+                                       <label>公司:</label>
                                        <input type="text" class="form-control" id="WORK_GROUP" placeholder="请填写">
                                    </div>
                                    <div class="form-group">
-                                       <label for="">模块:</label>
+                                       <label>模块:</label>
                                        <input type="text" class="form-control" id="WORK_SUBGROUP" placeholder="请填写">
                                    </div>
                                   
@@ -117,7 +123,7 @@
 
                                <li class="ipt_list_3 clear">
                                    <div class="form-group" style="width:100%">
-                                       <label for="">休假事由:</label>
+                                       <label>休假事由:</label>
                                        <textarea class="form-control" id="REQ_MARK" placeholder="请填写休假理由"></textarea>
                                     </div>
                                </li>
@@ -136,6 +142,7 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="template/webapp/bainiu/bainiuMan/js/jquery.js"></script>
+<script type="text/javascript" src="biz/js/webjs/laydate/laydate.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="template/webapp/bainiu/bainiuMan/bootstrap/js/bootstrap.min.js"></script>
 <script src="template/webapp/bainiu/bainiuMan/js/jquery.pickmeup.js"></script>
@@ -146,19 +153,29 @@
 <script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
 <script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
    {%>template/common/Head.html%}
-<script type="text/javascript" src="biz/js/webjs/furlough.js"></script>   
+<script type="text/javascript" src="biz/js/webjs/furlough.js"></script>
 {%>template/common/Footer.html%}
 <script type="text/javascript">
     $(function() {
-
-
- 
-        $('#date_picker').pickmeup({
-            flat: true,
-            mode: 'range' 
+        laydate.render({
+            elem: '#date-p' //指定元素
+            ,range: '到'
+            ,calendar: true//是否显示节日
+            ,change: function(value, date, endDate){
+                $("#date-s-t").attr("value",value);
+            }
         });
-        
-       
+
+/*        laydate.render({
+            elem: '#date-p-2' //指定元素
+            ,position: 'static'
+            ,calendar: true//是否显示节日
+            ,showBottom: false
+            ,change: function(value, date, endDate){
+                ;
+            }
+        });*/
+
         var table = $('#example1').DataTable({
             "lengthChange": false,
             ordering:false,
@@ -187,14 +204,8 @@
             _fnPageChange:function(){
                 alert("1111");
             }
-
         });
-
-       
-
-
     });
-  
 </script>
 </body>
 </html>
