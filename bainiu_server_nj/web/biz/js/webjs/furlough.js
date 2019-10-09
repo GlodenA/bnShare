@@ -47,8 +47,10 @@ require(["jquery","pickmeup","jcl","common","util"],function($,$P,Wade,Common,Ut
 			 return;
 		 }
 	      var param = Wade.DataMap();
-	      var leaveDays=$('.date_picker').pickmeup('get_date', 'YYYY-MM-DD')+"";
-	      param.put("leaveDays",leaveDays.replace(",","F"));
+
+	      //2019-10-08 - 2019-10-24
+		  var leaveDays= $('#date-s-t').val();
+	      param.put("leaveDays",leaveDays);
 	      
 	      var bakNt = $('#BAK_NT').val();
 	      var firCkNt = $('#FIR_CHK_NT').val();
