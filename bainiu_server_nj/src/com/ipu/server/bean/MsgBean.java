@@ -57,7 +57,7 @@ public class MsgBean extends AppBean
 		}
 		if(wa.size()==1)
 			resultData.put("RETRUN_STR", resultDataTemp.get("RETRUN_STR"));
-		else{//审批多个整合结果
+		else{// 审批多个整合结果
 			if(n>0)
 				resultData.put("RETRUN_STR", "处理结果："+m+"成功,"+n+"失败。 失败原因："+errorInfo);
 			else
