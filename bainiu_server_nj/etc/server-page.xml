@@ -67,4 +67,7 @@
 	<action name="DocsCentreC" template="template/webapp/bainiu/bainiuMan/DocsCentreC.html" data="DocsCentre.init"></action>
 	<action name="UserDocs" template="template/webapp/bainiu/bainiuMan/UserDocs.html" data="DocsCentre.queryDocsByUserName"></action>
 
+	<!-- 友情链接 -->
+	<action name="WebLink" template="template/webapp/bainiu/bainiuMan/WebLink.html" data="WebLink.queryWebLink"></action>
+
 </pages>

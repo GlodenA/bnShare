@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>BookMan.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+    <!-- Bootstrap-->
+    <link href="template/webapp/bainiu/bainiuMan/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--自己的样式-->
+    <link href="template/webapp/bainiu/bainiuMan/css/manage.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.css" rel="stylesheet" type="text/css" />
+    <link href="biz/js/webjs/skin/layer.ext.css" rel="stylesheet" type="text/css" />    
+
+  </head>
+  
+<body  style="background:#f3f7f8;">
+<div class="frame_content">
+   <div class="furlough">
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="apply_query" >
+                 <div class="apply_query">
+                    <div class="query_table_list">
+                        <table id="bookstable" class="table table-striped table-bordered table-hover dataTables-example dataTable"
+                               cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th style="text-align:center;">系统名称</th>
+                                <th style="text-align:center;">用户名</th>
+                                <th style="text-align:center;">密码</th>
+                                <!-- <th style="text-align:center;">状态</th> -->
+                                <th style="text-align:center;width:90px">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                             {%#WEBSLIST%}
+                            <tr>
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.SYS_NAME%}</td>
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.USER_NAME%}</td>
+                                <td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.PASSWD%}</td>
+                                <!--<td name="itemCkecked" style="text-align:center;word-wrap:break-word">{%.STATE%}</td> -->
+                                <td style="text-align:center;" WEB_URL="{%.WEB_URL%}" >
+	                            	<button type="button" class="btn btn-default query_btn col-xs-12" name="weburl"  >进 入</button>
+								</td>
+                            </tr>
+                            {%/WEBSLIST%}
+                            </tbody>
+                        </table>
+                        {%>template/common/Paginate.html%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="bg" style=""></div>
+
+<!--下面是dataTables需要的文件-->
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/css3/animate.css" rel="stylesheet" type="text/css" />
+<link href="template/webapp/bainiu/bainiuMan/dataTables/css/admin/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="biz/ipu/res/jquery/1.10.2/jquery.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/jquery.dataTables.js"></script>
+<script type="text/javascript" src="template/webapp/bainiu/bainiuMan/dataTables/js/admin/dataTables.bootstrap.js"></script>
+
+   {%>template/common/Head.html%}
+<script type="text/javascript" src="biz/js/webjs/WebLink.js"></script>
+{%>template/common/Footer.html%}
+</body>
+</html>

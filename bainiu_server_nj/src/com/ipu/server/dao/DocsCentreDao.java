@@ -321,4 +321,11 @@ public class DocsCentreDao extends SmartBaseDao {
 
         return this.queryList("SELECT HOT_KEY KEYWORD FROM tf_b_hotkeysum_log WHERE HOT_KEY LIKE  '%"+param.getString("KEY_WORD")+"%' ", param);
     }
+
+    public IData queryWebLink(IData param, IData resultData, String webslist) throws Exception {
+        StringBuffer strBuf = new StringBuffer();
+        strBuf.append("SELECT SYS_NAME,USER_NAME,PASSWD,WEB_URL from  tf_f_weblink ");
+        return this.queryPaginationList(strBuf.toString(), param, resultData, webslist, new Pagination(10, 6));
+
+    }
 }
