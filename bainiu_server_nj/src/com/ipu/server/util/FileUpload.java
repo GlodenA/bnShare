@@ -19,6 +19,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.log4j.Logger;
 
 /**
  * 
@@ -42,8 +43,7 @@ public class FileUpload {
 	private SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
 
 	private static FileUpload instance;
-
-
+	protected final transient org.apache.log4j.Logger log = Logger.getLogger(this.getClass());
 	public static  FileUpload getInstance()
 	{
 		if(instance==null)
@@ -171,9 +171,12 @@ public class FileUpload {
 					}
 					//上传者必填 name|acct
 					String uploader = (String) request.getAttribute("DOC_UPLOADER_NAME");
+					log.debug("页面加入参数：uploader="+uploader);
 					String up[] = uploader.split("\\|");
-					inparam.put("DOC_UPLOADER_NAME", str[0]);
-					inparam.put("DOC_UPLOADER_ID", str[1]);
+					inparam.put("DOC_UPLOADER_NAME", up[0]);
+					inparam.put("DOC_UPLOADER_ID", up[1]);
+
+
 					inparam.put("DOC_LABEL", request.getAttribute("DOC_LABEL"));
 					inparam.put("DOC_SUMMARY", request.getAttribute("DOC_SUMMARY"));
 					inparam.put("DOC_PATH", savePathStr+File.separator+filename);
